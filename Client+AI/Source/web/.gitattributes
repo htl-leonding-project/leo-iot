@@ -1,0 +1,3 @@
+docs/* linguist-vendored=true
+src/assets/* linguist-vendored=true
+src/app/modules/dashboard/components/svg-viewer/svg-viewer.component.html linguist-vendored=true

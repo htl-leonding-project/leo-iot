@@ -1,0 +1,17 @@
+<mat-card [ngClass]="type">
+  <div class="horizontal-line"></div>
+  <mat-card-header>
+    <div mat-card-avatar class="indicator"></div>
+    <mat-card-title>{{title}}</mat-card-title>
+    <mat-card-subtitle *ngIf="areaName && sectionName">{{sectionName}} - {{areaName}}</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+    <p class="mat-small">
+      {{body}}
+    </p>
+  </mat-card-content>
+  <mat-card-actions>
+    <button (click)="navigate(areaName, sectionName)" class="view-room-button" mat-flat-button i18n="roomButton|Text to a button which navigates you to the room@@navigation/notification/roomButton">VIEW ROOM</button>
+    <button (click)="close.emit()" mat-flat-button i18n="okButton|A button which dismisses a notification@@navigation/notification/okButton">OK</button>
+  </mat-card-actions>
+</mat-card>

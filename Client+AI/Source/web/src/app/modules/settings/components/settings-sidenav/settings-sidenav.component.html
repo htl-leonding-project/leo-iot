@@ -1,0 +1,15 @@
+<mat-drawer-container class="drawer-container">
+  <mat-drawer class="sidenav" mode="side" opened>
+    <h1>Settings</h1>
+    <mat-nav-list>
+      <mat-list-item>
+        <a matLine [routerLink]="['./language']" i18n="Language Link Text|Text for the language settings link@@settinge/settings-sidenav/languageLink">Language</a>
+      </mat-list-item>
+    </mat-nav-list>
+  </mat-drawer>
+  <mat-drawer-content class="content">
+    <div class="app-light-theme"> 
+      <router-outlet></router-outlet>
+    </div>
+  </mat-drawer-content>
+</mat-drawer-container>

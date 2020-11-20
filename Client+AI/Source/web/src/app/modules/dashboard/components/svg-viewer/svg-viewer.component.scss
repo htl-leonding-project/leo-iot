@@ -1,0 +1,82 @@
+@import 'src/assets/sass/breakpoints.scss';
+@import 'src/assets/sass/dark-theme-variables.scss';
+.svg-viewer {
+    height: 100%;
+}
+
+/* svg defs */
+
+$stroke-color: #fff;
+$stroke-width: 0.0625rem;
+/*all room boxes*/
+
+.room-box * {
+    fill: transparent;
+    z-index: 4;
+}
+
+.room-box *:hover {
+    fill: $svg-highlight-background-color;
+}
+
+.highlighted {
+    stroke-width: $stroke-width;
+    stroke: $svg-highlight-color;
+}
+
+/* short explanation of all the classes
+*   .a => all polylines (joined lines for building outline)
+*   .b => the stairs and roof parts (transparent parts)
+*   .c => text
+*/
+
+%svg {
+    background-color: transparent;
+    height: 100%;
+    width: 100%;
+    .a,
+    .b,
+    .c {
+        stroke: $stroke-color;
+        stroke-width: $stroke-width;
+    }
+    .a,
+    .b,
+        {
+        fill: none;
+    }
+    .b {
+        opacity: 0.3;
+    }
+}
+
+#firstfloor {
+    @extend %svg;
+}
+
+#secondfloor {
+    @extend %svg;
+}
+
+#thirdfloor {
+    @extend %svg;
+}
+
+/* floor switcher */
+
+.floor-switcher {
+    position: absolute;
+    left: $l;
+    bottom: $l;
+    width: 2 * $xl;
+}
+
+/* controls */
+
+.svg-controls {
+    display: flex;
+    position: absolute;
+    bottom: $l;
+    right: $l;
+    background-color: #303030;
+}

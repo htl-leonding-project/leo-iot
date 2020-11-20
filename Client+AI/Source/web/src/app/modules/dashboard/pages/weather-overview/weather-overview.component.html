@@ -1,0 +1,44 @@
+<div class="weather-overview">
+  <div class="header">
+    <div *ngIf="headerOnly" class="flex-spacer"></div>
+    <h1>LEONDING</h1> <span class="header-spacing"></span>
+    <h2 i18n="stateName|state in austria where the city is located@@dashboard/weather-overview/stateName">Upper Austria</h2>
+    <div class="flex-spacer"></div>
+    <div class="date-time">
+      <p *ngIf="!headerOnly" class="date">{{ dateTime.value | date: 'MMMM d, y'}}</p>
+      <h2 *ngIf="!headerOnly" class="time">{{ dateTime.value | date:'HH:mm:ss' }}</h2>
+    </div>
+  </div>
+  <mat-divider></mat-divider>
+  <div *ngIf="!headerOnly; else expandAction">
+    <div class="weather">
+      <mat-action-list style="margin-top: -0.5rem">
+        <button mat-list-item *ngFor="let m of measurements" (click)="click()">
+          <div *ngIf="m.value && (m.type !== 'wind direction'); else windDeg" class="measurement">
+            <div class="type">{{ m.type | uppercase }}</div>
+            <div class="value">{{ m.value }} {{ m.unit }}</div>
+          </div>
+          <ng-template #windDeg>
+            <div class="measurement">
+              <div class="type">{{ m.type | uppercase }}</div>
+              <div class="value">
+                <i [ngClass]="'wi wi-wind towards-' + m.value + '-deg'"></i>
+              </div>
+            </div>
+          </ng-template>
+        </button>
+      </mat-action-list>
+    </div>
+  </div>
+  <!--To show when the weather is hidden because its grid-tile rows were decresed-->
+  <ng-template #expandAction>
+    <div class="flex-box collapsed">
+      <div class="flex-spacer"></div>
+      <div class="flex-spacer" style="flex-direction: column">
+        <p class="date">{{ dateTime.value | date: 'MMMM d, y'}}</p>
+        <h2 class="time">{{ dateTime.value | date:'HH:mm:ss' }}</h2>
+      </div>
+      <div class="flex-spacer"></div>
+    </div>
+  </ng-template>
+</div>

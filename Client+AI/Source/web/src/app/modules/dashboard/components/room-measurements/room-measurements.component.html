@@ -1,0 +1,74 @@
+<div class="room-view">
+  <!--View if the room is selected and valid-->
+  <div *ngIf="displaySection; else noRoom" class="room-measurements">
+    <div class="header">
+      <h1>{{ displaySection.name | uppercase }}</h1> <span class="header-spacing"></span>
+      <h2>{{ displayArea.displayName | uppercase }}</h2>
+      <div class="flex-spacer"></div>
+      <p>NICHT BELEGT</p>
+    </div>
+    <mat-divider style="border-top-color: #fff"></mat-divider>
+    <!--Measurements Carousel-->
+    <div class="glide">
+      <div class="glide__track" data-glide-el="track">
+        <ul class="glide__slides">
+          <li *ngFor="let group of displayArray; let i = index" class="glide__slide">
+            <div class="grid">
+              <div class="col-1">
+                <div matRipple [matRippleTrigger]="trigger" (click)="selectMeasurement(0, i)" class="measurement" *ngIf="group[0]">
+                  <div class="type body-1">{{ group[0].type | uppercase }}</div>
+                  <div class="flex-spacer"></div>
+                  <div class="value body-2"><b>{{ (group[0].measurement | async)?.value }} {{ (group[0].measurement | async)?.unit }}</b></div>
+                </div>
+                <div matRipple [matRippleTrigger]="trigger" (click)="selectMeasurement(1, i)" class="measurement" *ngIf="group[1]">
+                  <div class="type body-1">{{ group[1].type | uppercase }}</div>
+                  <div class="flex-spacer" style="min-width: 2rem;"></div>
+                  <div class="value body-2"><b>{{ (group[1].measurement | async)?.value }} {{ (group[1].measurement | async)?.unit }}</b></div>
+                </div>
+              </div>
+              <div class="flex-spacer" style="max-width: 3rem; min-width: 2rem;"></div>
+              <div class="col-2">
+                <div matRipple [matRippleTrigger]="trigger" (click)="selectMeasurement(2, i)" class="measurement" *ngIf="group[2]">
+                  <div class="type body-1">{{ group[2].type | uppercase }}</div>
+                  <div class="flex-spacer" style="min-width: 2rem;"></div>
+                  <div class="value body-2"><b>{{ (group[2].measurement | async)?.value }} {{ (group[2].measurement | async)?.unit }}</b></div>
+                </div>
+                <div matRipple [matRippleTrigger]="trigger" (click)="selectMeasurement(3, i)" class="measurement" *ngIf="group[3]">
+                  <div class="type body-1">{{ group[3].type | uppercase }}</div>
+                  <div class="flex-spacer" style="min-width: 2rem;"></div>
+                  <div class="value body-2"><b>{{ (group[3].measurement | async)?.value }} {{ (group[3].measurement | async)?.unit }}</b></div>
+                </div>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div #trigger></div>
+      <!-- bullet controls not needed tho
+      <div class="glide__bullets" data-glide-el="controls[nav]">
+        <button *ngFor="let s of testArr; let i = index" class="glide__bullet" [attr.data-glide-dir]="'=' + i"></button>
+      </div>
+      -->
+      <!-- arrow controls are missplaced after changin to flexbox for gesture controls, so we just leave them out :)
+      <div class="glide__arrows" data-glide-el="controls">
+        <mat-icon class="arrow-nav-left" data-glide-dir="<">arrow_back_ios</mat-icon>
+        <mat-icon class="arrow-nav-right" style="right: 0" data-glide-dir=">">arrow_forward_ios</mat-icon>
+      </div>
+      -->
+    </div>
+    <!--./Measurements Carousel-->
+    <div class="end-indicator"></div>
+  </div>
+
+  <!--View if the currently selected room is null-->
+  <ng-template #noRoom>
+    <div class="no-room">
+      <h1 i18n="No room header|The header text that is displayed when no room is selected@@dashboard/room-measurements/noRoomHeader" class="title">
+        Please select a room!
+        <div class="line"></div>
+      </h1>
+      <div class="flex-spacer"></div>
+      <div class="end-indicator"></div>
+    </div>
+  </ng-template>
+</div>

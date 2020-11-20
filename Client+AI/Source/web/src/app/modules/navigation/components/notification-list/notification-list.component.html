@@ -1,0 +1,9 @@
+<div class="notification-list">
+  <div *ngFor="let n of notifications">
+    <app-notification [title]="n.title" [body]="n.desc" [areaName]="n.area" [sectionName]="n.section" [type]="n.level" (close)="remove(n)"></app-notification>
+  </div>
+  <div class="flex-spacer"></div>
+  <div class="end-indicator">
+    <div class="vector"></div>
+  </div>
+</div>

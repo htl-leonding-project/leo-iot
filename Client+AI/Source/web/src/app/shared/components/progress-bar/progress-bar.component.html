@@ -1,0 +1,4 @@
+<div class="progress-bar">
+  <div class="foreground-bar" [ngStyle]="{'max-width.%': value}"></div>
+  <div class="background-bar" *ngIf="value !== 100"></div>
+</div>

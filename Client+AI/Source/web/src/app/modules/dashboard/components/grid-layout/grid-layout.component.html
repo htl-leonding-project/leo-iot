@@ -1,0 +1,67 @@
+<!--the tiles are kinda clockwise arranged but not realy, if you change the order its fucked up tho so dont do that-->
+<mat-grid-list *ngIf="!expandForHistory; else expandHistory" class="fullscreen" cols="5" gutterSize="1.5rem" rowHeight="fit">
+
+    <!--containing the svg viewer-->
+    <mat-grid-tile rowspan="4" colspan="2">
+        <app-svg-viewer [displayArea]="currentArea" [displaySection]="currentSection" (sectionClicked)="changeCurrentSection($event)"
+            (areaClicked)="changeCurrentArea($event)"></app-svg-viewer>
+    </mat-grid-tile>
+
+    <!--containing the room measurements selection, filter and display components-->
+    <mat-grid-tile class="custom-height" rowspan="3" colspan="3">
+        <app-room-measurements *ngIf="!currentMeasurementType; else roomData" [displayArea]="currentArea"
+            [displaySection]="currentSection" (typeSelected)="changeCurrentMeasurementType($event); switchExpantionState(true)"></app-room-measurements>
+        <ng-template #roomData>
+            <app-historic-room-data [displayType]="currentMeasurementType" [displayArea]="currentArea" [displaySection]="currentSection"
+                (navigateBack)="changeCurrentMeasurementType(null); switchExpantionState(false)"></app-historic-room-data>
+        </ng-template>
+    </mat-grid-tile>
+
+    <!--containing the current weather infos-->
+    <mat-grid-tile rowspan="4" colspan="2" class="scrollable">
+        <app-weather-overview></app-weather-overview>
+    </mat-grid-tile>
+
+    <!--containing the news list-->
+    <mat-grid-tile rowspan="4" class="scrollable">
+        <app-news-list></app-news-list>
+    </mat-grid-tile>
+
+    <!--containing the public transport components-->
+    <mat-grid-tile rowspan="3" colspan="2">
+        <app-tram-departure></app-tram-departure>
+    </mat-grid-tile>
+</mat-grid-list>
+<app-footer-text></app-footer-text>
+
+<!--HISTORIC DATA VIEW | This is the same view but to expand the historic data row count to display a bigger chart and table-->
+<ng-template #expandHistory>
+    <mat-grid-list class="fullscreen" cols="5" rows="7" gutterSize="1.5rem" rowHeight="fit">
+
+        <mat-grid-tile rowspan="4" colspan="2">
+            <app-svg-viewer [displayArea]="currentArea" [displaySection]="currentSection" (sectionClicked)="changeCurrentSection($event)"
+                (areaClicked)="changeCurrentArea($event)"></app-svg-viewer>
+        </mat-grid-tile>
+
+        <mat-grid-tile class="custom-height" rowspan="5" colspan="3">
+            <app-room-measurements *ngIf="!currentMeasurementType; else roomData" [displayArea]="currentArea"
+                [displaySection]="currentSection" (typeSelected)="changeCurrentMeasurementType($event); switchExpantionState(true)"></app-room-measurements>
+            <ng-template #roomData>
+                <app-historic-room-data [displayType]="currentMeasurementType" [displayArea]="currentArea"
+                    [displaySection]="currentSection" (navigateBack)="changeCurrentMeasurementType(null); switchExpantionState(false)"></app-historic-room-data>
+            </ng-template>
+        </mat-grid-tile>
+
+        <mat-grid-tile rowspan="3" colspan="2">
+            <app-tram-departure></app-tram-departure>
+        </mat-grid-tile>
+
+        <mat-grid-tile rowspan="2" colspan="2">
+            <app-weather-overview [headerOnly]="true"></app-weather-overview>
+        </mat-grid-tile>
+
+        <mat-grid-tile rowspan="2" colspan="1" class="scrollable">
+            <app-news-list></app-news-list>
+        </mat-grid-tile>
+    </mat-grid-list>
+</ng-template>

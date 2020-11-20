@@ -1,0 +1,7 @@
+<div class="streamingButton">
+  <button mat-raised-button (click)="start()" [disabled]="streaming">Start</button>
+  <button mat-raised-button (click)="stop()" [disabled]="!streaming">Stop</button>
+</div>
+
+<img class="videoStream" *ngIf="streaming" style="-webkit-user-select: none;margin: auto;" [src]="pictureUrl()">
+

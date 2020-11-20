@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 97.1 137.65">
+    <defs>
+        <style>
+        .a {
+            fill: none;
+            stroke: #fff;
+            stroke-miterlimit: 10;
+        }
+        </style>
+    </defs>
+    <title>Element 1</title>
+    <g>
+    <polygon class="a" points="48.55 137.04 0.87 103.66 48.55 70.29 96.23 103.66 48.55 137.04"/>
+    <polygon class="a" points="48.55 102.2 0.87 68.82 48.55 35.45 96.23 68.82 48.55 102.2"/>
+    <polygon class="a" points="48.55 67.36 0.87 33.98 48.55 0.61 96.23 33.98 48.55 67.36"/>
+    </g>
+</svg>

@@ -1,0 +1,36 @@
+<div class="tram">
+  <div class="header">
+    <h1 i18n="Tram header|Header of the tram departure section@@dashboard/tram-departure/header" >TRAM</h1> <span class="header-spacing"></span>
+  </div>
+  <mat-divider></mat-divider>
+  <div *ngIf="trip; else noTrip" class="stations body-1">
+    <p>{{trip.depName}} nach</p>
+    <p>{{trip.arrName}}</p>
+    <div class="departure">
+      <div class="time-to-dep">
+        {{trip.until}}
+        <div class="line"></div>
+      </div>
+      <p class="minute-text">min</p>
+      <div class="progress">
+        <app-progress-bar [value]="(trip.until && trip.duration) ? (100 - (trip.until * 100)/trip.duration) : 0"></app-progress-bar>
+      </div>
+    </div>
+  </div>
+  <ng-template #noTrip>
+    <div class="stations body-1">
+      <p i18n="Meixnerkreuzung to|Dont' translate Meixnerkreuzung its  a fixed station name@@dashboard/tram-departure/to">Meixnerkreuzung to</p>
+      <p>Linz HBF</p>
+      <div class="departure">
+        <div class="time-to-dep">
+          
+          <div class="line"></div>
+        </div>
+        <p class="minute-text">min</p>
+        <div class="progress">
+          <app-progress-bar [value]="60"></app-progress-bar>
+        </div>
+      </div>
+    </div>
+  </ng-template>
+</div>

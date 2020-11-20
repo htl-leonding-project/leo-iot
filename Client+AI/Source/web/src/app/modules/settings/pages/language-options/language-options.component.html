@@ -1,0 +1,15 @@
+<div class="language">
+  <h1 i18n="languageHeader|Header of the lanugage settings@@settings/language-options/languageHeader">Language</h1>
+
+  <form class="form">
+    <mat-form-field>
+      <input matInput placeholder="Language" aria-label="Language" [matAutocomplete]="auto" [formControl]="langControl">
+      <mat-autocomplete #auto="matAutocomplete">
+        <mat-option *ngFor="let language of filteredLanguages | async" [value]="language.name" (click)="selectLanguage(language)">
+          <img class="country-flag" aria-hidden [src]="language.flag">
+          <span>{{language.name}}</span>
+        </mat-option>
+      </mat-autocomplete>
+    </mat-form-field>
+  </form>
+</div>

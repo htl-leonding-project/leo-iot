@@ -1,0 +1,7 @@
+.icon {
+    transition: transform 300ms ease-in-out;
+}
+
+.icon :hover {
+    transform: rotate(180deg);
+}

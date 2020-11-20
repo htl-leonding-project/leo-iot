@@ -1,0 +1,9 @@
+<button class="notification-toggle" [@transformArrowIcon]="state ? 'close' : 'open'" *ngIf="!state; else arrow_button" mat-icon-button (click)="emitAndAnimate()">
+  <mat-icon class="icon">notification_important</mat-icon>
+</button>
+
+<ng-template #arrow_button>
+  <button class="notification-toggle" [@transformArrowIcon]="state ? 'open' : 'close'" mat-icon-button (click)="emitAndAnimate()">
+    <mat-icon>arrow_forward</mat-icon>
+  </button>
+</ng-template>

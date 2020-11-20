@@ -1,0 +1,14 @@
+<div *ngIf="modelIsLoading()" id="loadingScreen">
+  <div id="loadingText">Loading the Model</div>
+</div>
+
+<img *ngIf="legendActive()" [src]="getCurrentLegend()" class="legendImage">
+
+<div class="container" id="#3dContainer" #3dContainer></div>
+<app-modelmenu
+  [menuOpened]="modelController.menuOpened"
+  [currentRoom]="modelController.currentRoom"
+  [selectedFloor]="modelController.selectedFloor"
+  [applyFilter]="modelController.applyFilterCallback"
+  [floorSelect]="modelController.floorSelectCallback"
+></app-modelmenu>

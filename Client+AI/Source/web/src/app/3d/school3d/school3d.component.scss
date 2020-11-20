@@ -1,0 +1,29 @@
+#loadingScreen {
+  position: absolute;
+  top: 0px;
+  height: 100%;
+  width: 100%;
+  background-color: white;
+  color: black;
+  font-family: Monospace;
+  font-size: 13px;
+  font-weight: bold;
+  opacity: 100%;
+  z-index: 1;
+}
+
+#loadingText {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  font-size: 2em;
+}
+
+.legendImage {
+  width: 500px;
+  height: 200px;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}

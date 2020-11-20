@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 31.4 17">
+  <defs>
+    <style>
+      .a {
+        fill: #fff;
+      }
+    </style>
+  </defs>
+  <title>Element 1</title>
+  <polygon class="a" points="16.2 0 8.99 17 0 17 7.22 0 16.2 0"/>
+</svg>

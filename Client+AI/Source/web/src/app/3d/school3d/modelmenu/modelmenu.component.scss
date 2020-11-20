@@ -1,0 +1,203 @@
+br {
+  content: "";
+  margin: 1.5em;
+  display: block;
+  font-size: 24%;
+}
+
+#open img {
+  width: 50px;
+  height: 50px;
+}
+
+#open {
+  margin-left: 10px;
+  margin-top: 20px;
+  background: none;
+  border: none;
+  z-index: 11;
+}
+
+#close img {
+  width: 50px;
+  height: 50px;
+}
+
+#close {
+  margin-left: 10px;
+  margin-top: 20px;
+  background: none;
+  border: none;
+  z-index: 11;
+}
+
+#menuBackground {
+  opacity: 0.2;
+  background-color: black;
+  top: 0;
+  left: 0;
+  z-index: -10;
+  position: absolute;
+  /*animate over this*/
+  height: 0;
+  width: 500px;
+}
+
+
+.itemName {
+  z-index: 99;
+  font-size: 22pt;
+  margin-right: 10px;
+  color: white;
+}
+
+.smallButton {
+  background-color: rgba(0, 0, 0, 0);
+  font-size: 12pt;
+  color: white;
+  border-radius: 5px;
+  border: none;
+  -webkit-box-shadow: inset 0px 0px 0px 3px #ffffff;
+  -moz-box-shadow: inset 0px 0px 0px 3px #ffffff;
+  box-shadow: inset 0px 0px 0px 3px #ffffff;
+  height: 27px;
+  width: 27px;
+  margin-right: 10px;
+  margin-bottom: 5px;
+}
+
+.bigButton {
+  background-color: rgba(0, 0, 0, 0);
+  transition: background-color 500ms linear;
+  font-size: 12pt;
+  //font-family: "Roboto";
+  color: white;
+  border-radius: 5px;
+  border: none;
+  -webkit-box-shadow: inset 0px 0px 0px 3px #ffffff;
+  -moz-box-shadow: inset 0px 0px 0px 3px #ffffff;
+  box-shadow: inset 0px 0px 0px 3px #ffffff;
+  height: 27px;
+  width: 205px;
+  margin-right: 10px;
+  margin-bottom: -3px;
+}
+
+.placeholder {
+  height: 10px;
+}
+
+td {
+  height: 50px;
+  vertical-align: bottom;
+  padding-left: 10px;
+}
+
+table {
+  margin-left: 20px;
+  margin-top: 20px;
+}
+
+.img-comp-container {
+  position: absolute;
+  height: 1080px; /*should be the same height as the images*/
+}
+
+.img-comp-img {
+  position: absolute;
+  width: auto;
+  height: auto;
+  overflow: hidden;
+}
+
+.img-comp-img img {
+  display: block;
+  vertical-align: middle;
+}
+
+.img-comp-slider {
+  position: absolute;
+  z-index: 9;
+  cursor: ew-resize;
+  /*set the appearance of the slider:*/
+  width: 40px;
+  height: 40px;
+  border: 1px solid white;
+  background-color: #3d3d3d;
+  opacity: 0.7;
+  border-radius: 50%;
+}
+
+.back {
+  position: absolute;
+  margin-left: 12px;
+  margin-top: 10px;
+  background: none;
+  border: none;
+  z-index: 11;
+}
+
+.back img {
+  height: 50px;
+  width: 50px;
+}
+
+body {
+  background: #3d3d3d;
+  padding: 0;
+  margin: 0;
+  font-weight: bold;
+  overflow: hidden;
+}
+
+.settings {
+  position: absolute;
+  top: 0px;
+  height: 200vh;
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: bold;
+  z-index: 1;
+  padding: 0px;
+}
+
+.smallButton {
+  transition: 500ms;
+}
+
+.smallButton:active {
+  transition: 500ms;
+}
+
+#searchButton {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  background-color: green;
+  border: none;
+}
+
+.slider {
+  display: none;
+  opacity: 0;
+  margin-top: -5px;
+}
+
+#loadingIcon {
+  position: absolute;
+  top: 55%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+#filterNotification {
+  position: absolute;
+  top: 5%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: white;
+  color: black;
+  padding: 5px 50px 5px 50px;
+  border-radius: 30px;
+}
+

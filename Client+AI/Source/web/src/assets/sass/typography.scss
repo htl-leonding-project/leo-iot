@@ -1,0 +1,25 @@
+@import '~@angular/material/theming';
+
+// mostly from the official docs https://material.angular.io/guide/typography
+// the @font-faces were generated using https://www.fontsquirrel.com/fonts/caviar-dreams and are imported in index.html
+// the config is loaded in the thiming file by passing it on to the mat-core() function
+
+$custom-typography: mat-typography-config(
+    $font-family: 'caviar_dreamsregular, Arial, sans-serif',
+    $headline: mat-typography-level(2rem, 2rem, 900),           /* the h1 tag */
+    $title: mat-typography-level(1.5rem, 1.5rem, 900),          /* the h2 tag */
+    $body-1: mat-typography-level(1.3rem, 1.3rem, 100),         /* base body text */
+    $body-2: mat-typography-level(1.3rem, 1.3rem, 900),         /* bold body text */
+    $caption: mat-typography-level(0.9rem, 0.9rem, 400),        /* smaller body text (in notifications)*/
+    $button: mat-typography-level(1rem, 1rem, 600)              
+);
+
+// global typography styling
+h2 {
+    opacity: 0.5;
+}
+
+mat-card-subtitle {
+    font-size: 1rem !important;
+    line-height: 1rem;
+}

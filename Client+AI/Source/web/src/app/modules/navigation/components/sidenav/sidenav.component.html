@@ -1,0 +1,19 @@
+<div>
+  <mat-sidenav-container class="sidenav-container">
+    <!--Sidenav-->
+    <mat-sidenav #sidenav position="end" class="side-nav" mode="side" [opened]="sidenavOpened">
+      <div class="notifications-container app-notification-theme">
+        <app-notification-list></app-notification-list>
+      </div>
+    </mat-sidenav>
+    <!--Content-->
+    <mat-sidenav-content class="sidenav-content" aria-label="main-content">
+      <div class="flex-box">
+        <div class="flex-spacer"></div>
+        <app-notification-toggle class="notification-toggle" (clicked)="toggleSidenav()"></app-notification-toggle>
+        <app-settings-button class="settings-button"></app-settings-button>
+      </div>
+      <router-outlet></router-outlet>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</div>

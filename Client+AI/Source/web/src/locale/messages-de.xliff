@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="UTF-8"?><xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file source-language="en" datatype="plaintext" original="iot-webclient">
+    <body>
+      <trans-unit id="shared/footer-text/authors" datatype="html">
+        <source></source><target></target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/shared/components/footer-text/footer-text.component.html</context>
+          <context context-type="linenumber">2</context>
+        </context-group>
+        <note priority="1" from="description">fixed text at the bottom</note>
+        <note priority="1" from="meaning">authors</note>
+      </trans-unit>
+      <trans-unit id="navigation/notification/roomButton" datatype="html">
+        <source>VIEW ROOM</source><target>ZUM RAUM</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/navigation/components/notification/notification.component.html</context>
+          <context context-type="linenumber">14</context>
+        </context-group>
+        <note priority="1" from="description">Text to a button which navigates you to the room</note>
+        <note priority="1" from="meaning">roomButton</note>
+      </trans-unit>
+      <trans-unit id="navigation/notification/okButton" datatype="html">
+        <source>OK</source><target>OK</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/navigation/components/notification/notification.component.html</context>
+          <context context-type="linenumber">15</context>
+        </context-group>
+        <note priority="1" from="description">A button which dismisses a notification</note>
+        <note priority="1" from="meaning">okButton</note>
+      </trans-unit>
+      <trans-unit id="dashboard/room-measurements/noRoomHeader" datatype="html">
+        <source>
+        Please select a room!
+        <x id="START_TAG_DIV" ctype="x-div" equiv-text="&lt;div&gt;"/><x id="CLOSE_TAG_DIV" ctype="x-div" equiv-text="&lt;/div&gt;"/>
+      </source><target>Bitte Raum wählen!</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/dashboard/components/room-measurements/room-measurements.component.html</context>
+          <context context-type="linenumber">66</context>
+        </context-group>
+        <note priority="1" from="description">The header text that is displayed when no room is selected</note>
+        <note priority="1" from="meaning">No room header</note>
+      </trans-unit>
+      <trans-unit id="02ba375c16edd398b305149cf83df6ccb37310f7" datatype="html">
+        <source>Chart</source><target>Grafik</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/dashboard/components/historic-room-data/historic-room-data.component.html</context>
+          <context context-type="linenumber">7</context>
+        </context-group>
+        <note priority="1" from="description">Is shown in a tab view to toggle to when the user wants to see the data as a chart</note>
+        <note priority="1" from="meaning">A graphical display of data</note>
+      </trans-unit>
+      <trans-unit id="484f4551774680a39414afcb8fdc1df3eb27073d" datatype="html">
+        <source>value</source><target>Wert</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/dashboard/components/historic-room-data/historic-room-data.component.html</context>
+          <context context-type="linenumber">23</context>
+        </context-group>
+        <note priority="1" from="description">Shown in the first table row as header with the measurement values below</note>
+        <note priority="1" from="meaning">Value table header</note>
+      </trans-unit>
+      <trans-unit id="2934e7b0c9d45b2d02b6c4e0ff8bc4ff5e9f6d4b" datatype="html">
+        <source>unit</source><target>Einheit</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/dashboard/components/historic-room-data/historic-room-data.component.html</context>
+          <context context-type="linenumber">29</context>
+        </context-group>
+        <note priority="1" from="description">Shown in the first table row as header with the measurement units below</note>
+        <note priority="1" from="meaning">unit table header</note>
+      </trans-unit>
+      <trans-unit id="0ff1a76b533716dcf8dee48ea42269f168497127" datatype="html">
+        <source>timestamp</source><target>Zeitpunkt</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/dashboard/components/historic-room-data/historic-room-data.component.html</context>
+          <context context-type="linenumber">35</context>
+        </context-group>
+        <note priority="1" from="description">Shown in the first table row as header with the timestamps below</note>
+        <note priority="1" from="meaning">timestamp table header</note>
+      </trans-unit>
+      <trans-unit id="a4ae1878c38fcd4b3f4ceabab565cc4165429dd8" datatype="html">
+        <source>Table</source><target>Tabelle</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/dashboard/components/historic-room-data/historic-room-data.component.html</context>
+          <context context-type="linenumber">15</context>
+        </context-group>
+        <note priority="1" from="description">Is shown in a tab view to toggle to when the user wants to see the data as a table/list</note>
+        <note priority="1" from="meaning">Data is shown in a table</note>
+      </trans-unit>
+      <trans-unit id="dashboard/historic-room-data/periodHeader" datatype="html">
+        <source>Period</source><target>Aktuelle Werte</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/dashboard/components/historic-room-data/historic-room-data.component.html</context>
+          <context context-type="linenumber">62</context>
+        </context-group>
+        <note priority="1" from="description">Part of the filter section where the user can select a period of measurments</note>
+        <note priority="1" from="meaning">Period header text</note>
+      </trans-unit>
+      <trans-unit id="dashboard/historic-room-data/toggleButtonDay" datatype="html">
+        <source>Day</source><target>Tag</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/dashboard/components/historic-room-data/historic-room-data.component.html</context>
+          <context context-type="linenumber">64</context>
+        </context-group>
+        <note priority="1" from="description">Part of a grouped toggle button group where it switches the context to day</note>
+        <note priority="1" from="meaning">Day Button</note>
+      </trans-unit>
+      <trans-unit id="dashboard/historic-room-data/toggleButtonMonth" datatype="html">
+        <source>Month</source><target>Monat</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/dashboard/components/historic-room-data/historic-room-data.component.html</context>
+          <context context-type="linenumber">65</context>
+        </context-group>
+        <note priority="1" from="description">Part of a grouped toggle button group where it switches the context to month</note>
+        <note priority="1" from="meaning">Month Button</note>
+      </trans-unit>
+      <trans-unit id="dashboard/historic-room-data/toggleButtonYear" datatype="html">
+        <source>Year</source><target>Jahr</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/dashboard/components/historic-room-data/historic-room-data.component.html</context>
+          <context context-type="linenumber">66</context>
+        </context-group>
+        <note priority="1" from="description">Part of a grouped toggle button group where it switches the context to year</note>
+        <note priority="1" from="meaning">Year Button</note>
+      </trans-unit>
+      <trans-unit id="dashboard/historic-room-data/timespanHeader" datatype="html">
+        <source>Select a Timespan</source><target>Zeitspanne wählen</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/dashboard/components/historic-room-data/historic-room-data.component.html</context>
+          <context context-type="linenumber">74</context>
+        </context-group>
+        <note priority="1" from="description">Part of the filter section where the user can select a timespan of measurments</note>
+        <note priority="1" from="meaning">Timespan header text</note>
+      </trans-unit>
+      <trans-unit id="bd8aecb8e97d5a33f4be0e67a4a42ad66c10f794" datatype="html">
+        <source>From</source><target>Von</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/dashboard/components/historic-room-data/historic-room-data.component.html</context>
+          <context context-type="linenumber">76</context>
+        </context-group>
+        <note priority="1" from="description">Lets the user define from which date he want to see measurements</note>
+        <note priority="1" from="meaning">FromPlaceholder</note>
+      </trans-unit>
+      <trans-unit id="bb0befb7020a32d5dc7ef9d288510cc75f47acce" datatype="html">
+        <source>To</source><target>Bis</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/dashboard/components/historic-room-data/historic-room-data.component.html</context>
+          <context context-type="linenumber">83</context>
+        </context-group>
+        <note priority="1" from="description">Lets the user define until which date he want to see measurements</note>
+        <note priority="1" from="meaning">ToPlaceholder</note>
+      </trans-unit>
+      <trans-unit id="dashboard/historic-room-data/dailyRadioButton" datatype="html">
+        <source>DAILY</source><target>TÄGLICH</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/dashboard/components/historic-room-data/historic-room-data.component.html</context>
+          <context context-type="linenumber">89</context>
+        </context-group>
+        <note priority="1" from="description">The radio button lets the user set the interval of measurements to daily</note>
+        <note priority="1" from="meaning">DailyRadioButton Text</note>
+      </trans-unit>
+      <trans-unit id="dashboard/historic-room-data/hourlyRadioButton" datatype="html">
+        <source>HOURLY</source><target>STÜNDLICH</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/dashboard/components/historic-room-data/historic-room-data.component.html</context>
+          <context context-type="linenumber">90</context>
+        </context-group>
+        <note priority="1" from="description">The radio button lets the user set the interval of measurements to hourly</note>
+        <note priority="1" from="meaning">HourlyRadioButton Text</note>
+      </trans-unit>
+      <trans-unit id="dashboard/historic-room-data/submitButton" datatype="html">
+        <source>Submit</source><target>Filtern</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/dashboard/components/historic-room-data/historic-room-data.component.html</context>
+          <context context-type="linenumber">96</context>
+        </context-group>
+        <note priority="1" from="description">Lets the user submit the selected filters</note>
+        <note priority="1" from="meaning">Submit Button Text</note>
+      </trans-unit>
+      <trans-unit id="4cc204c194d7b019d453ec22e15c3a2a124b3058" datatype="html">
+        <source>Filter</source><target>Filter</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/dashboard/components/historic-room-data/historic-room-data.component.html</context>
+          <context context-type="linenumber">58</context>
+        </context-group>
+        <note priority="1" from="description">Is shown in a tab view to toggle to when the user wants to filter the data</note>
+        <note priority="1" from="meaning">Filter tab header</note>
+      </trans-unit>
+      <trans-unit id="dashboard/tram-departure/header" datatype="html">
+        <source>TRAM</source><target>STRASSENBAHN</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/dashboard/pages/tram-departure/tram-departure.component.html</context>
+          <context context-type="linenumber">3</context>
+        </context-group>
+        <note priority="1" from="description">Header of the tram departure section</note>
+        <note priority="1" from="meaning">Tram header</note>
+      </trans-unit>
+      <trans-unit id="dashboard/tram-departure/to" datatype="html">
+        <source>Meixnerkreuzung to</source><target>Meixnerkreuzung nach</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/dashboard/pages/tram-departure/tram-departure.component.html</context>
+          <context context-type="linenumber">22</context>
+        </context-group>
+        <note priority="1" from="description">Dont' translate Meixnerkreuzung its  a fixed station name</note>
+        <note priority="1" from="meaning">Meixnerkreuzung to</note>
+      </trans-unit>
+      <trans-unit id="dashboard/weather-overview/stateName" datatype="html">
+        <source>Upper Austria</source><target>Oberösterreich</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/dashboard/pages/weather-overview/weather-overview.component.html</context>
+          <context context-type="linenumber">5</context>
+        </context-group>
+        <note priority="1" from="description">state in austria where the city is located</note>
+        <note priority="1" from="meaning">stateName</note>
+      </trans-unit>
+      <trans-unit id="settinge/settings-sidenav/languageLink" datatype="html">
+        <source>Language</source><target>Sprache</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/settings/components/settings-sidenav/settings-sidenav.component.html</context>
+          <context context-type="linenumber">6</context>
+        </context-group>
+        <note priority="1" from="description">Text for the language settings link</note>
+        <note priority="1" from="meaning">Language Link Text</note>
+      </trans-unit>
+      <trans-unit id="settings/language-options/languageHeader" datatype="html">
+        <source>Language</source><target>Sprache</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/settings/pages/language-options/language-options.component.html</context>
+          <context context-type="linenumber">2</context>
+        </context-group>
+        <note priority="1" from="description">Header of the lanugage settings</note>
+        <note priority="1" from="meaning">languageHeader</note>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>
