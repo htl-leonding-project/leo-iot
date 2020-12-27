@@ -1,0 +1,79 @@
+{
+  "name": "iotserver",
+  "topics": {
+    "all":"htlleonding/#",
+    "measurements":"htlleonding/+/+/+/+",
+    "lastwill": "htlleonding/+/+/+/+/lastwill",
+    "notifications": "htlleonding/+/+/+/+/notification"
+  },
+  "notification-codes": {
+    "sensor-offline": 20010
+  },
+  "broker": {
+    "type": "emq",
+    "clientid": "iotserverClient",
+    "address": {
+      "ip": "tcp://localhost",
+      "port": 1883
+    },
+    "auth": {
+      "username": "default",
+      "password": "password"
+    }
+  },
+  "db" : {
+    "type": "timescale",
+    "language": "sys",
+    "address": {
+      "ip": "localhost",
+      "port": 5432
+    },
+    "db-auth": {
+      "dbname":"postgres",
+      "username":"postgres",
+      "password":"password"
+    },
+    "data" : {
+      "delete-after": {
+        "years": 1,
+        "months": 0,
+        "days": 0
+      }
+    }
+  },
+  "distributor": {
+    "type": "mqtt",
+    "address": {
+      "ip": "tcp://localhost",
+      "port": 1883
+    },
+    "auth": {
+      "username": "default",
+      "password": "password",
+      "token": ""
+    },
+    "topics": {
+      "default": "notification"
+    }
+  },
+  "clientapi": {
+    "url": "localhost",
+    "port":9090,
+    "db-type": "timescale"
+  },
+  "distributor-nats-example": {
+    "type": "nats",
+    "address": {
+      "ip": "localhost",
+      "port": 4222
+    },
+    "auth": {
+      "username": "",
+      "password": "",
+      "token": "3zdh59oahf62tdgeh65sf23h"
+    },
+    "topics": {
+      "default": "msg"
+    }
+  }
+}
