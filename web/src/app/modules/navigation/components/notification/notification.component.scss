@@ -1,0 +1,66 @@
+@import 'src/assets/sass/breakpoints';
+// dont know how to access the mat palette manually so here we are hardcoding colors
+$ok: #43A047;
+$info: #EF6C00;
+$warning: #BF360C;
+%notification {
+    border-radius: 0;
+    border-top: $xs solid;
+    box-shadow: unset !important;
+    padding-bottom: $l;
+    .indicator {
+        height: $xl;
+        width: $xl;
+        border: $xs solid;
+        border-radius: 50%;
+    }
+    .view-room-button {
+        color: #fff;
+        margin-right: $m;
+    }
+    .mat-card-title {
+        margin-top: $s;
+    }
+}
+
+.ok {
+    @extend %notification;
+    border-color: $ok;
+    .indicator {
+        border-color: $ok;
+    }
+    .view-room-button {
+        background-color: $ok;
+    }
+}
+
+.info {
+    @extend %notification;
+    border-color: $info;
+    .indicator {
+        border-color: $info;
+    }
+    .view-room-button {
+        background-color: $info;
+    }
+}
+
+.warning {
+    @extend %notification;
+    border-color: $warning;
+    .indicator {
+        border-color: $warning;
+    }
+    .view-room-button {
+        background-color: $warning;
+    }
+}
+
+// material tweaks
+.mat-card-actions {
+    margin: 0;
+}
+
+.mat-card>.mat-card-actions:last-child {
+    margin: 0;
+}

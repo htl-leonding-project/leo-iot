@@ -1,0 +1,73 @@
+@import 'src/assets/sass/breakpoints';
+.table-container {
+    position: relative;
+    overflow: auto;
+    max-height: 420px;
+    table {
+        width: 100%;
+        background-color: transparent;
+    }
+}
+
+.paginator {
+    background-color: #303030;
+}
+
+.loading-shade {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: $l 0;
+}
+
+.chart {
+    height: 90%;
+    margin-top: $m;
+}
+
+.filter-container {
+    margin: $m;
+    .flex-container {
+        display: flex;
+    }
+    .period {
+        margin-right: $s;
+        .period-group {
+            font-size: $m;
+        }
+    }
+    .time-span-picker {
+        .from-picker {
+            font-size: $m;
+            margin-right: $s;
+        }
+        .to-picker {
+            font-size: $m;
+        }
+    }
+    .submit-button {
+        font-weight: 900;
+        color: #fff;
+        margin-top: $l;
+    }
+}
+
+.end-indicator {
+    background-image: url(/assets/misc/end-line-white.svg);
+    width: 100%;
+    min-height: $m;
+    max-height: $m;
+    bottom: 2rem;
+    margin-top: auto;
+    position: absolute;
+}
+
+.d-flex {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.radio-daily {
+    margin-right: $l;
+}

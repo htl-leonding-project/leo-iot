@@ -1,0 +1,72 @@
+@import 'src/assets/sass/breakpoints';
+@import 'src/assets/sass/dark-theme-variables';
+.weather-overview {
+    display: flex;
+    flex-direction: column;
+    .header {
+        display: flex;
+        margin-bottom: $s;
+        align-items: baseline;
+        h1,
+        h2 {
+            margin: 0;
+        }
+        .header-spacing {
+            width: $s;
+        }
+        .date-time {
+            display: flex;
+            align-items: baseline;
+            .date {
+                font-size: $m;
+            }
+            .time {
+                margin-left: $s;
+                color: $svg-highlight-color;
+                opacity: 1;
+            }
+        }
+    }
+    .weather {
+        flex-shrink: 1;
+        margin-bottom: $m;
+        .measurement {
+            display: flex;
+            width: 100%;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 1.3rem;
+            .value {
+                i {
+                    font-size: $xl;
+                }
+            }
+        }
+    }
+    .collapsed {
+        align-items: baseline;
+        margin-top: $m;
+        text-align: center;
+        .date {
+            font-size: $l;
+        }
+        .time {
+            margin-top: $l;
+            color: $svg-highlight-color;
+            opacity: 1;
+            font-size: $xl;
+        }
+    }
+}
+
+@media (max-width: 112.5rem) {
+    .date-time {
+        flex-direction: column;
+        align-items: flex-end;
+        .time {
+            margin-left: 0 !important;
+            align-self: flex-end;
+            margin-bottom: $s !important;
+        }
+    }
+}

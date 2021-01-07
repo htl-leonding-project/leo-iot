@@ -1,0 +1,19 @@
+@import 'src/assets/sass/breakpoints';
+.drawer-container {
+    height: calc(100% - 4.5rem);
+    background-color: #fff;
+}
+
+.sidenav {
+    width: 6 * $xxl;
+    background-color: #333333ec;
+    border: none;
+    h1 {
+        margin-left: $m;
+        margin-top: $l;
+    }
+}
+
+.content {
+    padding: $l;
+}
