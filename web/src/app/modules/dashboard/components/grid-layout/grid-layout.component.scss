@@ -1,0 +1,13 @@
+@import 'src/assets/sass/breakpoints';
+.fullscreen {
+    margin: 0 $l $xl;
+    height: calc(100% - 7rem);
+}
+
+mat-grid-tile {
+    border: 0.005rem solid #ffffff33;
+}
+
+.scrollable {
+    overflow-y: scroll;
+}
