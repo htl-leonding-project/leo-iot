@@ -1,6 +1,6 @@
 FROM tensorflow/tensorflow:2.0.1-gpu-py3
 
-ADD ./requirements.txt /requirements.txt
+ADD requirements.txt /requirements.txt
 
 RUN apt-get update
 
