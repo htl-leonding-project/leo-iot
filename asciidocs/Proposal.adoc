@@ -1,0 +1,86 @@
+= Project Proposal
+
+ifndef::imagesdir[:imagesdir: images]
+
+== Project Name
+Leo-IOT
+
+== Employer
+
+* HTL Leonding
+
+== Background
+Within our education at the HTBLA Leonding
+the students have to work on projects.
+One of them is an IoT-Project about collecting physical values measured in a classroom.
+
+== Project Result
+The result of this project is a compact container which include various sensors.
+Those sensors/actors in the room detect the physical values in the classroom (air moisture, temperature, sound intensity, etc.).
+The data is collected and saved in a database.
+The information is shown on a display/digital screen in a clear and attractive way.
+
+== Project Target
+The aim of the project is to be able to check the current
+status of a classroom in terms of volume, temperatur, etc.
+Depending on the status of the current class the necessary
+actions can be taken to improve the climate.
+
+== Project Description
+
+* reworking the Cockpit
+* sensor installation in early bird classes
+* backend programming
+
+== Milestones
+|===
+| id | date | milestone
+
+|0
+|1.11.2020
+| Specification Sheet
+
+|1
+|1.11.2020
+|setup tools
+
+|2
+|15.11.2020
+|getting familiar with the existing project
+
+|3
+|01.12.2020
+|Project is runable and meets the expectations
+|===
+
+== Project Start
+The official start of the project was on the 6th of October 2020. It kicked off with
+a meeting and the handover of School IOT.
+
+== Project End
+The measured data is available on demand at any time.
+The estimated date of completion is the on 14th of September 2021.
+
+== Resources / Material
+- Actors
+- MQTT Broker
+- Database
+- Android App
+- Webclient
+- OpenHab
+
+== Risks
+
+* sensors are failing
+* connection errors
+* db is not working
+
+== Infrastructur
+
+image:infrastructure.png[width=800px]
+
+== Project Team
+* 04 EQ
+* 05 EP
+* 15 OJ
+
