@@ -1,0 +1,15 @@
+@import 'src/assets/sass/breakpoints';
+.notification-list {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.end-indicator {
+    margin: $m;
+    .vector {
+        background-image: url(/assets/misc/end-line.svg);
+        width: 100%;
+        height: $m;
+    }
+}

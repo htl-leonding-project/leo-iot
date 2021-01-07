@@ -1,0 +1,16 @@
+@import 'src/assets/sass/breakpoints';
+.language {
+    .form {
+        mat-form-field {
+            width: 50%;
+        }
+    }
+}
+
+.country-flag {
+    max-width: 55px;
+    max-height: 26px;
+    margin-top: $s;
+    margin-left: -$s;
+    margin-right: $m;
+}

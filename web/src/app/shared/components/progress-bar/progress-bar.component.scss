@@ -1,0 +1,19 @@
+@import 'src/assets/sass/breakpoints';
+.progress-bar {
+    overflow: hidden;
+    width: 100%;
+    .background-bar {
+        position: absolute;
+        background-image: url(/assets/misc/end-line.svg);
+        height: $m;
+        z-index: 1;
+        width: 100%;
+    }
+    .foreground-bar {
+        position: absolute;
+        background-image: url(/assets/misc/end-line-white.svg);
+        height: $m;
+        z-index: 2;
+        width: 100%;
+    }
+}

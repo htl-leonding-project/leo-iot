@@ -1,0 +1,49 @@
+@import 'src/assets/sass/breakpoints';
+@import 'src/assets/sass/dark-theme-variables';
+.tram {
+    .header {
+        width: 100%;
+        display: inline-flex;
+        margin-bottom: $s;
+        align-items: baseline;
+        h1,
+        h2 {
+            margin: 0;
+        }
+        .header-spacing {
+            width: $m;
+        }
+    }
+    .stations {
+        margin: 0 $m;
+    }
+    .departure {
+        display: flex;
+        align-items: baseline;
+        margin: $xxl $s;
+        .time-to-dep {
+            font-size: 3rem;
+            line-height: 3rem;
+            .line {
+                width: 50%;
+                height: $xs;
+                background-color: $svg-highlight-color;
+                margin: $xs auto;
+            }
+        }
+        p {
+            opacity: 0.5;
+        }
+        .progress {
+            width: 100%;
+            height: 1rem;
+            margin-left: $m;
+            align-self: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .minute-text {
+            margin-right: $m;
+        }
+    }
+}
