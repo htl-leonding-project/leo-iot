@@ -1,0 +1,7 @@
+#for better local testing and documentation
+version: "3"
+services:
+  iot-client:
+    build: ""
+    ports:
+      - "80:80"

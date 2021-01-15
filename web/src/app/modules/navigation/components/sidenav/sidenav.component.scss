@@ -1,0 +1,66 @@
+@import 'src/assets/sass/breakpoints';
+.sidenav-container {
+    position: absolute;
+    display: flex;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 2;
+}
+
+.sidenav-content {
+    height: 100vh;
+    max-height: 100vh;
+    overflow: hidden;
+    width: 100%; // background: linear-gradient(177deg, #222326, #2d3135);
+    background: linear-gradient(177deg, #202020, #191f25);
+    background-size: 200% 200%;
+    -webkit-animation: gradient 60s ease infinite;
+    animation: gradient 60s ease infinite;
+    @-webkit-keyframes gradient {
+        0% {
+            background-position: 0% 10%
+        }
+        50% {
+            background-position: 100% 91%
+        }
+        100% {
+            background-position: 0% 10%
+        }
+    }
+    @keyframes gradient {
+        0% {
+            background-position: 0% 10%
+        }
+        50% {
+            background-position: 100% 91%
+        }
+        100% {
+            background-position: 0% 10%
+        }
+    }
+}
+
+.side-nav {
+    min-width: 20rem;
+    max-width: 20rem;
+    display: flex;
+    flex-direction: column;
+    overflow: unset !important;
+    z-index: 4;
+}
+
+.notification-toggle {
+    margin: $m $ml $m 0;
+    z-index: 3;
+}
+
+.notifications-container {
+    background-color: #fff;
+}
+
+.settings-button {
+    margin: $m $ml $m 0;
+    z-index: 3;
+}

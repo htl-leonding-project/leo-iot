@@ -1,0 +1,31 @@
+@import 'src/assets/sass/breakpoints';
+@import 'src/assets/sass/dark-theme-variables';
+%floor-selector {
+    fill: transparent;
+    stroke: #fff;
+    stroke-miterlimit: 10;
+}
+
+svg {
+    width: 100%
+}
+
+svg * :hover {
+    stroke: $svg-highlight-color;
+}
+
+.highlighted {
+    stroke: $svg-highlight-color;
+}
+
+.firstfloor {
+    @extend %floor-selector;
+}
+
+.secondfloor {
+    @extend %floor-selector;
+}
+
+.thirdfloor {
+    @extend %floor-selector;
+}

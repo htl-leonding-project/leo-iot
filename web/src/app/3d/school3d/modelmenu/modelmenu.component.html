@@ -1,0 +1,129 @@
+<div id="filterNotification" *ngIf="filterNotificationActive()">
+  <p style="margin: 12px 0px"> {{getCurrentFilter()}}-Filter is active</p>
+</div>
+
+<div class="settings">
+  <!--  Animate -->
+  <div id="menuBackground" [@slideInOut]="animationState()"></div>
+
+  <button id="open" *ngIf="!menuOpened" (click)="openMenuEvent()">
+    <img src="../../../../assets/images/open.png">
+  </button>
+  <button id="close" *ngIf="menuOpened" (click)="closeMenuEvent()">
+    <img src="../../../../assets/images/close.png">
+  </button>
+
+  <div *ngIf="menuOpened">
+    <table>
+      <tr>
+        <td>
+          <p class="itemName">Stockwerk:</p>
+        </td>
+        <td>
+          <div class="mDiv">
+            <button type="button" id="cellar" class="smallButton"
+                    [style.backgroundColor]="floorBackgroundColor('cellar')"
+                    [style.color]="floorColor('cellar')"
+                    (click)="floorSelectEvent('cellar');">K
+            </button>
+            <button type="button" id="ground_floor" class="smallButton"
+                    [style.backgroundColor]="floorBackgroundColor('ground_floor')"
+                    [style.color]="floorColor('ground_floor')"
+                    (click)="floorSelectEvent('ground_floor');">
+              E
+            </button>
+            <button type="button" id="first_floor" class="smallButton"
+                    [style.backgroundColor]="floorBackgroundColor('first_floor')"
+                    [style.color]="floorColor('first_floor')"
+                    (click)="floorSelectEvent('first_floor');">1
+            </button>
+            <button type="button" id="second_floor" class="smallButton"
+                    [style.backgroundColor]="floorBackgroundColor('second_floor')"
+                    [style.color]="floorColor('second_floor')"
+                    (click)="floorSelectEvent('second_floor');">
+              2
+            </button>
+            <button type="button" id="ceiling" class="smallButton"
+                    [style.backgroundColor]="floorBackgroundColor('ceiling')"
+                    [style.color]="floorColor('ceiling')"
+                    (click)="floorSelectEvent('ceiling');">A
+            </button>
+          </div>
+        </td>
+      </tr>
+      <tr>
+      <tr>
+        <td>
+          <div class="itemName" style="padding-bottom:165px;">Filter:</div>
+        </td>
+        <td style="padding-top:20px;">
+          <button type="button" id="tempFilter" class="bigButton"
+                  [style.backgroundColor]="buttonBackgroundColor('temperature')"
+                  [style.color]="buttonColor('temperature')"
+                  (click)="clickEvent('temperature')">
+            Temperatur
+          </button>
+          <br>
+          <div class="placeholder"></div>
+          <button type="button" id="humidityFilter" class="bigButton"
+                  [style.backgroundColor]="buttonBackgroundColor('humidity')"
+                  [style.color]="buttonColor('humidity')"
+                  (click)="clickEvent('humidity')">
+            Luftfeuchtigkeit
+          </button>
+          <br>
+          <div class="placeholder"></div>
+          <button type="button" id="co2Filter" class="bigButton"
+                  [style.backgroundColor]="buttonBackgroundColor('co2')"
+                  [style.color]="buttonColor('co2')"
+                  (click)="clickEvent('co2')">
+            CO2
+          </button>
+          <br>
+          <div class="placeholder"></div>
+          <button type="button" id="lightFilter" class="bigButton"
+                  [style.backgroundColor]="buttonBackgroundColor('light')"
+                  [style.color]="buttonColor('light')"
+                  (click)="clickEvent('light')">
+            Licht
+          </button>
+          <br>
+          <div class="placeholder"></div>
+          <button type="button" id="volume" class="bigButton"
+                  [style.backgroundColor]="buttonBackgroundColor('volume')"
+                  [style.color]="buttonColor('volume')"
+                  (click)="clickEvent('volume')">
+            Lautstärke
+          </button>
+          <br>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div class="room" class="itemName">Raum:</div>
+        </td>
+        <td>
+          <div id="roomName" class="itemName">{{getCurrentRoom()}}</div>
+        </td>
+      </tr>
+
+      <tr *ngFor="let measurementTypeAndValue of getData()">
+        <td>
+          <div class="itemName">
+            {{measurementTypeAndValue.type | titlecase}}
+          </div>
+        </td>
+        <td>
+          <div class="itemName">
+            {{(measurementTypeAndValue?.measurement | async)?.value }} {{ (measurementTypeAndValue?.measurement | async)?.unit}}
+          </div>
+        </td>
+      </tr>
+    </table>
+
+    <app-video-feed *ngIf="hasWebcam()"
+                    [url]="getWebcamIp()">
+    </app-video-feed>
+
+  </div>
+</div>
