@@ -298,9 +298,18 @@ Project starts 2020-09-25
 [Preperation] starts 2020-09-25
 [Preperation] ends 2020-11-12
 [Prototype] starts 2020-10-25
+[Create Milestones and User-Stories #4] starts 2020-11-05
+[Create Milestones and User-Stories #4] ends 2020-12-04
+[Create system specification #5] starts 2020-11-05
+[Create system specification #5] ends 2020-11-05
+[Team Meeting] starts 2020-11-07
+[Restructuring #20] starts 2020-11-09
+[Restructuring #20] ends 2021-01-07
 [Prototype] ends 2020-11-12
 [Backend / Sensors / Visualisation] starts 2020-11-12
-[Backend / Sensors / Visualisation] ends 2020-11-19
+[Backend / Sensors / Visualisation] ends 2021-1-21
+[Meeting with predecessor] starts 2020-12-18
+[Team Meeting] starts 2020-12-27
 @enduml
 ....
 
