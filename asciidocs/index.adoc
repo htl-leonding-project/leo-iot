@@ -273,6 +273,8 @@ rest --> androidApp
 
 image:infrastructure.png[width=800px]
 
+image:system_architecture.png[width=800px]
+
 === Meilensteine
 [cols=2]
 |===
@@ -312,6 +314,58 @@ Project starts 2020-09-25
 [Team Meeting] starts 2020-12-27
 @enduml
 ....
+
+=== Verantwortungsmatrix
+
+|===
+||Ecker  |Edlinger  |Klausner  |Knogler  | Kronreif |Oirer  |Ries
+
+|Backend
+|X
+|X
+|
+|
+|x
+|
+|x
+
+|3D-Modell
+|
+|
+|x
+|x
+|
+|x
+|
+
+|Simulator
+|
+|
+|
+|
+|
+|
+|
+
+|Deployment
+|
+|
+|
+|
+|
+|
+|
+
+|Operating
+|
+|
+|
+|
+|
+|
+|
+
+|===
 
 // * link:minutes-of-meeting.html[Protokollvorlage]
 // * link:demo.html[Demo]
