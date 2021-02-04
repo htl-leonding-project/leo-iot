@@ -16,7 +16,7 @@
 === 24.01.2021
 * EQ, EP, KS, KV, RF
 * briefing about the current situation
-* discusion about occuring go problems
+* discussion about occurring go problems
 * restructuring of the repo
 * brainstorming about a more efficient ways of operating
 ** several work sessions a month
