@@ -2,12 +2,11 @@ package at.htl.entity;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.Table;
 import java.time.LocalDateTime;
-
 
 @Entity
 public class Measurement {
+
     @Id
     private LocalDateTime timeStamp;
     private String sensor;
