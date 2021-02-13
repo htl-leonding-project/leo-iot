@@ -1,23 +1,37 @@
 package at.htl.controller;
 
 import at.htl.entity.Measurement;
-import io.quarkus.hibernate.reactive.panache.Panache;
-import io.quarkus.hibernate.reactive.panache.PanacheRepository;
-import io.quarkus.hibernate.reactive.panache.PanacheRepositoryBase;
+import io.agroal.api.AgroalDataSource;
 
 import javax.enterprise.context.ApplicationScoped;
+import javax.inject.Inject;
 import javax.transaction.Transactional;
-import java.time.LocalDateTime;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import java.sql.Timestamp;
 
 @ApplicationScoped
-public class MeasurementRepository implements PanacheRepository<Measurement> {
+public class MeasurementRepository {
+
+    @Inject
+    AgroalDataSource dataSource;
 
     @Transactional
     public Measurement save(Measurement measurement) {
-        System.out.println("Persisting: " + measurement);
 
-        this.persistAndFlush(measurement);
+        try (Connection connection = dataSource.getConnection()) {
+            PreparedStatement ps =connection.prepareStatement("insert into measurement (timestamp, room, sensor, value) values (?, ?, ?, ?)");
 
+            ps.setTimestamp(1, Timestamp.valueOf(measurement.getTimeStamp()));
+            ps.setString(2, measurement.getRoom());
+            ps.setString(3, measurement.getSensor());
+            ps.setInt(4, measurement.getValue());
+
+            ps.execute();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
         return measurement;
     }
 }
