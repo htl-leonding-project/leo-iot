@@ -325,9 +325,9 @@ Project starts 2020-09-25
 |X
 |
 |
-|x
 |
-|x
+|
+|
 
 |3D-Modell
 |
@@ -343,20 +343,11 @@ Project starts 2020-09-25
 |
 |
 |
+|x
 |
-|
-|
+|X
 
 |Deployment
-|
-|
-|
-|
-|
-|
-|
-
-|Operating
 |
 |
 |
