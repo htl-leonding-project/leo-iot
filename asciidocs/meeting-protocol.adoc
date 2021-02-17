@@ -21,6 +21,13 @@
 * brainstorming about a more efficient ways of operating
 ** several work sessions a month
 
+=== 04.02.2021
+* talked about the project management and structure
+* TODO:
+** getting rid off the feature branches
+** creating project handbook
+** linking of all sources
+
 ==== 14.02.2021
 * EP, KV, RF
 * update on current situation
