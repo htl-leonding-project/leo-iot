@@ -284,6 +284,15 @@ image:system_architecture.png[width=800px]
 a| * [x] Vorbereitung
 |12.11.2020
 
+a| * [ ] Persistence
+|04.3.2021
+
+a| * [ ] 3D-Model Improvement
+|04.03.2021
+
+a| * [ ] Simulator
+|01.03.2021
+
 a| * [ ] Visualisierung der Daten
 |19.4.2021
 

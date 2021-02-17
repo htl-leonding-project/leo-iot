@@ -33,24 +33,26 @@ actions can be taken to improve the climate.
 * backend programming
 
 == Milestones
+[cols=2]
 |===
-| id | date | milestone
+|Meilensteine
+|Datum
 
-|0
-|1.11.2020
-| Specification Sheet
+a| * [x] Vorbereitung
+|12.11.2020
 
-|1
-|1.11.2020
-|setup tools
+a| * [ ] Persistence
+|04.3.2021
 
-|2
-|15.11.2020
-|getting familiar with the existing project
+a| * [ ] 3D-Model Improvement
+|04.03.2021
 
-|3
-|01.12.2020
-|Project is runable and meets the expectations
+a| * [ ] Simulator
+|01.03.2021
+
+a| * [ ] Visualisierung der Daten
+|19.4.2021
+
 |===
 
 == Project Start
@@ -77,10 +79,14 @@ The estimated date of completion is the on 14th of September 2021.
 
 == Infrastructur
 
-image:infrastructure.png[width=800px]
+image:system_architecture.png[width=800px]
 
 == Project Team
-* 04 EQ
-* 05 EP
-* 15 OJ
+* 4AHITM 04 EQ
+* 4AHITM 05 EP
+* 4AHITM 10 KF
+* 4AHITM 11 KS
+* 4AHITM 15 OJ
+* 4AHIF 15 KV
+* 4AHIF 21 RF
 
