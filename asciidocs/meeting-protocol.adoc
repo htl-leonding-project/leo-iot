@@ -1,0 +1,35 @@
+= Meeting-Protocol
+
+== 06.12.2020
+* EQ, EP, KF, KS, OJ, KV, RF
+* organizational matters
+
+=== 18.12.2020
+* EQ, EP, KF, KS, OJ, KV, RF
+* discussion with our predecessors about the project
+* new division of tasks
+
+=== 27.12.2020
+* EQ, EP, KS, KV, RF
+* short briefing
+
+=== 24.01.2021
+* EQ, EP, KS, KV, RF
+* briefing about the current situation
+* discussion about occurring go problems
+* restructuring of the repo
+* brainstorming about a more efficient ways of operating
+** several work sessions a month
+
+==== 14.02.2021
+* EP, KV, RF
+* update on current situation
+* upcoming simulator problems
+** dicussion about solving the problem
+* talking about deadlines
+
+
+
+
+
+

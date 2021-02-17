@@ -1,0 +1,16 @@
+= Leo-Iot
+EQ,EP,OJ, SK, FK
+1.0.0, 2020-11-2:
+ifndef::imagesdir[:imagesdir: images]
+
+==  1. Project Proposal
+*   https://2021-4ahitm-itp.github.io/01-project-proposal-school-iot/Proposal
+
+== 2. System Specification
+*   https://htl-leonding-project.github.io/leo-iot/
+
+== Code Documentation
+
+* Frontend
+* Backend
+* Simulator
