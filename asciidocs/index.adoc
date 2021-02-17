@@ -7,7 +7,7 @@ ifndef::imagesdir[:imagesdir: images]
 *   https://2021-4ahitm-itp.github.io/01-project-proposal-school-iot/Proposal
 
 == 2. System Specification
-*   https://htl-leonding-project.github.io/leo-iot/
+*   https://htl-leonding-project.github.io/leo-iot/System-Specification
 
 == Code Documentation
 
