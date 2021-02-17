@@ -200,7 +200,6 @@ a|
 | beim Eintreten eines Sonderfalles
 |===
 
-
 === Ziele
 
 Steigerung der Lernqualität und Verbesserung des Wohlbefindens der Schüler und Lehrer
@@ -223,55 +222,56 @@ Diese Daten werden an die Applikation weitergeleitet, welche die passenden Maßn
 == Entwurf "Wie mache ich es"
 === Systemarchitektur
 
-[plantuml,gantt-diagramm,png]
-----
-@startuml
-rectangle "MQTT Broker" as mqtt
-rectangle "actors and senders" as actorsSenders
-database DB
+//[plantuml,gantt-diagramm,png]
+//----
+//@startuml
+//rectangle "MQTT Broker" as mqtt
+//rectangle "actors and senders" as actorsSenders
+//database DB
+//
+//package "backend" as backend {
+//    rectangle REST as rest
+//    rectangle Ki as ki
+//    rectangle "Rule Engine" as ruleEngine
+//    rectangle "Server / Core \n Datenverarbeitung" as dataFlow
+//}
+//
+//package "frontend" as frontend {
+//    rectangle "3D Data Visulaization" as 3dData
+//    rectangle "Android App" as androidApp
+//    rectangle "Web Client" as webClient
+//    rectangle "OpenHAB" as openHab
+//}
+//
+//3dData -[hidden]right- androidApp
+//androidApp -[hidden]right- webClient
+//webClient -[hidden]right- openHab
+//
+//rest -[hidden]down- ki
+//ki -[hidden]down- ruleEngine
+//ruleEngine -[hidden]down- dataFlow
+//
+//mqtt --up-> 3dData
+//mqtt -up-> androidApp
+//mqtt -up-> webClient
+//mqtt -up-> openHab
+//mqtt <-right--> ki
+//mqtt <-right--> ruleEngine
+//mqtt <-right--> dataFlow
+//
+//mqtt <-down-> actorsSenders
+//
+//ki <-right-> DB
+//dataFlow <-right-> DB
+//
+//rest -left-> openHab
+//rest -left-> webClient
+//rest --> androidApp
+//@enduml
+//----
+//
 
-package "backend" as backend {
-    rectangle REST as rest
-    rectangle Ki as ki
-    rectangle "Rule Engine" as ruleEngine
-    rectangle "Server / Core \n Datenverarbeitung" as dataFlow
-}
-
-package "frontend" as frontend {
-    rectangle "3D Data Visulaization" as 3dData
-    rectangle "Android App" as androidApp
-    rectangle "Web Client" as webClient
-    rectangle "OpenHAB" as openHab
-}
-
-3dData -[hidden]right- androidApp
-androidApp -[hidden]right- webClient
-webClient -[hidden]right- openHab
-
-rest -[hidden]down- ki
-ki -[hidden]down- ruleEngine
-ruleEngine -[hidden]down- dataFlow
-
-mqtt --up-> 3dData
-mqtt -up-> androidApp
-mqtt -up-> webClient
-mqtt -up-> openHab
-mqtt <-right--> ki
-mqtt <-right--> ruleEngine
-mqtt <-right--> dataFlow
-
-mqtt <-down-> actorsSenders
-
-ki <-right-> DB
-dataFlow <-right-> DB
-
-rest -left-> openHab
-rest -left-> webClient
-rest --> androidApp
-@enduml
-----
-
-image:infrastructure.png[width=800px]
+//image:infrastructure.png[width=800px]
 
 image:system_architecture.png[width=800px]
 
@@ -281,39 +281,70 @@ image:system_architecture.png[width=800px]
 |Meilensteine
 |Datum
 
-a| * [ ] Vorbereitung
+a| * [x] Vorbereitung
 |12.11.2020
 
 a| * [ ] Visualisierung der Daten
-|19.11.2020
+|19.4.2021
 
 |===
 
 === GANTT-Diagramm
 
 
-[plantuml,gantt-protoype,png]
-
+[plantuml,gantt-protoype1,png]
 ....
 @startuml
 Project starts 2020-09-25
 [Preperation] starts 2020-09-25
 [Preperation] ends 2020-11-12
 [Prototype] starts 2020-10-25
+[Prototype] ends 2020-11-12
+
+
+@enduml
+....
+
+
+[plantuml,gantt-protoype2,png]
+....
+@startuml
+Project starts 2020-11-05
 [Create Milestones and User-Stories #4] starts 2020-11-05
 [Create Milestones and User-Stories #4] ends 2020-12-04
 [Create system specification #5] starts 2020-11-05
 [Create system specification #5] ends 2020-11-05
-[Team Meeting] starts 2020-11-07
-[Restructuring #20] starts 2020-11-09
-[Restructuring #20] ends 2021-01-07
-[Prototype] ends 2020-11-12
-[Backend / Sensors / Visualisation] starts 2020-11-12
-[Backend / Sensors / Visualisation] ends 2021-1-21
-[Meeting with predecessor] starts 2020-12-18
-[Team Meeting] starts 2020-12-27
 @enduml
 ....
+
+[plantuml,gantt-protoype3,png]
+....
+@startuml
+Project starts 2020-11-09
+
+[Restructuring #20] starts 2020-11-09
+[Restructuring #20] ends 2021-01-07
+
+[Backend / Sensors / Visualisation] starts 2020-11-12
+[Backend / Sensors / Visualisation] ends 2021-1-21
+
+
+
+@enduml
+....
+
+[plantuml,gantt-protoype4,png]
+....
+@startuml
+Project starts 2020-11-07
+
+[Team Meeting] starts 2020-11-07
+[Meeting with predecessor] starts 2020-12-18
+[Team Meeting3] starts 2020-12-27
+
+@enduml
+....
+
 
 === Verantwortungsmatrix
 
