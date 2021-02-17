@@ -8,8 +8,7 @@ will display the data on a dashboard and a 3D-Modell.
 
 ## Documents
 
-- [System Specification](https://2021-4ahitm-itp.github.io/01-project-proposal-school-iot/)
-- [Project Proposal](https://2021-4ahitm-itp.github.io/01-project-proposal-school-iot/Proposal)
+- [Handbook](https://htl-leonding-project.github.io/leo-iot/)
 - [Local Broker Doku](https://2021-4ahitm-itp.github.io/01-project-proposal-school-iot/Localbroker_Doku)
 
 ## Associated repositories
