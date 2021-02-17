@@ -340,7 +340,8 @@ Project starts 2020-11-07
 
 [Team Meeting] starts 2020-11-07
 [Meeting with predecessor] starts 2020-12-18
-[Team Meeting3] starts 2020-12-27
+[Team Meeting2] starts 2020-12-27
+[Team Meeting3] starts 2021-02-14
 
 @enduml
 ....
