@@ -86,7 +86,6 @@ image:system_architecture.png[width=800px]
 * 4AHITM 05 EP
 * 4AHITM 10 KF
 * 4AHITM 11 KS
-* 4AHITM 15 OJ
 * 4AHIF 15 KV
 * 4AHIF 21 RF
 
