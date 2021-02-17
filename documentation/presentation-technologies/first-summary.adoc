@@ -1,0 +1,21 @@
+= Summary
+Simon Knogler
+1.0.0, 2020-01-29:
+:toc: left
+:sectnums:
+
+== Description
+Dieses File dient zu Unterstützung bei der Vorbereitung für die Präsentation der Technologien, welche für das 3D-Modell und für das Dashboard verwendet werden. Die Präsentation wird mithilfe von reveal.js erstellt.
+
+== 3D-Modell
+=== ".dwg" & ".dwf" File Aufbereitung
+==== AutoDWG
+https://www.autodwg.com/dwg2svg/default.aspx
+
+=== Angular
+=== three.js
+==== Orbital Control
+==== Raycaster
+=== MQTT
+=== API's
+==== Linz AG API
