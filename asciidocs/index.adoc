@@ -359,12 +359,11 @@ Project starts 2020-11-07
 === Verantwortungsmatrix
 
 |===
-||Ecker  |Edlinger  |Klausner  |Knogler  | Kronreif |Oirer  |Ries
+||Ecker  |Edlinger  |Klausner  |Knogler  | Kronreif |Ries
 
 |Backend
 |X
 |X
-|
 |
 |
 |
@@ -376,7 +375,6 @@ Project starts 2020-11-07
 |x
 |x
 |
-|x
 |
 
 |Simulator
@@ -385,11 +383,9 @@ Project starts 2020-11-07
 |
 |
 |x
-|
 |X
 
 |Deployment
-|
 |
 |
 |
