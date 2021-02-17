@@ -21,5 +21,15 @@
 * brainstorming about a more efficient ways of operating
 ** several work sessions a month
 
+==== 14.02.2021
+* EP, KV, RF
+* update on current situation
+* upcoming simulator problems
+** dicussion about solving the problem
+* talking about deadlines
+
+
+
+
 
 
