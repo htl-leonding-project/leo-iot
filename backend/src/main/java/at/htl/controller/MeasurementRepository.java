@@ -21,14 +21,16 @@ public class MeasurementRepository {
     public Measurement save(Measurement measurement) {
 
         try (Connection connection = dataSource.getConnection()) {
-            PreparedStatement ps =connection.prepareStatement("insert into measurement (timestamp, room, sensor, value) values (?, ?, ?, ?)");
+            try (PreparedStatement ps = connection.prepareStatement(
+                    "insert into measurement (timestamp, room, sensor, value) values (?, ?, ?, ?)")
+            ) {
+                ps.setTimestamp(1, Timestamp.valueOf(measurement.getTimeStamp()));
+                ps.setString(2, measurement.getRoom());
+                ps.setString(3, measurement.getSensor());
+                ps.setInt(4, measurement.getValue());
 
-            ps.setTimestamp(1, Timestamp.valueOf(measurement.getTimeStamp()));
-            ps.setString(2, measurement.getRoom());
-            ps.setString(3, measurement.getSensor());
-            ps.setInt(4, measurement.getValue());
-
-            ps.execute();
+                ps.execute();
+            }
         } catch (SQLException e) {
             e.printStackTrace();
         }
