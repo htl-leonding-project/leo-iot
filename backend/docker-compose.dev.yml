@@ -9,6 +9,6 @@ services:
       POSTGRES_USER: app
       POSTGRES_DB: db
     volumes:
-      - ./db_dev/:/var/lib/postgresql/data
+      - ./db/:/var/lib/postgresql/data
     ports:
       - 5432:5432
