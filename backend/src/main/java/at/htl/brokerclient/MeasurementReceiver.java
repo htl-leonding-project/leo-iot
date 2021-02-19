@@ -24,20 +24,10 @@ public class MeasurementReceiver {
     @Inject
     MeasurementRepository measurementRepository;
 
-    @Inject
-    Mutiny.Session ms;
-
-    @Inject
-    EntityManager em;
-
     @Incoming("leo-iot")
     public CompletionStage<Void> receiver(MqttMessage<byte[]> msg) {
-        System.out.println("recieving Measurement");
         JsonObject jsonObject = JsonbBuilder.create().fromJson(new String(msg.getPayload()), JsonObject.class);
-        System.out.println(jsonObject.getInt("value"));
-
         Instant instant = Instant.ofEpochMilli(jsonObject.getInt("timestamp"));
-
 
         Measurement measurement = new Measurement(
                 instant.atZone(ZoneId.systemDefault()).toLocalDateTime(),
@@ -46,9 +36,7 @@ public class MeasurementReceiver {
                 msg.getTopic().split("/")[1]
         );
 
-        System.out.println("Before persisting");
         measurementRepository.save(measurement);
-        System.out.println("After persisting");
 
         return msg.ack();
     }
