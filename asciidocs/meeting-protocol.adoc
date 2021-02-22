@@ -35,7 +35,11 @@
 ** dicussion about solving the problem
 * talking about deadlines
 
-
+=== 21.02.2021
+* EQ, EP, KV
+* status update
+* assigned new tasks
+* should create extra branch for the new simulator libary
 
 
 
