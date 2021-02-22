@@ -48,3 +48,22 @@
 * should create extra branch for the new simulator libary
 
 
+=== 22.02.2021
+==== Notes:
+* programm is available
+* we need to configure the sensorbox
+* the software is written in c++
+* in VS we use Express
+* Express uses a components
+* procedure:
+** picking the device
+** build the code (Build Flash Monitor)
+** an accespoints starts
+* a http-server is running on the sensorbox
+* assigning of a topic:
+** configuration happens in the Main
+* How does the server new which room is currently used:
+** ThingName
+* Our Goal:
+** configuratuion of the sensorbox with access to the accesspoint of the school
+
