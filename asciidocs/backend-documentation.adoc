@@ -1,0 +1,24 @@
+= Backend Documentation
+EQ,EP,OJ, SK, FK, VK, FR
+1.0.0, 2020-11-2:
+ifndef::imagesdir[:imagesdir: images]
+
+== ERD
+
+image:ERD.png[]
+
+== Purpose
+
+The aim of the backend is to persist the collected data/values of the mqtt-broker into a database and to be able to provied those with websockets.
+
+== Specification
+
+image:backend_system_architecture.png[]
+
+A MessageReciever in Quarkus gets the provided measurements via a subscription on the MQTT-Broker.The collected measurements are intern handled by a Repository which persist the values into a Timescale Database and
+offer them for further components through Websockets/Endpoints.
+
+== Components
+* Quarkus
+* Timescale DB
+

@@ -41,6 +41,16 @@
 * assigned new tasks
 * should create extra branch for the new simulator libary
 
+==== 19.02.2021
+* Write instructions for the backend in the ReadME
+* the professor is looking for an alternative solution for JDBC
+* create reactive branching
 
+
+=== 21.02.2021
+* EQ, EP, KV
+* status update
+* assigned new tasks
+* should create extra branch for the new simulator libary
 
 
