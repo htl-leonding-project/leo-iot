@@ -2,9 +2,10 @@ package at.htl.entity;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import java.io.Serializable;
 
 @Entity
-public class SensorTranslation {
+public class SensorTranslation  implements Serializable {
 
     @Id
     private int sensorId;
