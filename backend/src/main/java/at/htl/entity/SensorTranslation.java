@@ -1,22 +1,24 @@
 package at.htl.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
-public class SensorTranslation{
+public class SensorTranslation implements Serializable{
 
     @Id
-    private int sensorId;
-    private int languageId;
+    @ManyToOne
+    private Sensor sensorId;
+    @Id
+    @ManyToOne
+    private Language languageId;
     private String displayName;
     private String unit;
 
     public SensorTranslation() {
     }
 
-    public SensorTranslation(int sensorId, int languageId, String displayName, String unit) {
+    public SensorTranslation(Sensor sensorId, Language languageId, String displayName, String unit) {
         this.sensorId = sensorId;
         this.languageId = languageId;
         this.displayName = displayName;
@@ -24,19 +26,20 @@ public class SensorTranslation{
     }
 
     // region Getter and Setter
-    public int getSensorId() {
+
+    public Sensor getSensorId() {
         return sensorId;
     }
 
-    public void setSensorId(int sensorId) {
+    public void setSensorId(Sensor sensorId) {
         this.sensorId = sensorId;
     }
 
-    public int getLanguageId() {
+    public Language getLanguageId() {
         return languageId;
     }
 
-    public void setLanguageId(int languageId) {
+    public void setLanguageId(Language languageId) {
         this.languageId = languageId;
     }
 
