@@ -42,7 +42,7 @@ public class MeasurementReceiver {
                 msg.getTopic().split("/")[1]
         );
 
-        measurementRepository.save(measurement);
+        // measurementRepository.save(measurement);
 
         return msg.ack();
     }
