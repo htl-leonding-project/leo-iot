@@ -5,13 +5,11 @@ import javax.persistence.Id;
 import java.io.Serializable;
 
 @Entity
-public class SensorTranslation  implements Serializable {
+public class SensorTranslation{
 
     @Id
     private int sensorId;
-    @Id
     private int languageId;
-
     private String displayName;
     private String unit;
 
