@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/leo-iot.iml" filepath="$PROJECT_DIR$/.idea/leo-iot.iml" />
+      <module fileurl="file://$PROJECT_DIR$/backend/leo-iot-server.iml" filepath="$PROJECT_DIR$/backend/leo-iot-server.iml" />
     </modules>
   </component>
 </project>
