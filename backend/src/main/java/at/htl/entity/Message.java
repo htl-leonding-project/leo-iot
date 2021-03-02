@@ -17,18 +17,18 @@ public class Message implements Serializable {
     private String messageName;
     private String level;
     private String title;
-    private String descritption;
+    private String description;
 
     public Message() {
     }
 
-    public Message(int messageId, Language languageId, String messageName, String level, String title, String descritption) {
+    public Message(int messageId, Language languageId, String messageName, String level, String title, String description) {
         this.messageId = messageId;
         this.languageId = languageId;
         this.messageName = messageName;
         this.level = level;
         this.title = title;
-        this.descritption = descritption;
+        this.description = description;
     }
 
     // region Getter and Setter
@@ -72,12 +72,12 @@ public class Message implements Serializable {
         this.title = title;
     }
 
-    public String getDescritption() {
-        return descritption;
+    public String getDescription() {
+        return description;
     }
 
-    public void setDescritption(String descritption) {
-        this.descritption = descritption;
+    public void setDescription(String descritption) {
+        this.description = descritption;
     }
     // endregion
 }
