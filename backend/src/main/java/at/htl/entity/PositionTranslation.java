@@ -9,7 +9,8 @@ import java.io.Serializable;
 public class PositionTranslation implements Serializable {
 
     @Id
-    private int positionId;
+    @ManyToOne
+    private Position positionId;
     @Id
     @ManyToOne
     private Language languageId;
@@ -20,7 +21,7 @@ public class PositionTranslation implements Serializable {
     public PositionTranslation() {
     }
 
-    public PositionTranslation(int positionId, Language languageId, String area, String section, String position) {
+    public PositionTranslation(Position positionId, Language languageId, String area, String section, String position) {
         this.positionId = positionId;
         this.languageId = languageId;
         this.area = area;
@@ -29,11 +30,12 @@ public class PositionTranslation implements Serializable {
     }
 
     //region Getter and Setter
-    public int getPositionId() {
+
+    public Position getPositionId() {
         return positionId;
     }
 
-    public void setPositionId(int positionId) {
+    public void setPositionId(Position positionId) {
         this.positionId = positionId;
     }
 
