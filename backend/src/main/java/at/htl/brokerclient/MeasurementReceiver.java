@@ -1,26 +1,17 @@
 package at.htl.brokerclient;
 
 import at.htl.controller.MeasurementRepository;
-import at.htl.entity.Measurement;
-import io.agroal.api.AgroalDataSource;
 import io.smallrye.reactive.messaging.mqtt.MqttMessage;
 import org.eclipse.microprofile.reactive.messaging.Incoming;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import javax.json.JsonObject;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
-import java.sql.Timestamp;
 import java.time.Instant;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.time.ZoneId;
 import java.util.TimeZone;
 import java.util.concurrent.CompletionStage;
 import javax.json.bind.JsonbBuilder;
-import javax.persistence.EntityManager;
 
 @ApplicationScoped
 public class MeasurementReceiver {
