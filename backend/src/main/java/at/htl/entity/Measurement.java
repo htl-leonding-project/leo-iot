@@ -26,4 +26,28 @@ public class Measurement implements Serializable {
         this.sensorId = sensorId;
         this.measurement = measurement;
     }
+
+    public Timestamp getTime() {
+        return time;
+    }
+
+    public void setTime(Timestamp time) {
+        this.time = time;
+    }
+
+    public Sensor getSensorId() {
+        return sensorId;
+    }
+
+    public void setSensorId(Sensor sensorId) {
+        this.sensorId = sensorId;
+    }
+
+    public Float getMeasurement() {
+        return measurement;
+    }
+
+    public void setMeasurement(Float measurement) {
+        this.measurement = measurement;
+    }
 }
