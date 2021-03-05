@@ -9,7 +9,7 @@ public class Sensor {
     private int sensorId;
     private String sensorType;
     @ManyToOne
-    @JoinColumn(name = "positionid")
+    @JoinColumn(name = "position_id")
     private Position positionId;
     private String tag;
     private boolean online;

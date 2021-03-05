@@ -2,6 +2,7 @@ package at.htl.entity;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import java.io.Serializable;
 
@@ -12,6 +13,7 @@ public class Message implements Serializable {
     private int messageId;
     @Id
     @ManyToOne
+    @JoinColumn(name = "language_id")
     private Language languageId;
     @Id
     private String messageName;

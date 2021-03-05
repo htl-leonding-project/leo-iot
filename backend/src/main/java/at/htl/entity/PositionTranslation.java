@@ -2,6 +2,7 @@ package at.htl.entity;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import java.io.Serializable;
 
@@ -10,9 +11,11 @@ public class PositionTranslation implements Serializable {
 
     @Id
     @ManyToOne
+    @JoinColumn(name = "position_id")
     private Position positionId;
     @Id
-    @ManyToOne
+    @ManyToOne()
+    @JoinColumn(name = "language_id")
     private Language languageId;
     private String area;
     private String section;

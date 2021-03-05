@@ -11,6 +11,7 @@ public class SensorTranslation implements Serializable{
     private Sensor sensorId;
     @Id
     @ManyToOne
+    @JoinColumn(name = "language_id")
     private Language languageId;
     private String displayName;
     private String unit;
