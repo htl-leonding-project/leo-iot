@@ -27,6 +27,7 @@ public class Measurement implements Serializable {
         this.measurement = measurement;
     }
 
+    //region Getter and Setter
     public Timestamp getTime() {
         return time;
     }
@@ -50,4 +51,5 @@ public class Measurement implements Serializable {
     public void setMeasurement(Float measurement) {
         this.measurement = measurement;
     }
+    //endregion
 }
