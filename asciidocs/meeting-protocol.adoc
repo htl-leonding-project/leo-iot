@@ -65,5 +65,9 @@
 * How does the server new which room is currently used:
 ** ThingName
 * Our Goal:
-** configuratuion of the sensorbox with access to the accesspoint of the school
+** configuration of the sensorbox with access to the accesspoint of the school
 
+=== 07.03.2021
+* EQ, EP, KV, RF
+* talked about the current state and tasks
+* tried to fix a connecting to mediator error
