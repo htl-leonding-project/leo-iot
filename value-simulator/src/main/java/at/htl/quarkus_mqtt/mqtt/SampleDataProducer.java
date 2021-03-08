@@ -15,13 +15,14 @@ import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 @ApplicationScoped
-public class SampleDataProducer {
+public class SampleDataProducer extends Thread{
 
     @Inject CamelPahoPublisher publisher;
 
     List<Room> rooms = new LinkedList<>();
 
-    public void sendToPublisher() throws MqttException {
+    public void sendToPublisher(String jsonValue) throws MqttException {
+
         rooms.add(new Room("4ahif"));
         rooms.add(new Room("3ahif"));
         rooms.add(new Room("5ahitm"));
@@ -29,27 +30,39 @@ public class SampleDataProducer {
         rooms.add(new Room("EDV10"));
 
         for (Room room : rooms) {
-            publisher.post(new MessageTopicDto(produce().last("").blockingGet(), room.getName()));
+            publisher.post(new MessageTopicDto(jsonValue, room.getName()));
         }
 
     }
 
-    public Flowable<String> produce() {
-        return Flowable.interval(5, TimeUnit.SECONDS)
-                .map(tick -> {
-                    var timestamp = new Timestamp(System.currentTimeMillis());
-                    var json = Json.createObjectBuilder()
-                            .add("timestamp", timestamp.toString())
-                            .add("co2Indoor", Math.random())
-                            .add("humidityIndoor", Math.random())
-                            .add("temperatureOutdoor", Math.random())
-                            .add("window1open", Math.random() % 0.2 == 0)
-                            .add("window2open", Math.random() % 0.2 == 0)
-                            .add("window3open", Math.random() % 0.2 == 0)
-                            .add("window3open", Math.random() % 0.2 == 0)
-                            .build();
+    public void run() {
+        while(true){
+            try {
+                produce();
+            } catch (MqttException e) {
+                e.printStackTrace();
+            }
+            try {
+                Thread.sleep(5000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+    }
 
-                    return json.toString();
-                });
+    public void produce() throws MqttException {
+        var timestamp = new Timestamp(System.currentTimeMillis());
+        var json = Json.createObjectBuilder()
+                .add("timestamp", timestamp.toString())
+                .add("co2Indoor", Math.random())
+                .add("humidityIndoor", Math.random())
+                .add("temperatureOutdoor", Math.random())
+                .add("window1open", Math.random() % 0.2 == 0)
+                .add("window2open", Math.random() % 0.2 == 0)
+                .add("window3open", Math.random() % 0.2 == 0)
+                .add("window3open", Math.random() % 0.2 == 0)
+                .build();
+
+        sendToPublisher(json.toString());
     }
 }

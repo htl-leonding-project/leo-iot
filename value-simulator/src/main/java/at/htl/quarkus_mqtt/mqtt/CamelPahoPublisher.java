@@ -41,7 +41,7 @@ public class CamelPahoPublisher {
         // connecting to the mqtt broker
         client.connect(options);
 
-        producer.sendToPublisher();
+        producer.run();
     }
 
     // will publish the passed through String to the configured topic-write
