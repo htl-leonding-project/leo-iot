@@ -11,6 +11,7 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="Maven: org.json:json:20201115" level="project" />
     <orderEntry type="library" name="Maven: io.quarkus:quarkus-smallrye-reactive-messaging-mqtt:1.12.1.Final" level="project" />
     <orderEntry type="library" name="Maven: io.smallrye.reactive:smallrye-reactive-messaging-mqtt:2.8.0" level="project" />
     <orderEntry type="library" name="Maven: io.smallrye.reactive:smallrye-mutiny-vertx-mqtt:1.4.0" level="project" />

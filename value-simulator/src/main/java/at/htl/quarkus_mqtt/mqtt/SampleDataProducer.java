@@ -4,14 +4,18 @@ import io.quarkus.runtime.StartupEvent;
 import io.reactivex.Flowable;
 import org.eclipse.microprofile.reactive.messaging.Outgoing;
 import org.eclipse.paho.client.mqttv3.MqttException;
+import org.json.JSONObject;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.enterprise.event.Observes;
 import javax.inject.Inject;
 import javax.json.Json;
+import javax.json.JsonObject;
 import java.sql.Timestamp;
+import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
 @ApplicationScoped
@@ -21,7 +25,7 @@ public class SampleDataProducer extends Thread{
 
     List<Room> rooms = new LinkedList<>();
 
-    public void sendToPublisher(String jsonValue) throws MqttException {
+    public void sendToPublisher(JSONObject jsonValue) throws MqttException {
 
         rooms.add(new Room("4ahif"));
         rooms.add(new Room("3ahif"));
@@ -51,18 +55,19 @@ public class SampleDataProducer extends Thread{
     }
 
     public void produce() throws MqttException {
-        var timestamp = new Timestamp(System.currentTimeMillis());
-        var json = Json.createObjectBuilder()
-                .add("timestamp", timestamp.toString())
-                .add("co2Indoor", Math.random())
-                .add("humidityIndoor", Math.random())
-                .add("temperatureOutdoor", Math.random())
-                .add("window1open", Math.random() % 0.2 == 0)
-                .add("window2open", Math.random() % 0.2 == 0)
-                .add("window3open", Math.random() % 0.2 == 0)
-                .add("window3open", Math.random() % 0.2 == 0)
-                .build();
 
-        sendToPublisher(json.toString());
+        Map values = new HashMap<String, Object>();
+        values.put("temp", System.currentTimeMillis());
+        values.put("noise", Math.random() * 100);
+        values.put("trafficlight", Math.floor(Math.random()));
+        values.put("temperature", Math.random() * 20);
+        values.put("humidity", Math.random() * 20);
+        values.put("pressure", Math.random() * 1000);
+        values.put("luminosity", Math.random() * 2000);
+        values.put("co2", Math.random() * 700);
+        values.put("motion", Math.floor(Math.random()));
+
+        JSONObject jsonValue = new JSONObject(values);
+        sendToPublisher(jsonValue);
     }
 }
