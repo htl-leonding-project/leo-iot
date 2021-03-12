@@ -1,37 +1,68 @@
 package at.htl.brokerclient;
 
-import at.htl.controller.MeasurementRepository;
 import at.htl.entity.Measurement;
-import io.agroal.api.AgroalDataSource;
-import io.smallrye.reactive.messaging.mqtt.MqttMessage;
-import org.eclipse.microprofile.reactive.messaging.Incoming;
+import io.quarkus.runtime.StartupEvent;
+import org.eclipse.microprofile.config.inject.ConfigProperty;
+import org.eclipse.paho.client.mqttv3.*;
+import org.eclipse.paho.client.mqttv3.persist.MemoryPersistence;
 
-import javax.enterprise.context.ApplicationScoped;
+import javax.enterprise.event.Observes;
 import javax.inject.Inject;
 import javax.json.JsonObject;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
-import java.sql.Timestamp;
-import java.time.Instant;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.ZoneId;
-import java.util.TimeZone;
-import java.util.concurrent.CompletionStage;
 import javax.json.bind.JsonbBuilder;
-import javax.persistence.EntityManager;
+import java.time.Instant;
+import java.time.LocalDateTime;
+import java.util.Optional;
+import java.util.TimeZone;
 
-@ApplicationScoped
-public class MeasurementReceiver {
+public class MeasurementReceiver implements MqttCallback {
 
-    @Inject
-    MeasurementRepository measurementRepository;
+    @ConfigProperty(name = "mqtt.url")
+    String mqttUrl;
 
-    @Incoming("leo-iot")
-    public CompletionStage<Void> receiver(MqttMessage<byte[]> msg) {
-        JsonObject jsonObject = JsonbBuilder.create().fromJson(new String(msg.getPayload()), JsonObject.class);
+    @ConfigProperty(name = "mqtt.topic")
+    String mqttTopic;
 
-        return msg.ack();
+    @ConfigProperty(name = "mqtt.username")
+    String mqttUsername;
+
+    @ConfigProperty(name = "MQTT_PASSWORD")
+    Optional<String> mqttPassword;
+
+    @ConfigProperty(name = "mqtt.qos", defaultValue = "1")
+    int mqttQos;
+
+    void onStart(@Observes StartupEvent ev) {
+        try {
+            MqttAsyncClient client = new MqttAsyncClient(
+                    mqttUrl,
+                    MqttAsyncClient.generateClientId(),
+                    new MemoryPersistence()
+            );
+
+            MqttConnectOptions connOpts = new MqttConnectOptions();
+            connOpts.setCleanSession(true);
+            connOpts.setUserName(mqttUsername);
+
+            connOpts.setPassword(mqttPassword.orElseThrow().toCharArray());
+            client.connect(connOpts).waitForCompletion();
+            client.subscribe(mqttTopic, mqttQos);
+            client.setCallback(this);
+
+        } catch (MqttException e) {
+            e.printStackTrace();
+        }
+
     }
+
+    @Override
+    public void connectionLost(Throwable throwable) { }
+
+    @Override
+    public void messageArrived(String topic, MqttMessage msg) {
+        JsonObject jsonObject = JsonbBuilder.create().fromJson(new String(msg.getPayload()), JsonObject.class);
+    }
+
+    @Override
+    public void deliveryComplete(IMqttDeliveryToken iMqttDeliveryToken) { }
 }
