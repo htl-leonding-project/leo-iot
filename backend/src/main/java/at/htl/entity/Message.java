@@ -1,5 +1,9 @@
 package at.htl.entity;
 
+import com.sun.istack.NotNull;
+import com.sun.xml.bind.annotation.OverrideAnnotationOf;
+import io.quarkus.security.IdentityAttribute;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Objects;
@@ -47,6 +51,20 @@ public class Message{
 
     public Message(IdKey id, String level, String title, String description) {
         this.id = id;
+        this.level = level;
+        this.title = title;
+        this.description = description;
+    }
+
+    public Message(Language language, String name, String level, String title, String description) {
+        this.id = new IdKey(language, name);
+        this.level = level;
+        this.title = title;
+        this.description = description;
+    }
+
+    public Message(Long id, Language language, String name, String level, String title, String description) {
+        this.id = new IdKey(id, language, name);
         this.level = level;
         this.title = title;
         this.description = description;
