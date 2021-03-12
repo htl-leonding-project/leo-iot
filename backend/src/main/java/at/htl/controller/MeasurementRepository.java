@@ -4,6 +4,7 @@ import io.agroal.api.AgroalDataSource;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
+import javax.persistence.EntityManager;
 import javax.transaction.Transactional;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -15,6 +16,9 @@ public class MeasurementRepository {
 
     @Inject
     AgroalDataSource dataSource;
+
+    @Inject
+    EntityManager entityManager;
 
     @Transactional
     public Measurement save(Measurement measurement) {
@@ -34,5 +38,10 @@ public class MeasurementRepository {
             e.printStackTrace();
         }
         return measurement;
+    }
+
+    @Transactional()
+    public Measurement hibernateSave(Measurement m) {
+        return entityManager.merge(m);
     }
 }

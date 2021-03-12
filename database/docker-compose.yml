@@ -1,0 +1,15 @@
+version: '3.7'
+
+services:
+  postgres-dev:
+    build: .
+    image: leo-iot/timescaledb
+    container_name: leo-iot-db
+    environment:
+      POSTGRES_PASSWORD: app
+      POSTGRES_USER: app
+      POSTGRES_DB: postgres
+    volumes:
+      - ./db/:/var/lib/postgresql/data
+    ports:
+      - 5432:5432
