@@ -1,6 +1,5 @@
 package at.htl.controller;
 
-import at.htl.entity.Measurement;
 import io.agroal.api.AgroalDataSource;
 
 import javax.enterprise.context.ApplicationScoped;

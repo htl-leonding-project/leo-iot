@@ -2,66 +2,54 @@ package at.htl.entity;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import java.time.LocalDateTime;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import java.io.Serializable;
+import java.sql.Timestamp;
 
 @Entity
-public class Measurement {
+public class Measurement implements Serializable {
 
     @Id
-    private LocalDateTime timeStamp;
-    private String sensor;
-    private int value;
-    private String room;
-
-    public Measurement(LocalDateTime timeStamp, String sensor, int value, String room) {
-        this.timeStamp = timeStamp;
-        this.sensor = sensor;
-        this.value = value;
-        this.room = room;
-    }
+    private Timestamp time;
+    @Id
+    @ManyToOne
+    @JoinColumn(name = "sensor_id")
+    private Sensor sensorId;
+    private Float measurement;
 
     public Measurement() {
     }
 
-    public LocalDateTime getTimeStamp() {
-        return timeStamp;
+    public Measurement(Timestamp time, Sensor sensorId, Float measurement) {
+        this.time = time;
+        this.sensorId = sensorId;
+        this.measurement = measurement;
     }
 
-    public void setTimeStamp(LocalDateTime timeStamp) {
-        this.timeStamp = timeStamp;
+    //region Getter and Setter
+    public Timestamp getTime() {
+        return time;
     }
 
-    public String getSensor() {
-        return sensor;
+    public void setTime(Timestamp time) {
+        this.time = time;
     }
 
-    public void setSensor(String sensor) {
-        this.sensor = sensor;
+    public Sensor getSensorId() {
+        return sensorId;
     }
 
-    public int getValue() {
-        return value;
+    public void setSensorId(Sensor sensorId) {
+        this.sensorId = sensorId;
     }
 
-    public void setValue(int value) {
-        this.value = value;
+    public Float getMeasurement() {
+        return measurement;
     }
 
-    public String getRoom() {
-        return room;
+    public void setMeasurement(Float measurement) {
+        this.measurement = measurement;
     }
-
-    public void setRoom(String room) {
-        this.room = room;
-    }
-
-    @Override
-    public String toString() {
-        return "Measurement{" +
-                "timeStamp=" + timeStamp +
-                ", sensor='" + sensor + '\'' +
-                ", value=" + value +
-                ", room='" + room + '\'' +
-                '}';
-    }
+    //endregion
 }
