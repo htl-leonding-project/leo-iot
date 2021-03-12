@@ -2,6 +2,7 @@ package at.htl.entity;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Objects;
 
 @Entity
 public class SensorTranslation implements Serializable{
@@ -60,5 +61,18 @@ public class SensorTranslation implements Serializable{
         this.unit = unit;
     }
     //endregion
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        SensorTranslation that = (SensorTranslation) o;
+        return Objects.equals(sensorId, that.sensorId) && Objects.equals(languageId, that.languageId) && Objects.equals(displayName, that.displayName) && Objects.equals(unit, that.unit);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(sensorId, languageId, displayName, unit);
+    }
 }
 

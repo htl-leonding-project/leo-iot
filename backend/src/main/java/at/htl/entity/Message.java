@@ -5,6 +5,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import java.io.Serializable;
+import java.util.Objects;
 
 @Entity
 public class Message implements Serializable {
@@ -82,5 +83,19 @@ public class Message implements Serializable {
         this.description = descritption;
     }
     // endregion
+
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Message message = (Message) o;
+        return messageId == message.messageId && Objects.equals(languageId, message.languageId) && Objects.equals(messageName, message.messageName) && Objects.equals(level, message.level) && Objects.equals(title, message.title) && Objects.equals(description, message.description);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(messageId, languageId, messageName, level, title, description);
+    }
 }
 

@@ -6,6 +6,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import java.io.Serializable;
 import java.sql.Timestamp;
+import java.util.Objects;
 
 @Entity
 public class Measurement implements Serializable {
@@ -52,4 +53,18 @@ public class Measurement implements Serializable {
         this.measurement = measurement;
     }
     //endregion
+
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Measurement that = (Measurement) o;
+        return Objects.equals(time, that.time) && Objects.equals(sensorId, that.sensorId) && Objects.equals(measurement, that.measurement);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(time, sensorId, measurement);
+    }
 }
