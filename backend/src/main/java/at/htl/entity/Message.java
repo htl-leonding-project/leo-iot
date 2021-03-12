@@ -1,9 +1,6 @@
 package at.htl.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Objects;
 
@@ -11,12 +8,16 @@ import java.util.Objects;
 public class Message implements Serializable {
     
     @Id
-    private int messageId;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
+
     @Id
     @ManyToOne
     @JoinColumn(name = "language_id")
     private Language languageId;
+
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private String messageName;
     private String level;
     private String title;
@@ -25,8 +26,17 @@ public class Message implements Serializable {
     public Message() {
     }
 
-    public Message(int messageId, Language languageId, String messageName, String level, String title, String description) {
-        this.messageId = messageId;
+    public Message(Long id, String messageName, String level, String title, String description) {
+        this.id = id;
+        this.messageName = messageName;
+        this.level = level;
+        this.title = title;
+        this.description = description;
+    }
+
+
+    public Message(Long id, Language languageId, String messageName, String level, String title, String description) {
+        this.id = id;
         this.languageId = languageId;
         this.messageName = messageName;
         this.level = level;
@@ -34,14 +44,19 @@ public class Message implements Serializable {
         this.description = description;
     }
 
+
+
     // region Getter and Setter
-    public int getMessageId() {
-        return messageId;
+
+
+    public Long getId() {
+        return id;
     }
 
-    public void setMessageId(int messageId) {
-        this.messageId = messageId;
+    public void setId(Long id) {
+        this.id = id;
     }
+
 
     public Language getLanguageId() {
         return languageId;
@@ -90,12 +105,12 @@ public class Message implements Serializable {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Message message = (Message) o;
-        return messageId == message.messageId && Objects.equals(languageId, message.languageId) && Objects.equals(messageName, message.messageName) && Objects.equals(level, message.level) && Objects.equals(title, message.title) && Objects.equals(description, message.description);
+        return id == message.id && Objects.equals(languageId, message.languageId) && Objects.equals(messageName, message.messageName) && Objects.equals(level, message.level) && Objects.equals(title, message.title) && Objects.equals(description, message.description);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(messageId, languageId, messageName, level, title, description);
+        return Objects.hash(id, languageId, messageName, level, title, description);
     }
 }
 

@@ -1,12 +1,16 @@
 package at.htl.entity;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
 public class MqttUser {
+
     @Id
-    private int userId;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
     private String username;
     private String password;
     private String salt;
@@ -15,8 +19,8 @@ public class MqttUser {
     public MqttUser() {
     }
 
-    public MqttUser(int userId, String username, String password, String salt, boolean superUser) {
-        this.userId = userId;
+    public MqttUser(Long userId, String username, String password, String salt, boolean superUser) {
+        this.id = userId;
         this.username = username;
         this.password = password;
         this.salt = salt;
@@ -24,12 +28,14 @@ public class MqttUser {
     }
 
     //region Getter and Setter
-    public int getUserId() {
-        return userId;
+
+
+    public Long getId() {
+        return id;
     }
 
-    public void setUserId(int userId) {
-        this.userId = userId;
+    public void setId(Long userId) {
+        this.id = userId;
     }
 
     public String getUsername() {

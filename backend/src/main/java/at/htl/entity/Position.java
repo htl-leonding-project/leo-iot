@@ -1,29 +1,34 @@
 package at.htl.entity;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
 public class Position {
+
     @Id
-    private int positionId;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
     public Position() {
     }
 
-    public Position(int positionId) {
-        this.positionId = positionId;
+    public Position(Long id) {
+        this.id = id;
     }
 
     //region Getter and Setter
 
-    public int getPositionId() {
-        return positionId;
+    public Long getId() {
+        return id;
     }
 
-    public void setPositionId(int positionId) {
-        this.positionId = positionId;
+    public void setId(Long positionId) {
+        this.id = positionId;
     }
+
 
     //endregion
 }

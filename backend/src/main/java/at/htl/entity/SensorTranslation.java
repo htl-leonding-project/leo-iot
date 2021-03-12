@@ -9,6 +9,7 @@ public class SensorTranslation implements Serializable{
 
     @Id
     @ManyToOne
+    @JoinColumn(name = "sensor_id")
     private Sensor sensorId;
     @Id
     @ManyToOne
