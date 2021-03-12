@@ -5,20 +5,39 @@ import java.io.Serializable;
 import java.util.Objects;
 
 @Entity
-public class Message implements Serializable {
-    
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+public class Message{
 
-    @Id
-    @ManyToOne
-    @JoinColumn(name = "language_id")
-    private Language languageId;
+    @Embeddable
+    public static class IdKey implements Serializable{
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private String messageName;
+        @NotNull
+        private Long id;
+
+        @ManyToOne
+        @JoinColumn(name = "language_id")
+        private Language language;
+
+        private String messageName;
+
+        public IdKey(Language language, String name) {
+            this.language = language;
+            this.messageName = name;
+        }
+
+        public IdKey(Long id, Language language, String name) {
+            this.id = id;
+            this.language = language;
+            this.messageName = name;
+        }
+
+        public IdKey() {
+
+        }
+
+    }
+
+    @EmbeddedId
+    private IdKey id;
     private String level;
     private String title;
     private String description;
@@ -26,8 +45,8 @@ public class Message implements Serializable {
     public Message() {
     }
 
-    public Message(String messageName, String level, String title, String description) {
-        this.messageName = messageName;
+    public Message(IdKey id, String level, String title, String description) {
+        this.id = id;
         this.level = level;
         this.title = title;
         this.description = description;
@@ -35,30 +54,12 @@ public class Message implements Serializable {
 
     // region Getter and Setter
 
-
-    public Long getId() {
+    public IdKey getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(IdKey id) {
         this.id = id;
-    }
-
-
-    public Language getLanguageId() {
-        return languageId;
-    }
-
-    public void setLanguageId(Language languageId) {
-        this.languageId = languageId;
-    }
-
-    public String getMessageName() {
-        return messageName;
-    }
-
-    public void setMessageName(String messageName) {
-        this.messageName = messageName;
     }
 
     public String getLevel() {
@@ -81,23 +82,24 @@ public class Message implements Serializable {
         return description;
     }
 
-    public void setDescription(String descritption) {
-        this.description = descritption;
+    public void setDescription(String description) {
+        this.description = description;
     }
-    // endregion
 
+
+    // endregion
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Message message = (Message) o;
-        return id == message.id && Objects.equals(languageId, message.languageId) && Objects.equals(messageName, message.messageName) && Objects.equals(level, message.level) && Objects.equals(title, message.title) && Objects.equals(description, message.description);
+        return Objects.equals(id, message.id) && Objects.equals(level, message.level) && Objects.equals(title, message.title) && Objects.equals(description, message.description);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, languageId, messageName, level, title, description);
+        return Objects.hash(id, level, title, description);
     }
 }
 
