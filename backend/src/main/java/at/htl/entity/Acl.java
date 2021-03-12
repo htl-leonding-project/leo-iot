@@ -1,14 +1,17 @@
 package at.htl.entity;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
 public class Acl {
 
     @Id
-    private int aclId;
-    private int allow;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    private Long allow;
     private String ipAddr;
     private String userName;
     private String clientId;
@@ -18,8 +21,7 @@ public class Acl {
     public Acl() {
     }
 
-    public Acl(int aclId, int allow, String ipAddr, String userName, String clientId, int access, String topic) {
-        this.aclId = aclId;
+    public Acl(Long allow, String ipAddr, String userName, String clientId, int access, String topic) {
         this.allow = allow;
         this.ipAddr = ipAddr;
         this.userName = userName;
@@ -29,19 +31,20 @@ public class Acl {
     }
 
     //region Getter and Setter
-    public int getAclId() {
-        return aclId;
+
+    public Long getId() {
+        return id;
     }
 
-    public void setAclId(int aclId) {
-        this.aclId = aclId;
+    public void setId(Long aclId) {
+        this.id = aclId;
     }
 
-    public int getAllow() {
+    public Long getAllow() {
         return allow;
     }
 
-    public void setAllow(int allow) {
+    public void setAllow(Long allow) {
         this.allow = allow;
     }
 
@@ -86,4 +89,17 @@ public class Acl {
     }
 
     //endregion
+
+    @Override
+    public String toString() {
+        return "Acl{" +
+                "id=" + id +
+                ", allow=" + allow +
+                ", ipAddr='" + ipAddr + '\'' +
+                ", userName='" + userName + '\'' +
+                ", clientId='" + clientId + '\'' +
+                ", access=" + access +
+                ", topic='" + topic + '\'' +
+                '}';
+    }
 }

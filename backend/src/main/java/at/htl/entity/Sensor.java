@@ -6,7 +6,8 @@ import javax.persistence.*;
 public class Sensor {
 
     @Id
-    private int sensorId;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
     private String sensorType;
     @ManyToOne
     @JoinColumn(name = "position_id")
@@ -17,8 +18,7 @@ public class Sensor {
     public Sensor() {
     }
 
-    public Sensor(int sensorId, String sensorType, Position positionId, String tag, boolean online) {
-        this.sensorId = sensorId;
+    public Sensor(String sensorType, Position positionId, String tag, boolean online) {
         this.sensorType = sensorType;
         this.positionId = positionId;
         this.tag = tag;
@@ -26,12 +26,12 @@ public class Sensor {
     }
 
     //region Getter and Setter
-    public int getSensorId() {
-        return sensorId;
+    public Long getId() {
+        return id;
     }
 
-    public void setSensorId(int sensorId) {
-        this.sensorId = sensorId;
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getSensorType() {
@@ -66,5 +66,17 @@ public class Sensor {
         this.online = online;
     }
     //endregion
+
+
+    @Override
+    public String toString() {
+        return "Sensor{" +
+                "id=" + id +
+                ", sensorType='" + sensorType + '\'' +
+                ", positionId=" + positionId +
+                ", tag='" + tag + '\'' +
+                ", online=" + online +
+                '}';
+    }
 }
 

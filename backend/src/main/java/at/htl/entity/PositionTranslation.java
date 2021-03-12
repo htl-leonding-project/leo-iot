@@ -5,6 +5,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import java.io.Serializable;
+import java.util.Objects;
 
 @Entity
 public class PositionTranslation implements Serializable {
@@ -24,9 +25,7 @@ public class PositionTranslation implements Serializable {
     public PositionTranslation() {
     }
 
-    public PositionTranslation(Position positionId, Language languageId, String area, String section, String position) {
-        this.positionId = positionId;
-        this.languageId = languageId;
+    public PositionTranslation(String area, String section, String position) {
         this.area = area;
         this.section = section;
         this.position = position;
@@ -76,4 +75,28 @@ public class PositionTranslation implements Serializable {
 
     //endregion
 
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        PositionTranslation that = (PositionTranslation) o;
+        return Objects.equals(positionId, that.positionId) && Objects.equals(languageId, that.languageId) && Objects.equals(area, that.area) && Objects.equals(section, that.section) && Objects.equals(position, that.position);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(positionId, languageId, area, section, position);
+    }
+
+    @Override
+    public String toString() {
+        return "PositionTranslation{" +
+                "positionId=" + positionId +
+                ", languageId=" + languageId +
+                ", area='" + area + '\'' +
+                ", section='" + section + '\'' +
+                ", position='" + position + '\'' +
+                '}';
+    }
 }
