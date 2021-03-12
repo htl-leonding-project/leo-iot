@@ -1,8 +1,6 @@
 package at.htl.entity;
 
 import com.sun.istack.NotNull;
-import com.sun.xml.bind.annotation.OverrideAnnotationOf;
-import io.quarkus.security.IdentityAttribute;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -12,7 +10,7 @@ import java.util.Objects;
 public class Message{
 
     @Embeddable
-    public static class IdKey implements Serializable{
+    public static class MessageId implements Serializable {
 
         @NotNull
         private Long id;
@@ -23,19 +21,43 @@ public class Message{
 
         private String messageName;
 
-        public IdKey(Language language, String name) {
+        public MessageId(Language language, String name) {
             this.language = language;
             this.messageName = name;
         }
 
-        public IdKey(Long id, Language language, String name) {
+        public MessageId(Long id, Language language, String name) {
             this.id = id;
             this.language = language;
             this.messageName = name;
         }
 
-        public IdKey() {
+        public MessageId() {
 
+        }
+
+        public Long getId() {
+            return id;
+        }
+
+        public void setId(Long id) {
+            this.id = id;
+        }
+
+        public Language getLanguage() {
+            return language;
+        }
+
+        public void setLanguage(Language language) {
+            this.language = language;
+        }
+
+        public String getMessageName() {
+            return messageName;
+        }
+
+        public void setMessageName(String messageName) {
+            this.messageName = messageName;
         }
 
         @Override
@@ -50,12 +72,16 @@ public class Message{
 
         @Override
         public String toString() {
-            return super.toString();
+            return "MessageId{" +
+                    "id=" + id +
+                    ", language=" + language +
+                    ", messageName='" + messageName + '\'' +
+                    '}';
         }
     }
 
     @EmbeddedId
-    private IdKey id;
+    private MessageId id;
     private String level;
     private String title;
     private String description;
@@ -63,7 +89,7 @@ public class Message{
     public Message() {
     }
 
-    public Message(IdKey id, String level, String title, String description) {
+    public Message(MessageId id, String level, String title, String description) {
         this.id = id;
         this.level = level;
         this.title = title;
@@ -71,14 +97,14 @@ public class Message{
     }
 
     public Message(Language language, String name, String level, String title, String description) {
-        this.id = new IdKey(language, name);
+        this.id = new MessageId(language, name);
         this.level = level;
         this.title = title;
         this.description = description;
     }
 
     public Message(Long id, Language language, String name, String level, String title, String description) {
-        this.id = new IdKey(id, language, name);
+        this.id = new MessageId(id, language, name);
         this.level = level;
         this.title = title;
         this.description = description;
@@ -86,11 +112,11 @@ public class Message{
 
     // region Getter and Setter
 
-    public IdKey getId() {
+    public MessageId getId() {
         return id;
     }
 
-    public void setId(IdKey id) {
+    public void setId(MessageId id) {
         this.id = id;
     }
 
@@ -132,6 +158,16 @@ public class Message{
     @Override
     public int hashCode() {
         return Objects.hash(id, level, title, description);
+    }
+
+    @Override
+    public String toString() {
+        return "Message{" +
+                "id=" + id +
+                ", level='" + level + '\'' +
+                ", title='" + title + '\'' +
+                ", description='" + description + '\'' +
+                '}';
     }
 }
 
