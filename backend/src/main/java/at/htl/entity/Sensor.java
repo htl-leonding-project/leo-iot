@@ -18,8 +18,7 @@ public class Sensor {
     public Sensor() {
     }
 
-    public Sensor(Long id, String sensorType, Position positionId, String tag, boolean online) {
-        this.id = id;
+    public Sensor(String sensorType, Position positionId, String tag, boolean online) {
         this.sensorType = sensorType;
         this.positionId = positionId;
         this.tag = tag;

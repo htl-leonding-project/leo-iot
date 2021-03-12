@@ -13,8 +13,7 @@ public class Language {
     private Long id;
     private String languageName;
 
-    public Language(Long id, String languageName) {
-        this.id = id;
+    public Language(String languageName) {
         this.languageName = languageName;
     }
 

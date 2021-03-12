@@ -15,10 +15,6 @@ public class Position {
     public Position() {
     }
 
-    public Position(Long id) {
-        this.id = id;
-    }
-
     //region Getter and Setter
 
     public Long getId() {

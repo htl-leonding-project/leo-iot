@@ -8,7 +8,7 @@ import java.util.Objects;
 public class Message implements Serializable {
     
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Id
@@ -26,25 +26,12 @@ public class Message implements Serializable {
     public Message() {
     }
 
-    public Message(Long id, String messageName, String level, String title, String description) {
-        this.id = id;
+    public Message(String messageName, String level, String title, String description) {
         this.messageName = messageName;
         this.level = level;
         this.title = title;
         this.description = description;
     }
-
-
-    public Message(Long id, Language languageId, String messageName, String level, String title, String description) {
-        this.id = id;
-        this.languageId = languageId;
-        this.messageName = messageName;
-        this.level = level;
-        this.title = title;
-        this.description = description;
-    }
-
-
 
     // region Getter and Setter
 

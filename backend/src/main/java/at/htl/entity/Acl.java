@@ -21,8 +21,7 @@ public class Acl {
     public Acl() {
     }
 
-    public Acl(Long id, Long allow, String ipAddr, String userName, String clientId, int access, String topic) {
-        this.id = id;
+    public Acl(Long allow, String ipAddr, String userName, String clientId, int access, String topic) {
         this.allow = allow;
         this.ipAddr = ipAddr;
         this.userName = userName;

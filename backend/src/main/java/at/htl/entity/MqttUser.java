@@ -19,8 +19,7 @@ public class MqttUser {
     public MqttUser() {
     }
 
-    public MqttUser(Long userId, String username, String password, String salt, boolean superUser) {
-        this.id = userId;
+    public MqttUser(String username, String password, String salt, boolean superUser) {
         this.username = username;
         this.password = password;
         this.salt = salt;

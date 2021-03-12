@@ -25,9 +25,7 @@ public class PositionTranslation implements Serializable {
     public PositionTranslation() {
     }
 
-    public PositionTranslation(Position positionId, Language languageId, String area, String section, String position) {
-        this.positionId = positionId;
-        this.languageId = languageId;
+    public PositionTranslation(String area, String section, String position) {
         this.area = area;
         this.section = section;
         this.position = position;
