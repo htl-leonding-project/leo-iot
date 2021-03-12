@@ -25,9 +25,7 @@ public class PositionTranslation implements Serializable {
     public PositionTranslation() {
     }
 
-    public PositionTranslation(Position positionId, Language languageId, String area, String section, String position) {
-        this.positionId = positionId;
-        this.languageId = languageId;
+    public PositionTranslation(String area, String section, String position) {
         this.area = area;
         this.section = section;
         this.position = position;
@@ -89,5 +87,16 @@ public class PositionTranslation implements Serializable {
     @Override
     public int hashCode() {
         return Objects.hash(positionId, languageId, area, section, position);
+    }
+
+    @Override
+    public String toString() {
+        return "PositionTranslation{" +
+                "positionId=" + positionId +
+                ", languageId=" + languageId +
+                ", area='" + area + '\'' +
+                ", section='" + section + '\'' +
+                ", position='" + position + '\'' +
+                '}';
     }
 }

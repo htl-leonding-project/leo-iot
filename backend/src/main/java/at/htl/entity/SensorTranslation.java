@@ -9,7 +9,8 @@ public class SensorTranslation implements Serializable{
 
     @Id
     @ManyToOne
-    private Sensor sensorId;
+    @JoinColumn(name = "sensor_id")
+    private Sensor sensor;
     @Id
     @ManyToOne
     @JoinColumn(name = "language_id")
@@ -20,21 +21,19 @@ public class SensorTranslation implements Serializable{
     public SensorTranslation() {
     }
 
-    public SensorTranslation(Sensor sensorId, Language languageId, String displayName, String unit) {
-        this.sensorId = sensorId;
-        this.languageId = languageId;
+    public SensorTranslation(String displayName, String unit) {
         this.displayName = displayName;
         this.unit = unit;
     }
 
     // region Getter and Setter
 
-    public Sensor getSensorId() {
-        return sensorId;
+    public Sensor getSensor() {
+        return sensor;
     }
 
-    public void setSensorId(Sensor sensorId) {
-        this.sensorId = sensorId;
+    public void setSensor(Sensor sensorId) {
+        this.sensor = sensorId;
     }
 
     public Language getLanguageId() {
@@ -67,12 +66,22 @@ public class SensorTranslation implements Serializable{
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         SensorTranslation that = (SensorTranslation) o;
-        return Objects.equals(sensorId, that.sensorId) && Objects.equals(languageId, that.languageId) && Objects.equals(displayName, that.displayName) && Objects.equals(unit, that.unit);
+        return Objects.equals(sensor, that.sensor) && Objects.equals(languageId, that.languageId) && Objects.equals(displayName, that.displayName) && Objects.equals(unit, that.unit);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(sensorId, languageId, displayName, unit);
+        return Objects.hash(sensor, languageId, displayName, unit);
+    }
+
+    @Override
+    public String toString() {
+        return "SensorTranslation{" +
+                "sensor=" + sensor +
+                ", languageId=" + languageId +
+                ", displayName='" + displayName + '\'' +
+                ", unit='" + unit + '\'' +
+                '}';
     }
 }
 

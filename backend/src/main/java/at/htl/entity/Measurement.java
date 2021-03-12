@@ -1,9 +1,6 @@
 package at.htl.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 import java.io.Serializable;
 import java.sql.Timestamp;
 import java.util.Objects;
@@ -16,15 +13,14 @@ public class Measurement implements Serializable {
     @Id
     @ManyToOne
     @JoinColumn(name = "sensor_id")
-    private Sensor sensorId;
+    private Sensor sensor;
     private Float measurement;
 
     public Measurement() {
     }
 
-    public Measurement(Timestamp time, Sensor sensorId, Float measurement) {
+    public Measurement(Timestamp time, Float measurement) {
         this.time = time;
-        this.sensorId = sensorId;
         this.measurement = measurement;
     }
 
@@ -37,12 +33,12 @@ public class Measurement implements Serializable {
         this.time = time;
     }
 
-    public Sensor getSensorId() {
-        return sensorId;
+    public Sensor getSensor() {
+        return sensor;
     }
 
-    public void setSensorId(Sensor sensorId) {
-        this.sensorId = sensorId;
+    public void setSensor(Sensor sensorId) {
+        this.sensor = sensorId;
     }
 
     public Float getMeasurement() {
@@ -60,11 +56,20 @@ public class Measurement implements Serializable {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Measurement that = (Measurement) o;
-        return Objects.equals(time, that.time) && Objects.equals(sensorId, that.sensorId) && Objects.equals(measurement, that.measurement);
+        return Objects.equals(time, that.time) && Objects.equals(sensor, that.sensor) && Objects.equals(measurement, that.measurement);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(time, sensorId, measurement);
+        return Objects.hash(time, sensor, measurement);
+    }
+
+    @Override
+    public String toString() {
+        return "Measurement{" +
+                "time=" + time +
+                ", sensor=" + sensor +
+                ", measurement=" + measurement +
+                '}';
     }
 }
