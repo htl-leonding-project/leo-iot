@@ -73,5 +73,15 @@ public class SensorTranslation implements Serializable{
     public int hashCode() {
         return Objects.hash(sensor, languageId, displayName, unit);
     }
+
+    @Override
+    public String toString() {
+        return "SensorTranslation{" +
+                "sensor=" + sensor +
+                ", languageId=" + languageId +
+                ", displayName='" + displayName + '\'' +
+                ", unit='" + unit + '\'' +
+                '}';
+    }
 }
 

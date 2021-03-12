@@ -38,5 +38,14 @@ public class Language {
         this.languageName = languageName;
     }
     //endregion
+
+
+    @Override
+    public String toString() {
+        return "Language{" +
+                "id=" + id +
+                ", languageName='" + languageName + '\'' +
+                '}';
+    }
 }
 

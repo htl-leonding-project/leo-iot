@@ -63,4 +63,13 @@ public class Measurement implements Serializable {
     public int hashCode() {
         return Objects.hash(time, sensor, measurement);
     }
+
+    @Override
+    public String toString() {
+        return "Measurement{" +
+                "time=" + time +
+                ", sensor=" + sensor +
+                ", measurement=" + measurement +
+                '}';
+    }
 }

@@ -88,4 +88,15 @@ public class PositionTranslation implements Serializable {
     public int hashCode() {
         return Objects.hash(positionId, languageId, area, section, position);
     }
+
+    @Override
+    public String toString() {
+        return "PositionTranslation{" +
+                "positionId=" + positionId +
+                ", languageId=" + languageId +
+                ", area='" + area + '\'' +
+                ", section='" + section + '\'' +
+                ", position='" + position + '\'' +
+                '}';
+    }
 }

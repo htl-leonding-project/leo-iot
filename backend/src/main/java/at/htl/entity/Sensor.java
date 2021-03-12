@@ -66,5 +66,17 @@ public class Sensor {
         this.online = online;
     }
     //endregion
+
+
+    @Override
+    public String toString() {
+        return "Sensor{" +
+                "id=" + id +
+                ", sensorType='" + sensorType + '\'' +
+                ", positionId=" + positionId +
+                ", tag='" + tag + '\'' +
+                ", online=" + online +
+                '}';
+    }
 }
 

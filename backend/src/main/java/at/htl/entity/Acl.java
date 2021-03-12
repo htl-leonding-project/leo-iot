@@ -89,4 +89,17 @@ public class Acl {
     }
 
     //endregion
+
+    @Override
+    public String toString() {
+        return "Acl{" +
+                "id=" + id +
+                ", allow=" + allow +
+                ", ipAddr='" + ipAddr + '\'' +
+                ", userName='" + userName + '\'' +
+                ", clientId='" + clientId + '\'' +
+                ", access=" + access +
+                ", topic='" + topic + '\'' +
+                '}';
+    }
 }

@@ -25,7 +25,14 @@ public class Position {
         this.id = positionId;
     }
 
-
     //endregion
+
+
+    @Override
+    public String toString() {
+        return "Position{" +
+                "id=" + id +
+                '}';
+    }
 }
 

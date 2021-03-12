@@ -71,4 +71,14 @@ public class MqttUser {
 
     //endregion
 
+    @Override
+    public String toString() {
+        return "MqttUser{" +
+                "id=" + id +
+                ", username='" + username + '\'' +
+                ", password='" + password + '\'' +
+                ", salt='" + salt + '\'' +
+                ", superUser=" + superUser +
+                '}';
+    }
 }
