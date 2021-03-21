@@ -13,4 +13,7 @@ ifndef::imagesdir[:imagesdir: images]
 
 * Frontend
 * Backend: https://htl-leonding-project.github.io/leo-iot/backend-documentation
+** MQTT:
+** Server:
+**  Database:
 * Simulator
