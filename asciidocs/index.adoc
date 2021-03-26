@@ -17,3 +17,6 @@ ifndef::imagesdir[:imagesdir: images]
 ** Server:
 **  Database:
 * Simulator
+
+== Meeting Protocol
+* https://htl-leonding-project.github.io/leo-iot/meeting-protocol
