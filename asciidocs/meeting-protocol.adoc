@@ -90,3 +90,13 @@
 * EQ, EP, KF,KV, RF
 * status update
 * assigned new tasks
+
+=== 25.03.2021
+* EQ, EP
+* get the touchscreen in lab running
+* tried to solve a problem with the vm139
+** weren't able to establish a connection internally
+** because the local address and those in the network are the same
+
+
+
