@@ -10,15 +10,15 @@ import javax.enterprise.event.Observes;
 @ConfigProperties
 public class PahoConfiguration {
     // URL to the Broker
-    public String url = "tcp://localhost";
+    public String url = "tcp://vm90.htl-leonding.ac.at:1883";
     // topic to subscribe
     public String topicRead = "/";
     // topic to publish
-    public String topicWrite = "rooms/";
+    public String topicWrite = "simulated-rooms/";
     // username for the broker, leave empty if no username is needed
-    public String username = "";
+    public String username = "student";
     // password for the broker, leave empty if no password is needed
-    public String password = "";
+    public String password = "passme";
     // Quality Of Service
     public int qos = 1;
 }

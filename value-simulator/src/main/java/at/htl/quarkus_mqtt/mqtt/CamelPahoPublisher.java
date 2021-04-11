@@ -1,25 +1,21 @@
 package at.htl.quarkus_mqtt.mqtt;
 
 import io.quarkus.runtime.StartupEvent;
-import io.reactivex.Flowable;
-import org.eclipse.paho.client.mqttv3.MqttClient;
-import org.eclipse.paho.client.mqttv3.MqttConnectOptions;
-import org.eclipse.paho.client.mqttv3.MqttException;
-import org.eclipse.paho.client.mqttv3.MqttMessage;
+import org.eclipse.paho.client.mqttv3.*;
 import org.eclipse.paho.client.mqttv3.persist.MemoryPersistence;
 import org.json.JSONObject;
 
 import javax.enterprise.event.Observes;
 import javax.inject.Inject;
 import javax.json.JsonObject;
+import javax.json.bind.JsonbBuilder;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
-import java.math.BigDecimal;
-import java.math.RoundingMode;
-import java.text.DecimalFormat;
+import java.security.KeyManagementException;
+import java.security.NoSuchAlgorithmException;
 
 @Path("publish")
 public class CamelPahoPublisher {
@@ -41,12 +37,13 @@ public class CamelPahoPublisher {
 
         // Options for the connection to the mqtt broker
         MqttConnectOptions options = new MqttConnectOptions();
-        options.setPassword(config.password.toCharArray());
-        options.setUserName(config.username);
         options.setCleanSession(true);
+        options.setUserName(config.username);
+        options.setPassword(config.password.toCharArray());
 
         // connecting to the mqtt broker
         client.connect(options);
+        //client.subscribe(config.topicWrite, config.qos);
 
         producer.run();
     }
