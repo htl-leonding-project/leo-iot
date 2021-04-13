@@ -1,6 +1,0 @@
-at/htl/quarkus_mqtt/mqtt/SampleDataProducer.class
-at/htl/quarkus_mqtt/mqtt/PahoConfiguration.class
-at/htl/quarkus_mqtt/mqtt/MessageTopicDto.class
-at/htl/quarkus_mqtt/mqtt/CamelPahoPublisher.class
-at/htl/quarkus_mqtt/mqtt/CamelPahoCallback.class
-at/htl/quarkus_mqtt/mqtt/Room.class
