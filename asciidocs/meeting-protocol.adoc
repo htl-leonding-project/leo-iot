@@ -115,4 +115,20 @@
 *** new animations
 *** update layout of the building
 
+=== 09.04.2021
+* new tasks assigned
+** dummy generator for 3d Model
+** create a reworked Dashboard
+* created a question list
+* see notes 09042021
 
+=== 14.04.2021
+* went trough the question list
+* talked about on going assigned tasks
+* a new datamodel was worked out
+* Todos:
+** new Mqtt Mapper
+** implement new datamodell
+** update the software on all sensorboxes
+** need to ask sysadmin about upd
+** create a new Dashboard (rework the old one)
