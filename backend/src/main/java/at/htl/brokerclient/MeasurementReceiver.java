@@ -1,6 +1,5 @@
 package at.htl.brokerclient;
 
-import at.htl.entity.Measurement;
 import io.quarkus.runtime.StartupEvent;
 import org.eclipse.microprofile.config.inject.ConfigProperty;
 import org.eclipse.paho.client.mqttv3.*;
