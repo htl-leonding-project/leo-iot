@@ -72,7 +72,47 @@
 * talked about the current state and tasks
 * tried to fix a connecting to mediator error
 
-=== 08.0.2021
+=== 08.03.2021
 * EQ, EP. GK
 * configuration of the sensorbox
+
+=== 19.03.2021
+* EQ, EP
+* current status update
+* talked about management of the project
+* new Milestones / Priority
+** implementation of sensorboxes into room k03
+** a new datamodel / whole Backend
+** Frontend
+* looking for a task for the pc in the lab
+
+=== 21.03.2021
+* EQ, EP, KF,KV, RF
+* status update
+* assigned new tasks
+
+=== 25.03.2021
+* EQ, EP
+* get the touchscreen in lab running
+* tried to solve a problem with the vm139
+** weren't able to establish a connection internally
+** because the local address and those in the network are the same
+
+=== 04.04.2021
+* EQ, EP, KF, RF
+* current status update
+* assigned new task
+
+
+=== 07.04.2021
+* EQ, EP
+* ask GK
+** get new powerstations
+** need to ask for more specifications
+* lay more focus on Frontend
+** Dashboard should get basic features
+** 3D model need to be
+*** new animations
+*** update layout of the building
+
 
