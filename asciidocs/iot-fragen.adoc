@@ -1,0 +1,126 @@
+= Fragen
+
+== Sollen die Messwerte im Backend gespeichert werden?
+
+* Ja, da diese ausgewertet werden müssen.
+* Frage: welche DB: zeitorientiert (Grafana) oder relational zB time-scaled based Postgres
+** Grafana ist nicht geeignet, da die älteren Daten akkumuliert werden.
+Wir brauchen jedoch auch für vorherige Perioden die Detaildaten
+
+* Influx DB normaler Standard
+* Timescale Postgres DB
+
+== Woher kommen die Initialwerte für die Anzeige der Räume des 3D-Modells?
+
+* Bei den Sensoren ist ein retained eingestellt, dh beim ersten Zugriff auf den Mqtt Broker wird der letzte Wert angezeigt.
+
+IMPORTANT: Beim Timestamp ist zu beachten, dass der Zeitpunkt der Messung verwendet wird.
+
+== Woher kommen die aktuellen Werte?
+
+* Variante 1
+** Nach öffnen des 3D-Modells / Dashboards werden noch keine Werte angezeigt.
+** Die Werte kommen dann im Sekunden_ oder Minutentakt als MQTT- Message und das Modell wird langsam aktualisiert
+*** Vorteil: Man braucht kein Backend für das 3D-Modell / Dashboard
+
+* Variante 3 (wird gemacht)
+** Die letzten Werte werden angezeigt und nach und nach aus dem Mqtt Broker aktualisiert
+
+* Variante 2
+** Die aktuell gespeicherten Daten aus dem Backend werden per REST eingelesen und angezeigt
+*** Nachteil: Das Backend muss laufend alle Daten speichen
+
+== Wie sollen die Topics des MQTT organisiert werden?
+
+* RSSI
+** Ist ein besonderer Sensor misst die Wifi Feldstärke (ab kleiner -90 ist die Feldstärke bedenklich)
+** Ip Addresse wrid reportet
+** Wifi Power beschreibt die aktuelle Leistungseinstellung am ESP-32
+*** Reduzierte Power bei guter W-Lan versorgung
+*** Beispiel Wifi-power 11.25 dh die Leistung wurde um 11.25 db reduziert
+
+== Sollen die Messages im Backend gespeichert werden?
+
+* Sämtliche mqtt messages werden nicht in der Datenbank gespeichert sondern mittels Logger als File (Jaeger oder Seq)
+* Einschränkungen im Schulnetz für UDP
+** UDP Broadcast
+** UDP auf einzelnen Addresse (Im gegensatz zu TCP wirde keine bidirectionale Verbindung aufgebaut)
+* Configuration über URL
+
+== Configuration der SensorBox
+
+* Anlegen eines Textfiles mit allen url's, derzeit config.txt
+* zB wann wird angezeigt, dass der CO2 - Gehalt zu hoch ist.
+
+* Kann konfiguriert werden:
+
+.derzeit
+----
+http://172.17.221.61/config?co2yellow=700
+http://172.17.221.61/config?co2red=1500
+----
+
+* Einheit: ppm
+
+----
+http://172.17.221.61/config
+----
+
+----
+thingname=og/107,ssid=htlleonding-107-iot,mqttbroker=mqtts://10.191.112.90,mqttport=8443
+----
+
+
+== max- und min-Werte der Sensoren
+
+* Können derzeit über das Hauptprogramm der jeweilen Sensorbox eingestellt werden.
+
+.project leobox file main.cpp
+----
+Mhz *mhzPtr = new Mhz(CO2_RXD, CO2_TXD, EspConfig.getThingName(), "co2", "ppm", 3.0, 300, 5000);
+----
+
+* Parameter
+** 3.0 ... minimale Änderung damit reporting statt findet (wenn keine Änderungen alle 15 Minuten)
+** 300 ... minimaler Wert (darunter wird nichts reportet)
+** 5000 ... maximaler Wert (darüber wird nichts reportet)
+
+* Die max- und min-Werte können nicht den einzelnen Sensortypen zugeordnet werden (zB Temperatur)
+sondern sind den einzelnen Sensoren zuzuordnen, da in verschiedenen Räumen durchaus verschiedene Temperaturbereiche sinnvoll sind
+** zB
+*** in Klassenräumen eher wärmer
+*** in Rechenzentrum eher kühler
+
+* ev Default Werte in den Sensortypen
+
+== SensorBox
+
+* In jeder Sensorbox ist eine kleine RuleEngine eingebaut
+* Diese schaltet zum beispiel den NeoPixel Leuchtring
+* Dieser Leuchtring kann auch extern geschalten werden (per http request, und mqtt message). Dies kann jedoch von der eingebauten RuleEngine
+** Vorteil: Die SensorBox funktioniert auch ohne Netzwerk Connection
+
+== Ist für Sensortype eine eigene Tabelle notwendig?
+
+* values sind immer vom typen doubley
+
+== Wie wird festgestellt, dass ein Sensor offline oder online ist
+
+* (DA, Seite 61 -> ONLINE, boolean)
+* wird beim MQTT erkannt mittels Last Will
+* Issue -> Last Will beim esp Projekt
+
+
+== Wir vereinbaren
+
+* Zunächst wir ein einfache Datenmodell erstellt, damit im 3D-Modell / Dashboard Daten angezeigt werden könnnen
+* Das Dummy-Sensorwerte-Team soll für alle Räume Fake-Sensowerte generieren
+
+* Fragen sollen sofort in diese Dokument eingetragen werden
+
+== Ablauf
+
+* Mqtt Subscriber
+* Mqtt Mapper -> Aus dem Json Object der Message werden in der Datenbank die Daten eingetragen.
+* (Endpoint für letzten werte)
+* Endpoint für daten in einem einstellbaren Berreich für gewisse Sensoren

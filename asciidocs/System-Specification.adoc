@@ -347,10 +347,21 @@ Project starts 2020-11-09
 @startuml
 Project starts 2020-11-07
 
-[Team Meeting] starts 2020-11-07
+[Team Meeting 001] starts 2020-11-07
 [Meeting with predecessor] starts 2020-12-18
-[Team Meeting2] starts 2020-12-27
-[Team Meeting3] starts 2021-02-14
+[Team Meeting 002] starts 2020-12-27
+[Team Meeting 003] starts 2021-01-24
+[Team Meeting 004] starts 2021-02-04
+[Team Meeting 005] starts 2021-02-14
+[Team Meeting 006] starts 2021-02-19
+[Team Meeting 007] starts 2021-02-21
+[Team Meeting 008] starts 2021-02-22
+[Team Meeting 009] starts 2021-03-07
+[Team Meeting 010] starts 2021-03-08
+[Team Meeting 011] starts 2021-03-19
+[Team Meeting 012] starts 2021-03-21
+[Team Meeting 013] starts 2021-03-25
+
 
 @enduml
 ....
@@ -362,8 +373,8 @@ Project starts 2020-11-07
 ||Ecker  |Edlinger  |Klausner  |Knogler  | Kronreif |Ries
 
 |Backend
-|X
-|X
+|x
+|x
 |
 |
 |
@@ -383,7 +394,16 @@ Project starts 2020-11-07
 |
 |
 |x
-|X
+|x
+
+
+|Sensor
+|x
+|x
+|
+|
+|
+|
 
 |Deployment
 |

@@ -10,6 +10,13 @@
             </Attribute>
           </value>
         </entry>
+        <entry key="/backend/src/main/java/at/htl/entity/Actortype.java">
+          <value>
+            <Attribute>
+              <option name="separator" value=";" />
+            </Attribute>
+          </value>
+        </entry>
         <entry key="/backend/src/main/java/at/htl/entity/Message.java">
           <value>
             <Attribute>
