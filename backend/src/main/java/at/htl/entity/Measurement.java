@@ -3,73 +3,76 @@ package at.htl.entity;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.sql.Timestamp;
+import java.time.LocalDateTime;
 import java.util.Objects;
 
 @Entity
-public class Measurement implements Serializable {
+public class Measurement {
 
-    @Id
-    private Timestamp time;
-    @Id
-    @ManyToOne
-    @JoinColumn(name = "sensor_id")
-    private Sensor sensor;
-    private Float measurement;
+    @EmbeddedId
+    private MeasurementKey measurementKey;
+    private double value;
 
-    public Measurement() {
+    public Measurement(){
+
     }
 
-    public Measurement(Timestamp time, Float measurement) {
-        this.time = time;
-        this.measurement = measurement;
+    public Measurement(MeasurementKey measurementKey, double value){
+        this.measurementKey = measurementKey;
+        this.value = value;
     }
 
-    //region Getter and Setter
-    public Timestamp getTime() {
-        return time;
+    @Embeddable
+    public static class MeasurementKey implements Serializable{
+        private Timestamp timestamp;
+        @ManyToOne
+        private Sensor sensor;
+
+        public MeasurementKey(){
+
+        }
+
+        public MeasurementKey(Timestamp timestamp, Sensor sensor){
+            this.timestamp = timestamp;
+            this.sensor = sensor;
+        }
+
+        public Timestamp getTimestamp() {
+            return timestamp;
+        }
+
+        public void setTimestamp(Timestamp timestamp) {
+            this.timestamp = timestamp;
+        }
+
+        public Sensor getSensor() {
+            return sensor;
+        }
+
+        public void setSensor(Sensor sensor) {
+            this.sensor = sensor;
+        }
+
+        @Override
+        public String toString() {
+            return "MeasurementKey{" +
+                    "timestamp=" + timestamp +
+                    ", sensor=" + sensor +
+                    '}';
+        }
+
+        @Override
+        public boolean equals(Object o) {
+            if (this == o) return true;
+            if (o == null || getClass() != o.getClass()) return false;
+            MeasurementKey that = (MeasurementKey) o;
+            return Objects.equals(timestamp, that.timestamp) && Objects.equals(sensor, that.sensor);
+        }
+
+        @Override
+        public int hashCode() {
+            return Objects.hash(timestamp, sensor);
+        }
     }
 
-    public void setTime(Timestamp time) {
-        this.time = time;
-    }
-
-    public Sensor getSensor() {
-        return sensor;
-    }
-
-    public void setSensor(Sensor sensorId) {
-        this.sensor = sensorId;
-    }
-
-    public Float getMeasurement() {
-        return measurement;
-    }
-
-    public void setMeasurement(Float measurement) {
-        this.measurement = measurement;
-    }
-    //endregion
-
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Measurement that = (Measurement) o;
-        return Objects.equals(time, that.time) && Objects.equals(sensor, that.sensor) && Objects.equals(measurement, that.measurement);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(time, sensor, measurement);
-    }
-
-    @Override
-    public String toString() {
-        return "Measurement{" +
-                "time=" + time +
-                ", sensor=" + sensor +
-                ", measurement=" + measurement +
-                '}';
-    }
 }
