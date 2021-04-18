@@ -1,26 +1,20 @@
 package at.htl.repository;
 
 import at.htl.entity.Location;
-import at.htl.entity.Thing;
-import at.htl.repository.LocationRepository;
-import at.htl.repository.ThingRepository;
 import io.agroal.api.AgroalDataSource;
+import io.quarkus.arc.ArcUndeclaredThrowableException;
 import io.quarkus.test.junit.QuarkusTest;
 import org.assertj.db.type.Table;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.transaction.Transactional;
-import java.lang.reflect.Field;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.stream.Collectors;
 
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static org.assertj.db.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.db.output.Outputs.output;
 
 @QuarkusTest
@@ -67,6 +61,18 @@ public class RepositoryTest {
     }
 
     @Test
+    public void test00_location_checkData() {
+        table = new Table(dataSource, tableName);
+        output(table).toConsole();
+
+        assertThat(table)
+                .hasNumberOfRows(3)
+                .row(0).value("name").isEqualTo("HTL Leonding")
+                .row(1).value("name").isEqualTo("ug")
+                .row(2).value("name").isEqualTo("k03");
+    }
+
+    @Test
     public void test01_location_save() {
         Location location4 = new Location(
                 location2,
@@ -85,46 +91,29 @@ public class RepositoryTest {
                 .isEqualTo("k04");
     }
 
-//    @Test
-//    public void test02_language_removeById() {
-//        table = new Table(dataSource, tableName);
-//
-//        output(table).toConsole();
-//        assertThat(table)
-//                .hasNumberOfRows(3)
-//                .row(0).value("LANGUAGENAME").isEqualTo("english")
-//                .row(1).value("LANGUAGENAME").isEqualTo("german")
-//                .row(2).value("LANGUAGENAME").isEqualTo("italiano");
-//
-//        System.out.println(languageRepository.removeById(0));
-//
-//        table = new Table(dataSource, tableName);
-//        output(table).toConsole();
-//        assertThat(table)
-//                .hasNumberOfRows(2)
-//                .row(0).value("LANGUAGENAME").isEqualTo("german")
-//                .row(1).value("LANGUAGENAME").isEqualTo("italiano");
-//    }
-//
-//    @Test
-//    public void test03_language_remove() {
-//        table = new Table(dataSource, tableName);
-//
-//        output(table).toConsole();
-//        assertThat(table)
-//                .hasNumberOfRows(3)
-//                .row(0).value("LANGUAGENAME").isEqualTo("english")
-//                .row(1).value("LANGUAGENAME").isEqualTo("german")
-//                .row(2).value("LANGUAGENAME").isEqualTo("italiano");
-//
-//        Language language = languageRepository.findById(0);
-//        languageRepository.removeById(0);
-//
-//        table = new Table(dataSource, tableName);
-//        output(table).toConsole();
-//        assertThat(table)
-//                .hasNumberOfRows(2)
-//                .row(0).value("LANGUAGENAME").isEqualTo("german")
-//                .row(1).value("LANGUAGENAME").isEqualTo("italiano");
-//    }
+    @Test
+    public void test02_location_removeById_success() {
+        assertThat(locationRepository.removeById(location3.getId()))
+                .isTrue();
+
+        table = new Table(dataSource, tableName);
+        output(table).toConsole();
+
+        assertThat(table)
+                .hasNumberOfRows(2)
+                .row(0).value("name").isEqualTo("HTL Leonding")
+                .row(1).value("name").isEqualTo("ug");
+    }
+
+    @Test
+    public void test03_location_removeById_fail() {
+        assertThat(locationRepository.removeById(5L))
+                .isFalse();
+    }
+
+    @Test
+    public void test04_location_removeById_cascade() {
+        assertThatThrownBy(() -> locationRepository.removeById(location1.getId()))
+                .isInstanceOf(ArcUndeclaredThrowableException.class);
+    }
 }
