@@ -1,4 +1,4 @@
-package at.htl.control;
+package at.htl.repository;
 
 import io.quarkus.hibernate.orm.panache.PanacheRepositoryBase;
 
