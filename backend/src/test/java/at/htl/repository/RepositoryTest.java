@@ -61,7 +61,7 @@ public class RepositoryTest {
     }
 
     @Test
-    public void test00_location_checkData() {
+    public void location_checkData() {
         table = new Table(dataSource, tableName);
         output(table).toConsole();
 
@@ -73,7 +73,7 @@ public class RepositoryTest {
     }
 
     @Test
-    public void test01_location_save() {
+    public void location_save() {
         Location location4 = new Location(
                 location2,
                 "k04"
@@ -92,7 +92,7 @@ public class RepositoryTest {
     }
 
     @Test
-    public void test02_location_removeById_success() {
+    public void location_removeById_success() {
         assertThat(locationRepository.removeById(location3.getId()))
                 .isTrue();
 
@@ -106,13 +106,13 @@ public class RepositoryTest {
     }
 
     @Test
-    public void test03_location_removeById_fail() {
+    public void location_removeById_fail() {
         assertThat(locationRepository.removeById(5L))
                 .isFalse();
     }
 
     @Test
-    public void test04_location_removeById_cascade() {
+    public void location_removeById_cascade() {
         assertThatThrownBy(() -> locationRepository.removeById(location1.getId()))
                 .isInstanceOf(ArcUndeclaredThrowableException.class);
     }
