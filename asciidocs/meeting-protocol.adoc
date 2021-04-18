@@ -41,42 +41,42 @@
 * create reactive branching
 
 
-=== 21.02.2021
+== 21.02.2021
 * EQ, EP, KV
 * status update
 * assigned new tasks
 * should create extra branch for the new simulator libary
 
 
-=== 22.02.2021
-==== Notes:
-* programm is available
-* we need to configure the sensorbox
-* the software is written in c++
-* in VS we use Express IDF
-* Express uses a components
-* procedure:
-** picking the device
-** build the code (Build Flash Monitor)
-** an accespoints starts
-* a http-server is running on the sensorbox
-* assigning of a topic:
-** configuration happens in the Main
-* How does the server new which room is currently used:
-** ThingName
-* Our Goal:
-** configuration of the sensorbox with access to the accesspoint of the school
+== 22.02.2021
+* Notes:
+** programm is available
+** we need to configure the sensorbox
+** the software is written in c++
+** in VS we use Express IDF
+** Express uses a components
+** procedure:
+*** picking the device
+*** build the code (Build Flash Monitor)
+*** an accespoints starts
+** a http-server is running on the sensorbox
+** assigning of a topic:
+*** configuration happens in the Main
+** How does the server new which room is currently used:
+*** ThingName
+** Our Goal:
+*** configuration of the sensorbox with access to the accesspoint of the school
 
-=== 07.03.2021
+== 07.03.2021
 * EQ, EP, KV, RF
 * talked about the current state and tasks
 * tried to fix a connecting to mediator error
 
-=== 08.03.2021
+== 08.03.2021
 * EQ, EP. GK
 * configuration of the sensorbox
 
-=== 19.03.2021
+== 19.03.2021
 * EQ, EP
 * current status update
 * talked about management of the project
@@ -86,25 +86,25 @@
 ** Frontend
 * looking for a task for the pc in the lab
 
-=== 21.03.2021
+== 21.03.2021
 * EQ, EP, KF,KV, RF
 * status update
 * assigned new tasks
 
-=== 25.03.2021
+== 25.03.2021
 * EQ, EP
 * get the touchscreen in lab running
 * tried to solve a problem with the vm139
 ** weren't able to establish a connection internally
 ** because the local address and those in the network are the same
 
-=== 04.04.2021
+== 04.04.2021
 * EQ, EP, KF, RF
 * current status update
 * assigned new task
 
 
-=== 07.04.2021
+== 07.04.2021
 * EQ, EP
 * ask GK
 ** get new powerstations
@@ -115,14 +115,16 @@
 *** new animations
 *** update layout of the building
 
-=== 09.04.2021
+== 09.04.2021
+* EQ, EP
 * new tasks assigned
 ** dummy generator for 3d Model
 ** create a reworked Dashboard
 * created a question list
 * see notes 09042021
 
-=== 14.04.2021
+== 14.04.2021
+* EQ, EP
 * went trough the question list
 * talked about on going assigned tasks
 * a new datamodel was worked out
@@ -132,3 +134,13 @@
 ** update the software on all sensorboxes
 ** need to ask sysadmin about upd
 ** create a new Dashboard (rework the old one)
+
+== 18.04.2021
+* EQ, EP, KF, RF
+* status update
+* assigned new tasks
+** new dashboard
+** seperated systemspec
+** implement reworked sim prototype and api
+
+
