@@ -178,5 +178,13 @@ Todo:
 - eine Website erstellen, welche die Daten auf charts anzeigt (nicht das Dashboard)
 (- auf der Ebene der Sensoren arbeiten)
 
+== 18042021
+
+seperate Pflichtenhefte erstellen und dazu eine api
+
+den neuen Simulator Prototyp einbinden
+
+das neues Dashboard erklärt und umsetzen
+
 
 
