@@ -78,11 +78,11 @@ public class MyValueGenerator {
        }
        else {
            if (random > 0.5) {
-               returnValue = oldValue + random/5;
+               returnValue = oldValue + random/2;
                oldValue = returnValue;
            }
            else {
-               returnValue = oldValue- random/5;
+               returnValue = oldValue- random/2;
                oldValue = returnValue;
            }
        }
