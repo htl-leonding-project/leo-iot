@@ -60,6 +60,14 @@ public class Location {
         this.name = name;
     }
 
+    public List<Thing> getThingList() {
+        return thingList;
+    }
+
+    public void setThingList(List<Thing> thingList) {
+        this.thingList = thingList;
+    }
+
     @Override
     public String toString() {
         return "Location{" +
