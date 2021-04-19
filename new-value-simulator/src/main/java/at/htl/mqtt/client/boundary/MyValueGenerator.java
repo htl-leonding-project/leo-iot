@@ -47,11 +47,16 @@ public class MyValueGenerator {
 
                         JSONObject jsonValue = new JSONObject(values);
 
-
                         long timeStamp = jsonValue.getLong("temp");
                         emitter.send(MqttMessage.of(topic + "/" + "noise" + "/" + "state", getBytes(jsonValue.getDouble("noise"), timeStamp)));
+                        emitter.send(MqttMessage.of(topic + "/" + "trafficlight" + "/" + "state", getBytes(jsonValue.getDouble("trafficlight"), timeStamp)));
+                        emitter.send(MqttMessage.of(topic + "/" + "temperature" + "/" + "state", getBytes(jsonValue.getDouble("temperature"), timeStamp)));
+                        emitter.send(MqttMessage.of(topic + "/" + "humidity" + "/" + "state", getBytes(jsonValue.getDouble("humidity"), timeStamp)));
+                        emitter.send(MqttMessage.of(topic + "/" + "pressure" + "/" + "state", getBytes(jsonValue.getDouble("pressure"), timeStamp)));
+                        emitter.send(MqttMessage.of(topic + "/" + "luminosity" + "/" + "state", getBytes(jsonValue.getDouble("luminosity"), timeStamp)));
+                        emitter.send(MqttMessage.of(topic + "/" + "co2" + "/" + "state", getBytes(jsonValue.getDouble("co2"), timeStamp)));
+                        emitter.send(MqttMessage.of(topic + "/" + "motion" + "/" + "state", getBytes(jsonValue.getDouble("motion"), timeStamp)));
 
-                        //emitter.send(MqttMessage.of(topic, jsonValue.toString()));
                         System.out.println("Sending value -> " + jsonValue);
                     });
         }
