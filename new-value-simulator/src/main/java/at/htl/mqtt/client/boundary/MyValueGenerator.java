@@ -25,7 +25,7 @@ public class MyValueGenerator {
 
     @Inject
     @Channel("topic-values")
-    Emitter<String> emitter;
+    Emitter<byte[]> emitter;
 
     void init(@Observes StartupEvent event) {
 
@@ -49,9 +49,9 @@ public class MyValueGenerator {
 
 
                         long timeStamp = jsonValue.getLong("temp");
-                        emitter.send(MqttMessage.of(topic + "/" + "noise" + "/" + "state", getBytes(jsonValue.getDouble("noise"), timeStamp).toString()));
+                        emitter.send(MqttMessage.of(topic + "/" + "noise" + "/" + "state", getBytes(jsonValue.getDouble("noise"), timeStamp)));
 
-                        emitter.send(MqttMessage.of(topic, jsonValue.toString()));
+                        //emitter.send(MqttMessage.of(topic, jsonValue.toString()));
                         System.out.println("Sending value -> " + jsonValue);
                     });
         }
