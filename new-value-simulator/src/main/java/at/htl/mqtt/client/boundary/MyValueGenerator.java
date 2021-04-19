@@ -32,7 +32,7 @@ public class MyValueGenerator {
         String[] topics = new String[]{"values/raum1", "values/raum2", "values/raum3"};
         for (String topic : topics) {
 
-            Observable.interval(0, 5, TimeUnit.SECONDS)
+            Observable.interval(0, 1, TimeUnit.SECONDS)
                     .subscribe(value -> {
                         Map values = new HashMap<String, Object>();
                         values.put("temp", System.currentTimeMillis());
@@ -77,7 +77,7 @@ public class MyValueGenerator {
            oldValue = returnValue;
        }
        else {
-           if (random > 0.5) {
+           if (random > 0.6) {
                returnValue = oldValue + random/2;
                oldValue = returnValue;
            }
