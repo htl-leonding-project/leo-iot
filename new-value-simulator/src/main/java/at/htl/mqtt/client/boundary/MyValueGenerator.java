@@ -38,7 +38,7 @@ public class MyValueGenerator {
                         values.put("temp", System.currentTimeMillis());
                         values.put("noise", Math.random() * 100);
                         values.put("trafficlight", Math.floor(Math.random()));
-                        values.put("temperature", Math.random() * 20);
+                        values.put("temperature", temperatureValue());
                         values.put("humidity", Math.random() * 20);
                         values.put("pressure", Math.random() * 1000);
                         values.put("luminosity", Math.random() * 2000);
@@ -60,6 +60,33 @@ public class MyValueGenerator {
                         System.out.println("Sending value -> " + jsonValue);
                     });
         }
+    }
+
+    Double oldValue = 20.00;
+    public double temperatureValue()
+    {
+        Double returnValue;
+        Double random = Math.random();
+
+       if (oldValue < 18.00) {
+           returnValue = oldValue + random/5;
+           oldValue = returnValue;
+       }
+       else if (oldValue > 23.00) {
+           returnValue = oldValue- random/5;
+           oldValue = returnValue;
+       }
+       else {
+           if (random > 0.5) {
+               returnValue = oldValue + random/5;
+               oldValue = returnValue;
+           }
+           else {
+               returnValue = oldValue- random/5;
+               oldValue = returnValue;
+           }
+       }
+       return returnValue;
     }
 
     public byte[] getBytes(Object value, long timeStamp) {
