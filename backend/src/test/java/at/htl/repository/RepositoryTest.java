@@ -1,18 +1,18 @@
 package at.htl.repository;
 
-import at.htl.entity.Location;
 import io.agroal.api.AgroalDataSource;
-import io.quarkus.arc.ArcUndeclaredThrowableException;
 import io.quarkus.test.junit.QuarkusTest;
 import org.assertj.db.type.Table;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
+import javax.persistence.Entity;
 import javax.persistence.EntityManager;
+import javax.persistence.Id;
 import javax.transaction.Transactional;
 
-import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static org.assertj.db.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.db.output.Outputs.output;
@@ -21,7 +21,7 @@ import static org.assertj.db.output.Outputs.output;
 public class RepositoryTest {
 
     @Inject
-    LocationRepository locationRepository;
+    TestEntityRepository repository;
 
     @Inject
     EntityManager entityManager;
@@ -29,91 +29,122 @@ public class RepositoryTest {
     @Inject
     AgroalDataSource dataSource;
 
-    private Location location1;
-    private Location location2;
-    private Location location3;
+    private TestEntity testEntity1;
+    private TestEntity testEntity2;
+    private TestEntity testEntity3;
 
-    private final String tableName = Location.class.getSimpleName();
+    private final String testEntityTableName = TestEntity.class.getSimpleName();
 
     Table table;
 
     @BeforeEach
     @Transactional
     public void setup() {
+        clearTable();
+        setupTestEntity();
+    }
+
+    public void clearTable() {
         entityManager.createQuery(
-                "delete from " + tableName
+                "delete from " + testEntityTableName
         ).executeUpdate();
+    }
 
-        location1 = entityManager.merge(new Location(
-                null,
-                "HTL Leonding"
+    private void setupTestEntity() {
+
+        testEntity1 = entityManager.merge(new TestEntity(
+                1L,
+                "testEntity1",
+                10
         ));
 
-        location2 = entityManager.merge(new Location(
-                location1,
-                "ug"
+        testEntity2 = entityManager.merge(new TestEntity(
+                2L,
+                "testEntity2",
+                20
         ));
 
-        location3 = entityManager.merge(new Location(
-                location2,
-                "k03"
+        testEntity3 = entityManager.merge(new TestEntity(
+                3L,
+                "testEntity3",
+                30
         ));
     }
 
     @Test
-    public void location_checkData() {
-        table = new Table(dataSource, tableName);
+    public void testEntity_checkData() {
+        table = new Table(dataSource, testEntityTableName);
         output(table).toConsole();
 
         assertThat(table)
                 .hasNumberOfRows(3)
-                .row(0).value("name").isEqualTo("HTL Leonding")
-                .row(1).value("name").isEqualTo("ug")
-                .row(2).value("name").isEqualTo("k03");
+                .row(0).value("text").isEqualTo(testEntity1.text)
+                .row(1).value("text").isEqualTo(testEntity2.text)
+                .row(2).value("text").isEqualTo(testEntity3.text);
     }
 
     @Test
-    public void location_save() {
-        Location location4 = new Location(
-                location2,
-                "k04"
+    public void testEntity_save() {
+        TestEntity testEntity4 = new TestEntity(
+                4L,
+                "testEntity4",
+                40
         );
 
-        locationRepository.save(location4);
+        testEntity4 = repository.save(testEntity4);
 
-        table = new Table(dataSource, tableName);
+        table = new Table(dataSource, testEntityTableName);
         output(table).toConsole();
 
         assertThat(table)
                 .hasNumberOfRows(4)
                 .row(3)
-                .value("NAME")
-                .isEqualTo("k04");
+                    .value("text").isEqualTo(testEntity4.text)
+                    .value("value").isEqualTo(testEntity4.value);
     }
 
     @Test
-    public void location_removeById_success() {
-        assertThat(locationRepository.removeById(location3.getId()))
+    public void testEntity_removeById_success() {
+        assertThat(repository.removeById(testEntity3.id))
                 .isTrue();
 
-        table = new Table(dataSource, tableName);
+        table = new Table(dataSource, testEntityTableName);
         output(table).toConsole();
 
         assertThat(table)
                 .hasNumberOfRows(2)
-                .row(0).value("name").isEqualTo("HTL Leonding")
-                .row(1).value("name").isEqualTo("ug");
+                .row(0).value("text").isEqualTo(testEntity1.text)
+                .row(1).value("text").isEqualTo(testEntity2.text);
     }
 
     @Test
-    public void location_removeById_fail() {
-        assertThat(locationRepository.removeById(5L))
+    public void thing_removeById_fail() {
+        assertThat(repository.removeById(50L))
                 .isFalse();
     }
 
-    @Test
-    public void location_removeById_cascade() {
-        assertThatThrownBy(() -> locationRepository.removeById(location1.getId()))
-                .isInstanceOf(ArcUndeclaredThrowableException.class);
-    }
 }
+
+@Entity
+class TestEntity {
+    @Id
+    public Long id;
+    public String text;
+    public int value;
+
+    public TestEntity(Long id, String text, int value) {
+        this(text, value);
+        this.id = id;
+    }
+
+    public TestEntity(String text, int value) {
+        this.text = text;
+        this.value = value;
+    }
+
+
+    public TestEntity() {}
+}
+
+@ApplicationScoped
+class TestEntityRepository extends Repository<TestEntity, Long> { }
