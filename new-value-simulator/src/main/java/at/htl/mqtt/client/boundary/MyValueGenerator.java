@@ -60,12 +60,10 @@ public class MyValueGenerator {
                         System.out.println("Sending value -> " + jsonValue);
                     });
         }
-
     }
 
     public byte[] getBytes(Object value, long timeStamp) {
         JSONObject json = new JSONObject();
         return json.put("value", value).put("timestamp", timeStamp).toString().getBytes();
     }
-
 }
