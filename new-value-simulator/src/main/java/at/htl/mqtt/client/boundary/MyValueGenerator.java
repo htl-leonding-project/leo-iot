@@ -46,11 +46,21 @@ public class MyValueGenerator {
                         values.put("motion", Math.floor(Math.random()));
 
                         JSONObject jsonValue = new JSONObject(values);
+
+
+                        long timeStamp = jsonValue.getLong("temp");
+                        emitter.send(MqttMessage.of(topic + "/" + "noise" + "/" + "state", getBytes(jsonValue.getDouble("noise"), timeStamp).toString()));
+
                         emitter.send(MqttMessage.of(topic, jsonValue.toString()));
                         System.out.println("Sending value -> " + jsonValue);
                     });
         }
+
     }
 
+    public byte[] getBytes(Object value, long timeStamp) {
+        JSONObject json = new JSONObject();
+        return json.put("value", value).put("timestamp", timeStamp).toString().getBytes();
+    }
 
 }
