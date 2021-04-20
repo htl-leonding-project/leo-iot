@@ -65,6 +65,22 @@ public class Thing {
         this.name = name;
     }
 
+    public List<Actor> getActorList() {
+        return actorList;
+    }
+
+    public void setActorList(List<Actor> actorList) {
+        this.actorList = actorList;
+    }
+
+    public List<Sensor> getSensorList() {
+        return sensorList;
+    }
+
+    public void setSensorList(List<Sensor> sensorList) {
+        this.sensorList = sensorList;
+    }
+
     @Override
     public String toString() {
         return "Thing{" +

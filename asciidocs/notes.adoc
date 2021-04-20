@@ -8,15 +8,15 @@ prime ng /material fürs dashboard nutzen
 soll ansprechend sein
 
 
- Dashboard
+Dashboard
 
- es gibt mind. 3 Bereiche / Sections
- daten sollen interresant aussehen
- dashboard schöner gestalten
- tram section muss weg
- bei der Roomselection ein Bild hinzufügen
- freie definierung der Räume
- viele graphische elemente hinzufügen
+es gibt mind. 3 Bereiche / Sections
+daten sollen interresant aussehen
+dashboard schöner gestalten
+tram section muss weg
+bei der Roomselection ein Bild hinzufügen
+freie definierung der Räume
+viele graphische elemente hinzufügen
 
 location description hinzufügen
 devices rekursion entfernen
@@ -76,20 +76,20 @@ das Datenmodell ist basierend
 
 == 14042021
 
- influx db vs timescale DB
- influx hat eine community version
+influx db vs timescale DB
+influx hat eine community version
 
 
- Frage die auszuarbeiten sind:
- gibt es für timesclae db community version?
- timescale gibt es langzeit daten?
- schauen welche datenbank besser geignet sind?
- gibt eine Lizenz für postgress, etc.?
+Frage die auszuarbeiten sind:
+gibt es für timesclae db community version?
+timescale gibt es langzeit daten?
+schauen welche datenbank besser geignet sind?
+gibt eine Lizenz für postgress, etc.?
 
- topic struktur
-  geschoss raum(Sensorboxen) sensor
+topic struktur
+geschoss raum(Sensorboxen) sensor
 
- Rssi misst die Feldstärke des Wifis
+Rssi misst die Feldstärke des Wifis
 ab -90 ist die Feldstärke bedenklich
 Ip-Addresse wird reportet
 wifi power beschreibt die aktulle leistungseinstellung am esp32
@@ -167,6 +167,7 @@ quelle des wissen hinzufügen.
 
 
 Todo:
+
 - seq logger implementieren
 - benötigen einen MQTT-Mapper
 - neues Datenmodell implementierne
@@ -176,6 +177,14 @@ Todo:
 - esp projekt einen Issue erstllen bzgl. des Last Wills
 - eine Website erstellen, welche die Daten auf charts anzeigt (nicht das Dashboard)
 (- auf der Ebene der Sensoren arbeiten)
+
+== 18042021
+
+seperate Pflichtenhefte erstellen und dazu eine api
+
+den neuen Simulator Prototyp einbinden
+
+das neues Dashboard erklärt und umsetzen
 
 
 

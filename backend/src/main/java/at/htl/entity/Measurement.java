@@ -22,6 +22,22 @@ public class Measurement {
         this.value = value;
     }
 
+    public MeasurementKey getMeasurementKey() {
+        return measurementKey;
+    }
+
+    public void setMeasurementKey(MeasurementKey measurementKey) {
+        this.measurementKey = measurementKey;
+    }
+
+    public double getValue() {
+        return value;
+    }
+
+    public void setValue(double value) {
+        this.value = value;
+    }
+
     @Embeddable
     public static class MeasurementKey implements Serializable{
         private Timestamp timestamp;
