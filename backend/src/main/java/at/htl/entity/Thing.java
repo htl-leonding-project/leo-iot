@@ -4,6 +4,7 @@ import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Objects;
 
 @Entity
 public class Thing {
@@ -90,5 +91,18 @@ public class Thing {
                 ", sensorList=" + sensorList +
                 ", name='" + name + '\'' +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Thing)) return false;
+        Thing thing = (Thing) o;
+        return Objects.equals(id, thing.id) && Objects.equals(location, thing.location) && Objects.equals(actorList, thing.actorList) && Objects.equals(sensorList, thing.sensorList) && Objects.equals(name, thing.name);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, location, actorList, sensorList, name);
     }
 }

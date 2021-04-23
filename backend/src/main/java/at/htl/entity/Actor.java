@@ -1,6 +1,7 @@
 package at.htl.entity;
 
 import javax.persistence.*;
+import java.util.Objects;
 
 @Entity
 public class Actor {
@@ -72,5 +73,18 @@ public class Actor {
                 ", actortype=" + actortype +
                 ", value=" + value +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Actor)) return false;
+        Actor actor = (Actor) o;
+        return Double.compare(actor.value, value) == 0 && Objects.equals(id, actor.id) && Objects.equals(thing, actor.thing) && Objects.equals(actortype, actor.actortype);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, thing, actortype, value);
     }
 }

@@ -46,6 +46,19 @@ public class ActorAction{
                 '}';
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof ActorAction)) return false;
+        ActorAction that = (ActorAction) o;
+        return Double.compare(that.value, value) == 0 && Objects.equals(actorActionKey, that.actorActionKey);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(actorActionKey, value);
+    }
+
     @Embeddable
      public static class ActorActionKey implements Serializable {
         private Timestamp timestamp;
@@ -99,6 +112,7 @@ public class ActorAction{
                     '}';
         }
     }
+
 
 }
 
