@@ -4,6 +4,7 @@ package at.htl.entity;
 import javax.persistence.*;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Objects;
 
 @Entity
 public class Unit {
@@ -75,6 +76,19 @@ public class Unit {
                 ", sensorTypeList=" + sensorTypeList +
                 ", actorTypeList=" + actorTypeList +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Unit)) return false;
+        Unit unit = (Unit) o;
+        return Objects.equals(id, unit.id) && Objects.equals(symbol, unit.symbol) && Objects.equals(sensorTypeList, unit.sensorTypeList) && Objects.equals(actorTypeList, unit.actorTypeList);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, symbol, sensorTypeList, actorTypeList);
     }
 }
 

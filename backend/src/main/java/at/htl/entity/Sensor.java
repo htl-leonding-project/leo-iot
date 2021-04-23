@@ -3,6 +3,7 @@ package at.htl.entity;
 import io.vertx.lang.axle.Gen;
 
 import javax.persistence.*;
+import java.util.Objects;
 
 @Entity
 public class Sensor {
@@ -62,5 +63,18 @@ public class Sensor {
                 ", thing=" + thing +
                 ", sensorType=" + sensorType +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Sensor)) return false;
+        Sensor sensor = (Sensor) o;
+        return Objects.equals(id, sensor.id) && Objects.equals(thing, sensor.thing) && Objects.equals(sensorType, sensor.sensorType);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, thing, sensorType);
     }
 }

@@ -1,6 +1,7 @@
 package at.htl.entity;
 
 import javax.persistence.*;
+import java.util.Objects;
 
 @Entity
 public class SensorType {
@@ -58,5 +59,18 @@ public class SensorType {
                 ", name='" + name + '\'' +
                 ", unit=" + unit +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof SensorType)) return false;
+        SensorType that = (SensorType) o;
+        return Objects.equals(id, that.id) && Objects.equals(name, that.name) && Objects.equals(unit, that.unit);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, name, unit);
     }
 }
