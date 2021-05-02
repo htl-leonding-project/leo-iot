@@ -14,6 +14,7 @@ will display the data on a dashboard and a 3D-Modell.
 ## Associated repositories
 
 - [Prototype](https://github.com/QuirinEcker/quarkus-mqtt)
+- [Dashboard](https://github.com/sknogler/leoiot-new-dashboard)
 
 ## Archiv
 
