@@ -3,6 +3,7 @@ package at.htl.entity;
 import javax.persistence.*;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Objects;
 
 @Entity
 public class Location {
@@ -75,5 +76,18 @@ public class Location {
                 ", location=" + location +
                 ", name='" + name + '\'' +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Location)) return false;
+        Location location1 = (Location) o;
+        return Objects.equals(id, location1.id) && Objects.equals(location, location1.location) && Objects.equals(thingList, location1.thingList) && Objects.equals(name, location1.name);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, location, thingList, name);
     }
 }
