@@ -38,6 +38,19 @@ public class Measurement {
         this.value = value;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Measurement)) return false;
+        Measurement that = (Measurement) o;
+        return Double.compare(that.value, value) == 0 && Objects.equals(measurementKey, that.measurementKey);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(measurementKey, value);
+    }
+
     @Embeddable
     public static class MeasurementKey implements Serializable{
         private Timestamp timestamp;
