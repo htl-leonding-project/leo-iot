@@ -7,6 +7,11 @@ such as temperature and air moisture which are collected from sensor
 boxes placed in the rooms of the school building. The application
 will display the data on a dashboard and a 3D-Modell.
 
+## Preview
+
+- [3d Model](http://vm139.htl-leonding.ac.at/en/3d)
+- [DashBoard](http://vm139.htl-leonding.ac.at/en/dashboard)
+
 ## Getting Started
 
 - [getting started](https://htl-leonding-project.github.io/leo-iot/getting-started)
