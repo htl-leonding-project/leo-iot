@@ -1,0 +1,59 @@
+= Getting Started
+
+[source]
+----
+git clone https://github.com/htl-leonding-project/leo-iot
+----
+
+
+== Getting Started Developement
+
+=== Start Timescale DB
+
+[source,shell]
+----
+cd database
+docker-compose up -d
+----
+
+=== Start Quarkus in development Mode
+
+[source,shell]
+----
+cd backend
+./mvnw clean compile quarkus:dev
+----
+
+=== Start Angular in development Mode
+
+[source,shell]
+----
+cd frontend
+npm start
+----
+
+== Getting Started Production
+
+=== Build
+
+[source,shell]
+----
+docker-compose build
+----
+
+=== Start
+
+[source,shell]
+----
+docker-compose up -d
+----
+
+NOTE: -d option is for daemon.If you don't want to start it in the background remove this option.
+
+=== Push and Pull
+
+[source]
+----
+docker-compose push
+docker-compose pull
+----
