@@ -4,7 +4,7 @@ name: deploy to gh-pages
 on:
   push:
     branches:
-      - 'main'
+      - '*'
 
 jobs:
   build_push:
@@ -23,16 +23,14 @@ jobs:
           git secret reveal -v
       - name: Build
         run: |
-          cd server
           docker-compose build
       - name: Push
         run: |
-          cd server
           echo ${{ secrets.REGTOKEN }} | docker login https://docker.pkg.github.com -u QuirinEcker --password-stdin
           docker-compose push
   start:
     name: Start Container
-    needs: build_push
+    needs: [build_push]
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -45,14 +43,14 @@ jobs:
         run: ssh-keyscan -H -t rsa -v ${{ secrets.DEPIP }}  >> ~/.ssh/known_hosts
       - name: Copy required files
         run: |
-          scp -r server ubuntu@${{ secrets.DEPIP }}:~/
+          scp -r docker-compose.deploy.yml ${{ secrets.DEPUSER }}@${{ secrets.DEPIP }}:~/leo-iot/
       - name: Run Docker Container
         run: |
-          ssh ubuntu@${{ secrets.DEPIP }} "
-          cd server
+          ssh ${{ secrets.DEPUSER }}@${{ secrets.DEPIP }} "
+          cd leo-iot
           echo ${{ secrets.REGTOKEN }} | docker login https://docker.pkg.github.com -u QuirinEcker --password-stdin
-          docker-compose stop
-          docker-compose rm -f
-          docker-compose pull
-          docker-compose up -d
+          docker-compose -f docker-compose.deploy.yml pull
+          docker-compose -f docker-compose.deploy.yml stop
+          docker-compose -f docker-compose.deploy.yml rm -f
+          docker-compose -f docker-compose.deploy.yml up --no-build -d
           "
