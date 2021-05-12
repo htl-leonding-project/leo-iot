@@ -151,3 +151,7 @@ fabric.properties
 .idea/caches/build_file_checksums.ser
 .gitsecret/keys/random_seed
 !*.secret
+
+# leo-iot-db
+
+data
