@@ -1,0 +1,34 @@
+= Docker Compose
+
+== Default Docker Compose
+
+=== Location
+`docker-compose.yml`
+
+=== Purpose
+
+With this docker compose you can build the whole project and start it.
+
+== Deploy Docker Compose
+
+=== Location
+
+- `docker-compose.deploy.yml`
+
+=== Purpose
+
+The deploy docker compose is a special docker compose which doesn't include the build paths to the dockerfiles for each component. We only use it for GitHub action deployment
+
+With this docker-compose the application will start without the whole project. With the normal docker-compose this is not the case because of the build paths.
+
+See more link:https://github.com/docker/compose/issues/2945[here]
+
+== Database Docker Compose
+
+=== Location
+
+- `database/docker-compose.yml`
+
+=== Purpose
+
+This docke-compose file is for backend development. It will start our basic link:https://www.timescale.com/[TimescaleDB].
