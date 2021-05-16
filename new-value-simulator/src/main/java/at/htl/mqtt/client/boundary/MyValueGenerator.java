@@ -1,7 +1,6 @@
 package at.htl.mqtt.client.boundary;
 
 import io.quarkus.runtime.StartupEvent;
-import io.reactivex.Flowable;
 import io.reactivex.Observable;
 import io.smallrye.reactive.messaging.mqtt.MqttMessage;
 import org.eclipse.microprofile.reactive.messaging.Channel;
@@ -11,10 +10,11 @@ import javax.enterprise.context.ApplicationScoped;
 import javax.enterprise.event.Observes;
 import javax.inject.Inject;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
-import java.util.Random;
 import java.util.concurrent.TimeUnit;
 import org.json.JSONObject;
+import at.htl.mqtt.client.repository.RoomRepository;
 
 /**
  * https://stackoverflow.com/questions/62883516/publish-subscribe-mqtt-using-smallrye-reactive-messaging-dynamically
@@ -27,8 +27,13 @@ public class MyValueGenerator {
     @Channel("topic-values")
     Emitter<byte[]> emitter;
 
+    @Inject
+    RoomRepository roomRepo;
+
     void init(@Observes StartupEvent event) {
 
+
+        List rooms = roomRepo.getAllRooms();
         String[] topics = new String[]{"values/raum1", "values/raum2", "values/raum3"};
         for (String topic : topics) {
 

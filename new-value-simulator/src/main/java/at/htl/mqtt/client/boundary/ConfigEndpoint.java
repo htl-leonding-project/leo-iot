@@ -10,7 +10,7 @@ public class ConfigEndpoint {
 
     @GET
     @Produces(MediaType.TEXT_PLAIN)
-    public String hello() {
-        return "Hello RESTEasy";
+    public boolean addRoom() {
+        return false;
     }
 }
