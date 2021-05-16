@@ -35,12 +35,6 @@ public class MyValueGenerator {
 
         List<Room> rooms = roomRepo.getAllRooms();
 
-
-        roomRepo.addRoom("edv10");
-        roomRepo.addRoom("edv4");
-        roomRepo.addRoom("107");
-
-
         for (Room room : rooms) {
             roomData(room);
         }

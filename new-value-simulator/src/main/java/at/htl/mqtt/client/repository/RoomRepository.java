@@ -35,4 +35,14 @@ public class RoomRepository
 
         return returnValue;
     }
+
+    public boolean deleteRoom(String roomName) {
+        Room currRoom = new Room(roomName);
+        if(rooms.stream().anyMatch(r -> r.getName().equals(roomName)))
+        {
+            rooms.remove(currRoom);
+            return true;
+        }
+        return false;
+    }
 }

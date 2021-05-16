@@ -19,4 +19,12 @@ public class ConfigEndpoint {
     public boolean addRoom(@PathParam("roomName") String roomName) {
         return roomRepo.addRoom(roomName);
     }
+
+    @POST
+    @Path("deleteRoom/{roomName}")
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
+    public boolean deleteRoom(@PathParam("roomName") String roomName) {
+        return roomRepo.deleteRoom(roomName);
+    }
 }
