@@ -12,11 +12,11 @@ public class ConfigEndpoint {
     @Inject
     RoomRepository roomRepo;
 
-    @GET
+    @POST
     @Path("addRoom/{roomName}")
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     public boolean addRoom(@PathParam("roomName") String roomName) {
-        
+        return roomRepo.addRoom(roomName);
     }
 }
