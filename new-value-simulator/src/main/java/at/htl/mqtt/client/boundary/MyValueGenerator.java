@@ -1,5 +1,6 @@
 package at.htl.mqtt.client.boundary;
 
+import at.htl.mqtt.client.entity.Room;
 import io.quarkus.runtime.StartupEvent;
 import io.reactivex.Observable;
 import io.smallrye.reactive.messaging.mqtt.MqttMessage;
@@ -33,9 +34,15 @@ public class MyValueGenerator {
     void init(@Observes StartupEvent event) {
 
 
-        List rooms = roomRepo.getAllRooms();
-        String[] topics = new String[]{"values/raum1", "values/raum2", "values/raum3"};
-        for (String topic : topics) {
+        List<Room> rooms = roomRepo.getAllRooms();
+
+
+       roomRepo.addRoom("edv10");
+       roomRepo.addRoom("edv4");
+       roomRepo.addRoom("107");
+
+
+        for (Room room : rooms) {
 
             Observable.interval(0, 1, TimeUnit.SECONDS)
                     .subscribe(value -> {
@@ -53,14 +60,14 @@ public class MyValueGenerator {
                         JSONObject jsonValue = new JSONObject(values);
 
                         long timeStamp = jsonValue.getLong("temp");
-                        emitter.send(MqttMessage.of(topic + "/" + "noise" + "/" + "state", getBytes(jsonValue.getDouble("noise"), timeStamp)));
-                        emitter.send(MqttMessage.of(topic + "/" + "trafficlight" + "/" + "state", getBytes(jsonValue.getDouble("trafficlight"), timeStamp)));
-                        emitter.send(MqttMessage.of(topic + "/" + "temperature" + "/" + "state", getBytes(jsonValue.getDouble("temperature"), timeStamp)));
-                        emitter.send(MqttMessage.of(topic + "/" + "humidity" + "/" + "state", getBytes(jsonValue.getDouble("humidity"), timeStamp)));
-                        emitter.send(MqttMessage.of(topic + "/" + "pressure" + "/" + "state", getBytes(jsonValue.getDouble("pressure"), timeStamp)));
-                        emitter.send(MqttMessage.of(topic + "/" + "luminosity" + "/" + "state", getBytes(jsonValue.getDouble("luminosity"), timeStamp)));
-                        emitter.send(MqttMessage.of(topic + "/" + "co2" + "/" + "state", getBytes(jsonValue.getDouble("co2"), timeStamp)));
-                        emitter.send(MqttMessage.of(topic + "/" + "motion" + "/" + "state", getBytes(jsonValue.getDouble("motion"), timeStamp)));
+                        emitter.send(MqttMessage.of("values/"+ room.getName() + "/" + "noise" + "/" + "state", getBytes(jsonValue.getDouble("noise"), timeStamp)));
+                        emitter.send(MqttMessage.of("values/"+ room.getName() + "/" + "trafficlight" + "/" + "state", getBytes(jsonValue.getDouble("trafficlight"), timeStamp)));
+                        emitter.send(MqttMessage.of("values/"+ room.getName() + "/" + "temperature" + "/" + "state", getBytes(jsonValue.getDouble("temperature"), timeStamp)));
+                        emitter.send(MqttMessage.of("values/"+ room.getName() + "/" + "humidity" + "/" + "state", getBytes(jsonValue.getDouble("humidity"), timeStamp)));
+                        emitter.send(MqttMessage.of("values/"+ room.getName() + "/" + "pressure" + "/" + "state", getBytes(jsonValue.getDouble("pressure"), timeStamp)));
+                        emitter.send(MqttMessage.of("values/"+ room.getName() + "/" + "luminosity" + "/" + "state", getBytes(jsonValue.getDouble("luminosity"), timeStamp)));
+                        emitter.send(MqttMessage.of("values/"+ room.getName() + "/" + "co2" + "/" + "state", getBytes(jsonValue.getDouble("co2"), timeStamp)));
+                        emitter.send(MqttMessage.of("values/"+ room.getName() + "/" + "motion" + "/" + "state", getBytes(jsonValue.getDouble("motion"), timeStamp)));
 
                         System.out.println("Sending value -> " + jsonValue);
                     });
