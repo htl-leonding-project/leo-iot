@@ -29,12 +29,12 @@ public class MeasurementResource {
                  .accepted(measurementRepository.get(new Timestamp(from * 1000), new Timestamp(to * 1000)))
                  .build();
         }else
-            if (to != null && from != null && sensorId != null){
-                return Response
-                        .accepted(measurementRepository.get(new Timestamp(from * 1000), new Timestamp(to * 1000), sensorRepository.findById(sensorId)))
-                        .build();
-            }
-            else return null;
+        if (to != null && from != null && sensorId != null){
+            return Response
+                    .accepted(measurementRepository.get(new Timestamp(from * 1000), new Timestamp(to * 1000), sensorRepository.findById(sensorId)))
+                    .build();
+        }
+        else return null;
     }
 
     @POST
