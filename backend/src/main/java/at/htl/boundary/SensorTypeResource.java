@@ -36,4 +36,11 @@ public class SensorTypeResource {
                 .build();
     }
 
+    @DELETE
+    public Response deleteSensorTypeById(@QueryParam("id") Long sensorTypeId){
+        return Response
+                .accepted(sensorTypeRepository.deleteById(sensorTypeId))
+                .build();
+    }
+
 }
