@@ -1,11 +1,11 @@
 package at.htl.boundary;
 
+import at.htl.entity.Sensor;
 import at.htl.repository.SensorRepository;
+import org.jboss.logging.annotations.Pos;
 
 import javax.inject.Inject;
-import javax.ws.rs.GET;
-import javax.ws.rs.Path;
-import javax.ws.rs.Produces;
+import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
@@ -17,7 +17,22 @@ public class UnitResource {
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    public Response getAllSensors(){
-        return Response.accepted(sensorRepository.findAll()).build();
+    public Response getSensor(@QueryParam("id") Long sensorId){
+        if (sensorId != null) {
+            return Response.accepted(sensorRepository.findById(sensorId)).build();
+        }else{
+            return Response.accepted(sensorRepository.findAll()).build();
+        }
     }
+
+
+    @POST
+    @Path("/add-sensor")
+    @Consumes(MediaType.APPLICATION_JSON)
+    public Response addSensor(Sensor sensor){
+        return Response.accepted(sensorRepository.save(sensor)).build();
+    }
+
+
+
 }
