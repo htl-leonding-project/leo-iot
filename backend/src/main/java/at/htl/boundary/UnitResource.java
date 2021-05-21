@@ -11,6 +11,18 @@ import javax.ws.rs.core.Response;
 @Path("unit")
 public class UnitResource {
 
+    @Inject
+    UnitRepository unitRepository;
 
+    @GET
+    public Response getUnit(@QueryParam("id") Long unitId ){
+        if(unitId != null){
+            return Response
+                    .accepted(unitRepository.findById(unitId))
+                    .build();
+        }else {
+            return Response.accepted(unitRepository.findAll()).build();
+        }
+    }
 
 }
