@@ -10,7 +10,7 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
 @Path("unit")
-public class UnitResource {
+public class SensorResource {
 
     @Inject
     SensorRepository sensorRepository;
