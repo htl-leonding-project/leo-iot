@@ -15,6 +15,11 @@ import javax.enterprise.event.Observes;
 import javax.inject.Inject;
 import java.util.concurrent.*;
 
+
+/**
+ * This Class is for the communication with the mqtt broker
+ * @author QuirinEcker
+ */
 @ApplicationScoped
 public class MqttController {
 
@@ -23,8 +28,10 @@ public class MqttController {
 
     private MqttClient mqttClient;
 
-    private final ExecutorService executor = Executors.newSingleThreadExecutor();
-
+    /**
+     * This methods initializes the client in the controller
+     * @throws MqttException if credentials are wrong or the broker is offline this Exception will be thrown
+     */
     void init() throws MqttException {
         mqttClient =  new MqttClient(
                 configuration.getFullUrl(),
@@ -44,6 +51,11 @@ public class MqttController {
         mqttClient.connect(options);
     }
 
+    /**
+     * This method will return the camel paho Mqtt Client. If the client is null it will create it with the init()
+     * function.
+     * @return Camel Paho Mqtt Client
+     */
     private MqttClient getClient() {
         if (mqttClient == null) {
             try {
@@ -56,10 +68,25 @@ public class MqttController {
         return mqttClient;
     }
 
+
+    /**
+     * Disconnects the Broker at the end of the quarkus lifecycle
+     * @param ev quarkus shutdown event (will be ignored)
+     * @throws MqttException will throw if disconnect of the broker fails
+     */
     void cleanUp(@Observes ShutdownEvent ev) throws MqttException {
         getClient().disconnect();
     }
 
+    /**
+     * This method is for subscribing to a mqtt topic and parsing the output to a java class. Keep in mind The java
+     * class needs to implement MqttParsable
+     * @param topicFilter mqtt topic to subscribe
+     * @param mqttHandler callback for mqtt values
+     * @param Type parse type
+     * @param <T> parse type
+     * @throws MqttException will be thrown if there is an error with mqtt
+     */
     public <T extends MqttParsable> void subscribe(String topicFilter, MqttParseSubscribe<T> mqttHandler, Class<T> Type) throws MqttException {
         subscribe(topicFilter, (topic, message) -> {
             try {
@@ -72,6 +99,13 @@ public class MqttController {
         });
     }
 
+    /**
+     * This method is for subscribing to a mqtt topic without parsing. This will just Provide a value of MqttMessage and
+     * the given topic
+     * @param topicFilter mqtt topic to subscribe
+     * @param mqttSubscribe callback for mqtt values
+     * @throws MqttException will be thrown if there is an error with mqtt
+     */
     public void subscribe(String topicFilter, MqttSubscribe mqttSubscribe) throws MqttException {
         getClient().subscribeWithResponse(topicFilter, mqttSubscribe::subscribe);
     }
