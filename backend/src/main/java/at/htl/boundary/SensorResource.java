@@ -9,7 +9,7 @@ import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
-@Path("unit")
+@Path("sensor")
 public class SensorResource {
 
     @Inject
@@ -19,9 +19,13 @@ public class SensorResource {
     @Produces(MediaType.APPLICATION_JSON)
     public Response getSensor(@QueryParam("id") Long sensorId){
         if (sensorId != null) {
-            return Response.accepted(sensorRepository.findById(sensorId)).build();
+            return Response
+                    .accepted(sensorRepository.findById(sensorId))
+                    .build();
         }else{
-            return Response.accepted(sensorRepository.findAll()).build();
+            return Response
+                    .accepted(sensorRepository.findAll())
+                    .build();
         }
     }
 
@@ -29,12 +33,16 @@ public class SensorResource {
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     public Response addSensor(Sensor sensor){
-        return Response.accepted(sensorRepository.save(sensor)).build();
+        return Response
+                .accepted(sensorRepository.save(sensor))
+                .build();
     }
 
     @DELETE
     public Response deleteSensorById(@QueryParam("id") Long sensorId){
-        return Response.accepted(sensorRepository.deleteById(sensorId)).build();
+        return Response
+                .accepted(sensorRepository.deleteById(sensorId))
+                .build();
     }
 
 }
