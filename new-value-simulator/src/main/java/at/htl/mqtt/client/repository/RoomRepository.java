@@ -37,11 +37,13 @@ public class RoomRepository
     }
 
     public boolean deleteRoom(String roomName) {
-        Room currRoom = new Room(roomName);
-        if(rooms.stream().anyMatch(r -> r.getName().equals(roomName)))
-        {
-            rooms.remove(currRoom);
-            return true;
+        for (Room room: rooms) {
+            if (room.getName().equals(roomName))
+            {
+                rooms.remove(room);
+                myValueGenerator.getAllRooms();
+                return true;
+            }
         }
         return false;
     }
