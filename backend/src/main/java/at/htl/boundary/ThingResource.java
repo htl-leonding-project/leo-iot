@@ -36,4 +36,11 @@ public class ThingResource {
                 .build();
     }
 
+    @DELETE
+    public Response deleteThingById(@QueryParam("id") Long thingId){
+        return Response
+                .accepted(thingRepository.deleteById(thingId))
+                .build();
+    }
+
 }
