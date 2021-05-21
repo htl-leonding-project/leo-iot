@@ -21,14 +21,18 @@ public class UnitResource {
                     .accepted(unitRepository.findById(unitId))
                     .build();
         }else {
-            return Response.accepted(unitRepository.findAll()).build();
+            return Response
+                    .accepted(unitRepository.findAll())
+                    .build();
         }
     }
 
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     public Response addUnit(Unit unit){
-        return Response.accepted(unitRepository.save(unit)).build();
+        return Response
+                .accepted(unitRepository.save(unit))
+                .build();
     }
 
     @DELETE
