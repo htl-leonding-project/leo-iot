@@ -27,12 +27,14 @@ public class UnitResource {
 
 
     @POST
-    @Path("/add-sensor")
     @Consumes(MediaType.APPLICATION_JSON)
     public Response addSensor(Sensor sensor){
         return Response.accepted(sensorRepository.save(sensor)).build();
     }
 
-
+    @DELETE
+    public Response deleteSensorById(@QueryParam("id") Long sensorId){
+        return Response.accepted(sensorRepository.deleteById(sensorId)).build();
+    }
 
 }
