@@ -29,7 +29,6 @@ public class SensorResource {
         }
     }
 
-
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     public Response addSensor(Sensor sensor){
@@ -44,5 +43,4 @@ public class SensorResource {
                 .accepted(sensorRepository.deleteById(sensorId))
                 .build();
     }
-
 }

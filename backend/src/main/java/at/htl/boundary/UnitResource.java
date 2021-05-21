@@ -1,11 +1,11 @@
 package at.htl.boundary;
 
+import at.htl.entity.Unit;
 import at.htl.repository.UnitRepository;
 
 import javax.inject.Inject;
-import javax.ws.rs.GET;
-import javax.ws.rs.Path;
-import javax.ws.rs.QueryParam;
+import javax.ws.rs.*;
+import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
 @Path("unit")
@@ -24,5 +24,12 @@ public class UnitResource {
             return Response.accepted(unitRepository.findAll()).build();
         }
     }
+
+    @POST
+    @Consumes(MediaType.APPLICATION_JSON)
+    public Response addUnit(Unit unit){
+        return Response.accepted(unitRepository.save(unit)).build();
+    }
+
 
 }
