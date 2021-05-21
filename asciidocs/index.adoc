@@ -11,12 +11,21 @@ ifndef::imagesdir[:imagesdir: images]
 
 == Code Documentation
 
-* Frontend
-* Backend: https://htl-leonding-project.github.io/leo-iot/backend-documentation
-** MQTT:
-** Server:
-**  Database:
-* Simulator
+=== Generell
+
+* link:getting-started[getting started]
+* link:git[git]
+* link:github-secrets[GitHub Secrets]
+* link:git-secret[git secret]
+* link:docker-compose[Docker Compose Files]
+
+=== Frontend
+
+=== Backend
+
+* link:backend-documentation[index]
+
+=== Simulator
 
 == Meeting Protocol
-* https://htl-leonding-project.github.io/leo-iot/meeting-protocol
+* link:meeting-protocol[meeting protocols]
