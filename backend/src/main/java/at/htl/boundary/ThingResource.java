@@ -1,11 +1,12 @@
 package at.htl.boundary;
 
+import at.htl.entity.Location;
+import at.htl.entity.Thing;
 import at.htl.repository.ThingRepository;
 
 import javax.inject.Inject;
-import javax.ws.rs.GET;
-import javax.ws.rs.Path;
-import javax.ws.rs.QueryParam;
+import javax.ws.rs.*;
+import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
 @Path("")
@@ -25,6 +26,14 @@ public class ThingResource {
                     .accepted(thingRepository.findAll())
                     .build();
         }
+    }
+
+    @POST
+    @Consumes(MediaType.APPLICATION_JSON)
+    public Response addThing(Thing thing){
+        return Response
+                .accepted(thingRepository.save(thing))
+                .build();
     }
 
 }
