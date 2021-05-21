@@ -27,6 +27,7 @@ public class LocationResource {
                     .build();
         }
     }
+
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     public Response addLocation(Location location){
