@@ -1,13 +1,15 @@
 package at.htl.boundary;
 
+import at.htl.entity.Measurement;
+import at.htl.entity.Sensor;
 import at.htl.repository.MeasurementRepository;
 import at.htl.repository.SensorRepository;
 import org.eclipse.microprofile.reactive.messaging.Incoming;
 
 import javax.inject.Inject;
-import javax.ws.rs.GET;
-import javax.ws.rs.Path;
-import javax.ws.rs.QueryParam;
+import javax.json.JsonObject;
+import javax.ws.rs.*;
+import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.sql.Timestamp;
 
@@ -32,7 +34,20 @@ public class MeasurementResource {
                         .accepted(measurementRepository.get(new Timestamp(from * 1000), new Timestamp(to * 1000), sensorRepository.findById(sensorId)))
                         .build();
             }
-        return null;
+            else return null;
     }
 
+    @POST
+    @Path("/add-measurement")
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response addMeasurement(JsonObject jsonObject){
+        Measurement measurement = new Measurement();
+        measurement.setValue(jsonObject.getInt("value"));
+        Measurement.MeasurementKey measurementKey =
+                new Measurement.MeasurementKey(new Timestamp(jsonObject.getJsonObject("measurementKey").getInt("timestamp") * 1000),new Sensor());
+        measurement.setMeasurementKey(measurementKey);
+        //measurementRepository.save(measurement)
+        return Response.accepted(measurement).build();
+    }
 }
