@@ -35,5 +35,11 @@ public class LocationResource {
                 .build();
     }
 
+    @DELETE
+    public Response deleteLocationById(@QueryParam("id") Long locationId){
+        return Response
+                .accepted(locationRepository.deleteById(locationId))
+                .build();
+    }
 
 }
