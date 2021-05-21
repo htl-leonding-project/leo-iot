@@ -31,5 +31,11 @@ public class UnitResource {
         return Response.accepted(unitRepository.save(unit)).build();
     }
 
+    @DELETE
+    public Response deleteUnitById(@QueryParam("id") Long unitId){
+        return Response
+                .accepted(unitRepository.deleteById(unitId))
+                .build();
+    }
 
 }
