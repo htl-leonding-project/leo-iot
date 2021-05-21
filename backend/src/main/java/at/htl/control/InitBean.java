@@ -1,5 +1,6 @@
 package at.htl.control;
 
+import at.htl.entity.Measurement;
 import io.quarkus.runtime.StartupEvent;
 import org.eclipse.paho.client.mqttv3.MqttException;
 
@@ -18,7 +19,11 @@ public class InitBean {
     MqttController controller;
 
     @Transactional
-    void onStart(@Observes StartupEvent ev) throws MqttException, ExecutionException, InterruptedException {
-        controller.subscribe("og/+/+/state", (topic, message) -> System.out.println(topic + ": " + new String(message.getPayload())));
+    void onStart(@Observes StartupEvent ev) throws MqttException {
+        controller.subscribe(
+                "og/+/+/test",
+                (topic, object) -> System.out.println(object.getMeasurementKey().getTimestamp()),
+                Measurement.class
+        );
     }
 }

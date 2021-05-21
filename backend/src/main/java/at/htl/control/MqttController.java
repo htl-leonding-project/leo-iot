@@ -1,7 +1,9 @@
 package at.htl.control;
 
 import at.htl.config.MqttConfiguration;
-import at.htl.util.MqttSubscribe;
+import at.htl.util.mqtt.MqttParseSubscribe;
+import at.htl.util.mqtt.MqttParsable;
+import at.htl.util.mqtt.MqttSubscribe;
 import io.quarkus.runtime.ShutdownEvent;
 import org.eclipse.paho.client.mqttv3.MqttClient;
 import org.eclipse.paho.client.mqttv3.MqttConnectOptions;
@@ -58,8 +60,19 @@ public class MqttController {
         getClient().disconnect();
     }
 
+    public <T extends MqttParsable> void subscribe(String topicFilter, MqttParseSubscribe<T> mqttHandler, Class<T> Type) throws MqttException {
+        subscribe(topicFilter, (topic, message) -> {
+            try {
+                T object = Type.getDeclaredConstructor().newInstance();
+                object.fromMqtt(topic, new String(message.getPayload()));
+                mqttHandler.subscribe(topic, object);
+            } catch (Exception exception) {
+                exception.printStackTrace();
+            }
+        });
+    }
+
     public void subscribe(String topicFilter, MqttSubscribe mqttSubscribe) throws MqttException {
         getClient().subscribeWithResponse(topicFilter, mqttSubscribe::subscribe);
     }
-
 }
