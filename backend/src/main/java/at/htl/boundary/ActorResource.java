@@ -1,11 +1,12 @@
 package at.htl.boundary;
 
+import at.htl.entity.Actor;
+import at.htl.entity.ActorType;
 import at.htl.repository.ActorRepository;
 
 import javax.inject.Inject;
-import javax.ws.rs.GET;
-import javax.ws.rs.Path;
-import javax.ws.rs.QueryParam;
+import javax.ws.rs.*;
+import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
 @Path("actor")
@@ -15,10 +16,10 @@ public class ActorResource {
     ActorRepository actorRepository;
 
     @GET
-    public Response getActor(@QueryParam("id") Long actorType){
-        if(actorType != null){
+    public Response getActor(@QueryParam("id") Long actorId){
+        if(actorId != null){
             return Response
-                    .accepted(actorRepository.findById(actorType))
+                    .accepted(actorRepository.findById(actorId))
                     .build();
         }else {
             return Response
@@ -26,5 +27,11 @@ public class ActorResource {
                     .build();
         }
     }
-
+    @POST
+    @Consumes(MediaType.APPLICATION_JSON)
+    public Response addActor(Actor actor){
+        return Response
+                .accepted(actorRepository.save(actor))
+                .build();
+    }
 }
