@@ -34,4 +34,11 @@ public class ActorResource {
                 .accepted(actorRepository.save(actor))
                 .build();
     }
+
+    @DELETE
+    public Response deleteActorById(@QueryParam("id") Long actorId){
+        return Response
+                .accepted(actorRepository.deleteById(actorId))
+                .build();
+    }
 }
