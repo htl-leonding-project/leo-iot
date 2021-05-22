@@ -36,4 +36,11 @@ public class ActorTypeResource {
                 .build();
     }
 
+    @DELETE
+    public Response deleteActorTypeById(@QueryParam("id") Long actorTypeId){
+        return Response
+                .accepted(actorTypeRepository.deleteById(actorTypeId))
+                .build();
+    }
+
 }
