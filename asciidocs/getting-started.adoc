@@ -1,12 +1,13 @@
 = Getting Started
 
-[source]
+== Clone Repository
+
+[source, shell]
 ----
 git clone https://github.com/htl-leonding-project/leo-iot
 ----
 
-
-== Getting Started Developement
+== Getting Started Development
 
 === Start Timescale DB
 
@@ -51,6 +52,8 @@ docker-compose up -d
 NOTE: -d option is for daemon.If you don't want to start it in the background remove this option.
 
 === Push and Pull
+
+The following commands will push and pull every image from the GitHub Packages Registry.
 
 [source]
 ----
