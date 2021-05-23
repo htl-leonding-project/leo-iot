@@ -63,6 +63,8 @@ dann Testdaten welche mit einem Java-Programm generiert werden.
 ....
 @startuml
 
+
+
 rectangle {
     
     (Simulator)
@@ -70,7 +72,7 @@ rectangle {
 }
 
 User1 -up-> (Simulator) : Erstellt/löscht Raum
-User1 <-up- (MQTTBroker) : Möchte Testdaten sehen
+User1 <-up- (MQTT Broker) : Möchte Testdaten sehen
 (Simulator) --> (MQTTBroker)
 
 @enduml
@@ -122,14 +124,11 @@ In einem bestimmten Zeitintervall werden Daten vom Simulator an den MQTT Broker 
 |Meilensteine
 |Datum
 
-a| * [] Simulator
+a| *  Simulator
 |23.05.2021
 
 a| * [] Doku
 |23.05.2021
 
 a| * [] Pflichtenheft
-|23.05.2021
-
-
 

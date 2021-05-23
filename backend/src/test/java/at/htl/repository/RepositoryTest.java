@@ -13,8 +13,8 @@ import javax.persistence.EntityManager;
 import javax.persistence.Id;
 import javax.transaction.Transactional;
 
-import static org.assertj.db.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.db.api.Assertions.assertThat;
 import static org.assertj.db.output.Outputs.output;
 
 @QuarkusTest

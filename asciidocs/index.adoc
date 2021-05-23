@@ -7,7 +7,7 @@ ifndef::imagesdir[:imagesdir: images]
 *   https://2021-4ahitm-itp.github.io/01-project-proposal-school-iot/Proposal
 
 == System Specification
-*   https://htl-leonding-project.github.io/leo-iot/System-Specification
+*   link:System-Specification
 
 == Code Documentation
 
@@ -27,7 +27,13 @@ ifndef::imagesdir[:imagesdir: images]
 
 === Simulator
 
-*  https://github.com/htl-leonding-project/leo-iot/blob/develop/asciidocs/System-Specification-Valuesimulator.adoc
+* link:System-Specification-Valuesimulator[Simulator Documentation]
+
+=== Sensor
+
+* link:Sensor-Documentation[Sensor Documentation]
+
+
 
 == Meeting Protocol
 * link:meeting-protocol[meeting protocols]

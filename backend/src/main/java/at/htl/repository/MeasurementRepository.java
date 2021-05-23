@@ -4,7 +4,6 @@ import at.htl.entity.Measurement;
 import at.htl.entity.Sensor;
 
 import javax.enterprise.context.ApplicationScoped;
-import java.sql.Time;
 import java.sql.Timestamp;
 import java.util.List;
 
