@@ -1,5 +1,20 @@
 = Meeting-Protocol
 
+== Legend
+|===
+|Ecker  |Edlinger  |Klausner  |Knogler  |Kronreif |Rieser |Stütz | Köck
+
+|EQ
+|EP
+|KF
+|KS
+|KV
+|RF
+|ST
+|KG
+|===
+
+
 == 06.12.2020
 * EQ, EP, KF, KS, OJ, KV, RF
 * organizational matters
