@@ -27,5 +27,7 @@ ifndef::imagesdir[:imagesdir: images]
 
 === Simulator
 
+*  https://github.com/htl-leonding-project/leo-iot/blob/develop/asciidocs/System-Specification-Valuesimulator.adoc
+
 == Meeting Protocol
 * link:meeting-protocol[meeting protocols]
