@@ -50,4 +50,12 @@ public class MeasurementResource {
         measurement.setMeasurementKey(measurementKey);
         return Response.accepted().build();
     }
+
+    @DELETE
+    @Path("/remove-measurement")
+    public Response removeMeasurement(Measurement measurement ){
+        measurementRepository.remove(measurement);
+        return Response.accepted(measurement).build();
+    }
+
 }
