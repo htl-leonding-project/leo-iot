@@ -370,7 +370,7 @@ Project starts 2020-11-07
 === Verantwortungsmatrix
 
 |===
-||Ecker  |Edlinger  |Klausner  |Knogler  | Kronreif |Ries
+||Ecker  |Edlinger  |Klausner  |Knogler  | Kronreif |Rieser
 
 |Backend
 |x
