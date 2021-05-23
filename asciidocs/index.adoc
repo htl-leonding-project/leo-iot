@@ -7,7 +7,7 @@ ifndef::imagesdir[:imagesdir: images]
 *   https://2021-4ahitm-itp.github.io/01-project-proposal-school-iot/Proposal
 
 == System Specification
-*   link:System-Specification.adoc
+*   link:System-Specification
 
 == Code Documentation
 
@@ -27,11 +27,11 @@ ifndef::imagesdir[:imagesdir: images]
 
 === Simulator
 
-* link:System-Specification-Valuesimulator.adoc[Simulator Documentation]
+* link:System-Specification-Valuesimulator[Simulator Documentation]
 
 === Sensor
 
-* link:Sensor-Documentation.adoc[Sensor Documentation]
+* link:Sensor-Documentation[Sensor Documentation]
 
 
 
