@@ -1,11 +1,10 @@
 package at.htl.boundary;
 
+import at.htl.entity.ActorAction;
 import at.htl.repository.ActorActionRepository;
 
 import javax.inject.Inject;
-import javax.ws.rs.GET;
-import javax.ws.rs.Path;
-import javax.ws.rs.QueryParam;
+import javax.ws.rs.*;
 import javax.ws.rs.core.Response;
 
 @Path("actoraction")
@@ -15,13 +14,18 @@ public class ActorActionResource {
     ActorActionRepository actorActionRepository;
 
     @GET
-    public Response getActorAction(@QueryParam("id") Long actorActionId){
-        if (actorActionId != null){
-            return  Response.accepted().build();
-        }else{
-            return Response
-                    .accepted(actorActionRepository.findAll())
-                    .build();
-        }
+    public Response getAllActorAction(){
+        return Response.accepted(actorActionRepository.findAll()).build();
+    }
+
+    @POST
+    public Response addActorAction(ActorAction actorAction){
+        return Response.accepted( actorActionRepository.save(actorAction)).build();
+    }
+
+    @DELETE
+    public Response removeActorAction(ActorAction actorAction){
+        actorActionRepository.delete(actorAction);
+        return Response.accepted(actorAction).build();
     }
 }
