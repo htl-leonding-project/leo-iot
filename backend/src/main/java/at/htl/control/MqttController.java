@@ -32,7 +32,7 @@ public class MqttController {
      * This methods initializes the client in the controller
      * @throws MqttException if credentials are wrong or the broker is offline this Exception will be thrown
      */
-    void init() throws MqttException {
+    private void init() throws MqttException {
         mqttClient =  new MqttClient(
                 configuration.getFullUrl(),
                 MqttClient.generateClientId(),
@@ -56,7 +56,7 @@ public class MqttController {
      * function.
      * @return Camel Paho Mqtt Client
      */
-    private MqttClient getClient() {
+    public MqttClient getClient() {
         if (mqttClient == null) {
             try {
                 init();
