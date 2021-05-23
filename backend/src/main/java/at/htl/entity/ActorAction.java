@@ -1,7 +1,10 @@
 
 package at.htl.entity;
 
-import javax.persistence.*;
+import javax.persistence.Embeddable;
+import javax.persistence.EmbeddedId;
+import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
 import java.io.Serializable;
 import java.sql.Timestamp;
 import java.util.Objects;
