@@ -19,11 +19,5 @@ public class InitBean {
     MqttController controller;
 
     @Transactional
-    void onStart(@Observes StartupEvent ev) throws MqttException {
-        controller.subscribe(
-                "og/+/+/test",
-                (topic, object) -> System.out.println(object.getMeasurementKey().getTimestamp()),
-                Measurement.class
-        );
-    }
+    void onStart(@Observes StartupEvent ev) { }
 }
