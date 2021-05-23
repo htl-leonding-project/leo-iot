@@ -1,8 +1,8 @@
 package at.htl.control;
 
 import at.htl.config.MqttConfiguration;
-import at.htl.util.mqtt.MqttParseSubscribe;
 import at.htl.util.mqtt.MqttParsable;
+import at.htl.util.mqtt.MqttParseSubscribe;
 import at.htl.util.mqtt.MqttSubscribe;
 import io.quarkus.runtime.ShutdownEvent;
 import org.eclipse.paho.client.mqttv3.MqttClient;
@@ -13,7 +13,6 @@ import org.eclipse.paho.client.mqttv3.persist.MemoryPersistence;
 import javax.enterprise.context.ApplicationScoped;
 import javax.enterprise.event.Observes;
 import javax.inject.Inject;
-import java.util.concurrent.*;
 
 
 /**

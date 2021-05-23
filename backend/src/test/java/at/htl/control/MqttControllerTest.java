@@ -3,7 +3,6 @@ package at.htl.control;
 import at.htl.config.MqttConfiguration;
 import at.htl.util.mqtt.MqttParsable;
 import io.quarkus.test.junit.QuarkusTest;
-import org.assertj.core.api.CompletableFutureAssert;
 import org.eclipse.paho.client.mqttv3.MqttClient;
 import org.eclipse.paho.client.mqttv3.MqttException;
 import org.eclipse.paho.client.mqttv3.MqttMessage;
@@ -14,7 +13,6 @@ import org.testcontainers.containers.GenericContainer;
 import javax.inject.Inject;
 import javax.json.JsonObject;
 import javax.json.bind.JsonbBuilder;
-
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;

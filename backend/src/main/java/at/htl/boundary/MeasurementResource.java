@@ -1,7 +1,6 @@
 package at.htl.boundary;
 
 import at.htl.repository.MeasurementRepository;
-import org.eclipse.microprofile.reactive.messaging.Incoming;
 
 import javax.inject.Inject;
 import javax.ws.rs.GET;
