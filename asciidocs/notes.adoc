@@ -187,4 +187,18 @@ den neuen Simulator Prototyp einbinden
 das neues Dashboard erklärt und umsetzen
 
 
+== 16052021
+
+talked about current tasks
+simulator status
+talked about the sensor position
+talked issues
+questions at stütz:
+wohin mit den sensore soin de hin
+
+== 21052021
+
+im protocol eine namens legende hinzufügen
+protocol issue nummer hinzufügen
+meeting of protocol from docker template
 
