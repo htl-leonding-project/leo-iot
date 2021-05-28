@@ -1,3 +1,5 @@
+ifndef::imagesdir[:imagesdir: images]
+
 = Meeting-Protocol
 
 == Legend
@@ -159,8 +161,12 @@
 * status update
 * assigned new tasks
 ** new dashboard
+** should look like this:
+image:dashboard_layout_1.png[]
+image:dashboard_layout_2.jpeg[]
 ** seperated systemspec
 ** implement reworked sim prototype and api
+
 
 == 25.04.2021
 * EQ, EP, KF, RF
