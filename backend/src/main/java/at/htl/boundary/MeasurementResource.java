@@ -41,13 +41,22 @@ public class MeasurementResource {
     @Path("/add-measurement")
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public Response addMeasurement(JsonObject jsonObject){
+    public Response addMeasurement(@QueryParam("sensorId") Long sensorId ,JsonObject jsonObject){
         Measurement measurement = new Measurement();
         measurement.setValue(jsonObject.getInt("value"));
         Measurement.MeasurementKey measurementKey =
                 new Measurement.MeasurementKey(new Timestamp(jsonObject.getJsonObject("measurementKey").getInt("timestamp") * 1000),new Sensor());
+        measurementKey.setSensor(sensorRepository.findById(sensorId));
         measurement.setMeasurementKey(measurementKey);
-        //measurementRepository.save(measurement)
+        measurementRepository.save(measurement);
+        return Response.accepted().build();
+    }
+
+    @DELETE
+    @Path("/remove-measurement")
+    public Response removeMeasurement(Measurement measurement ){
+        measurementRepository.remove(measurement);
         return Response.accepted(measurement).build();
     }
+
 }
