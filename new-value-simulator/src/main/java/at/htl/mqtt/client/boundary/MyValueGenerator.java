@@ -3,6 +3,7 @@ package at.htl.mqtt.client.boundary;
 import at.htl.mqtt.client.entity.Room;
 import io.quarkus.runtime.StartupEvent;
 import io.reactivex.Observable;
+import io.reactivex.disposables.Disposable;
 import io.smallrye.reactive.messaging.mqtt.MqttMessage;
 import org.eclipse.microprofile.reactive.messaging.Channel;
 import org.eclipse.microprofile.reactive.messaging.Emitter;
@@ -16,6 +17,7 @@ import java.util.Map;
 import java.util.concurrent.TimeUnit;
 import org.json.JSONObject;
 import at.htl.mqtt.client.repository.RoomRepository;
+import org.reactivestreams.Subscription;
 
 /**
  * https://stackoverflow.com/questions/62883516/publish-subscribe-mqtt-using-smallrye-reactive-messaging-dynamically
@@ -31,9 +33,13 @@ public class MyValueGenerator {
     @Inject
     RoomRepository roomRepo;
 
+    List<Room> rooms;
+
+    private Disposable subscription;
+
      public void getAllRooms(){
 
-        List<Room> rooms = roomRepo.getAllRooms();
+        rooms = roomRepo.getAllRooms();
 
         for (Room room : rooms) {
             roomData(room);
@@ -42,7 +48,7 @@ public class MyValueGenerator {
 
     public void roomData(Room room){
 
-        Observable.interval(0, 1, TimeUnit.SECONDS)
+        subscription = Observable.interval(0, 1, TimeUnit.SECONDS)
                 .subscribe(value -> {
                     Map values = new HashMap<String, Object>();
                     values.put("temp", System.currentTimeMillis());
@@ -67,8 +73,17 @@ public class MyValueGenerator {
                     emitter.send(MqttMessage.of("values/" + room.getName() + "/" + "co2" + "/" + "state", getBytes(jsonValue.getDouble("co2"), timeStamp)));
                     emitter.send(MqttMessage.of("values/" + room.getName() + "/" + "motion" + "/" + "state", getBytes(jsonValue.getDouble("motion"), timeStamp)));
 
+                    rooms = roomRepo.getAllRooms();
+
                     System.out.println("Sending value -> " + jsonValue);
                 });
+    }
+
+    public void stop() {
+        if (subscription != null && !subscription.isDisposed()) {
+            System.out.println("stopped");
+            subscription.dispose();
+        }
     }
 
     void init(@Observes StartupEvent event) {

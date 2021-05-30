@@ -13,7 +13,7 @@ import java.util.List;
 public class RoomRepository
 {
     @Inject
-            MyValueGenerator myValueGenerator;
+    MyValueGenerator myValueGenerator;
 
     List<Room> rooms = new LinkedList();
 
@@ -41,6 +41,7 @@ public class RoomRepository
             if (room.getName().equals(roomName))
             {
                 rooms.remove(room);
+                myValueGenerator.stop();
                 myValueGenerator.getAllRooms();
                 return true;
             }
