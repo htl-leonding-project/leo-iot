@@ -24,3 +24,9 @@ services:
       - ./data/:/var/lib/postgresql/data
     ports:
       - 5432:5432
+networks:
+  default:
+    ipam:
+      driver: default
+      config:
+        - subnet: 172.15.7.7/24
