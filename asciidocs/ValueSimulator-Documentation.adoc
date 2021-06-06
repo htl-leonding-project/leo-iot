@@ -18,10 +18,10 @@ Note that you need the permission to have access to this repo. Make sure you con
 
 Connect with the MQQT-Server. Ask the leader for the Password.
 
-image::docu1.jpg[]
+image::docu1.png[]
 
-Use a Tool like postman to Add or Delete Rooms. MAke sure that you choose POST instead of GET on the left.
+Use a Tool like postman to Add or Delete Rooms. Make sure that you choose POST instead of GET on the left.
 
-image::docu2.jpg[]
+image::docu2.png[]
 
 then you can see
