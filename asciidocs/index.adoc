@@ -27,7 +27,8 @@ ifndef::imagesdir[:imagesdir: images]
 
 === Simulator
 
-* link:System-Specification-Valuesimulator[Simulator Documentation]
+* link:System-Specification-Valuesimulator[Simulator System Specification]
+* link:ValueSimulator-Documentation[Simulator Documentation]
 
 === Sensor
 

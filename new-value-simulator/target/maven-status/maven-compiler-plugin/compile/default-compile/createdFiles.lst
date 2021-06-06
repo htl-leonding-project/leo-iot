@@ -1,0 +1,5 @@
+at\htl\mqtt\client\boundary\ConfigEndpoint.class
+at\htl\mqtt\client\boundary\MyValueGenerator.class
+at\htl\mqtt\client\entity\Room.class
+at\htl\mqtt\client\repository\RoomRepository.class
+META-INF\panache-archive.marker

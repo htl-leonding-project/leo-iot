@@ -24,4 +24,11 @@ Use a Tool like postman to Add or Delete Rooms. Make sure that you choose POST i
 
 image::docu2.png[]
 
-then you can see
+then you can see the new Room displayed on the MQQT-Server. Every Room has simulated values. THe Tempersture for example, changes his value just a little bit like the real temperature value would.
+
+image::docu3.png[]
+
+If you want to delete the room you created before you can use postman like in this picture again.
+
+image::docur.png[]
+
