@@ -1,0 +1,27 @@
+= Value Simulator  Documentation
+FR, VK
+1.0.0, 2021-05-26:
+ifndef::imagesdir[:imagesdir: images]
+
+== Purpose
+
+The aim of the Simulator is to send testdata to a MQQT-Broker, wich can be used to Test the sofware without a physical sensor.
+
+
+== Repo of the Simulator
+
+* link:https://github.com/htl-leonding-project/leo-iot/tree/value-simulator[ValueSimulator Repo]
+
+Note that you need the permission to have access to this repo. Make sure you contact the current team leader for the access.
+
+=== How to setup the Simulator?
+
+Connect with the MQQT-Server. Ask the leader for the Password.
+
+image::docu1.jpg[]
+
+Use a Tool like postman to Add or Delete Rooms. MAke sure that you choose POST instead of GET on the left.
+
+image::docu2.jpg[]
+
+then you can see
