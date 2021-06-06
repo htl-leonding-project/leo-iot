@@ -13,7 +13,7 @@ The aim of a sensor is to collect data.Multiply sensors are packed together into
 
 Note that you need the permission to have access to this repo. Make sure you contact the current team leader for the access.
 
-=== How to setup the sensor?
+=== How to setup the sensorbox?
 
 * link:https://bit.ly/2T44fQg[getting started]
 

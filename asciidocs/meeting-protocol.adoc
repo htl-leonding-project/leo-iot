@@ -1,3 +1,5 @@
+ifndef::imagesdir[:imagesdir: images]
+
 = Meeting-Protocol
 
 == Legend
@@ -37,6 +39,7 @@
 ** several work sessions a month
 
 === 04.02.2021
+* EQ, EP, KS, KF, ST
 * talked about the project management and structure
 * TODO:
 ** getting rid off the feature branches
@@ -51,6 +54,7 @@
 * talking about deadlines
 
 ==== 19.02.2021
+* EQ,EP, ST
 * Write instructions for the backend in the ReadME
 * the professor is looking for an alternative solution for JDBC
 * create reactive branching
@@ -64,6 +68,8 @@
 
 
 == 22.02.2021
+
+* EQ,EP,ST, KG
 * Notes:
 ** programm is available
 ** we need to configure the sensorbox
@@ -155,7 +161,38 @@
 * status update
 * assigned new tasks
 ** new dashboard
+** should look like this:
+image:dashboard_layout_1.png[]
+image:dashboard_layout_2.jpeg[]
 ** seperated systemspec
 ** implement reworked sim prototype and api
 
 
+== 25.04.2021
+* EQ, EP, KF, RF
+* status updated
+
+== 02.05.2021
+* EQ, EP, RF
+* status updated
+
+== 09.05.2021
+* EQ, EP, KF, RF
+* status updated
+
+== 16.05.2021
+* EQ, EP, KF, RF
+* talked about current tasks
+* assigned new tasks
+
+== 21.05.2021
+* EQ, EP, ST
+* talked about the current status of the project
+* protocol needs to be updated
+* should add issues no. to our commits
+
+== 23.05.2021
+* EQ, EP ,RF
+* current status updated
+* talked sensor and simulator docs
+* talked about the sprint

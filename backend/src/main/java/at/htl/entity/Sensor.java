@@ -1,7 +1,5 @@
 package at.htl.entity;
 
-import io.vertx.lang.axle.Gen;
-
 import javax.persistence.*;
 import java.util.Objects;
 

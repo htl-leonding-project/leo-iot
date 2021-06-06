@@ -2,7 +2,6 @@ package at.htl.repository;
 
 import io.quarkus.hibernate.orm.panache.PanacheRepositoryBase;
 
-import javax.enterprise.context.ApplicationScoped;
 import javax.transaction.Transactional;
 
 public abstract class Repository<Entity, Identification> implements PanacheRepositoryBase<Entity, Identification> {

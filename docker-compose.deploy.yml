@@ -7,12 +7,16 @@ services:
     container_name: leo-iot-web
     ports:
       - 80:80
+    networks:
+      - leo-iot
   leo-iot-server:
     depends_on: [leo-iot-db]
     image: docker.pkg.github.com/htl-leonding-project/leo-iot/leo-iot-server
     container_name: leo-iot-server
     ports:
       - "8080:8080"  # the HTTP endpoint
+    networks:
+      - leo-iot
   leo-iot-db:
     image: docker.pkg.github.com/htl-leonding-project/leo-iot/leo-iot-db
     container_name: leo-iot-db
@@ -24,3 +28,9 @@ services:
       - ./data/:/var/lib/postgresql/data
     ports:
       - 5432:5432
+    networks:
+      - leo-iot
+networks:
+  leo-iot:
+    external: true
+

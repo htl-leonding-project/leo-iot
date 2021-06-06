@@ -1,13 +1,19 @@
 package at.htl.entity;
 
-import javax.persistence.*;
+import at.htl.util.mqtt.MqttParsable;
+
+import javax.json.JsonObject;
+import javax.json.bind.JsonbBuilder;
+import javax.persistence.Embeddable;
+import javax.persistence.EmbeddedId;
+import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
 import java.io.Serializable;
 import java.sql.Timestamp;
-import java.time.LocalDateTime;
 import java.util.Objects;
 
 @Entity
-public class Measurement {
+public class Measurement implements MqttParsable {
 
     @EmbeddedId
     private MeasurementKey measurementKey;
@@ -49,6 +55,22 @@ public class Measurement {
     @Override
     public int hashCode() {
         return Objects.hash(measurementKey, value);
+    }
+
+    @Override
+    public void fromMqtt(String topic, String data) {
+        JsonObject object = JsonbBuilder
+                .create()
+                .fromJson(data, JsonObject.class);
+
+
+        this.setMeasurementKey(new MeasurementKey(
+                // * 1000 for converting seconds to milliseconds
+                new Timestamp(object.getJsonNumber("timestamp").longValue() * 1000),
+                null
+        ));
+
+        this.setValue(object.getJsonNumber("value").doubleValue());
     }
 
     @Embeddable

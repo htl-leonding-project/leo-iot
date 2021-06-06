@@ -273,7 +273,7 @@ Diese Daten werden an die Applikation weitergeleitet, welche die passenden Maßn
 
 //image:infrastructure.png[width=800px]
 
-image:system_architecture.png[width=800px]
+image:system_architecture_new.png[width=800px]
 
 === Meilensteine
 [cols=2]
