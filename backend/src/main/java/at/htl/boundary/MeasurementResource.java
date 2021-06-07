@@ -4,7 +4,6 @@ import at.htl.entity.Measurement;
 import at.htl.entity.Sensor;
 import at.htl.repository.MeasurementRepository;
 import at.htl.repository.SensorRepository;
-import org.eclipse.microprofile.reactive.messaging.Incoming;
 
 import javax.inject.Inject;
 import javax.json.JsonObject;

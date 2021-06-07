@@ -7,4 +7,10 @@ public class MeasuremetResourceTest {
     @Karate.Test
     Karate testCreateMeasurement() { return Karate.run("measurement-create.feature").relativeTo(getClass()); }
 
+    @Karate.Test
+    Karate testGetSensor() {
+        return Karate.run("measurement-get.feature").relativeTo(getClass());
+    }
+
+
 }
