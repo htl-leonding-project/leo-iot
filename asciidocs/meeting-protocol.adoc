@@ -1,5 +1,3 @@
-ifndef::imagesdir[:imagesdir: images]
-
 = Meeting-Protocol
 
 == Legend
@@ -161,12 +159,8 @@ ifndef::imagesdir[:imagesdir: images]
 * status update
 * assigned new tasks
 ** new dashboard
-** should look like this:
-image:dashboard_layout_1.png[]
-image:dashboard_layout_2.jpeg[]
 ** seperated systemspec
 ** implement reworked sim prototype and api
-
 
 == 25.04.2021
 * EQ, EP, KF, RF
@@ -196,3 +190,10 @@ image:dashboard_layout_2.jpeg[]
 * current status updated
 * talked sensor and simulator docs
 * talked about the sprint
+
+== 07.06.2021
+* EQ, VK ,RF
+* current status
+* talked about frontend tasks
+* current tasks from 4AHIF group (value-sim done, tests and endpoint documentation in progress)
+* EQ: currently working that data is automatically persisting
