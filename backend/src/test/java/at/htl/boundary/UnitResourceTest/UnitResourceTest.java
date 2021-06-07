@@ -14,4 +14,9 @@ public class UnitResourceTest {
     Karate testGetUnit() {
         return Karate.run("unit-get.feature").relativeTo(getClass());
     }
+
+    @Karate.Test
+    Karate testDeleteUnit() {
+        return Karate.run("unit-delete.feature").relativeTo(getClass());
+    }
 }
