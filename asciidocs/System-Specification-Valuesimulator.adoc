@@ -72,7 +72,7 @@ rectangle {
 }
 
 User1 -up-> (Simulator) : Erstellt/löscht Raum
-User1 <-up- (MQTT Broker) : Möchte Testdaten sehen
+User1 <-up- (MQTTBroker) : Möchte Testdaten sehen
 (Simulator) --> (MQTTBroker)
 
 @enduml
