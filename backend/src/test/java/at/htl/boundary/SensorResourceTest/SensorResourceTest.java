@@ -4,15 +4,15 @@ import com.intuit.karate.junit5.Karate;
 
 public class SensorResourceTest {
     @Karate.Test
-    Karate testCreateUnit() { return Karate.run("sensor-create.feature").relativeTo(getClass()); }
+    Karate testCreateSensor() { return Karate.run("sensor-create.feature").relativeTo(getClass()); }
 
     @Karate.Test
-    Karate testGetUnit() {
+    Karate testGetSensor() {
         return Karate.run("sensor-get.feature").relativeTo(getClass());
     }
 
     @Karate.Test
-    Karate testDeleteUnit() {
+    Karate testDeleteSensor() {
         return Karate.run("sensor-delete.feature").relativeTo(getClass());
     }
 }
