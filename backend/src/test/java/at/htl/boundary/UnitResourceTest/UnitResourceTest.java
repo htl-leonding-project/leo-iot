@@ -7,6 +7,6 @@ import io.quarkus.test.junit.QuarkusTest;
 public class UnitResourceTest {
     @Karate.Test
     Karate testCreateUnit() {
-        return Karate.run("unit-create").relativeTo(getClass());
+        return Karate.run("unit-create.feature").relativeTo(getClass());
     }
 }
