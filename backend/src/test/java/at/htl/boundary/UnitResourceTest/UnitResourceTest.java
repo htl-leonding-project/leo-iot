@@ -9,4 +9,9 @@ public class UnitResourceTest {
     Karate testCreateUnit() {
         return Karate.run("unit-create.feature").relativeTo(getClass());
     }
+
+    @Karate.Test
+    Karate testGetUnit() {
+        return Karate.run("unit-get.feature").relativeTo(getClass());
+    }
 }
