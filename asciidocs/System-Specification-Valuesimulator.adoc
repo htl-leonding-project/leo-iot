@@ -127,8 +127,11 @@ In einem bestimmten Zeitintervall werden Daten vom Simulator an den MQTT Broker 
 a| *  Simulator
 |23.05.2021
 
-a| * [] Doku
+a| *  Pflichtenheft
 |23.05.2021
 
-a| * [] Pflichtenheft
+a| *  Doku
+|1.06.2021
+
+
 
