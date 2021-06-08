@@ -45,7 +45,7 @@ Mithilfe eines 3D Modells des Schulgebäudes werden diese Daten anschaulich prä
 === Problemstellung
 
 Aktuell gibt es keine Testwerte für das Projekt. Aus diesem Grund wurde ein Simulator in Auftrag gegeben, welcher
-gemockte Werte an einen MQQT-Broker sendet. Außerdem kann man beliebig viele Räume erstellen und löschen. Diese bekommen
+gemockte Werte an einen MQTT-Broker sendet. Außerdem kann man beliebig viele Räume erstellen und löschen. Diese bekommen
 dann Testdaten welche mit einem Java-Programm generiert werden.
 === Aufgabenstellung
 
