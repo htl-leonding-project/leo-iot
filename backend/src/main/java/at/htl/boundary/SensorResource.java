@@ -5,6 +5,7 @@ import at.htl.repository.SensorRepository;
 import org.jboss.logging.annotations.Pos;
 
 import javax.inject.Inject;
+import javax.json.JsonObject;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;

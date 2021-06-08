@@ -1,5 +1,6 @@
 package at.htl.control;
 
+import at.htl.entity.Sensor;
 import io.quarkus.runtime.StartupEvent;
 
 import javax.enterprise.event.Observes;
@@ -16,5 +17,6 @@ public class InitBean {
     MqttController controller;
 
     @Transactional
-    void onStart(@Observes StartupEvent ev) { }
+    void onStart(@Observes StartupEvent ev) {
+    }
 }

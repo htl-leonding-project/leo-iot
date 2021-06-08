@@ -1,7 +1,9 @@
 package at.htl.boundary.SensorResourceTest;
 
 import com.intuit.karate.junit5.Karate;
+import io.quarkus.test.junit.QuarkusTest;
 
+@QuarkusTest
 public class SensorResourceTest {
     @Karate.Test
     Karate testCreateSensor() { return Karate.run("sensor-create.feature").relativeTo(getClass()); }
