@@ -6,6 +6,7 @@ import at.htl.util.mqtt.MqttParseCallback;
 import org.eclipse.paho.client.mqttv3.MqttMessage;
 
 import javax.enterprise.context.ApplicationScoped;
+import javax.inject.Inject;
 import javax.json.JsonObject;
 import javax.json.bind.JsonbBuilder;
 import java.sql.Timestamp;
@@ -18,6 +19,9 @@ public class MeasurementRepository
         implements
             MqttParseCallback<Measurement>
 {
+
+    @Inject
+    SensorRepository sensorRepository;
 
     public List<Measurement> get(Timestamp from, Timestamp to, Sensor sensor) throws IllegalArgumentException {
         if (from.after(to)) throw new IllegalArgumentException();
@@ -63,7 +67,7 @@ public class MeasurementRepository
         measurement.setMeasurementKey(new Measurement.MeasurementKey(
                 // * 1000 for converting seconds to milliseconds
                 new Timestamp(object.getJsonNumber("timestamp").longValue() * 1000),
-                null
+                sensorRepository.getSensorFromMqttPath(topic)
         ));
 
         measurement.setValue(object.getJsonNumber("value").doubleValue());
