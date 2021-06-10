@@ -1,9 +1,7 @@
 package at.htl.control;
 
 import at.htl.config.MqttConfiguration;
-import at.htl.util.mqtt.MqttParsable;
-import at.htl.util.mqtt.MqttParseSubscribe;
-import at.htl.util.mqtt.MqttSubscribe;
+import at.htl.util.mqtt.*;
 import io.quarkus.runtime.ShutdownEvent;
 import org.eclipse.paho.client.mqttv3.MqttClient;
 import org.eclipse.paho.client.mqttv3.MqttConnectOptions;
@@ -81,20 +79,20 @@ public class MqttController {
      * This method is for subscribing to a mqtt topic and parsing the output to a java class. Keep in mind The java
      * class needs to implement MqttParsable
      * @param topicFilter mqtt topic to subscribe
+     * @param mqttParse callback for parsing the object
      * @param mqttHandler callback for mqtt values
-     * @param Type parse type
      * @param <T> parse type
      * @throws MqttException will be thrown if there is an error with mqtt
      */
-    public <T extends MqttParsable> void subscribe(String topicFilter, MqttParseSubscribe<T> mqttHandler, Class<T> Type) throws MqttException {
+
+    public <T> void subscribe(
+            String topicFilter,
+            MqttParseCallback<T> mqttParse,
+            MqttTypedSubscribeCallBack<T> mqttHandler
+    ) throws MqttException {
         subscribe(topicFilter, (topic, message) -> {
-            try {
-                T object = Type.getDeclaredConstructor().newInstance();
-                object.fromMqtt(topic, new String(message.getPayload()));
-                mqttHandler.subscribe(topic, object);
-            } catch (Exception exception) {
-                exception.printStackTrace();
-            }
+            T object = mqttParse.parseFromMqtt(topic, message);
+            mqttHandler.callback(topic, object);
         });
     }
 

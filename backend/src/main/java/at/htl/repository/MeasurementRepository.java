@@ -2,13 +2,22 @@ package at.htl.repository;
 
 import at.htl.entity.Measurement;
 import at.htl.entity.Sensor;
+import at.htl.util.mqtt.MqttParseCallback;
+import org.eclipse.paho.client.mqttv3.MqttMessage;
 
 import javax.enterprise.context.ApplicationScoped;
+import javax.json.JsonObject;
+import javax.json.bind.JsonbBuilder;
 import java.sql.Timestamp;
 import java.util.List;
 
 @ApplicationScoped
-public class MeasurementRepository extends Repository<Measurement, Measurement.MeasurementKey> {
+public class MeasurementRepository
+        extends
+            Repository<Measurement, Measurement.MeasurementKey>
+        implements
+            MqttParseCallback<Measurement>
+{
 
     public List<Measurement> get(Timestamp from, Timestamp to, Sensor sensor) throws IllegalArgumentException {
         if (from.after(to)) throw new IllegalArgumentException();
@@ -44,4 +53,21 @@ public class MeasurementRepository extends Repository<Measurement, Measurement.M
         return query.getResultList();
     }
 
+    @Override
+    public Measurement parseFromMqtt(String topic, MqttMessage message) {
+        Measurement measurement = new Measurement();
+        JsonObject object = JsonbBuilder
+                .create()
+                .fromJson(new String(message.getPayload()), JsonObject.class);
+
+        measurement.setMeasurementKey(new Measurement.MeasurementKey(
+                // * 1000 for converting seconds to milliseconds
+                new Timestamp(object.getJsonNumber("timestamp").longValue() * 1000),
+                null
+        ));
+
+        measurement.setValue(object.getJsonNumber("value").doubleValue());
+
+        return measurement;
+    }
 }

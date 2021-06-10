@@ -6,12 +6,12 @@ package at.htl.util.mqtt;
  * @param <T> target parse type
  * @author QuirinEcker
  */
-public interface MqttParseSubscribe<T extends MqttParsable> {
+public interface MqttTypedSubscribeCallBack<T> {
 
     /**
      * callback
      * @param topic topic for subscribed for the given data
      * @param object parsed data for the given topic
      */
-    void subscribe(String topic, T object);
+    void callback(String topic, T object);
 }
