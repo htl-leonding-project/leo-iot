@@ -9,7 +9,6 @@ import javax.transaction.Transactional;
 @ApplicationScoped
 public class LocationRepository extends Repository<Location, Long> {
 
-    @Transactional
     public Location getLocationByParentLocationAndName(Location parentLocation, String name) {
         System.out.println("parentLocatio: " + parentLocation);
         System.out.println("name: " + name);

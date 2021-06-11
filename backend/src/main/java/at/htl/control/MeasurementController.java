@@ -16,7 +16,12 @@ public class MeasurementController {
     MeasurementRepository repository;
 
     public void init(@Observes StartupEvent event) throws MqttException {
-        mqttController.subscribe("#", repository, (topic, object) -> {
+        mqttController.subscribe("#", repository, (topic, measurement) -> {
+            try {
+                repository.save(measurement);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         });
     }
 

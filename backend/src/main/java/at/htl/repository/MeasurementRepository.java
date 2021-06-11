@@ -64,10 +64,12 @@ public class MeasurementRepository
                 .create()
                 .fromJson(new String(message.getPayload()), JsonObject.class);
 
+        Sensor sensor = sensorRepository.getSensorFromMqttPath(topic);
+
         measurement.setMeasurementKey(new Measurement.MeasurementKey(
                 // * 1000 for converting seconds to milliseconds
                 new Timestamp(object.getJsonNumber("timestamp").longValue() * 1000),
-                sensorRepository.getSensorFromMqttPath(topic)
+                sensor
         ));
 
         measurement.setValue(object.getJsonNumber("value").doubleValue());

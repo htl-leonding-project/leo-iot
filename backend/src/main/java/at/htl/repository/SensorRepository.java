@@ -1,10 +1,11 @@
 package at.htl.repository;
 
-import at.htl.entity.Location;
-import at.htl.entity.Sensor;
+import at.htl.entity.*;
+import io.quarkus.hibernate.orm.panache.PanacheQuery;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
+import javax.transaction.Transactional;
 import java.util.Arrays;
 import java.util.stream.Collectors;
 
@@ -17,8 +18,11 @@ public class SensorRepository extends Repository<Sensor, Long> {
     @Inject
     LocationRepository locationRepository;
 
+    @Inject
+    SensorTypeRepository sensorTypeRepository;
+
+    @Transactional
     public Sensor getSensorFromMqttPath(String mqttPaht) {
-        System.out.println(mqttPaht);
         var pathSegments = mqttPaht.split("/");
 
         String stateString = pathSegments[pathSegments.length - 1];
@@ -33,7 +37,6 @@ public class SensorRepository extends Repository<Sensor, Long> {
         Location lastLocation = null;
         Location location = null;
 
-        System.out.println(locationStrings.length);
         for (int i = 0; i < locationStrings.length; i++) {
             if (i == 0) {
                 location = locationRepository.getLocationByParentLocationAndName(
@@ -60,16 +63,57 @@ public class SensorRepository extends Repository<Sensor, Long> {
                             locationStrings[i]
                     ));
                 }
-
             }
 
-            System.out.println(location);
             lastLocation = location;
         }
 
-        System.out.println(location);
-        System.out.println("==========");
+        var thing = thingRepository.getThingByNameAndLocation(
+                thingString, location
+        );
 
-        return new Sensor();
+        if (thing == null) {
+            thing = thingRepository.save(new Thing(
+                    location, thingString
+            ));
+        }
+
+        var sensorType = sensorTypeRepository.find("name", sensorString)
+                .firstResultOptional()
+                .orElse(null);
+
+        if (sensorType == null) {
+            sensorType = sensorTypeRepository.save(new SensorType(
+                    sensorString,
+                    null
+            ));
+        }
+
+
+        Sensor sensor = getSensorBySensorTypeAndThing(sensorType, thing);
+
+        if (sensor == null) {
+            sensor = save(new Sensor(
+                    thing,
+                    sensorType
+            ));
+        }
+
+        return sensor;
+    }
+
+    private Sensor getSensorBySensorTypeAndThing(SensorType sensorType, Thing thing) {
+        var query = getEntityManager().createQuery(
+                "select s from Sensor s where s.sensorType = :sensorType and s.thing = :thing",
+                Sensor.class
+        );
+
+        query.setParameter("sensorType", sensorType);
+        query.setParameter("thing", thing);
+
+        return query
+                .getResultStream()
+                .findFirst()
+                .orElse(null);
     }
 }
