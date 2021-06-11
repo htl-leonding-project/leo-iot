@@ -13,7 +13,7 @@ public class ThingRepository extends Repository<Thing, Long> {
 
     public Thing getOrCreateByTree(String name, Location location) {
         return getThingByNameAndLocation(name, location)
-                .orElse(save(new Thing(
+                .orElseGet(() -> save(new Thing(
                         location,
                         name
                 )));

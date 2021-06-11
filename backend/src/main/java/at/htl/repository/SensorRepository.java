@@ -56,7 +56,7 @@ public class SensorRepository extends Repository<Sensor, Long> {
         return query
                 .getResultStream()
                 .findFirst()
-                .orElse(save(new Sensor(
+                .orElseGet(() -> save(new Sensor(
                     thing,
                     sensorType
                 )));

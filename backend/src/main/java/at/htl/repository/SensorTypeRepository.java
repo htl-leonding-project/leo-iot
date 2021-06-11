@@ -9,7 +9,7 @@ public class SensorTypeRepository extends Repository<SensorType, Long> {
     public SensorType getOrCreateByName(String name) {
         return find("name", name)
                 .firstResultOptional()
-                .orElse(save(new SensorType(
+                .orElseGet(() -> save(new SensorType(
                         name,
                         null
                 )));
