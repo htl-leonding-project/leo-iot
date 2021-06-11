@@ -24,8 +24,6 @@ public class SensorRepository extends Repository<Sensor, Long> {
     @Transactional
     public Sensor getSensorFromMqttPath(String mqttPaht) {
         var pathSegments = mqttPaht.split("/");
-
-        String stateString = pathSegments[pathSegments.length - 1];
         String sensorString = pathSegments[pathSegments.length - 2];
         String thingString = pathSegments[pathSegments.length - 3];
         String[] locationStrings = Arrays
@@ -34,75 +32,19 @@ public class SensorRepository extends Repository<Sensor, Long> {
                 .collect(Collectors.toList())
                 .toArray(new String[pathSegments.length - 3]);
 
-        Location lastLocation = null;
-        Location location = null;
+        var location = locationRepository
+                .getLocationByTree(locationStrings);
 
-        for (int i = 0; i < locationStrings.length; i++) {
-            if (i == 0) {
-                location = locationRepository.getLocationByParentLocationAndName(
-                        null,
-                        locationStrings[i]
-                );
+        var thing = thingRepository
+                .getOrCreateByTree(thingString, location);
 
-                if (location == null) {
-                    location = locationRepository.save(new Location(
-                            null,
-                            locationStrings[i]
-                    ));
-                }
+        var sensorType = sensorTypeRepository
+                .getOrCreateByName(sensorString);
 
-            } else {
-                location = locationRepository.getLocationByParentLocationAndName(
-                        lastLocation,
-                        locationStrings[i]
-                );
-
-                if (location == null) {
-                    location = locationRepository.save(new Location(
-                            lastLocation,
-                            locationStrings[i]
-                    ));
-                }
-            }
-
-            lastLocation = location;
-        }
-
-        var thing = thingRepository.getThingByNameAndLocation(
-                thingString, location
-        );
-
-        if (thing == null) {
-            thing = thingRepository.save(new Thing(
-                    location, thingString
-            ));
-        }
-
-        var sensorType = sensorTypeRepository.find("name", sensorString)
-                .firstResultOptional()
-                .orElse(null);
-
-        if (sensorType == null) {
-            sensorType = sensorTypeRepository.save(new SensorType(
-                    sensorString,
-                    null
-            ));
-        }
-
-
-        Sensor sensor = getSensorBySensorTypeAndThing(sensorType, thing);
-
-        if (sensor == null) {
-            sensor = save(new Sensor(
-                    thing,
-                    sensorType
-            ));
-        }
-
-        return sensor;
+        return getOrCreateSensorByTree(sensorType, thing);
     }
 
-    private Sensor getSensorBySensorTypeAndThing(SensorType sensorType, Thing thing) {
+    private Sensor getOrCreateSensorByTree(SensorType sensorType, Thing thing) {
         var query = getEntityManager().createQuery(
                 "select s from Sensor s where s.sensorType = :sensorType and s.thing = :thing",
                 Sensor.class
@@ -114,6 +56,9 @@ public class SensorRepository extends Repository<Sensor, Long> {
         return query
                 .getResultStream()
                 .findFirst()
-                .orElse(null);
+                .orElse(save(new Sensor(
+                    thing,
+                    sensorType
+                )));
     }
 }

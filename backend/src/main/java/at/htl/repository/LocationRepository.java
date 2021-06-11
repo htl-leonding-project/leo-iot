@@ -9,6 +9,45 @@ import javax.transaction.Transactional;
 @ApplicationScoped
 public class LocationRepository extends Repository<Location, Long> {
 
+    public Location getLocationByTree(String... locationStrings) {
+        Location lastLocation = null;
+        Location location = null;
+
+        for (int i = 0; i < locationStrings.length; i++) {
+            if (i == 0) {
+                location = getLocationByParentLocationAndName(
+                        null,
+                        locationStrings[i]
+                );
+
+                if (location == null) {
+                    location = save(new Location(
+                            null,
+                            locationStrings[i]
+                    ));
+                }
+
+            } else {
+                location = getLocationByParentLocationAndName(
+                        lastLocation,
+                        locationStrings[i]
+                );
+
+                if (location == null) {
+                    location = save(new Location(
+                            lastLocation,
+                            locationStrings[i]
+                    ));
+                }
+            }
+
+            lastLocation = location;
+        }
+
+
+        return location;
+    }
+
     public Location getLocationByParentLocationAndName(Location parentLocation, String name) {
         System.out.println("parentLocatio: " + parentLocation);
         System.out.println("name: " + name);

@@ -6,11 +6,20 @@ import at.htl.entity.Thing;
 import javax.enterprise.context.ApplicationScoped;
 import javax.persistence.TypedQuery;
 import javax.transaction.Transactional;
+import java.util.Optional;
 
 @ApplicationScoped
 public class ThingRepository extends Repository<Thing, Long> {
 
-    public Thing getThingByNameAndLocation(String name, Location location) {
+    public Thing getOrCreateByTree(String name, Location location) {
+        return getThingByNameAndLocation(name, location)
+                .orElse(save(new Thing(
+                        location,
+                        name
+                )));
+    }
+
+    private Optional<Thing> getThingByNameAndLocation(String name, Location location) {
         TypedQuery<Thing> query;
         if (location != null) {
             query = getEntityManager().createQuery(
@@ -30,7 +39,6 @@ public class ThingRepository extends Repository<Thing, Long> {
 
         return query
                 .getResultStream()
-                .findFirst()
-                .orElse(null);
+                .findFirst();
     }
 }
