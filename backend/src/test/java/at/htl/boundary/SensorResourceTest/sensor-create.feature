@@ -13,3 +13,5 @@ Feature: create a sensor
     """
     When method POST
     Then status 202
+
+
