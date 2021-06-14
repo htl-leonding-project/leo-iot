@@ -1,0 +1,6 @@
+POST localhost:8080/sensor
+
+{
+  "a": 1,
+  "b": "c"
+}
