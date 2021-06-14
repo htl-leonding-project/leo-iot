@@ -14,4 +14,12 @@ Feature: create a sensor
     When method POST
     Then status 202
 
-
+  Scenario: Create an invalid sensor
+    Given request
+    """
+    {
+      "invalidParam": "halloo"
+    }
+    """
+    When method POST
+    Then status 404
