@@ -1,1 +1,35 @@
+= Endpoint  Documentation
+VK, FR
+1.0.0, 2020-11-2:
+ifndef::imagesdir[:imagesdir: images]
+
+== Purpose
+
+== Repo of the Endpoints
+
+* link:https://github.com/htl-leonding-project/leo-iot/tree/develop[Repo]
+
+Note that you need the permission to have access to this repo. Make sure you contact the current team leader for the access.
+
+=== Start the Endpoint Tests
+
+Before you start, make sure that you have installed Docker.
+
+First you have to start the Database with following command. You can find the docker-compose.db.yml File in the backend Folder.
+
+[source, console]
+----
+  docker-compose  -f docker-compose.db.yml up
+----
+
+Now you have to start Quarkus with this command:
+
+[source, console]
+----
+  ( For Linux "./")mvnw clean complile quarkus:dev
+----
+
+Now you can execute the karate Tests at the "Play" symbol
+
+image::endpointdocu.png[]
 
