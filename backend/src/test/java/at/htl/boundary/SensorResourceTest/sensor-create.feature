@@ -14,12 +14,25 @@ Feature: create a sensor
     When method POST
     Then status 202
 
-  Scenario: Create an invalid sensor
+  Scenario: Create an valid sensor with Thing and SensorType as Parameter
     Given request
     """
     {
-      "invalidParam": "halloo"
+      "thing": { },
+      "sensorType": { }
     }
     """
     When method POST
-    Then status 404
+    Then status 202
+
+  Scenario: Create an valid sensor with id, Thing and SensorType as Parameter
+    Given request
+    """
+    {
+      "id": 1405,
+      "thing": { },
+      "sensorType": { }
+    }
+    """
+    When method POST
+    Then status 202
