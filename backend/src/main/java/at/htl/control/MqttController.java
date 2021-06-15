@@ -104,6 +104,12 @@ public class MqttController {
      * @throws MqttException will be thrown if there is an error with mqtt
      */
     public void subscribe(String topicFilter, MqttSubscribe mqttSubscribe) throws MqttException {
-        getClient().subscribeWithResponse(topicFilter, mqttSubscribe::subscribe);
+        getClient().subscribeWithResponse(topicFilter, (topic, mqttMessage) -> {
+            try {
+                mqttSubscribe.subscribe(topic, mqttMessage);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        });
     }
 }
