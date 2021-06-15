@@ -21,30 +21,7 @@ public class SensorRepository extends Repository<Sensor, Long> {
     @Inject
     SensorTypeRepository sensorTypeRepository;
 
-    @Transactional
-    public Sensor getSensorFromMqttPath(String mqttPaht) {
-        var pathSegments = mqttPaht.split("/");
-        String sensorString = pathSegments[pathSegments.length - 2];
-        String thingString = pathSegments[pathSegments.length - 3];
-        String[] locationStrings = Arrays
-                .stream(pathSegments)
-                .limit(pathSegments.length - 3)
-                .collect(Collectors.toList())
-                .toArray(new String[pathSegments.length - 3]);
-
-        var location = locationRepository
-                .getLocationByTree(locationStrings);
-
-        var thing = thingRepository
-                .getOrCreateByTree(thingString, location);
-
-        var sensorType = sensorTypeRepository
-                .getOrCreateByName(sensorString);
-
-        return getOrCreateSensorByTree(sensorType, thing);
-    }
-
-    private Sensor getOrCreateSensorByTree(SensorType sensorType, Thing thing) {
+    public Sensor getOrCreateSensorByTree(SensorType sensorType, Thing thing) {
         var query = getEntityManager().createQuery(
                 "select s from Sensor s where s.sensorType = :sensorType and s.thing = :thing",
                 Sensor.class

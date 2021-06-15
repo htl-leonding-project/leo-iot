@@ -10,18 +10,33 @@ import javax.inject.Inject;
 import javax.json.JsonObject;
 import javax.json.bind.JsonbBuilder;
 import java.sql.Timestamp;
+import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @ApplicationScoped
 public class MeasurementRepository
         extends
             Repository<Measurement, Measurement.MeasurementKey>
-        implements
-            MqttParseCallback<Measurement>
 {
 
     @Inject
     SensorRepository sensorRepository;
+
+    @Inject
+    LocationRepository locationRepository;
+
+    @Inject
+    ThingRepository thingRepository;
+
+    @Inject
+    SensorTypeRepository sensorTypeRepository;
+
+    @Inject
+    ActorTypeRepository actorTypeRepository;
+
+    @Inject
+    ActorRepository actorRepository;
 
     public List<Measurement> get(Timestamp from, Timestamp to, Sensor sensor) throws IllegalArgumentException {
         if (from.after(to)) throw new IllegalArgumentException();
@@ -55,25 +70,5 @@ public class MeasurementRepository
         query.setParameter("toTimestamp", to);
 
         return query.getResultList();
-    }
-
-    @Override
-    public Measurement parseFromMqtt(String topic, MqttMessage message) {
-        Measurement measurement = new Measurement();
-        JsonObject object = JsonbBuilder
-                .create()
-                .fromJson(new String(message.getPayload()), JsonObject.class);
-
-        Sensor sensor = sensorRepository.getSensorFromMqttPath(topic);
-
-        measurement.setMeasurementKey(new Measurement.MeasurementKey(
-                // * 1000 for converting seconds to milliseconds
-                new Timestamp(object.getJsonNumber("timestamp").longValue() * 1000),
-                sensor
-        ));
-
-        measurement.setValue(object.getJsonNumber("value").doubleValue());
-
-        return measurement;
     }
 }
