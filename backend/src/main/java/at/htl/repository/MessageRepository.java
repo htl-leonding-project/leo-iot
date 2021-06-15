@@ -87,27 +87,15 @@ public class MessageRepository {
                     new Sensor(thing, newSensorType)
             );
 
-            try {
-                measurementRepository.persist(processMeasurement(
-                        sensor,
-                        timeStamp,
-                        value
-                ));
-            } catch (Exception e) {
-                System.out.println("This is not working");
-            }
+            measurementRepository.persist(processMeasurement(
+                    sensor,
+                    timeStamp,
+                    value
+            ));
         }
     }
 
     private Measurement processMeasurement(Sensor sensor, Timestamp timeStamp, double value) {
-        System.out.println(new Measurement(
-                new Measurement.MeasurementKey(
-                        timeStamp,
-                        sensor
-                ),
-                value
-        ));
-
         return new Measurement(
                 new Measurement.MeasurementKey(
                         timeStamp,
