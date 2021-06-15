@@ -1,6 +1,5 @@
 package at.htl.entity;
 
-import at.htl.util.mqtt.MqttParsable;
 
 import javax.json.JsonObject;
 import javax.json.bind.JsonbBuilder;
@@ -13,7 +12,7 @@ import java.sql.Timestamp;
 import java.util.Objects;
 
 @Entity
-public class Measurement implements MqttParsable {
+public class Measurement {
 
     @EmbeddedId
     private MeasurementKey measurementKey;
@@ -55,22 +54,6 @@ public class Measurement implements MqttParsable {
     @Override
     public int hashCode() {
         return Objects.hash(measurementKey, value);
-    }
-
-    @Override
-    public void fromMqtt(String topic, String data) {
-        JsonObject object = JsonbBuilder
-                .create()
-                .fromJson(data, JsonObject.class);
-
-
-        this.setMeasurementKey(new MeasurementKey(
-                // * 1000 for converting seconds to milliseconds
-                new Timestamp(object.getJsonNumber("timestamp").longValue() * 1000),
-                null
-        ));
-
-        this.setValue(object.getJsonNumber("value").doubleValue());
     }
 
     @Embeddable
