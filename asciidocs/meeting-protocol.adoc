@@ -197,3 +197,14 @@
 * talked about frontend tasks
 * current tasks from 4AHIF group (value-sim done, tests and endpoint documentation in progress)
 * EQ: currently working that data is automatically persisting
+
+
+== 15.06.2021
+* ST, EQ, RF,  KV
+* if a new sensor connects, he well be created atomatically ... -> searching for the new one under sensor and actor...no results --> Create new Sensor 
+* update gh pages and generalize it, so a new user have a quick overview
+* sysmem architecture from the sys spec should also be on the gh pages
+* The German Systemspec should be marked with "German"
+* new deployment diagram 
+* "House with Students and sensorboxes whiich connecting to the mqtt
+* mqtt picture also on gh pages + quick explanation 
