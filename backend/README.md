@@ -1,57 +1,47 @@
-# iot-server project
+# Backend
 
-This project uses Quarkus, the Supersonic Subatomic Java Framework.
+## Local Testing
 
-If you want to learn more about Quarkus, please visit its website: https://quarkus.io/ .
-
-## Running the application in dev mode
-
-You can run your application in dev mode that enables live coding using:
-
+**First of all, we need to start the postgres database:**
 ```shell script
-./mvnw compile quarkus:dev
+sudo docker-compose -f docker-compose.db.yml up
+```
+ 
+**Setup the connection:**
+
+Host: localhost 
+
+Port: 5432
+
+User: app
+
+Password: app
+
+**Get Quarkus running:**
+```shell script
+./mvnw clean compile quarkus:dev
 ```
 
-## Packaging and running the application
+**Open the Mqtt-Explorer and setup a connection:** 
 
-The application can be packaged using:
+_Host:_ vm90.htl-leonding.ac.at
 
+_Port:_ 8443
+
+Encryption should be checked on and Validate certificate off
+
+**Publishing demo values:**
+
+For testing purposes you use this path/topic for example:
 ```shell script
-./mvnw package
+og/107/noise/test
 ```
 
-It produces the `iot-server-1.0-SNAPSHOT-runner.jar` file in the `/target` directory. Be aware that it’s not an _
-über-jar_ as the dependencies are copied into the `target/lib` directory.
+It's important to note that it doesn't matter which room and subtopic you use, but it's necessary to add the test topic at the end.
 
-If you want to build an _über-jar_, execute the following command:
-
-```shell script
-./mvnw package -Dquarkus.package.type=uber-jar
+The published values look like this:
+```json
+{"timestamp":1613767649,"value":1.00}
 ```
 
-The application is now runnable using `java -jar target/iot-server-1.0-SNAPSHOT-runner.jar`.
-
-## Creating a native executable
-
-You can create a native executable using:
-
-```shell script
-./mvnw package -Pnative
-```
-
-Or, if you don't have GraalVM installed, you can run the native executable build in a container using:
-
-```shell script
-./mvnw package -Pnative -Dquarkus.native.container-build=true
-```
-
-You can then execute your native executable with: `./target/iot-server-1.0-SNAPSHOT-runner`
-
-If you want to learn more about building native executables, please consult https://quarkus.io/guides/maven-tooling.html
-.
-
-# RESTEasy JAX-RS
-
-<p>A Hello World RESTEasy resource</p>
-
-Guide: https://quarkus.io/guides/rest-json
+Those added values should be now displayed in the measurement table.

@@ -1,0 +1,56 @@
+
+name: deploy to gh-pages
+
+on:
+  push:
+    branches:
+      - 'master'
+
+jobs:
+  build_push:
+    name: Build and Push
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Install git-secret
+        uses: Kingmidas74/git-secret-github-action@latest
+      - name: Setup Environment
+        run: |
+          echo "${{ secrets.GSPRIVKEY }}" > ./privkey.gpg
+          gpg --import privkey.gpg
+          gpg --list-secret-keys
+          git secret reveal -v
+      - name: Build
+        run: |
+          docker-compose build
+      - name: Push
+        run: |
+          echo ${{ secrets.REGTOKEN }} | docker login https://docker.pkg.github.com -u QuirinEcker --password-stdin
+          docker-compose push
+  start:
+    name: Start Container
+    needs: [build_push]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v1
+      - name: install ssh key
+        uses: webfactory/ssh-agent@v0.4.1
+        with:
+          ssh-private-key: ${{ secrets.DEPKEY }}
+      - name: create .ssh/known_hosts
+        run: ssh-keyscan -H -t rsa -v ${{ secrets.DEPIP }}  >> ~/.ssh/known_hosts
+      - name: Copy required files
+        run: |
+          scp -r docker-compose.deploy.yml ${{ secrets.DEPUSER }}@${{ secrets.DEPIP }}:~/leo-iot/
+      - name: Run Docker Container
+        run: |
+          ssh ${{ secrets.DEPUSER }}@${{ secrets.DEPIP }} "
+          cd leo-iot
+          echo ${{ secrets.REGTOKEN }} | docker login https://docker.pkg.github.com -u QuirinEcker --password-stdin
+          docker-compose -f docker-compose.deploy.yml pull
+          docker-compose -f docker-compose.deploy.yml stop
+          docker-compose -f docker-compose.deploy.yml rm -f
+          docker-compose -f docker-compose.deploy.yml up --no-build -d
+          "

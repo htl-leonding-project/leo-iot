@@ -1,0 +1,210 @@
+= Meeting-Protocol
+
+== Legend
+|===
+|Ecker  |Edlinger  |Klausner  |Knogler  |Kronreif |Rieser |Stütz | Köck
+
+|EQ
+|EP
+|KF
+|KS
+|KV
+|RF
+|ST
+|KG
+|===
+
+
+== 06.12.2020
+* EQ, EP, KF, KS, OJ, KV, RF
+* organizational matters
+
+=== 18.12.2020
+* EQ, EP, KF, KS, OJ, KV, RF
+* discussion with our predecessors about the project
+* new division of tasks
+
+=== 27.12.2020
+* EQ, EP, KS, KV, RF
+* short briefing
+
+=== 24.01.2021
+* EQ, EP, KS, KV, RF
+* briefing about the current situation
+* discussion about occurring go problems
+* restructuring of the repo
+* brainstorming about a more efficient ways of operating
+** several work sessions a month
+
+=== 04.02.2021
+* EQ, EP, KS, KF, ST
+* talked about the project management and structure
+* TODO:
+** getting rid off the feature branches
+** creating project handbook
+** linking of all sources
+
+==== 14.02.2021
+* EP, KV, RF
+* update on current situation
+* upcoming simulator problems
+** dicussion about solving the problem
+* talking about deadlines
+
+==== 19.02.2021
+* EQ,EP, ST
+* Write instructions for the backend in the ReadME
+* the professor is looking for an alternative solution for JDBC
+* create reactive branching
+
+
+== 21.02.2021
+* EQ, EP, KV
+* status update
+* assigned new tasks
+* should create extra branch for the new simulator libary
+
+
+== 22.02.2021
+
+* EQ,EP,ST, KG
+* Notes:
+** programm is available
+** we need to configure the sensorbox
+** the software is written in c++
+** in VS we use Express IDF
+** Express uses a components
+** procedure:
+*** picking the device
+*** build the code (Build Flash Monitor)
+*** an accespoints starts
+** a http-server is running on the sensorbox
+** assigning of a topic:
+*** configuration happens in the Main
+** How does the server new which room is currently used:
+*** ThingName
+** Our Goal:
+*** configuration of the sensorbox with access to the accesspoint of the school
+
+== 07.03.2021
+* EQ, EP, KV, RF
+* talked about the current state and tasks
+* tried to fix a connecting to mediator error
+
+== 08.03.2021
+* EQ, EP. GK
+* configuration of the sensorbox
+
+== 19.03.2021
+* EQ, EP
+* current status update
+* talked about management of the project
+* new Milestones / Priority
+** implementation of sensorboxes into room k03
+** a new datamodel / whole Backend
+** Frontend
+* looking for a task for the pc in the lab
+
+== 21.03.2021
+* EQ, EP, KF,KV, RF
+* status update
+* assigned new tasks
+
+== 25.03.2021
+* EQ, EP
+* get the touchscreen in lab running
+* tried to solve a problem with the vm139
+** weren't able to establish a connection internally
+** because the local address and those in the network are the same
+
+== 04.04.2021
+* EQ, EP, KF, RF
+* current status update
+* assigned new task
+
+
+== 07.04.2021
+* EQ, EP
+* ask GK
+** get new powerstations
+** need to ask for more specifications
+* lay more focus on Frontend
+** Dashboard should get basic features
+** 3D model need to be
+*** new animations
+*** update layout of the building
+
+== 09.04.2021
+* EQ, EP
+* new tasks assigned
+** dummy generator for 3d Model
+** create a reworked Dashboard
+* created a question list
+* see notes 09042021
+
+== 14.04.2021
+* EQ, EP
+* went trough the question list
+* talked about on going assigned tasks
+* a new datamodel was worked out
+* Todos:
+** new Mqtt Mapper
+** implement new datamodell
+** update the software on all sensorboxes
+** need to ask sysadmin about upd
+** create a new Dashboard (rework the old one)
+
+== 18.04.2021
+* EQ, EP, KF, RF
+* status update
+* assigned new tasks
+** new dashboard
+** seperated systemspec
+** implement reworked sim prototype and api
+
+== 25.04.2021
+* EQ, EP, KF, RF
+* status updated
+
+== 02.05.2021
+* EQ, EP, RF
+* status updated
+
+== 09.05.2021
+* EQ, EP, KF, RF
+* status updated
+
+== 16.05.2021
+* EQ, EP, KF, RF
+* talked about current tasks
+* assigned new tasks
+
+== 21.05.2021
+* EQ, EP, ST
+* talked about the current status of the project
+* protocol needs to be updated
+* should add issues no. to our commits
+
+== 23.05.2021
+* EQ, EP ,RF
+* current status updated
+* talked sensor and simulator docs
+* talked about the sprint
+
+== 07.06.2021
+* EQ, VK ,RF
+* current status
+* talked about frontend tasks
+* current tasks from 4AHIF group (value-sim done, tests and endpoint documentation in progress)
+* EQ: currently working that data is automatically persisting
+
+
+== 15.06.2021
+* ST, EQ, RF,  KV
+* if a new sensor connects, he well be created atomatically ... -> searching for the new one under sensor and actor...no results --> Create new Sensor 
+* update gh pages and generalize it, so a new user have a quick overview
+* sysmem architecture from the sys spec should also be on the gh pages
+* The German Systemspec should be marked with "German"
+* new deployment diagram 
+* "House with Students and sensorboxes whiich connecting to the mqtt
+* mqtt picture also on gh pages + quick explanation 

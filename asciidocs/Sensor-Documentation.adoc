@@ -1,0 +1,23 @@
+= Sensor  Documentation
+EQ,EP,OJ, SK, FK, VK, FR
+1.0.0, 2020-11-2:
+ifndef::imagesdir[:imagesdir: images]
+
+== Purpose
+
+The aim of a sensor is to collect data.Multiply sensors are packed together into one single sensorbox which collects those various data of the current stationed room.
+
+== Repo of the sensorboxes
+
+* link:https://bit.ly/3fetdVM[Sensorbox Repo]
+
+Note that you need the permission to have access to this repo. Make sure you contact the current team leader for the access.
+
+=== How to setup the sensorbox?
+
+* link:https://bit.ly/2T44fQg[getting started]
+
+=== Create new Sensor Project
+
+* link:https://bit.ly/3hQVYcO[create new Project]
+

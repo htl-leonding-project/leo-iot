@@ -1,0 +1,14 @@
+version: '3.7'
+
+services:
+  postgres-dev:
+    image: postgres
+    container_name: leo-iot-db
+    environment:
+      POSTGRES_PASSWORD: app
+      POSTGRES_USER: app
+      POSTGRES_DB: db
+    volumes:
+      - ./db/:/var/lib/postgresql/data
+    ports:
+      - 5432:5432

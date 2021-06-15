@@ -1,0 +1,49 @@
+iotserver.name = iotserver
+
+topics.all = htlleonding/#
+topics.measurements = htlleonding/+/+/+/+/lastwill 
+topics.notifications = htlleonding/+/+/+/+/notification
+
+notifications-codes.sensor-offline = 20010
+
+mp.messaging.outgoing.4ahitm.type=smallrye-mqtt
+mp.messaging.outgoing.4ahitm.topic=4ahitm
+mp.messaging.outgoing.4ahitm.host=localhost
+mp.messaging.outgoing.4ahitm.port=1883
+mp.messaging.outgoing.4ahitm.auto-generated-client-id=true
+
+mp.messaging.incoming.sample_data.type=smallrye-mqtt
+mp.messaging.incoming.sample_data.topic=4ahitm/sample_data
+mp.messaging.incoming.sample_data.host=localhost
+mp.messaging.incoming.sample_data.port=1883
+mp.messaging.incoming.sample_data.auto-generated-client-id=true
+
+quarkus.datasource.db-kind=derby
+quarkus.datasource.username=app
+quarkus.datasource.password=app
+quarkus.datasource.jdbc.url=jdbc:derby://localhost:1527/db;create=true
+quarkus.hibernate-orm.database.generation=drop-and-create
+
+quarkus.http.cors.origins=http://localhost:4200
+quarkus.http.cors.methods=get,post,put,head,options,patch
+quarkus.log.level=INFO
+quarkus.websocket.dispatch-to-worker=true
+
+distributor.type = mqtt
+distributor.address.ip = localhost
+distributor.address.port = port
+distributor.auth.username = default
+distributor.auth.password = password
+distributor.topics.default = notification
+
+clientapi.url = localhost
+clientapi.port = 9090
+clientapi.db-type = timescale 
+
+distributor-nats-example.type = nats
+distributor-nats-example.address.ip = locahost
+distributor-nats-example.address.port = 4222
+distributor-nats-example.token = 3zdh59oahf62tdgeh65sf23h
+distributor-nats-example.topics.default = msg
+
+

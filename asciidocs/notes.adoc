@@ -1,0 +1,205 @@
+= Notizen
+
+== 09042021
+dummy generator in das 3D Model  einbauen
+zahlen und werte generieren
+für jeden Raum einen kleinen Kommentar /description als text
+prime ng /material fürs dashboard nutzen
+soll ansprechend sein
+
+
+Dashboard
+
+es gibt mind. 3 Bereiche / Sections
+daten sollen interresant aussehen
+dashboard schöner gestalten
+tram section muss weg
+bei der Roomselection ein Bild hinzufügen
+freie definierung der Räume
+viele graphische elemente hinzufügen
+
+location description hinzufügen
+devices rekursion entfernen
+message wieder hinzufügen
+language id wird nicht benötigt
+nach der android language halten
+mesurement units hinzufügen
+units table adden
+
+
+termin mit prof. Köck ausmachen
+nicht am MOntag, in den ITP oer der Freistudnen des Stütz
+
+Frontend holt sich die werte vom Mqtt
+
+Fragen an Köck unter anderem an uns:
+Sollen die Messwerte im Backend gespeichert werden?
+
+Antwort:
+Ja, da diese augewertet werden müssem.
+Frage: welche DB: zeitörientiert
+Grafana ist nicht geeignet
+
+
+Woher kommen die Initialwerte für doe anzeige der Räume
+des 3D-Modells?
+Woher kommen die aktuellen WErte
+Variante 1
+beispielnach öffnen des 3DM-Modells /dashboards werden noc keone Werte angezeigt
+
+die Werte kommen dann im Sekunden, oder Minutrntakt sld MQRR-Message und das Modell weird lagnsam aktualisiert
+
+Vorteil Man braucht kein Backedn für das 3D-Modell /dashboard
+Variante 2
+die aktuelle gerspeciherten Daten aus dem Backend werden per REST eingelsen und angezeigt
+
+Wie sollen die Topics des MQTT organisiert werden?
+
+Sollen die Messages im Backend gespeichert werden?
+z.b wann wurde angezeigt das der CO2 Gehalt zu hoch ist
+
+max und min werte
+
+Die max und min were können nicht den einzelnen Sensortypen zugeordent werden (z.b Temperatur )sondern sinnd den einzelenen Sneoren zuzuordenen, da in verschieden Räumen durchaus verschideenen Termeraturbreiche sinvoll sind
+
+zb
+in Klassenräume eher wärmer
+in Rechenzentrum kühler
+ev Default Werten in den Sensortypen
+
+wir vereinbaren :
+das frontend mit dem broker verbinden
+simulator team soll für alle räume fake werte generiern.
+nach der Besprechung ein einfaches modell für das frontend machen
+
+das Datenmodell ist basierend
+
+== 14042021
+
+influx db vs timescale DB
+influx hat eine community version
+
+
+Frage die auszuarbeiten sind:
+gibt es für timesclae db community version?
+timescale gibt es langzeit daten?
+schauen welche datenbank besser geignet sind?
+gibt eine Lizenz für postgress, etc.?
+
+topic struktur
+geschoss raum(Sensorboxen) sensor
+
+Rssi misst die Feldstärke des Wifis
+ab -90 ist die Feldstärke bedenklich
+Ip-Addresse wird reportet
+wifi power beschreibt die aktulle leistungseinstellung am esp32
+reduzierte power bei guter Wlan power
+example: rssi: 11.25 heißt -> Leistung wurde um diesen Wert db reduziert
+
+durch ein Monitoring tool kann man diese Werte
+auch auslesen
+
+config.txt müssen wir uns anschauen
+
+in der main.cpp
+im Thinspezifischen Teil stehen werte die nur
+in der Konfiguriert werden können
+sollte diese WErte anzugeben ist optional,
+ansonsten nimmt es default Werte
+
+in allen Sensorboxen ist eine RuleEngine eingebaut
+schaltet Neopixel leuchtring
+Leuchtring
+
+Classroomcontroller ist die RuleEngine
+
+wir sollen einen Snapshot machen
+
+köck eine email schreiben bezüglich der absoluten Pfade
+
+pull requets oder eine issue machen
+
+was ist neu bei dem repo?
+es gitb einen Studenzähler
+sollten das Repo neu pullen before wir es auf die boxen hochladen
+
+Datenmodell
+thing: hat mehrere Sensoren
+Sensor hat die Sensortype als lookup table
+Values bei dem sensoren sind immer double
+es gibt für jeden actor einen Actotype
+
+ein Sensor hat einen State und ein Command Topic zb
+
+og/107/rssi/state
+og/107/rssi/command
+
+welche Messages gibt es?
+Actor, Sensor
+
+Messages werden für's erste nicht benötigt
+
+empfolene Logger: Seq, Jäger
+
+Wir müssen uns die Logger Seq und Jäger anschauen
+
+der esp wird vlt. nach 3 Tagen abstürzen
+
+udplogger blast die werte ins wLan hinaus
+
+
+wie kriegt der Logserver die Logs?
+
+Wir müssen mit den sysadmin reden, wenn wir für
+udp broadcast nutzen möchten
+
+die persistierten werte sollten im DAshboard angezeigt werden
+
+
+
+summary:
+sind unsere Fragenliste durgegangen -> siehe iot-fragen.adoc
+erstellen eines neuen Datanmodelles
+neues Dashboard Task
+
+beim Programmieren sollte man die Quelle
+quelle des wissen hinzufügen.
+
+
+Todo:
+
+- seq logger implementieren
+- benötigen einen MQTT-Mapper
+- neues Datenmodell implementierne
+- sensorboxen mit dem neuen Stand des Repo(vom köck)
+- schauen welche db besser ist
+- sysadmin frageb bzgl udp
+- esp projekt einen Issue erstllen bzgl. des Last Wills
+- eine Website erstellen, welche die Daten auf charts anzeigt (nicht das Dashboard)
+(- auf der Ebene der Sensoren arbeiten)
+
+== 18042021
+
+seperate Pflichtenhefte erstellen und dazu eine api
+
+den neuen Simulator Prototyp einbinden
+
+das neues Dashboard erklärt und umsetzen
+
+
+== 16052021
+
+talked about current tasks
+simulator status
+talked about the sensor position
+talked issues
+questions at stütz:
+wohin mit den sensore soin de hin
+
+== 21052021
+
+im protocol eine namens legende hinzufügen
+protocol issue nummer hinzufügen
+meeting of protocol from docker template
+
+

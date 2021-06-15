@@ -1,0 +1,131 @@
+= Value Simulator
+RF,VK,R
+1.0.0, 2021-18-5:
+ifndef::imagesdir[:imagesdir: images]
+//:toc-placement!:  // prevents the generation of the doc at this position, so it can be printed afterwards
+:sourcedir: ../src/main/java
+:icons: font
+:sectnums:    // Nummerierung der Überschriften / section numbering
+:toc: left
+
+//Need this blank line after ifdef, don't know why...
+ifdef::backend-html5[] 
+
+// print the toc here (not at the default position)
+//toc::[]
+
+== Pflichtenheft
+
+
+=== Beschreibung der Ausgangsituation
+
+Ein Teil der 5-jährigen Ausbildung an der HTBLA Leonding ist die Arbeit an Projekten.
+Es gibt einige offene und unvollendete Projekte und eines von ihnen ist Leo-IOT.
+Es fehlt ein Simulator welcher gemockte Werte für beliebige
+Räume, an einen MQTT-Broker sendet.
+
+=== Istzustand
+
+Die tendenziell fallende Luftqualität in den Klassenräumen führt
+zu schlechterer Lernqualität der Schüler und Konzentrationsmangel.
+Um dies zu ändern, wurde das IoT - Smart School Projekt gestartet.
+Es sollte die Luftqualität in den Klassen mithilfe von Sensorboxen gemessen werden
+und Schüler sollten auf schlechte Luftqualität aufmerksam gemacht werden.
+Neben der Luftqualität gibt es aber auch noch andere Faktoren,
+die sich auf das Klassenklima auswirken. Beispiele sind die
+Lautstärke, Temperatur oder Luftfeuchtigkeit.
+Mithilfe eines 3D Modells des Schulgebäudes werden diese Daten anschaulich präsentiert.
+
+=== Problemstellung
+
+Aktuell gibt es keine Testwerte für das Projekt. Aus diesem Grund wurde ein Simulator in Auftrag gegeben, welcher
+gemockte Werte an einen MQTT-Broker sendet. Außerdem kann man beliebig viele Räume erstellen und löschen. Diese bekommen
+dann Testdaten welche mit einem Java-Programm generiert werden.
+=== Aufgabenstellung
+
+* Implementierung des Simulators
+** MQTT-Server zum Laufen bringen und Werte an ihn senden
+** Dokumentation erstellen
+** Milestones
+** User-Stories
+
+==== Funktionale Anforderungen
+
+===== Use-Case
+
+[plantuml,User-Case1,png]
+....
+@startuml
+
+
+
+rectangle {
+    
+    (Simulator)
+    (MQTTBroker)
+}
+
+User1 -up-> (Simulator) : Erstellt/löscht Raum
+User1 <-up- (MQTTBroker) : Möchte Testdaten sehen
+(Simulator) --> (MQTTBroker)
+
+@enduml
+....
+
+===== Charakterisierende Informationen Use-Case usecase
+
+[cols=2]
+|===
+| Übergeordneter elementarer Geschäftsprozess:
+| Simulator soll Werte an beliebig viel erstellte Räume senden.
+
+| Ziel des Use Cases:
+| Eine Person kann raum erstellen und dann die Daten sehen
+
+| Umgebende Systemgrenze:
+| Von der Datenerfassung von den Klassen bis zum Simulator.
+
+| Bedingung bei erfolgreicher Ausführung:
+| Die richtigen Daten werden angezeigt und veranschaulicht.
+
+| Beschreibung:
+a|
+* Simulator veröffentlicht Werte auf dem MQTT Broker
+* Der Quarkus, welcher den MQTT Broker "abonniert" hat, bekommt seine Daten
+* Über den Quarkus Server werden die angeforderten Daten aufgerufen
+* Die Werte werden dem User auf dem Client angezeigt
+
+| Beteiligte Nutzer:
+a|
+* Lehrer
+* Schüler
+
+| Auslösendes Ereignis:
+| Bei Datenaufruf
+|===
+
+=== Ziele
+
+Hilfestellung zum Testen des Projekts durch Simulierte Werte für die Räume der Schule.
+
+=== Mengengerüst
+
+In einem bestimmten Zeitintervall werden Daten vom Simulator an den MQTT Broker gesendet.
+
+=== Meilensteine
+[cols=2]
+|===
+|Meilensteine
+|Datum
+
+a| *  Simulator
+|23.05.2021
+
+a| *  Pflichtenheft
+|23.05.2021
+
+a| *  Doku
+|1.06.2021
+
+
+

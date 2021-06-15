@@ -1,0 +1,420 @@
+= Leo-IOT
+EQ,EP,OJ, SK, FK
+1.0.0, 2020-11-2:
+ifndef::imagesdir[:imagesdir: images]
+//:toc-placement!:  // prevents the generation of the doc at this position, so it can be printed afterwards
+:sourcedir: ../src/main/java
+:icons: font
+:sectnums:    // Nummerierung der Überschriften / section numbering
+:toc: left
+
+//Need this blank line after ifdef, don't know why...
+ifdef::backend-html5[]
+
+// https://fontawesome.com/v4.7.0/icons/
+icon:file-text-o[link=https://raw.githubusercontent.com/htl-leonding-college/asciidoctor-docker-template/master/asciidocs/{docname}.adoc] ‏ ‏ ‎
+icon:github-square[link=https://github.com/htl-leonding-college/asciidoctor-docker-template] ‏ ‏ ‎
+icon:home[link=https://htl-leonding.github.io/]
+endif::backend-html5[]
+
+// print the toc here (not at the default position)
+//toc::[]
+
+== Pflichtenheft
+
+
+=== Beschreibung der Ausgangsituation
+
+Ein Teil der 5-jährigen Ausbildung an der HTBLA Leonding ist die Arbeit an Projekten.
+Es gibt einige offene und unvollendete Projekte und eines von ihnen ist Leo-IOT.
+
+=== Istzustand
+
+Die tendenziell fallende Luftqualität in den Klassenräumen führt
+zu schlechterer Lernqualität der Schüler und Konzentrationsmangel.
+Um dies zu ändern, wurde das IoT - Smart School Projekt gestartet.
+Es sollte die Luftqualität in den Klassen mithilfe von Sensorboxen gemessen werden
+und Schüler sollten auf schlechte Luftqualität aufmerksam gemacht werden.
+Neben der Luftqualität gibt es aber auch noch andere Faktoren,
+die sich auf das Klassenklima auswirken. Beispiele sind die
+Lautstärke, Temperatur oder Luftfeuchtigkeit.
+Mithilfe eines 3D Modells des Schulgebäudes werden diese Daten anschaulich präsentiert.
+
+=== Problemstellung
+
+Die aktuell genutzte Technologie bzgl. des Backends entspricht nicht unseren Ansprüchen.
+Auch das 3D Modell, welche die gemessenen Daten visualisiert, ist noch nicht so ausgereift
+und benötigt Aufarbeitung.
+
+=== Aufgabenstellung
+
+* Inbetriebnahme des Systems
+** MQTT-Server zum Laufen bringen
+* Dokumentation erstellen
+** Milestones
+** User-Stories
+** README.md
+* 3D Modell Optimierung
+
+
+
+==== Funktionale Anforderungen
+
+===== Use-Case
+
+[plantuml,User-Case1,png]
+....
+@startuml
+
+
+
+rectangle leo-iot {
+    (3D Modell)
+    (App)
+    (Dashboard)
+}
+
+User1 -up-> (3D Modell) : will Werte sehen
+User2 <-up- (App): kriegt eine Benachrichtigung
+User3 -up-> (Dashboard): ruft Werte auf
+(Sensor) --> (3D Modell)
+(Sensor) --> (App)
+(Sensor) --> (Dashboard)
+
+@enduml
+....
+
+===== Charakterisierende Informationen Use-Case 1
+
+[cols=2]
+|===
+| Übergeordneter elementarer Geschäftsprozess:
+| Eine Person möchte sich ein 3D Modell der HTBLA Leonding anschauen.
+
+| Ziel des Use Cases:
+| Die gewünschten Daten werden auf einem 3D Modell angezeigt.
+
+| Umgebende Systemgrenze:
+| Von der Datenerfassung von den Klassen durch die Sensoren bis zur Veranschaulichung mithilfe des 3D Modells.
+
+
+| Vorbedingung:
+| Alle Systeme inklusive Hardware (Bildschirm, Sensoren, etc. siehe Mengengerüst) sind am Laufen.
+
+| Bedingung bei erfolgreicher Ausführung:
+| Die richtigen Daten werden angezeigt und veranschaulicht.
+
+| Beschreibung:
+a|
+* Sensoren messen und veröffentlichen Werte auf dem MQTT Broker
+* Der Quarkus, welcher den MQTT Broker "abonniert" hat, bekommt seine Daten
+* Über den Quarkus Server werden die angeforderten Daten aufgerufen
+* Die Werte werden dem User auf dem Client angezeigt
+
+| Beteiligte Nutzer:
+a|
+* Lehrer
+* Schüler
+* Schulinterne Fachkräfte (Sysadmin, Schulwart, ... )
+* Schulbesucher
+
+| Auslösendes Ereignis:
+| Bei Datenaufruf
+|===
+
+===== Charakterisierende Informationen Use-Case 2
+
+[cols=2]
+|===
+| Übergeordneter elementarer Geschäftsprozess:
+| Eine Person möchten einen Überblick bzgl. Leondings Straßenbahnverbindungen und einem gewünschten Klassenraum sehen.
+
+| Ziel des Use Cases:
+| Die gewünschten  Daten werden auf einem Dashboard angezeigt.
+
+| Umgebende Systemgrenze:
+| Von der Datenerfassung von den Klassen durch die Sensoren bis zur Veranschaulichung einer GUI.
+
+
+| Vorbedingung:
+| Alle Systeme inklusive Hardware (Bildschirm, Sensoren, etc. siehe Mengengerüst) sind am Laufen.
+
+| Bedingung bei erfolgreicher Ausführung:
+| Die richtigen Daten werden angezeigt und veranschaulicht.
+
+| Beschreibung:
+a|
+* Sensoren messen und veröffentlichen Werte auf dem MQTT Broker
+* Der Quarkus, welcher den MQTT Broker "abonniert" hat, bekommt seine Daten
+* Über den Quarkus Server werden die angeforderten Daten aufgerufen
+* Die Werte werden dem User auf dem Client angezeigt
+
+| Beteiligte Nutzer:
+a|
+* Lehrer
+* Schüler
+* Schulinterne Fachkräfte (Sysadmin, Schulwart, ... )
+* Schulbesucher
+
+| Auslösendes Ereignis:
+| Bei Datenaufruf
+|===
+
+
+===== Charakterisierende Informationen Use-Case 3
+
+[cols=2]
+|===
+| Übergeordneter elementarer Geschäftsprozess:
+| Eine Person bekommt eine Benachrichtigung auf der Leo-iot App.
+
+| Ziel des Use Cases:
+| Die Person kann nun auf die Benachrichtigung die dementsprechenden Maßnahmen setzen.
+
+| Umgebende Systemgrenze:
+| Von der Datenerfassung von den Klassen durch die Sensoren bis zur Veranschaulichung einer GUI.
+
+
+| Vorbedingung:
+| Alle Systeme inklusive Hardware (Bildschirm, Sensoren, etc. siehe Mengengerüst) sind am Laufen.
+
+| Bedingung bei erfolgreicher Ausführung:
+| Das System erkennt einen Ausnahmezustand und benachrichtigt den User per Notification.
+
+| Beschreibung:
+a|
+* Sensoren messen und veröffentlichen Werte auf dem MQTT Broker
+* Der Quarkus, welcher den MQTT Broker "abonniert" hat, bekommt seine Daten
+* Über den Quarkus Server werden die angeforderten Daten aufgerufen
+* Die Werte werden dem User auf dem Client angezeigt
+* Bei einem Sonderfall soll der User benachrichtigt werden
+
+| Beteiligte Nutzer:
+a|
+* Lehrer
+* Schüler
+* Schulinterne Fachkräfte (Sysadmin, Schulwart, ... )
+* Schulbesucher
+
+| Auslösendes Ereignis:
+| beim Eintreten eines Sonderfalles
+|===
+
+=== Ziele
+
+Steigerung der Lernqualität und Verbesserung des Wohlbefindens der Schüler und Lehrer
+
+=== Mengengerüst
+
+In einem bestimmten Zeitintervall werden Daten von den Sensoren and den MQTT Broker gesendet.
+Diese Daten werden an die Applikation weitergeleitet, welche die passenden Maßnahmen durchführt.
+
+////
+* Sensorbox
+** Thermometer
+** CO2 Sensor
+** dB Messer
+** Hygrometer (Luftfeuchtigkeitsmesser)
+* Display
+* Rechner (Server, DB, ... )
+////
+
+== Entwurf "Wie mache ich es"
+=== Systemarchitektur
+
+//[plantuml,gantt-diagramm,png]
+//----
+//@startuml
+//rectangle "MQTT Broker" as mqtt
+//rectangle "actors and senders" as actorsSenders
+//database DB
+//
+//package "backend" as backend {
+//    rectangle REST as rest
+//    rectangle Ki as ki
+//    rectangle "Rule Engine" as ruleEngine
+//    rectangle "Server / Core \n Datenverarbeitung" as dataFlow
+//}
+//
+//package "frontend" as frontend {
+//    rectangle "3D Data Visulaization" as 3dData
+//    rectangle "Android App" as androidApp
+//    rectangle "Web Client" as webClient
+//    rectangle "OpenHAB" as openHab
+//}
+//
+//3dData -[hidden]right- androidApp
+//androidApp -[hidden]right- webClient
+//webClient -[hidden]right- openHab
+//
+//rest -[hidden]down- ki
+//ki -[hidden]down- ruleEngine
+//ruleEngine -[hidden]down- dataFlow
+//
+//mqtt --up-> 3dData
+//mqtt -up-> androidApp
+//mqtt -up-> webClient
+//mqtt -up-> openHab
+//mqtt <-right--> ki
+//mqtt <-right--> ruleEngine
+//mqtt <-right--> dataFlow
+//
+//mqtt <-down-> actorsSenders
+//
+//ki <-right-> DB
+//dataFlow <-right-> DB
+//
+//rest -left-> openHab
+//rest -left-> webClient
+//rest --> androidApp
+//@enduml
+//----
+//
+
+//image:infrastructure.png[width=800px]
+
+image:system_architecture_new.png[width=800px]
+
+=== Meilensteine
+[cols=2]
+|===
+|Meilensteine
+|Datum
+
+a| * [x] Vorbereitung
+|12.11.2020
+
+a| * [ ] Persistence
+|04.3.2021
+
+a| * [ ] 3D-Model Improvement
+|04.03.2021
+
+a| * [ ] Simulator
+|01.03.2021
+
+a| * [ ] Visualisierung der Daten
+|19.4.2021
+
+|===
+
+=== GANTT-Diagramm
+
+
+[plantuml,gantt-protoype1,png]
+....
+@startuml
+Project starts 2020-09-25
+[Preperation] starts 2020-09-25
+[Preperation] ends 2020-11-12
+[Prototype] starts 2020-10-25
+[Prototype] ends 2020-11-12
+
+
+@enduml
+....
+
+
+[plantuml,gantt-protoype2,png]
+....
+@startuml
+Project starts 2020-11-05
+[Create Milestones and User-Stories #4] starts 2020-11-05
+[Create Milestones and User-Stories #4] ends 2020-12-04
+[Create system specification #5] starts 2020-11-05
+[Create system specification #5] ends 2020-11-05
+@enduml
+....
+
+[plantuml,gantt-protoype3,png]
+....
+@startuml
+Project starts 2020-11-09
+
+[Restructuring #20] starts 2020-11-09
+[Restructuring #20] ends 2021-01-07
+
+[Backend / Sensors / Visualisation] starts 2020-11-12
+[Backend / Sensors / Visualisation] ends 2021-1-21
+
+
+
+@enduml
+....
+
+[plantuml,gantt-protoype4,png]
+....
+@startuml
+Project starts 2020-11-07
+
+[Team Meeting 001] starts 2020-11-07
+[Meeting with predecessor] starts 2020-12-18
+[Team Meeting 002] starts 2020-12-27
+[Team Meeting 003] starts 2021-01-24
+[Team Meeting 004] starts 2021-02-04
+[Team Meeting 005] starts 2021-02-14
+[Team Meeting 006] starts 2021-02-19
+[Team Meeting 007] starts 2021-02-21
+[Team Meeting 008] starts 2021-02-22
+[Team Meeting 009] starts 2021-03-07
+[Team Meeting 010] starts 2021-03-08
+[Team Meeting 011] starts 2021-03-19
+[Team Meeting 012] starts 2021-03-21
+[Team Meeting 013] starts 2021-03-25
+
+
+@enduml
+....
+
+
+=== Verantwortungsmatrix
+
+|===
+||Ecker  |Edlinger  |Klausner  |Knogler  | Kronreif |Rieser
+
+|Backend
+|x
+|x
+|
+|
+|
+|
+
+|3D-Modell
+|
+|
+|x
+|x
+|
+|
+
+|Simulator
+|
+|
+|
+|
+|x
+|x
+
+
+|Sensor
+|x
+|x
+|
+|
+|
+|
+
+|Deployment
+|
+|
+|
+|
+|
+|
+
+|===
+
+// * link:minutes-of-meeting.html[Protokollvorlage]
+// * link:demo.html[Demo]
+

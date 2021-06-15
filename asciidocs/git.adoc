@@ -1,0 +1,34 @@
+= Git Policy
+
+== Switch to Develop
+
+[source]
+----
+git checkout develop
+----
+
+== Create a new Feature
+Replace `<name>` with the name of you feature.
+
+[source]
+-----
+git branch feature/<name>
+git checkout feature/<name>
+-----
+
+Now you can develop your feature on your own branch.
+
+== Update you Feature Branch
+
+[source]
+----
+git merge develop
+----
+
+== Merge Feature Back to the Develop Branch
+
+Merging back to the develop branch should be done through a pull request. Create a pull request on GitHub and wait for someone to review it.
+
+== Merge Back to the Master/Main Branch
+
+Merging back to the `master`/`main` branch requires a Pull Request. Mergin back to the master Branch should only be required at the end of a sprint.

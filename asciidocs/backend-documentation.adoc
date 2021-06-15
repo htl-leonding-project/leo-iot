@@ -1,0 +1,83 @@
+= Backend Documentation
+EQ,EP,OJ, SK, FK, VK, FR
+1.0.0, 2020-11-2:
+ifndef::imagesdir[:imagesdir: images]
+
+== ERD
+
+[plantuml, erd, png]
+----
+@startuml
+'https://plantuml.com/class-diagram
+
+class Location {
+
+}
+
+class Thing {
+
+}
+note right: SensorBox, RuleEngine, Dashboard(?) zB 107
+
+class Sensor {
+
+}
+
+class Actor {
+    value: double
+}
+note left: value ist das command (soll-wert)
+
+class ActorAction {
+    timestamp: Timestamp
+    value: double
+}
+note left: state (ist-wert): aktuelle Werte des Actors
+
+class Sensortype {
+
+}
+note right: Temperature, Humidity, ...
+
+class Measurement {
+    timestamp: Timestamp
+    value: double
+}
+
+class Unit {
+  id: String
+  symbol: String
+}
+
+class Actortype {
+}
+note bottom: on/off, value, color, ...
+
+Location --> Location
+Thing -up-> Location
+Thing <-- Sensor
+Thing <-- Actor
+Measurement -up-> Sensor
+Sensortype --> Unit
+Sensortype <-left- Sensor
+Actortype <-left- Actor
+Thing <-left- Message
+Actor <-- ActorAction
+@enduml
+----
+
+== Purpose
+
+The aim of the backend is to persist the collected data/values of the mqtt-broker into a database and to be able to provied those with websockets.
+
+== Specification
+
+image:backend_system_architecture.png[]
+
+A MessageReciever in Quarkus gets the provided measurements via a subscription on the MQTT-Broker.The collected measurements are intern handled by a Repository which persist the values into a Timescale Database and
+offer them for further components through Websockets/Endpoints.
+
+== Components
+* Quarkus
+* Timescale DB
+
