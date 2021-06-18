@@ -1,4 +1,4 @@
-Feature: delete an unit
+Feature: delete a sensor
 
   Background:
     * url baseUrl

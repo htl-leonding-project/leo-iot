@@ -1,4 +1,4 @@
-Feature: get an unit
+Feature: get a sensor
 
   Background:
     * url baseUrl
