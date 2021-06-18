@@ -1,4 +1,11 @@
 = Getting Started
+ifndef::imagesdir[:imagesdir: images]
+//:toc-placement!:  // prevents the generation of the doc at this position, so it can be printed afterwards
+:sourcedir: ../src/main/java
+:icons: font
+:sectnums:    // Nummerierung der Überschriften / section numbering
+:toc: left
+
 
 == Clone Repository
 
@@ -11,13 +18,19 @@ git clone https://github.com/htl-leonding-project/leo-iot
 
 === Start Timescale DB
 
+The production databse and the development database are the same. There is a extra docker-compose file for starting only the database. This container can be executed by running the following commands.
+
 [source,shell]
 ----
 cd database
 docker-compose up -d
 ----
 
+NOTE: -d option is for daemon. If you don't want to start it in the background, remove this option.
+
 === Start Quarkus in development Mode
+
+For starting quarkus simply start quarkus in the development. This works with the following command
 
 [source,shell]
 ----
@@ -26,6 +39,8 @@ cd backend
 ----
 
 === Start Angular in development Mode
+
+The frontend can be started in development mode with the start npm script.
 
 [source,shell]
 ----
@@ -37,6 +52,8 @@ npm start
 
 === Build
 
+This command is for building the whole project. It will produce a docker image for every component.
+
 [source,shell]
 ----
 docker-compose build
@@ -44,19 +61,11 @@ docker-compose build
 
 === Start
 
+This will start the whole application with frontend, backend etc.
+
 [source,shell]
 ----
 docker-compose up -d
 ----
 
-NOTE: -d option is for daemon.If you don't want to start it in the background remove this option.
-
-=== Push and Pull
-
-The following commands will push and pull every image from the GitHub Packages Registry.
-
-[source]
-----
-docker-compose push
-docker-compose pull
-----
+NOTE: -d option is for daemon. If you don't want to start it in the background, remove this option.
