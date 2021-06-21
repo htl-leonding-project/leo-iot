@@ -18,4 +18,7 @@ Feature: get a measurement
     Given method GET
     Then status 404
 
-
+  Scenario: Try getting a measurement with invalid sensor
+    * path 'measurement?from=12&to=14&sensor=invalidSensor'
+    Given method GET
+    Then status 404
