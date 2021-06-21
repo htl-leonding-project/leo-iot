@@ -10,12 +10,12 @@ Feature: create a measurement
     {
       "jsonObject":
       {
+        "value": 123456,
         "measurementKey":
         {
            "timestamp": 1624279520860,
            "sensor": { }
-        } ,
-        "value": 123456
+        }
       }
     }
     """
