@@ -41,6 +41,10 @@ public class MeasurementResource {
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     public Response addMeasurement(JsonObject jsonObject){
+        if (jsonObject.isEmpty()){
+            return Response.noContent().build();
+        }
+
         Measurement measurement = new Measurement();
         measurement.setValue(jsonObject.getInt("value"));
         Measurement.MeasurementKey measurementKey =
