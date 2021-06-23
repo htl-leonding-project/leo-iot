@@ -33,6 +33,7 @@ image:system_architecture_new.png[width=800px]
 === Sensor
 
 * link:Sensor-Documentation[Sensor Documentation]
+* link:sensor-thresholds[Neopixel Ring Thresholds]
 
 == Meeting Protocol
 
