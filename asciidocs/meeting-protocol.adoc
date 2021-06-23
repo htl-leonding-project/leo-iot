@@ -208,3 +208,8 @@
 * new deployment diagram 
 * "House with Students and sensorboxes whiich connecting to the mqtt
 * mqtt picture also on gh pages + quick explanation 
+
+== 20.06.2021
+* EQ, RF
+* update sprint 3
+* end presentation (backend/frontend/value simulator)
