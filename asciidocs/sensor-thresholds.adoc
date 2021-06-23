@@ -1,0 +1,17 @@
+= Sensor Thresholds Neopixel Ring
+
+The color of the neopixel ring will vary depending on the CO2 values. See the thresholds below.
+
+== Green Light
+
+- The CO2 value must be in the range of: `co2 < 500 ppm`
+
+== Yellow Light
+
+- The CO2 value must be in the range of: `500 ppm < co2 < 1500 ppm`
+
+== RED Light
+
+- The CO2 value must be in the range of: `co2 > 1500 ppm`
+
+
