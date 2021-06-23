@@ -3,38 +3,24 @@ EQ,EP,OJ, SK, FK
 1.0.0, 2020-11-2:
 ifndef::imagesdir[:imagesdir: images]
 
-== Project Proposal
-*   https://2021-4ahitm-itp.github.io/01-project-proposal-school-iot/Proposal
+== About
 
-== System Specification
-*   link:System-Specification[System Specification Documentation]
+Leo IOT is a project created to measure various real world data
+such as temperature and air moisture which are collected from sensor
+boxes placed in the rooms of the school building. The application
+will display the data on a dashboard and a 3D-Modell.
 
-== Code Documentation
+== Preview
 
-=== Generell
+- http://vm139.htl-leonding.ac.at/en/3d[3d Model]
+- http://vm139.htl-leonding.ac.at/en/dashboard[DashBoard]
 
-* link:getting-started[getting started]
-* link:git[git]
-* link:github-secrets[GitHub Secrets]
-* link:git-secret[git secret]
-* link:docker-compose[Docker Compose Files]
+== Github
 
-=== Frontend
-
-=== Backend
-
-* link:backend-documentation[Backend Documentation]
-
-=== Simulator
-
-* link:System-Specification-Valuesimulator[Simulator System Specification]
-* link:ValueSimulator-Documentation[Simulator Documentation]
-
-=== Sensor
-
-* link:Sensor-Documentation[Sensor Documentation]
+* https://github.com/htl-leonding-project/leo-iot[GitHub]
 
 
 
-== Meeting Protocol
-* link:meeting-protocol[meeting protocols]
+
+
+
