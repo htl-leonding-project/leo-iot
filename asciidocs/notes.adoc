@@ -203,3 +203,12 @@ protocol issue nummer hinzufügen
 meeting of protocol from docker template
 
 
+=== 25062021
+system architecture image fix typo
+bei git secret können auch files encrypted und gespeichert werden
+presentations folie überarbeiten
+bei functionality folie value beifügen
+niemals sachen auf eine Folie tun die man nicht erklären kann
+datenmodel in intelij dass layout Nets -> Oragnic nutzen
+bei der Folie Backend Api rechts eine System Architktur beifügen
+webuntis ist gut, weil jeder einen Zugriff drauf hat
