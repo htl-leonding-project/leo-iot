@@ -1,0 +1,40 @@
+= Documentation
+ifndef::imagesdir[:imagesdir: images]
+
+== System Architecture
+
+image:system_architecture_new.png[width=800px]
+
+== System Specification
+
+* link:System-Specification[System Specification Documentation]
+
+== Code Documentation
+
+=== Generell
+
+* link:getting-started[getting started]
+* link:git[git]
+* link:github-secrets[GitHub Secrets]
+* link:git-secret[git secret]
+* link:docker-compose[Docker Compose Files]
+
+=== Frontend
+
+=== Backend
+
+* link:backend-documentation[Backend Documentation]
+
+=== Simulator
+
+* link:System-Specification-Valuesimulator[Simulator System Specification]
+* link:ValueSimulator-Documentation[Simulator Documentation]
+
+=== Sensor
+
+* link:Sensor-Documentation[Sensor Documentation]
+* link:sensor-thresholds[Neopixel Ring Thresholds]
+
+== Meeting Protocol
+
+* link:meeting-protocol[meeting protocols]

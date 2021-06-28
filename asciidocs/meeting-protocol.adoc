@@ -14,10 +14,9 @@
 |KG
 |===
 
-
 == 06.12.2020
 * EQ, EP, KF, KS, OJ, KV, RF
-* organizational matters
+* organizational matadded dashboard layout imagesters
 
 === 18.12.2020
 * EQ, EP, KF, KS, OJ, KV, RF
@@ -208,3 +207,12 @@
 * new deployment diagram 
 * "House with Students and sensorboxes whiich connecting to the mqtt
 * mqtt picture also on gh pages + quick explanation 
+
+== 20.06.2021
+* EQ, RF
+* update sprint 3
+* end presentation (backend/frontend/value simulator)
+
+== 25.06.2021
+* EQ, EP, ST
+* project presentation
