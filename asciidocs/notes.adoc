@@ -213,3 +213,10 @@ niemals sachen auf eine Folie tun die man nicht erklären kann
 datenmodel in intelij dass layout Nets -> Oragnic nutzen
 bei der Folie Backend Api rechts eine System Architktur beifügen
 webuntis ist gut, weil jeder einen Zugriff drauf hat
+
+== 19092021
+status update
+über die neuen mitglieder diskutiert
+slides zu dem Repo hinzufügen? -> besprochen
+neuen termin für die wöchentlichen meetings auf Montag verschoben
+

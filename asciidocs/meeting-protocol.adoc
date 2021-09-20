@@ -216,3 +216,10 @@
 == 25.06.2021
 * EQ, EP, ST
 * project presentation
+
+== 19.09.2021
+* EQ, EP, RF
+* status update
+* discussion about potential new members
+* talked about if we should implement the slides to our repo
+* changed the day of the week of the weekly meetings
