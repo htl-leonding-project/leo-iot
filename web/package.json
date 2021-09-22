@@ -24,7 +24,7 @@
     "@angular/router": "^8.2.14",
     "@glidejs/glide": "^3.4.1",
     "@types/three": "^0.103.2",
-    "canvas": "^2.6.1",
+    "canvas": "^2.8.0",
     "chart.js": "^2.9.3",
     "chartjs-plugin-zoom": "^0.6.6",
     "codacy-coverage": "^3.4.0",
