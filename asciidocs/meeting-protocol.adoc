@@ -223,3 +223,14 @@
 * discussion about potential new members
 * talked about if we should implement the slides to our repo
 * changed the day of the week of the weekly meetings
+
+== 27.9.2021
+* EQ, EP, KV
+* talked about youtrack
+** need to update classnames
+** convert github issues to youtrack
+* new tasks:
+** preparation of the presentation
+** addition of asciidocs slides
+** update of the endpoints
+
