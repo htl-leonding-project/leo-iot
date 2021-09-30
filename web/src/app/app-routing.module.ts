@@ -11,7 +11,7 @@ const routes: Routes = [
   },
   {
     path: '**',
-    redirectTo: 'dashobard'
+    redirectTo: 'dashboard'
   }, {
     path: '3d',
     component: School3dComponent
