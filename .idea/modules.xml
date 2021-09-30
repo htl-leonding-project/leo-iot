@@ -5,7 +5,7 @@
       <module fileurl="file://$PROJECT_DIR$/.idea/leo-iot.iml" filepath="$PROJECT_DIR$/.idea/leo-iot.iml" />
       <module fileurl="file://$PROJECT_DIR$/database/leo-iot-db.iml" filepath="$PROJECT_DIR$/database/leo-iot-db.iml" />
       <module fileurl="file://$PROJECT_DIR$/backend/leo-iot-server.iml" filepath="$PROJECT_DIR$/backend/leo-iot-server.iml" />
-      <module fileurl="file://$PROJECT_DIR$/web/leo-iot-web.iml" filepath="$PROJECT_DIR$/web/leo-iot-web.iml" />
+      <module fileurl="file://$PROJECT_DIR$/web-old/leo-iot-web-old.iml" filepath="$PROJECT_DIR$/web-old/leo-iot-web-old.iml" />
     </modules>
   </component>
 </project>
