@@ -56,4 +56,65 @@ Content-Type: application/json
 }
 
 
+### Location getById
+GET http://localhost:8080/location?id=1
+
+### Location save
+POST http://localhost:8080/location
+Content-Type: application/json
+
+{
+  "id" : 3,
+  "name" : "test"
+}
+
+### Unit getById
+GET http://localhost:8080/unit?id=1
+
+### Location save
+POST http://localhost:8080/unit
+Content-Type: application/json
+
+{
+  "id" : 2,
+  "symbol" : "uwu"
+}
+
+### Unit getById
+GET http://localhost:8080/unit?id=1
+
+### Location save
+POST http://localhost:8080/unit
+Content-Type: application/json
+
+{
+  "id" : 2,
+  "symbol" : "uwu"
+}
+
+
+### actortype getById
+GET http://localhost:8080/actortype?id=3
+
+### Location save
+POST http://localhost:8080/actortype
+Content-Type: application/json
+
+{
+  "id" : 0,
+  "name" : "idk"
+}
+
+
+### actortype getById
+GET http://localhost:8080/thing?id=8
+
+### Location save
+POST http://localhost:8080/thing
+Content-Type: application/json
+
+{
+  "id" : 10,
+  "name" : "yes"
+}
 
