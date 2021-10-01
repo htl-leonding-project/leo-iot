@@ -234,3 +234,8 @@
 ** addition of asciidocs slides
 ** update of the endpoints
 
+=== 30.9.2021
+* EQ , EP, KS
+* decided to focus on the dashboard
+* talked about the 3D-Model und the whole old frontend
+* quickstart of the new web
