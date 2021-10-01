@@ -1,33 +1,18 @@
-import {BrowserModule} from '@angular/platform-browser';
-import {NgModule} from '@angular/core';
+import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
 
-import {AppRoutingModule} from './app-routing.module';
-import {AppComponent} from './app.component';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-
-import {CoreModule} from './core/core.module';
-import {NavigationModule} from './modules/navigation/navigation.module';
-import {School3dComponent} from './3d/school3d/school3d.component';
-import {ModelmenuComponent} from './3d/school3d/modelmenu/modelmenu.component';
-import {VideoFeedComponent} from './3d/video-feed/video-feed.component';
-import {MatButtonModule} from '@angular/material';
+import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    School3dComponent,
-    ModelmenuComponent,
-    VideoFeedComponent,
+    AppComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
-    BrowserAnimationsModule,
-    CoreModule,
-    NavigationModule,
-    MatButtonModule,
+    AppRoutingModule
   ],
-  bootstrap: [AppComponent],
+  providers: [],
+  bootstrap: [AppComponent]
 })
-export class AppModule {
-}
+export class AppModule { }
