@@ -1,0 +1,59 @@
+GET http://localhost:8080/measurement?to=1621586866&from=1618987666
+
+###
+
+GET http://localhost:8080/measurement?to=1621586866&from=1618987666&sensor=1
+
+###
+
+POST http://localhost:8080/measurement/add-measurement?id=1
+Content-Type: application/json
+
+{
+  "measurementKey" : {
+  "timestamp": 1621586866,
+    "sensor" : null
+  },
+  "value" : 231
+}
+
+###
+
+GET http://localhost:8080/actor
+
+###
+
+GET http://localhost:8080/location?id=1
+
+###
+
+GET http://localhost:8080/thing?id=1
+
+###
+
+POST http://localhost:8080/unit
+Content-Type: application/json
+
+{
+  "id": 1,
+  "symbol": "test"
+}
+###
+
+GET http://localhost:8080/actoraction?id=1
+
+###
+
+POST http://localhost:8080/actoraction?id=1
+Content-Type: application/json
+
+{
+  "actorActionKey" : {
+    "timestamp": 1632819328,
+    "actor" : null
+  },
+  "value" : 231.00
+}
+
+
+

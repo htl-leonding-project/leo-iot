@@ -17,7 +17,8 @@ public class SensorResource {
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    public Response getSensor(@QueryParam("id") Long sensorId){
+    public Sensor getSensor(@QueryParam("id") Long sensorId){
+       /*
         if (sensorId != null) {
             return Response
                     .accepted(sensorRepository.findById(sensorId))
@@ -27,6 +28,10 @@ public class SensorResource {
                     .accepted(sensorRepository.findAll())
                     .build();
         }
+        */
+
+
+        return sensorRepository.findById(sensorId);
     }
 
     @POST

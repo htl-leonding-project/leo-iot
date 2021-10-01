@@ -2,6 +2,7 @@ package at.htl.boundary;
 
 import at.htl.entity.ActorAction;
 import at.htl.repository.ActorActionRepository;
+import com.fasterxml.jackson.databind.util.JSONPObject;
 
 import javax.inject.Inject;
 import javax.ws.rs.*;

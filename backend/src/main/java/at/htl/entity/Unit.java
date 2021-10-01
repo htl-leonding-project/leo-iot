@@ -1,6 +1,7 @@
 
 package at.htl.entity;
 
+import javax.json.bind.annotation.JsonbTransient;
 import javax.persistence.*;
 import java.util.LinkedList;
 import java.util.List;
@@ -13,8 +14,10 @@ public class Unit {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String symbol;
+    @JsonbTransient
     @OneToMany(mappedBy = "unit")
     private List<SensorType> sensorTypeList;
+    @JsonbTransient
     @OneToMany(mappedBy = "unit")
     private List<ActorType> actorTypeList;
 

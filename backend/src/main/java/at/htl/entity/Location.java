@@ -1,5 +1,6 @@
 package at.htl.entity;
 
+import javax.json.bind.annotation.JsonbTransient;
 import javax.persistence.*;
 import java.util.LinkedList;
 import java.util.List;
@@ -15,6 +16,7 @@ public class Location {
     @ManyToOne
     private Location location;
 
+    @JsonbTransient
     @OneToMany(mappedBy = "location")
     private List<Thing> thingList;
 

@@ -16,6 +16,7 @@ public class ActorResource {
     ActorRepository actorRepository;
 
     @GET
+    @Produces(MediaType.APPLICATION_JSON)
     public Response getActor(@QueryParam("id") Long actorId){
         if(actorId != null){
             return Response
