@@ -46,10 +46,10 @@ public class MeasurementResource {
         measurement.setValue(jsonObject.getInt("value"));
         Measurement.MeasurementKey measurementKey =
                 new Measurement.MeasurementKey(new Timestamp(jsonObject.getJsonObject("measurementKey").getInt("timestamp") * 1000),new Sensor());
+
         measurementKey.setSensor(sensorRepository.findById(sensorId));
         measurement.setMeasurementKey(measurementKey);
-        measurementRepository.save(measurement);
-        return Response.accepted().build();
+        return Response.accepted(measurementRepository.save(measurement)).build();
     }
 
     @DELETE

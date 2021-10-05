@@ -6,7 +6,7 @@ GET http://localhost:8080/measurement?to=1621586866&from=1618987666&sensor=1
 
 ###
 
-POST http://localhost:8080/measurement/add-measurement?id=1
+POST http://localhost:8080/measurement/add-measurement?sensorId=1
 Content-Type: application/json
 
 {
@@ -117,4 +117,55 @@ Content-Type: application/json
   "id" : 10,
   "name" : "yes"
 }
+
+### sensortype getById
+GET http://localhost:8080/sensortype?id=10
+
+### sensortype save
+POST http://localhost:8080/sensortype
+Content-Type: application/json
+
+{
+  "id" : 10,
+  "name" : "sensortype test"
+}
+
+### actor getById
+GET http://localhost:8080/actor?id=1
+
+### actor save
+POST http://localhost:8080/actor
+Content-Type: application/json
+
+{
+  "id" : 1,
+  "value" : 10
+}
+
+### sensor getById
+GET http://localhost:8080/sensor?id=1
+
+### sensor save
+POST http://localhost:8080/sensor
+Content-Type: application/json
+
+{
+  "id" : 11
+}
+
+### actoraction getById
+GET http://localhost:8080/actoraction?timestamp=1633439352
+
+### acntoraction save
+POST http://localhost:8080/actoraction?actorId=1
+Content-Type: application/json
+
+{
+  "actorActionKey" : {
+    "timestamp": 1621586866,
+    "sensor" : null
+  },
+  "value" : 231
+}
+
 
