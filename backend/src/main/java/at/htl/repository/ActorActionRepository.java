@@ -10,7 +10,8 @@ import java.util.List;
 public class ActorActionRepository extends Repository<ActorAction, ActorAction.ActorActionKey> {
 
     public List<ActorAction> getActorActionByTimestamp(Timestamp timestamp){
-        var query = getEntityManager().createQuery("select a " +
+        var query = getEntityManager().createQuery(
+                "select a " +
                 "from ActorAction a " +
                 "where a.actorActionKey.timestamp = :searchedTimestamp",
                 ActorAction.class);

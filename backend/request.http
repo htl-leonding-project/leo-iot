@@ -154,7 +154,7 @@ Content-Type: application/json
 }
 
 ### actoraction getById
-GET http://localhost:8080/actoraction?timestamp=1633439352
+GET http://localhost:8080/actoraction?timestamp=984361
 
 ### acntoraction save
 POST http://localhost:8080/actoraction?actorId=1
@@ -162,10 +162,10 @@ Content-Type: application/json
 
 {
   "actorActionKey" : {
-    "timestamp": 1621586866,
+    "timestamp": 984361,
     "sensor" : null
   },
-  "value" : 231
+  "value" : 321
 }
 
 
