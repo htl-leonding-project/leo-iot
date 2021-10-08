@@ -158,6 +158,16 @@ Content-Type: application/json
 
 
 ### measurement geById
-
 GET http://localhost:8080/measurement?timestamp=1615218639
 
+### acntoraction save
+POST http://localhost:8080/measurement?sensorId=1
+Content-Type: application/json
+
+{
+  "measurementKey" : {
+    "timestamp": 984361,
+    "sensor" : null
+  },
+  "value" : 321
+}

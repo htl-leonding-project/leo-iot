@@ -40,9 +40,7 @@ public class MeasurementResource {
      */
 
     @POST
-    @Path("/add-measurement")
     @Consumes(MediaType.APPLICATION_JSON)
-    @Produces(MediaType.APPLICATION_JSON)
     public Response addMeasurement(@QueryParam("sensorId") Long sensorId ,JsonObject jsonObject){
         Measurement measurement = new Measurement();
         measurement.setValue(jsonObject.getInt("value"));
