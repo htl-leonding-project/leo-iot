@@ -22,6 +22,7 @@ public class MeasurementResource {
     @Inject
     SensorRepository sensorRepository;
 
+    /*
     @GET
     public Response getMeasurement(@QueryParam("to") Long to, @QueryParam("from") Long from, @QueryParam("sensor") Long sensorId){
         if(to != null && from != null && sensorId == null){
@@ -36,6 +37,7 @@ public class MeasurementResource {
         }
         else return null;
     }
+     */
 
     @POST
     @Path("/add-measurement")
@@ -57,6 +59,20 @@ public class MeasurementResource {
     public Response removeMeasurement(Measurement measurement ){
         measurementRepository.remove(measurement);
         return Response.accepted(measurement).build();
+    }
+
+    @GET
+    public Response getMeasurmentByTimestamp(@QueryParam("timestamp") Long measurementTimestamp){
+        if (measurementTimestamp != null){
+            return Response
+                    .accepted(measurementRepository
+                            .getMeasurementByTimestamp(new Timestamp(measurementTimestamp * 1000)))
+                    .build();
+        }else{
+            return Response
+                    .accepted(measurementRepository.findAll())
+                    .build();
+        }
     }
 
 }

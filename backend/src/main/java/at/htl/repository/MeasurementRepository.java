@@ -71,4 +71,17 @@ public class MeasurementRepository
 
         return query.getResultList();
     }
+
+    public List<Measurement> getMeasurementByTimestamp (Timestamp timestamp){
+        System.out.println(timestamp.toString());
+        var query = getEntityManager().createQuery(
+                "select  m " +
+                        "from Measurement m " +
+                        "where m.measurementKey.timestamp = :searchedTimstamp",
+                Measurement.class);
+
+        query.setParameter("searchedTimstamp", timestamp);
+        return  query.getResultList();
+    }
+
 }
