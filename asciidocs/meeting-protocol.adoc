@@ -2,7 +2,7 @@
 
 == Legend
 |===
-|Ecker  |Edlinger  |Klausner  |Knogler  |Kronreif |Rieser |Stütz | Köck
+|Ecker  |Edlinger  |Klausner  |Knogler  |Kronreif |Rieser |Bogdan |Kerschbaum |Rathberger |Stütz | Köck
 
 |EQ
 |EP
@@ -10,6 +10,9 @@
 |KS
 |KV
 |RF
+|BS
+|KP
+|RJ
 |ST
 |KG
 |===
@@ -18,16 +21,16 @@
 * EQ, EP, KF, KS, OJ, KV, RF
 * organizational matadded dashboard layout imagesters
 
-=== 18.12.2020
+== 18.12.2020
 * EQ, EP, KF, KS, OJ, KV, RF
 * discussion with our predecessors about the project
 * new division of tasks
 
-=== 27.12.2020
+== 27.12.2020
 * EQ, EP, KS, KV, RF
 * short briefing
 
-=== 24.01.2021
+== 24.01.2021
 * EQ, EP, KS, KV, RF
 * briefing about the current situation
 * discussion about occurring go problems
@@ -35,7 +38,7 @@
 * brainstorming about a more efficient ways of operating
 ** several work sessions a month
 
-=== 04.02.2021
+== 04.02.2021
 * EQ, EP, KS, KF, ST
 * talked about the project management and structure
 * TODO:
@@ -50,7 +53,7 @@
 ** dicussion about solving the problem
 * talking about deadlines
 
-==== 19.02.2021
+== 19.02.2021
 * EQ,EP, ST
 * Write instructions for the backend in the ReadME
 * the professor is looking for an alternative solution for JDBC
@@ -234,10 +237,18 @@
 ** addition of asciidocs slides
 ** update of the endpoints
 
-=== 30.9.2021
+== 30.9.2021
 * EQ , EP, KS
 * decided to focus on the dashboard
 * talked about the 3D-Model and the whole old frontend
 * quickstart of the new web
+
+== 04.10.2021
+* EQ, EP, KV, RF, BS, KP, RJ,
+* first meeting with of our new project members
+* introduction of the project
+* setup youtrack and github repo access
+* potential AI of the project
+* need to make an appointment
 
 
