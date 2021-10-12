@@ -1,9 +1,12 @@
 package at.htl.entity;
 
+import org.eclipse.microprofile.openapi.annotations.media.Schema;
+
 import javax.persistence.*;
 import java.util.Objects;
 
 @Entity
+@Schema(description = "contains a thing and a sensortype")
 public class Sensor {
 
     @Id
