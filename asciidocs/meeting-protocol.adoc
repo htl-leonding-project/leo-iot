@@ -251,4 +251,11 @@
 * potential AI of the project
 * need to make an appointment
 
+== 11.10.2021
+* EQ, EP, ST
+* canceled the upcoming meeting with ST
+* talked about the tasks for the newcomer
+** are taking over the 3D-Model
+** introduction to the whole backend
+*** have a meeting on 15.10
 
