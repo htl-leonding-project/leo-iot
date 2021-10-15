@@ -2,7 +2,7 @@
 
 == Legend
 |===
-|Ecker  |Edlinger  |Klausner  |Knogler  |Kronreif |Rieser |Bogdan |Kerschbaum |Rathberger |Stütz | Köck
+|Ecker  |Edlinger  |Klausner  |Knogler  |Kronreif |Rieser |Abazovic |Bogdan |Kerschbaum |Rathberger |Stütz | Köck
 
 |EQ
 |EP
@@ -10,6 +10,7 @@
 |KS
 |KV
 |RF
+|AE
 |BS
 |KP
 |RJ
@@ -252,10 +253,12 @@
 * need to make an appointment
 
 == 11.10.2021
-* EQ, EP, ST
+* EQ, EP, BS, KP, RJ,ST
 * canceled the upcoming meeting with ST
 * talked about the tasks for the newcomer
 ** are taking over the 3D-Model
 ** introduction to the whole backend
 *** have a meeting on 15.10
+
+== 15.10.2021
 
