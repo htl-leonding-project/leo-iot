@@ -1,13 +1,18 @@
 package at.htl.entity;
 
+import org.eclipse.microprofile.openapi.annotations.media.Schema;
+
+import javax.json.bind.annotation.JsonbProperty;
 import javax.persistence.*;
 import java.util.Objects;
 
 @Entity
+@Schema(description = "contains the value of the active actor")
 public class Actor {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Schema(required = true)
     private Long id;
 
     @ManyToOne
@@ -15,7 +20,8 @@ public class Actor {
 
     @ManyToOne
     private ActorType actortype;
-
+    @JsonbProperty("actor_value")
+    @Schema(required = true)
     private double value;
 
     public Actor() { }

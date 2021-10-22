@@ -75,7 +75,6 @@ nach der Besprechung ein einfaches modell für das frontend machen
 das Datenmodell ist basierend
 
 == 14042021
-
 influx db vs timescale DB
 influx hat eine community version
 
@@ -147,27 +146,17 @@ der esp wird vlt. nach 3 Tagen abstürzen
 
 udplogger blast die werte ins wLan hinaus
 
-
 wie kriegt der Logserver die Logs?
-
 Wir müssen mit den sysadmin reden, wenn wir für
 udp broadcast nutzen möchten
-
 die persistierten werte sollten im DAshboard angezeigt werden
-
-
-
 summary:
 sind unsere Fragenliste durgegangen -> siehe iot-fragen.adoc
 erstellen eines neuen Datanmodelles
 neues Dashboard Task
-
 beim Programmieren sollte man die Quelle
 quelle des wissen hinzufügen.
-
-
 Todo:
-
 - seq logger implementieren
 - benötigen einen MQTT-Mapper
 - neues Datenmodell implementierne
@@ -179,16 +168,11 @@ Todo:
 (- auf der Ebene der Sensoren arbeiten)
 
 == 18042021
-
 seperate Pflichtenhefte erstellen und dazu eine api
-
 den neuen Simulator Prototyp einbinden
-
 das neues Dashboard erklärt und umsetzen
 
-
 == 16052021
-
 talked about current tasks
 simulator status
 talked about the sensor position
@@ -197,14 +181,11 @@ questions at stütz:
 wohin mit den sensore soin de hin
 
 == 21052021
-
 im protocol eine namens legende hinzufügen
 protocol issue nummer hinzufügen
 meeting of protocol from docker template
 
-
 == 25062021
-
 system architecture image fix typo
 bei git secret können auch files encrypted und gespeichert werden
 presentations folie überarbeiten
@@ -226,3 +207,34 @@ Neuling ins Youtrack hizugefügt
 haben über die KI gesprochen
 müssen mit Stütz einen Termin machen
 haben Sie zum Repo hinzugefügt
+
+== 11102021
+Vinzent, Felix, Tiblue, Quririn, KingFuezi
+neue tasks besprochen
+termin mit den Neulingen ausgemacht
+
+== 15102021
+EQ, EP, AE, BS, KP, RJ,
+meeting in der 4AHIF
+Angular Einführung
+neues 3D Modell wird gemacht
+entschlossen, dass die Lokalisierung abgeschaffen wird
+potenziell wird das 3d Model Team auf zwei aufgesplittet
+ST fragen wie der Sensorsimulator eingesetzt wird
+
+== 22102021
+rollen der einzelnen Teammitglieder:
+Ecker: Backend redesign  endpoints
+Edlinger: backend swagger-api stuff
+Klausner: presentation about the modules
+Knogler: presentation about the modules
+Kronreif: value-simulator
+Riser: value-simulator
+Abazovic: learning phase
+Bogdan: learning phase
+Kerschbaum: learning phase
+Rathberger: learning phase
+todo:
+- docker images verbessern
+dashboard und 3D-model auf den beiden oberen Bildschirmen aufteilen
+deadline 10:30 Uhr

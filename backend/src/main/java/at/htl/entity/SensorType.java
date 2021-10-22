@@ -1,15 +1,20 @@
 package at.htl.entity;
 
+import org.eclipse.microprofile.openapi.annotations.media.Schema;
+
+import javax.json.bind.annotation.JsonbProperty;
 import javax.persistence.*;
 import java.util.Objects;
 
 @Entity
+@Schema(description = "contains the sensortype of ta sensor")
 public class SensorType {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @JsonbProperty("senortype")
     private String name;
 
     @ManyToOne

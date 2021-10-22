@@ -1,5 +1,8 @@
 package at.htl.entity;
 
+import org.eclipse.microprofile.openapi.annotations.media.Schema;
+
+import javax.json.bind.annotation.JsonbProperty;
 import javax.json.bind.annotation.JsonbTransient;
 import javax.persistence.*;
 import java.util.LinkedList;
@@ -7,6 +10,7 @@ import java.util.List;
 import java.util.Objects;
 
 @Entity
+@Schema(description = "contains a list of actors and sensors of the  thing ")
 public class Thing {
 
     @Id
@@ -24,6 +28,7 @@ public class Thing {
     @OneToMany(mappedBy = "thing")
     private List<Sensor> sensorList;
 
+    @JsonbProperty("thing_name")
     private String name;
 
     public Thing(){

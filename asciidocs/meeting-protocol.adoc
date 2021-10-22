@@ -2,7 +2,7 @@
 
 == Legend
 |===
-|Ecker  |Edlinger  |Klausner  |Knogler  |Kronreif |Rieser |Bogdan |Kerschbaum |Rathberger |Stütz | Köck
+|Ecker  |Edlinger  |Klausner  |Knogler  |Kronreif |Rieser |Abazovic |Bogdan |Kerschbaum |Rathberger |Stütz | Köck
 
 |EQ
 |EP
@@ -10,6 +10,7 @@
 |KS
 |KV
 |RF
+|AE
 |BS
 |KP
 |RJ
@@ -252,10 +253,34 @@
 * need to make an appointment
 
 == 11.10.2021
-* EQ, EP, ST
+* EQ, EP, BS, KP, RJ,ST
 * canceled the upcoming meeting with ST
 * talked about the tasks for the newcomer
 ** are taking over the 3D-Model
 ** introduction to the whole backend
 *** have a meeting on 15.10
 
+== 15.10.2021
+* EQ, EP, AE, BS, KP, RJ
+* meeting with the members of the 4AHIF
+* introduction to Angular
+* decided to create a new 3D-Model
+** getting rif of the localizations
+
+== 22.10.2021
+* EQ, ED, KF, KS
+
+* current tasks of  the team members
+
+|===
+|Ecker | backend redesign
+|Edlinger | swagger-api
+|Klausner | presentation about the modules of the frontend
+|Knogler | presentation about the modules of the frontend
+|Kronreif| value-simulator
+|Rieser | value-simulator
+|Abazovic | learning phase about angular and the 3D-Model
+|Bogdan | learning phase about angular and the 3D-Model
+|Kerschbaum | learning phase about angular and the 3D-Model
+|Rathberger | learning phase about angular and the 3D-Model
+|===

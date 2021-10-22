@@ -4,16 +4,20 @@ import at.htl.entity.Measurement;
 import at.htl.entity.Sensor;
 import at.htl.repository.MeasurementRepository;
 import at.htl.repository.SensorRepository;
+import org.eclipse.microprofile.openapi.annotations.Operation;
+import org.eclipse.microprofile.openapi.annotations.tags.Tag;
 import org.eclipse.microprofile.reactive.messaging.Incoming;
 
 import javax.inject.Inject;
 import javax.json.JsonObject;
+import javax.persistence.OrderBy;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.sql.Timestamp;
 
 @Path("/measurement")
+@Tag(name="Measurement REST endpoint")
 public class MeasurementResource {
 
     @Inject
@@ -22,25 +26,12 @@ public class MeasurementResource {
     @Inject
     SensorRepository sensorRepository;
 
-    /*
-    @GET
-    public Response getMeasurement(@QueryParam("to") Long to, @QueryParam("from") Long from, @QueryParam("sensor") Long sensorId){
-        if(to != null && from != null && sensorId == null){
-         return Response
-                 .accepted(measurementRepository.get(new Timestamp(from * 1000), new Timestamp(to * 1000)))
-                 .build();
-        }else
-        if (to != null && from != null && sensorId != null){
-            return Response
-                    .accepted(measurementRepository.get(new Timestamp(from * 1000), new Timestamp(to * 1000), sensorRepository.findById(sensorId)))
-                    .build();
-        }
-        else return null;
-    }
-     */
-
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
+    @Operation(
+            summary = "save a measurement",
+            description = "save the desired measurement with id"
+    )
     public Response addMeasurement(@QueryParam("sensorId") Long sensorId ,JsonObject jsonObject){
         Measurement measurement = new Measurement();
         measurement.setValue(jsonObject.getInt("value"));
@@ -54,12 +45,20 @@ public class MeasurementResource {
 
     @DELETE
     @Path("/remove-measurement")
+    @Operation(
+            summary = "delete a measurement",
+            description = "remove the desired measurement object"
+    )
     public Response removeMeasurement(Measurement measurement ){
         measurementRepository.remove(measurement);
         return Response.accepted(measurement).build();
     }
 
     @GET
+    @Operation(
+            summary = "get a measurement",
+            description = "get thr desired measurement by timestamp"
+    )
     public Response getMeasurmentByTimestamp(@QueryParam("timestamp") Long measurementTimestamp){
         if (measurementTimestamp != null){
             return Response
