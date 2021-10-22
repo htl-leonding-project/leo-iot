@@ -1,0 +1,26 @@
+name: Showcase
+
+on:
+  push:
+    branches:
+      - 'main'
+      - 'develop'
+
+jobs:
+  build:
+    name: Build ⚙
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Build
+        uses: quirinecker/asciidoctor-convert-action@1.0
+        with:
+          slides: true
+          inputPath: asciidocs
+          outputPath: out
+      - name: Deploy to GitHub Pages
+        uses: JamesIves/github-pages-deploy-action@releases/v3
+        with:
+          GITHUB_TOKEN: ${{ github.TOKEN }}
+          BRANCH: gh-pages
+          FOLDER: out
