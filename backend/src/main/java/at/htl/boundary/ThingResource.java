@@ -3,6 +3,7 @@ package at.htl.boundary;
 import at.htl.entity.Location;
 import at.htl.entity.Thing;
 import at.htl.repository.ThingRepository;
+import org.eclipse.microprofile.openapi.annotations.tags.Tag;
 
 import javax.inject.Inject;
 import javax.ws.rs.*;
@@ -10,12 +11,14 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
 @Path("thing")
+@Tag(name = "Thing REST endpoint")
 public class ThingResource {
 
     @Inject
     ThingRepository thingRepository;
 
     @GET
+
     public Response getThing(@QueryParam("id") Long thingId){
         if(thingId != null) {
             return Response
