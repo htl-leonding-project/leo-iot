@@ -1,8 +1,11 @@
 package at.htl.entity;
 
 
+import org.eclipse.microprofile.openapi.annotations.media.Schema;
+
 import javax.json.JsonObject;
 import javax.json.bind.JsonbBuilder;
+import javax.json.bind.annotation.JsonbProperty;
 import javax.persistence.Embeddable;
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
@@ -12,10 +15,13 @@ import java.sql.Timestamp;
 import java.util.Objects;
 
 @Entity
+@Schema(description = "contains the value of the  measurement")
 public class Measurement {
 
     @EmbeddedId
     private MeasurementKey measurementKey;
+    @JsonbProperty("measurement_value")
+    @Schema(required = true)
     private double value;
 
     public Measurement(){
@@ -49,6 +55,14 @@ public class Measurement {
         if (!(o instanceof Measurement)) return false;
         Measurement that = (Measurement) o;
         return Double.compare(that.value, value) == 0 && Objects.equals(measurementKey, that.measurementKey);
+    }
+
+    @Override
+    public String toString() {
+        return "Measurement{" +
+                "measurementKey=" + measurementKey +
+                ", value=" + value +
+                '}';
     }
 
     @Override

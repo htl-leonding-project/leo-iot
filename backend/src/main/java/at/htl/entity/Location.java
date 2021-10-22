@@ -1,5 +1,8 @@
 package at.htl.entity;
 
+import org.eclipse.microprofile.openapi.annotations.media.Schema;
+
+import javax.json.bind.annotation.JsonbProperty;
 import javax.json.bind.annotation.JsonbTransient;
 import javax.persistence.*;
 import java.util.LinkedList;
@@ -7,6 +10,7 @@ import java.util.List;
 import java.util.Objects;
 
 @Entity
+@Schema(description = "contains a thingList and a location of the current location")
 public class Location {
 
     @Id
@@ -20,6 +24,7 @@ public class Location {
     @OneToMany(mappedBy = "location")
     private List<Thing> thingList;
 
+    @JsonbProperty("location_name")
     private String name;
 
     public Location(Long id, Location location, String name) {

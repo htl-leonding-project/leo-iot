@@ -1,6 +1,10 @@
 
 package at.htl.entity;
 
+import org.eclipse.microprofile.openapi.annotations.media.Schema;
+
+import javax.json.bind.annotation.JsonbProperty;
+import javax.json.bind.annotation.JsonbTransient;
 import javax.persistence.Embeddable;
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
@@ -10,10 +14,13 @@ import java.sql.Timestamp;
 import java.util.Objects;
 
 @Entity
+@Schema(description = "contains the value of the active actoraction")
 public class ActorAction{
 
     @EmbeddedId
     private ActorActionKey actorActionKey;
+    @JsonbProperty("actor_action_value")
+    @Schema(required = true)
     private double value;
 
     public ActorAction (ActorActionKey actorActionKey, double value){

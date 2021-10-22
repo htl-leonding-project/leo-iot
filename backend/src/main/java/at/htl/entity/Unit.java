@@ -1,6 +1,9 @@
 
 package at.htl.entity;
 
+import org.eclipse.microprofile.openapi.annotations.media.Schema;
+
+import javax.json.bind.annotation.JsonbProperty;
 import javax.json.bind.annotation.JsonbTransient;
 import javax.persistence.*;
 import java.util.LinkedList;
@@ -8,11 +11,13 @@ import java.util.List;
 import java.util.Objects;
 
 @Entity
+@Schema(description = "contains the unit type/symbol of the sensortype")
 public class Unit {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @JsonbProperty("symbol")
     private String symbol;
     @JsonbTransient
     @OneToMany(mappedBy = "unit")
