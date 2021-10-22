@@ -1,1 +1,22 @@
+:authors: Knogler, Klausner
+
 = Angular Modules
+
+== Was sind Angular Modules?
+Modules ist ein Mechanismus zum Gruppieren von zusammengehörigen Komponenten, Direktiven, Pipes und Diensten, sodass sie mit anderen Modulen kombiniert werden können, um eine Anwendung zu erstellen.
+
+(https://angular-training-guide.rangle.io/modules/introduction#:~:text=In%20Angular%2C%20a%20module%20is,to%20see%20the%20full%20picture)
+
+== Beispiel (Implementierung)
+
+[source, javascript]
+------
+import { NgModule } from '@angular/core';
+@NgModule({
+  imports: [ ... ],
+  declarations: [ ... ],
+  bootstrap: [ ... ]
+})
+export class AppModule { }
+------
+
