@@ -13,7 +13,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Build
-        uses: quirinecker/asciidoctor-convert-action@1.0
+        uses: quirinecker/asciidoctor-convert-action@1.2
         with:
           slides: true
           inputPath: asciidocs
