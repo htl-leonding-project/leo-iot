@@ -31,7 +31,7 @@ jobs:
         with:
           registry: ghcr.io
           username: ${{ github.actor }}
-          password: ${{ github.TOKEN }}
+          password: ${{ secrets.REGTOKEN }}
       - name: Push
         run: |
           docker-compose push
