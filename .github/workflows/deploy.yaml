@@ -34,7 +34,7 @@ jobs:
           password: ${{ github.TOKEN }}
       - name: Push
         run: |
-          echo ${{ secrets.REGTOKEN }} | docker login https://docker.pkg.github.com -u QuirinEcker --password-stdin
+          echo ${{ secrets.REGTOKEN }} | docker login https://docker.pkg.github.com -u ${{ github.actor }} --password-stdin
           docker-compose push
   start:
     name: Start Container
