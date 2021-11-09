@@ -5,6 +5,8 @@ on:
   push:
     branches:
       - 'master'
+      - 'main'
+      - 'feature/ci'
 
 jobs:
   build_push:
@@ -24,9 +26,14 @@ jobs:
       - name: Build
         run: |
           docker-compose build
+      - name: Log in to the Container registry
+        uses: docker/login-action@v1
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ github.TOKEN }}
       - name: Push
         run: |
-          echo ${{ secrets.REGTOKEN }} | docker login https://docker.pkg.github.com -u QuirinEcker --password-stdin
           docker-compose push
   start:
     name: Start Container
@@ -43,11 +50,11 @@ jobs:
         run: ssh-keyscan -H -t rsa -v ${{ secrets.DEPIP }}  >> ~/.ssh/known_hosts
       - name: Copy required files
         run: |
-          scp -r docker-compose.deploy.yml ${{ secrets.DEPUSER }}@${{ secrets.DEPIP }}:~/leo-iot/
+          scp -r docker-compose.deploy.yml ${{ secrets.DEPUSER }}@${{ secrets.DEPIP }}:/opt/docker/leo-iot
       - name: Run Docker Container
         run: |
           ssh ${{ secrets.DEPUSER }}@${{ secrets.DEPIP }} "
-          cd leo-iot
+          cd /opt/docker/leo-iot
           echo ${{ secrets.REGTOKEN }} | docker login https://docker.pkg.github.com -u QuirinEcker --password-stdin
           docker-compose -f docker-compose.deploy.yml pull
           docker-compose -f docker-compose.deploy.yml stop
