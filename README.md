@@ -23,7 +23,8 @@ will display the data on a dashboard and a 3D-Modell.
 
 ## Documentation
 
-- [Index](https://htl-leonding-project.github.io/leo-iot/)
+- [Overview](https://htl-leonding-project.github.io/leo-iot/)
+- [Documentations](https://htl-leonding-project.github.io/leo-iot/documentation)
 
 
 ## Associated repositories
