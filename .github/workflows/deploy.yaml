@@ -6,7 +6,6 @@ on:
     branches:
       - 'master'
       - 'main'
-      - 'feature/ci'
 
 jobs:
   build_push:
