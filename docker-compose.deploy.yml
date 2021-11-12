@@ -19,6 +19,7 @@ services:
       - leo-iot
   leo-iot-db:
     image: docker.pkg.github.com/htl-leonding-project/leo-iot/leo-iot-db
+
     container_name: leo-iot-db
     environment:
       POSTGRES_PASSWORD: app
