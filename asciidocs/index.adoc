@@ -15,9 +15,34 @@ will display the data on a dashboard and a 3D-Modell.
 - http://vm139.htl-leonding.ac.at/en/3d[3d Model]
 - http://vm139.htl-leonding.ac.at/en/dashboard[DashBoard]
 
-== Github
+== Getting Started
+
+* https://htl-leonding-project.github.io/leo-iot/getting-started[getting started]
+
+== Github Repo
 
 * https://github.com/htl-leonding-project/leo-iot[GitHub]
+
+== Git
+
+* https://htl-leonding-project.github.io/leo-iot/git[Git]
+
+== Documentation
+
+* https://htl-leonding-project.github.io/leo-iot/[Overview]
+* https://htl-leonding-project.github.io/leo-iot/documentation[Documentations]
+
+
+== Associated repositories
+
+* https://github.com/QuirinEcker/quarkus-mqtt[Smallrye MQTT Prototype]
+* https://github.com/QuirinEcker/camel-paho-demo[Camel Paho MQTT Prototype]
+* https://github.com/sknogler/leoiot-new-dashboard[Dashboard]
+
+== Archiv
+
+* https://drive.google.com/drive/folders/1sIm3kAN1Gty35lSp5xbqtrQ_-PelBX2N[Previous Version]
+
 
 
 
