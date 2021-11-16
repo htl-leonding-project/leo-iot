@@ -3,7 +3,7 @@ ifndef::imagesdir[:imagesdir: images]
 
 == System Architecture
 
-image:system_architecture_new.png[width=800px]
+image:system_architecture_new_value_simulator.png[width=800px]
 
 == System Specification
 
