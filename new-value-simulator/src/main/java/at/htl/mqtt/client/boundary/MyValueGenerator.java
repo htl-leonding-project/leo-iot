@@ -2,12 +2,12 @@ package at.htl.mqtt.client.boundary;
 
 import at.htl.mqtt.client.entity.Room;
 import io.quarkus.runtime.StartupEvent;
-import io.reactivex.Observable;
-import io.reactivex.disposables.Disposable;
+
 import io.smallrye.reactive.messaging.mqtt.MqttMessage;
 import org.eclipse.microprofile.reactive.messaging.Channel;
 import org.eclipse.microprofile.reactive.messaging.Emitter;
-
+import io.reactivex.Observable;
+import io.reactivex.disposables.Disposable;
 import javax.enterprise.context.ApplicationScoped;
 import javax.enterprise.event.Observes;
 import javax.inject.Inject;
