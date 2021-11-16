@@ -7,12 +7,7 @@ ifndef::imagesdir[:imagesdir: images]
 
 The aim of the Simulator is to send testdata to a MQTT-Broker, wich can be used to Test the sofware without a physical sensor.
 
-
-== Repositroy of the Simulator
-
-* link:https://github.com/htl-leonding-project/leo-iot/tree/value-simulator[ValueSimulator Repository]
-
-Note that you need the permission to have access to this repo. Make sure you contact the current team leader for the access.
+In the future the Simulator will persist Data in a Database. Also all rooms without a sensorbox should recieve mock values from the value simulator automatically.  
 
 === How to setup the Simulator?
 
@@ -23,7 +18,7 @@ Start Quarkus with
 ./mvnw clean compile quarkus:dev
 ----
 
-Connect with the MQTT-Server.For example with link:http://mqtt-explorer.com/[MQTT-Explorer]. Ask the leader for the Password.
+Connect with the MQTT-Server. For example with link:http://mqtt-explorer.com/[MQTT-Explorer]. Ask the leader for the Password.
 
 image::docu1.png[]
 
