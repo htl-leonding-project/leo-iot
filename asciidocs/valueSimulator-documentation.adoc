@@ -3,6 +3,9 @@ FR, VK
 1.0.1, 2021-06-14:
 ifndef::imagesdir[:imagesdir: images]
 
+== Architecture
+image:system_architecture_new_value_simulator.png[width=800px]
+
 == Purpose
 
 The aim of the Simulator is to send testdata to a MQTT-Broker, wich can be used to Test the sofware without a physical sensor.
@@ -10,7 +13,7 @@ The aim of the Simulator is to send testdata to a MQTT-Broker, wich can be used 
 In the future the Simulator will persist Data in a Database. Also all rooms without a sensorbox should recieve mock values from the value simulator automatically.  
 
 === How to setup the Simulator?
-
+Currently, the value-simulator only works local, in the IDE. We plan on deploy the project to a vm.
 Start Quarkus with 
 
 [source,console]
