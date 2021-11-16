@@ -28,7 +28,7 @@ image:system_architecture_new_value_simulator.png[width=800px]
 === Simulator
 
 * link:System-Specification-Valuesimulator[Simulator System Specification]
-* link:ValueSimulator-Documentation[Simulator Documentation]
+* link:valueSimulator-documentation[Simulator Documentation]
 
 === Sensor
 
