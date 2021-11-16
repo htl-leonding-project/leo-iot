@@ -2,6 +2,7 @@ package at.htl.mqtt.client.repository;
 
 import at.htl.mqtt.client.boundary.MyValueGenerator;
 import at.htl.mqtt.client.entity.Room;
+import io.quarkus.hibernate.orm.panache.PanacheRepository;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
@@ -10,7 +11,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 @ApplicationScoped
-public class RoomRepository
+public class RoomRepository implements PanacheRepository<Room>
 {
     @Inject
     MyValueGenerator myValueGenerator;
@@ -22,13 +23,18 @@ public class RoomRepository
         return rooms;
     }
 
+    @Transactional
     public boolean addRoom(String roomName) {
         Room currRoom = new Room(roomName);
+
         if(rooms.stream().anyMatch(r -> r.getName().equals(roomName)))
         {
             System.out.println("Room already exists");
             return false;
         }
+
+        persist(currRoom);
+
         boolean returnValue = rooms.add(currRoom);
 
         myValueGenerator.roomData(currRoom);
