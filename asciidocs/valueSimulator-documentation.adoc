@@ -5,7 +5,7 @@ ifndef::imagesdir[:imagesdir: images]
 
 == Purpose
 
-The aim of the Simulator is to send testdata to a MQTT-Broker, wich can be used to Test the sofware without a physical sensor.
+The aim of the Simulator is to send testdata to a MQTT-Broker, which can be used to test the software without a physical sensor.
 
 In the future the Simulator will persist Data in a Database. Also all rooms without a sensorbox should recieve mock values from the value simulator automatically.  
 
