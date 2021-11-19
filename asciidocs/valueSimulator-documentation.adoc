@@ -1,6 +1,6 @@
 = Value Simulator  Documentation
 FR, VK
-1.0.1, 2021-06-14:
+1.0.1, 2021-11-18:
 ifndef::imagesdir[:imagesdir: images]
 
 == Architecture
@@ -10,9 +10,10 @@ image:system_architecture_new_value_simulator.png[width=800px]
 
 The aim of the Simulator is to send testdata to a MQTT-Broker, which can be used to test the software without a physical sensor.
 
-In the future the Simulator will persist Data in a Database. Also all rooms without a sensorbox should recieve mock values from the value simulator automatically.  
+In the future the Simulator will persist Data in a Database. Also all rooms without a sensorbox should recieve mock values from the value simulator automatically. The IoT-in-charge can configure the system to display the values of the ValueSimulator for this room.
 
-=== How to setup the Simulator?
+
+=== How to setup the Simulator for development?
 Currently, the value-simulator only works local, in the IDE. We plan on deploy the project to a vm.
 Start Quarkus with 
 
