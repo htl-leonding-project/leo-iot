@@ -37,3 +37,7 @@ image::docu3.png[]
 If you want to delete the room you created before you can use postman like in this picture again.
 
 image::docu4.png[]
+
+=== How to setup the Simulator in runnable version?
+
+...Coming soon...
