@@ -1,9 +1,14 @@
-FROM openjdk:11.0.10-slim
-WORKDIR /quarkus-app/
-COPY .mvn/wrapper/ ./.mvn/wrapper/
-COPY pom.xml mvnw ./
-RUN ./mvnw clean install
-COPY . .
-RUN ./mvnw clean package -Dmaven.test.skip=true && \
-    mv target/leo-iot-server-*-SNAPSHOT-runner.jar target/quarkus-app.jar
-ENTRYPOINT ["java", "-jar", "target/quarkus-app.jar"]
+FROM registry.access.redhat.com/ubi8/ubi-minimal:8.3
+RUN microdnf update && microdnf install nmap && microdnf clean all
+RUN mkdir /app
+
+WORKDIR /app
+
+COPY target/*-runner /app/application
+COPY entrypoint.sh .
+RUN sed -e 's/\r$//' -i entrypoint.sh && chmod +x entrypoint.sh
+#RUN chmod +x application
+
+EXPOSE 8080
+
+CMD ["./entrypoint.sh"]
