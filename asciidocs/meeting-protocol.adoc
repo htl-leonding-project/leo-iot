@@ -2,20 +2,19 @@
 
 == Legend
 |===
-|Ecker  |Edlinger  |Klausner  |Knogler  |Kronreif |Rieser |Abazovic |Bogdan |Kerschbaum |Rathberger |Stütz | Köck
+| Ecker Quirin | EQ
+| Edlinger Philipp | EP
+| Klausner Florian  | KF
+| Knogler Simon  | KS
+| Kronreif Vinzent | KV
+| Rieser Felix | RF
+| Abazovic Edina | AE
+| Bogdan Sebastian | BS
+| Kerschbaum Philipp | KP
+| Rathberger Jakob | RJ
+| Stütz Thomas | ST
+| Köck Gerald | KG
 
-|EQ
-|EP
-|KF
-|KS
-|KV
-|RF
-|AE
-|BS
-|KP
-|RJ
-|ST
-|KG
 |===
 
 == 06.12.2020
@@ -204,13 +203,13 @@
 
 == 15.06.2021
 * ST, EQ, RF,  KV
-* if a new sensor connects, he well be created atomatically ... -> searching for the new one under sensor and actor...no results --> Create new Sensor 
+* if a new sensor connects, he well be created atomatically ... -> searching for the new one under sensor and actor...no results --> Create new Sensor
 * update gh pages and generalize it, so a new user have a quick overview
 * sysmem architecture from the sys spec should also be on the gh pages
 * The German Systemspec should be marked with "German"
-* new deployment diagram 
+* new deployment diagram
 * "House with Students and sensorboxes whiich connecting to the mqtt
-* mqtt picture also on gh pages + quick explanation 
+* mqtt picture also on gh pages + quick explanation
 
 == 20.06.2021
 * EQ, RF
@@ -284,3 +283,28 @@
 |Kerschbaum | learning phase about angular and the 3D-Model
 |Rathberger | learning phase about angular and the 3D-Model
 |===
+
+== 15.11.2021
+
+- EQ, AE, BS, KS, RJ
+
+* Sprint Review
+** Mocking and testing is now part of the sprint 3
+** Connection over websockets can be established to the vm90
+** A Quick Demo for the new 3d Model with a cube as been implemented
+** An unfinished presentation of the angular modules is available
+
+* New Tasks
+** Values Simulator Rooms should be in the database
+** Value Simulator Documentation should be reworked
+** Demo of the School 3d Model should be available
+** New Docker Image with native quarkus executable and multi stage builds
+** Complete presentation of the angular modules
+
+== 19.11.2021
+
+- EQ, ST
+
+* Fehlende Ergebnisse von dem Dashboard Team
+* Ussage of swimmlanes in you track is needed
+* Besprechung mit dem Dashboard Team is needed
