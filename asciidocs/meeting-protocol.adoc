@@ -286,7 +286,7 @@
 
 == 15.11.2021
 
-- EQ, AE, BS, KS, RJ
+- AE, BS, KS, RJ, EQ
 
 * Sprint Review
 ** Mocking and testing is now part of the sprint 3
@@ -303,8 +303,23 @@
 
 == 19.11.2021
 
-- EQ, ST
+- ST, EQ
 
 * Fehlende Ergebnisse von dem Dashboard Team
 * Ussage of swimmlanes in you track is needed
 * Besprechung mit dem Dashboard Team is needed
+
+== 22.11.2021
+
+- RJ, KP, KS, KF, EQ
+
+* KP and KS have now the assignment to create the basic layout of the dashboard
+* RJ and KP have advanced in the 3d Model demo. still have the assignment to complete the 3d Model Demo
+* EQ has still the assignment to create the advanced docker image
+* all those assignments are for the rest of the sprint
+* KP and KS also need to complete the presentation
+* The 3d Model team is now smaller with only RJ and KP
+* RJ is switching to the backend team next week
+* maybe more changes to the team in the next week
+* Other team members did not attend the meeting
+** Tasks will stay the same
