@@ -1,0 +1,57 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+class Location {
+
+}
+
+class Thing {
+
+}
+note right: SensorBox, RuleEngine, Dashboard(?) zB 107
+
+class Sensor {
+
+}
+
+class Actor {
+    value: double
+}
+note left: value ist das command (soll-wert)
+
+class ActorAction {
+    timestamp: Timestamp
+    value: double
+}
+note left: state (ist-wert): aktuelle Werte des Actors
+
+class Sensortype {
+
+}
+note right: Temperature, Humidity, ...
+
+class Measurement {
+    timestamp: Timestamp
+    value: double
+}
+
+class Unit {
+  id: String
+  symbol: String
+}
+
+class Actortype {
+}
+note bottom: on/off, value, color, ...
+
+Location --> Location
+Thing -up-> Location
+Thing <-- Sensor
+Thing <-- Actor
+Measurement -up-> Sensor
+Sensortype --> Unit
+Sensortype <-left- Sensor
+Actortype <-left- Actor
+Thing <-left- Message
+Actor <-- ActorAction
+@enduml
