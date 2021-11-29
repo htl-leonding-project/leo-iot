@@ -323,3 +323,17 @@
 * maybe more changes to the team in the next week
 * Other team members did not attend the meeting
 ** Tasks will stay the same
+
+== 29.11.2021
+
+- RJ, KP, KF, EQ
+
+* The 3d Model team is finished with the 3d model demo.
+** still a bit black right now with not much light
+** assignment for next sprint to make light
+** assignment for next sprint to be able to hide floors
+* Nothing new with the value simulator team
+** assignment for next sprint to get a deployment vm
+** assignment for next sprint to fix bugs
+** assignment for next sprint to update databse integrations
+* Nothing new from the Dashboard team. No one was at the meeting
