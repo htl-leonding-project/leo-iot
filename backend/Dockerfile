@@ -1,5 +1,5 @@
-FROM registry.access.redhat.com/ubi8/ubi-minimal:8.3
-RUN microdnf update && microdnf install nmap && microdnf clean all
+FROM ubuntu:impish-20211102
+RUN apt update -y && apt install nmap -y
 RUN mkdir /app
 
 WORKDIR /app
