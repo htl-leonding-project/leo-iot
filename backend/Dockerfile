@@ -12,22 +12,22 @@ WORKDIR /app
 
 COPY pom.xml .
 
-RUN ls && pwd
-
 RUN mvn install
 
 COPY . .
 
+RUN ls
+
 RUN export GRAALVM_HOME=/opt/graalvm && mvn verify -Pnative -DskipTests
 
-#FROM ubuntu:impish-20211102 as run
-#
-#RUN apt update -y
-#
-#WORKDIR /app
-#
-#COPY --from=build target/*-runner /app/application
-#
-#EXPOSE 8080
-#
-#CMD ["./application"]
+FROM ubuntu:impish-20211102 as run
+
+RUN apt update -y
+
+WORKDIR /app
+
+COPY --from=build /app/target/*-runner /app/application
+
+EXPOSE 8080
+
+CMD ["./application"]
