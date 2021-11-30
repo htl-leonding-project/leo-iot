@@ -5,7 +5,9 @@ RUN curl --location --output graalvm.tgz https://github.com/graalvm/graalvm-ce-b
     && mv graalvm-* /opt/graalvm \
     && /opt/graalvm/bin/gu install native-image \
     && apt update \
-    && apt install build-essential libz-dev zlib1g-dev -y
+    && apt install build-essential libz-dev zlib1g-dev -y \
+    && rm -r /var/lib/apt/lists
+
 
 WORKDIR /app
 
@@ -18,8 +20,6 @@ COPY . .
 RUN export GRAALVM_HOME=/opt/graalvm && mvn verify -Pnative -DskipTests
 
 FROM ubuntu:impish-20211102 as run
-
-RUN apt update -y
 
 WORKDIR /app
 
