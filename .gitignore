@@ -155,3 +155,8 @@ fabric.properties
 # leo-iot-db
 
 data
+
+# Docs
+
+asciidocs/slides/revealjs
+asciidocs-dist

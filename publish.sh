@@ -4,6 +4,8 @@ source config.sh
 
 ./convert.sh $1 $2 $3
 
+sudo chown ${USER}:${USER} dist
+
 remote=$(git remote get-url origin)
 cd "$OUTPUTPATH" || exit
 

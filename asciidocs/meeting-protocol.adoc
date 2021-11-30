@@ -2,20 +2,19 @@
 
 == Legend
 |===
-|Ecker  |Edlinger  |Klausner  |Knogler  |Kronreif |Rieser |Abazovic |Bogdan |Kerschbaum |Rathberger |Stütz | Köck
+| Ecker Quirin | EQ
+| Edlinger Philipp | EP
+| Klausner Florian  | KF
+| Knogler Simon  | KS
+| Kronreif Vinzent | KV
+| Rieser Felix | RF
+| Abazovic Edina | AE
+| Bogdan Sebastian | BS
+| Kerschbaum Philipp | KP
+| Rathberger Jakob | RJ
+| Stütz Thomas | ST
+| Köck Gerald | KG
 
-|EQ
-|EP
-|KF
-|KS
-|KV
-|RF
-|AE
-|BS
-|KP
-|RJ
-|ST
-|KG
 |===
 
 == 06.12.2020
@@ -204,13 +203,13 @@
 
 == 15.06.2021
 * ST, EQ, RF,  KV
-* if a new sensor connects, he well be created atomatically ... -> searching for the new one under sensor and actor...no results --> Create new Sensor 
+* if a new sensor connects, he well be created atomatically ... -> searching for the new one under sensor and actor...no results --> Create new Sensor
 * update gh pages and generalize it, so a new user have a quick overview
 * sysmem architecture from the sys spec should also be on the gh pages
 * The German Systemspec should be marked with "German"
-* new deployment diagram 
+* new deployment diagram
 * "House with Students and sensorboxes whiich connecting to the mqtt
-* mqtt picture also on gh pages + quick explanation 
+* mqtt picture also on gh pages + quick explanation
 
 == 20.06.2021
 * EQ, RF
@@ -284,3 +283,57 @@
 |Kerschbaum | learning phase about angular and the 3D-Model
 |Rathberger | learning phase about angular and the 3D-Model
 |===
+
+== 15.11.2021
+
+- AE, BS, KS, RJ, EQ
+
+* Sprint Review
+** Mocking and testing is now part of the sprint 3
+** Connection over websockets can be established to the vm90
+** A Quick Demo for the new 3d Model with a cube as been implemented
+** An unfinished presentation of the angular modules is available
+
+* New Tasks
+** Values Simulator Rooms should be in the database
+** Value Simulator Documentation should be reworked
+** Demo of the School 3d Model should be available
+** New Docker Image with native quarkus executable and multi stage builds
+** Complete presentation of the angular modules
+
+== 19.11.2021
+
+- ST, EQ
+
+* Fehlende Ergebnisse von dem Dashboard Team
+* Ussage of swimmlanes in you track is needed
+* Besprechung mit dem Dashboard Team is needed
+
+== 22.11.2021
+
+- RJ, KP, KS, KF, EQ
+
+* KP and KS have now the assignment to create the basic layout of the dashboard
+* RJ and KP have advanced in the 3d Model demo. still have the assignment to complete the 3d Model Demo
+* EQ has still the assignment to create the advanced docker image
+* all those assignments are for the rest of the sprint
+* KP and KS also need to complete the presentation
+* The 3d Model team is now smaller with only RJ and KP
+* RJ is switching to the backend team next week
+* maybe more changes to the team in the next week
+* Other team members did not attend the meeting
+** Tasks will stay the same
+
+== 29.11.2021
+
+- RJ, KP, KF, EQ
+
+* The 3d Model team is finished with the 3d model demo.
+** still a bit black right now with not much light
+** assignment for next sprint to make light
+** assignment for next sprint to be able to hide floors
+* Nothing new with the value simulator team
+** assignment for next sprint to get a deployment vm
+** assignment for next sprint to fix bugs
+** assignment for next sprint to update databse integrations
+* Nothing new from the Dashboard team. No one was at the meeting
