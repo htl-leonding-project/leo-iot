@@ -1,14 +1,33 @@
-FROM ubuntu:impish-20211102
-RUN apt update -y && apt install nmap -y
-RUN mkdir /app
+FROM maven:3.8.4-openjdk-11-slim as build
+
+RUN curl --location --output graalvm.tgz https://github.com/graalvm/graalvm-ce-builds/releases/download/vm-20.3.4/graalvm-ce-java11-linux-amd64-20.3.4.tar.gz \
+    && tar -xzf graalvm.tgz \
+    && mv graalvm-* /opt/graalvm \
+    && /opt/graalvm/bin/gu install native-image
+
+RUN apt update \
+    && apt install build-essential libz-dev zlib1g-dev -y
 
 WORKDIR /app
 
-COPY target/*-runner /app/application
-COPY entrypoint.sh .
-RUN sed -e 's/\r$//' -i entrypoint.sh && chmod +x entrypoint.sh
-#RUN chmod +x application
+COPY pom.xml .
 
-EXPOSE 8080
+RUN ls && pwd
 
-CMD ["./entrypoint.sh"]
+RUN mvn install
+
+COPY . .
+
+RUN export GRAALVM_HOME=/opt/graalvm && mvn verify -Pnative -DskipTests
+
+#FROM ubuntu:impish-20211102 as run
+#
+#RUN apt update -y
+#
+#WORKDIR /app
+#
+#COPY --from=build target/*-runner /app/application
+#
+#EXPOSE 8080
+#
+#CMD ["./application"]
