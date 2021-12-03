@@ -6,6 +6,7 @@ on:
     branches:
       - 'master'
       - 'main'
+      - 'fix/web-router'
 
 jobs:
   build_push:
