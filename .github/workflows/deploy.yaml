@@ -6,6 +6,7 @@ on:
     branches:
       - 'master'
       - 'main'
+      - 'feature/backen-docker-image'
 
 jobs:
   build_push:
