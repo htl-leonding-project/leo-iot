@@ -5,7 +5,7 @@ on:
     branches:
       - 'main'
       - 'develop'
-      - 'backen-docker-image'
+      - 'feature/backen-docker-image'
 
 jobs:
   build:
