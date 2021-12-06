@@ -39,7 +39,7 @@ jobs:
           docker push $IMAGE_ID:$VERSION
   start:
     name: Start Container
-    needs: [build_push]
+    needs: [package-value-simulator]
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
