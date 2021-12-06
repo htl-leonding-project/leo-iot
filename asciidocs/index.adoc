@@ -29,7 +29,6 @@ will display the data on a dashboard and a 3D-Modell.
 
 == Documentation
 
-* https://htl-leonding-project.github.io/leo-iot/[Overview]
 * https://htl-leonding-project.github.io/leo-iot/documentation[Documentations]
 
 
