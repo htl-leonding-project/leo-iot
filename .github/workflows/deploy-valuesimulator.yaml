@@ -18,7 +18,7 @@ jobs:
       - name: Check out the repo
         uses: actions/checkout@v2
       - name: Package
-        run: mvn package
+        run: mvn package -Dmaven.test.skip
       - name: Login to GitHub Packages
         uses: docker/login-action@v1
         with:
