@@ -19,7 +19,7 @@ will display the data on a dashboard and a 3D-Modell.
 
 * https://htl-leonding-project.github.io/leo-iot/getting-started[getting started]
 
-== Github Repo
+== GitHub Repo
 
 * https://github.com/htl-leonding-project/leo-iot[GitHub]
 
