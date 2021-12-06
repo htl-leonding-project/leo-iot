@@ -54,8 +54,8 @@ jobs:
         run: |
           ssh iotadmin@vm09.htl-leonding.ac.at "
           cd leo-iot
-          sudo docker-compose down
-          sudo docker-compose up -d
-          sudo docker pull ghcr.io/htl-leonding-project/leoiot-value-simulator:value-sim
-          sudo docker run ghcr.io/htl-leonding-project/leoiot-value-simulator:value-sim
+          docker-compose down
+          docker-compose up -d
+          docker pull ghcr.io/htl-leonding-project/leoiot-value-simulator:value-sim
+          docker run ghcr.io/htl-leonding-project/leoiot-value-simulator:value-sim
           "
