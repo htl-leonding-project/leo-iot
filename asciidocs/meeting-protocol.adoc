@@ -337,3 +337,17 @@
 ** assignment for next sprint to fix bugs
 ** assignment for next sprint to update databse integrations
 * Nothing new from the Dashboard team. No one was at the meeting
+
+== 6.12.2021
+
+- RJ, KP, RF, EQ
+
+* The 3d Model team added light to the demo
+** task is to make hide option for floors
+** new task is to create a presentation
+* Value Simulator team is working on the deployment for new vm
+** new vm is acquired
+* QE is finished creating the docker image for the backend
+** new task create a presentation for docker containerization
+* No news from the Dashboard team
+** No one was at the meeting
