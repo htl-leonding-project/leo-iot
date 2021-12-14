@@ -351,3 +351,20 @@
 ** new task create a presentation for docker containerization
 * No news from the Dashboard team
 ** No one was at the meeting
+
+== 13.12.2021
+
+- RF, KV, RJ, KP, EQ
+
+* RJ, KP are working on the 3d Model demo
+** They finished the light and the feature to disable and enable different floor
+** Now working on selecting different rooms and displaying the name of the room with the floor
+* RF, KV are working on deploying to the vm
+** deploying works now
+*+ no new plans on what they will do in the future
+* EQ worked on the Backend Docker images
+** still waiting to present the docker iamge presentation
+** now starting to clean up the code in the backend
+
+
+
