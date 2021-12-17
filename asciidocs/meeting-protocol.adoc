@@ -366,5 +366,17 @@
 ** still waiting to present the docker iamge presentation
 ** now starting to clean up the code in the backend
 
+== 17.12.2021
 
+EQ, ST
 
+* Schnell erreichbar:
+** Systemarchitektur (Grob und detailiert)
+** Klassendiagramm
+* Landingpage
+* Github Repos in neue Organisation
+* Räume für value simulator in eine Datenbank speichern
+
+----
+sudo apt update && sudo apt dist-upgrade -y && apt autoremove
+----
