@@ -5,21 +5,21 @@ import {VideoFeedComponent} from './3d/video-feed/video-feed.component';
 
 const routes: Routes = [
   {
-    path: '',
+    path: 'dashboard',
     pathMatch: 'full',
     redirectTo: 'dashboard'
   },
   {
-    path: '**',
-    redirectTo: 'dashboard'
-  }, {
     path: '3d',
-    component: School3dComponent
+      component: School3dComponent
   }, {
     path: 'video',
-    component: VideoFeedComponent
+      component: VideoFeedComponent
+  }, {
+    path: '**',
+    pathMatch: 'full',
+    redirectTo: 'dashboard'
   }
-
 ];
 
 @NgModule({
