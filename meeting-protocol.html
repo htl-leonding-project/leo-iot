@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="generator" content="Asciidoctor 2.0.16">
+<meta name="generator" content="Asciidoctor 2.0.17">
 <link rel="icon" type="image/png" href="themes/favicon.png">
 <title>Meeting-Protocol</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
@@ -194,7 +194,8 @@ body.toc2.toc-right{padding-left:0;padding-right:20em}}
 #content h1>a.link:hover,h2>a.link:hover,h3>a.link:hover,#toctitle>a.link:hover,.sidebarblock>.content>.title>a.link:hover,h4>a.link:hover,h5>a.link:hover,h6>a.link:hover{color:#a53221}
 details,.audioblock,.imageblock,.literalblock,.listingblock,.stemblock,.videoblock{margin-bottom:1.25em}
 details{margin-left:1.25rem}
-details>summary{cursor:pointer;display:block;position:relative;line-height:1.6;margin-bottom:.625rem;-webkit-tap-highlight-color:transparent}
+details>summary{cursor:pointer;display:block;position:relative;line-height:1.6;margin-bottom:.625rem;outline:none;-webkit-tap-highlight-color:transparent}
+details>summary::-webkit-details-marker{display:none}
 details>summary::before{content:"";border:solid transparent;border-left:solid;border-width:.3em 0 .3em .5em;position:absolute;top:.5em;left:-1.25rem;transform:translateX(15%)}
 details[open]>summary::before{border:solid transparent;border-top:solid;border-width:.5em .3em 0;transform:translateY(15%)}
 details>summary::after{content:"";width:1.25rem;height:1em;position:absolute;top:.3em;left:-1.25rem}
@@ -236,9 +237,8 @@ pre.prettyprint li:not(:first-child) code[data-lang]::before{display:none}
 table.linenotable{border-collapse:separate;border:0;margin-bottom:0;background:none}
 table.linenotable td[class]{color:inherit;vertical-align:top;padding:0;line-height:inherit;white-space:normal}
 table.linenotable td.code{padding-left:.75em}
-table.linenotable td.linenos{border-right:1px solid;opacity:.35;padding-right:.5em}
-pre.pygments .lineno{border-right:1px solid;opacity:.35;display:inline-block;margin-right:.75em}
-pre.pygments .lineno::before{content:"";margin-right:-.125em}
+table.linenotable td.linenos,pre.pygments .linenos{border-right:1px solid;opacity:.35;padding-right:.5em;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}
+pre.pygments span.linenos{display:inline-block;margin-right:.75em}
 .quoteblock{margin:0 1em 1.25em 1.5em;display:table}
 .quoteblock:not(.excerpt)>.title{margin-left:-1.5em;margin-bottom:.75em}
 .quoteblock blockquote,.quoteblock p{color:rgba(0,0,0,.85);font-size:1.15rem;line-height:1.75;word-spacing:.1em;letter-spacing:0;font-style:italic;text-align:justify}
@@ -275,7 +275,7 @@ table.frame-none>colgroup+*>:first-child>*,table.frame-sides>colgroup+*>:first-c
 table.frame-none>:last-child>:last-child>*,table.frame-sides>:last-child>:last-child>*{border-bottom-width:0}
 table.frame-none>*>tr>:first-child,table.frame-ends>*>tr>:first-child{border-left-width:0}
 table.frame-none>*>tr>:last-child,table.frame-ends>*>tr>:last-child{border-right-width:0}
-table.stripes-all tr,table.stripes-odd tr:nth-of-type(odd),table.stripes-even tr:nth-of-type(even),table.stripes-hover tr:hover{background:#f8f8f7}
+table.stripes-all>*>tr,table.stripes-odd>*>tr:nth-of-type(odd),table.stripes-even>*>tr:nth-of-type(even),table.stripes-hover>*>tr:hover{background:#f8f8f7}
 th.halign-left,td.halign-left{text-align:left}
 th.halign-right,td.halign-right{text-align:right}
 th.halign-center,td.halign-center{text-align:center}
@@ -291,10 +291,11 @@ ol{margin-left:1.75em}
 ul li ol{margin-left:1.5em}
 dl dd{margin-left:1.125em}
 dl dd:last-child,dl dd:last-child>:last-child{margin-bottom:0}
-ol>li p,ul>li p,ul dd,ol dd,.olist .olist,.ulist .ulist,.ulist .olist,.olist .ulist{margin-bottom:.625em}
+li p,ul dd,ol dd,.olist .olist,.ulist .ulist,.ulist .olist,.olist .ulist{margin-bottom:.625em}
 ul.checklist,ul.none,ol.none,ul.no-bullet,ol.no-bullet,ol.unnumbered,ul.unstyled,ol.unstyled{list-style-type:none}
 ul.no-bullet,ol.no-bullet,ol.unnumbered{margin-left:.625em}
 ul.unstyled,ol.unstyled{margin-left:0}
+li>p:empty:only-child::before{content:"";display:inline-block}
 ul.checklist>li>p:first-child{margin-left:-1em}
 ul.checklist>li>p:first-child>.fa-square-o:first-child,ul.checklist>li>p:first-child>.fa-check-square-o:first-child{width:1.25em;font-size:.8em;position:relative;bottom:.125em}
 ul.checklist>li>p:first-child>input[type=checkbox]:first-child{margin-right:.25em}
@@ -337,8 +338,6 @@ sup.footnote a:active,sup.footnoteref a:active{text-decoration:underline}
 #footnotes .footnote a:first-of-type{font-weight:bold;text-decoration:none;margin-left:-1.05em}
 #footnotes .footnote:last-of-type{margin-bottom:0}
 #content #footnotes{margin-top:-.625em;margin-bottom:0;padding:.75em 0}
-.gist .file-data>table{border:0;background:#fff;width:100%;margin-bottom:0}
-.gist .file-data>table td.line-data{width:99%}
 div.unbreakable{page-break-inside:avoid}
 .big{font-size:larger}
 .small{font-size:smaller}
@@ -454,52 +453,36 @@ pre.rouge .hll * {
 <div id="toctitle">Table of Contents</div>
 <ul class="sectlevel1">
 <li><a href="#_legend">1. Legend</a></li>
-<li><a href="#_06_12_2020">2. 06.12.2020</a></li>
-<li><a href="#_18_12_2020">3. 18.12.2020</a></li>
-<li><a href="#_27_12_2020">4. 27.12.2020</a></li>
-<li><a href="#_24_01_2021">5. 24.01.2021</a></li>
-<li><a href="#_04_02_2021">6. 04.02.2021</a>
-<ul class="sectlevel3">
-<li><a href="#_14_02_2021">6.1. 14.02.2021</a></li>
+<li><a href="#_06_12_2020">2. 06.12.2020</a>
+<ul class="sectlevel2">
+<li><a href="#_18_12_2020">2.1. 18.12.2020</a></li>
+<li><a href="#_27_12_2020">2.2. 27.12.2020</a></li>
+<li><a href="#_24_01_2021">2.3. 24.01.2021</a></li>
+<li><a href="#_04_02_2021">2.4. 04.02.2021</a></li>
 </ul>
 </li>
-<li><a href="#_19_02_2021">7. 19.02.2021</a></li>
-<li><a href="#_21_02_2021">8. 21.02.2021</a></li>
-<li><a href="#_22_02_2021">9. 22.02.2021</a></li>
-<li><a href="#_07_03_2021">10. 07.03.2021</a></li>
-<li><a href="#_08_03_2021">11. 08.03.2021</a></li>
-<li><a href="#_19_03_2021">12. 19.03.2021</a></li>
-<li><a href="#_21_03_2021">13. 21.03.2021</a></li>
-<li><a href="#_25_03_2021">14. 25.03.2021</a></li>
-<li><a href="#_04_04_2021">15. 04.04.2021</a></li>
-<li><a href="#_07_04_2021">16. 07.04.2021</a></li>
-<li><a href="#_09_04_2021">17. 09.04.2021</a></li>
-<li><a href="#_14_04_2021">18. 14.04.2021</a></li>
-<li><a href="#_18_04_2021">19. 18.04.2021</a></li>
-<li><a href="#_25_04_2021">20. 25.04.2021</a></li>
-<li><a href="#_02_05_2021">21. 02.05.2021</a></li>
-<li><a href="#_09_05_2021">22. 09.05.2021</a></li>
-<li><a href="#_16_05_2021">23. 16.05.2021</a></li>
-<li><a href="#_21_05_2021">24. 21.05.2021</a></li>
-<li><a href="#_23_05_2021">25. 23.05.2021</a></li>
-<li><a href="#_07_06_2021">26. 07.06.2021</a></li>
-<li><a href="#_15_06_2021">27. 15.06.2021</a></li>
-<li><a href="#_20_06_2021">28. 20.06.2021</a></li>
-<li><a href="#_25_06_2021">29. 25.06.2021</a></li>
-<li><a href="#_19_09_2021">30. 19.09.2021</a></li>
-<li><a href="#_27_9_2021">31. 27.9.2021</a></li>
-<li><a href="#_30_9_2021">32. 30.9.2021</a></li>
-<li><a href="#_04_10_2021">33. 04.10.2021</a></li>
-<li><a href="#_11_10_2021">34. 11.10.2021</a></li>
-<li><a href="#_15_10_2021">35. 15.10.2021</a></li>
-<li><a href="#_22_10_2021">36. 22.10.2021</a></li>
-<li><a href="#_15_11_2021">37. 15.11.2021</a></li>
-<li><a href="#_19_11_2021">38. 19.11.2021</a></li>
-<li><a href="#_22_11_2021">39. 22.11.2021</a></li>
-<li><a href="#_29_11_2021">40. 29.11.2021</a></li>
-<li><a href="#_6_12_2021">41. 6.12.2021</a></li>
-<li><a href="#_13_12_2021">42. 13.12.2021</a></li>
-<li><a href="#_17_12_2021">43. 17.12.2021</a></li>
+<li><a href="#_21_02_2021">3. 21.02.2021</a></li>
+<li><a href="#_22_02_2021">4. 22.02.2021</a></li>
+<li><a href="#_07_03_2021">5. 07.03.2021</a></li>
+<li><a href="#_08_03_2021">6. 08.03.2021</a></li>
+<li><a href="#_19_03_2021">7. 19.03.2021</a></li>
+<li><a href="#_21_03_2021">8. 21.03.2021</a></li>
+<li><a href="#_25_03_2021">9. 25.03.2021</a></li>
+<li><a href="#_04_04_2021">10. 04.04.2021</a></li>
+<li><a href="#_07_04_2021">11. 07.04.2021</a></li>
+<li><a href="#_09_04_2021">12. 09.04.2021</a></li>
+<li><a href="#_14_04_2021">13. 14.04.2021</a></li>
+<li><a href="#_18_04_2021">14. 18.04.2021</a></li>
+<li><a href="#_25_04_2021">15. 25.04.2021</a></li>
+<li><a href="#_02_05_2021">16. 02.05.2021</a></li>
+<li><a href="#_09_05_2021">17. 09.05.2021</a></li>
+<li><a href="#_16_05_2021">18. 16.05.2021</a></li>
+<li><a href="#_21_05_2021">19. 21.05.2021</a></li>
+<li><a href="#_23_05_2021">20. 23.05.2021</a></li>
+<li><a href="#_07_06_2021">21. 07.06.2021</a></li>
+<li><a href="#_15_06_2021">22. 15.06.2021</a></li>
+<li><a href="#_20_06_2021">23. 20.06.2021</a></li>
+<li><a href="#_25_06_2021">24. 25.06.2021</a></li>
 </ul>
 </div>
 </div>
@@ -509,56 +492,36 @@ pre.rouge .hll * {
 <div class="sectionbody">
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
-<col style="width: 50%;">
-<col style="width: 50%;">
+<col style="width: 12.5%;">
+<col style="width: 12.5%;">
+<col style="width: 12.5%;">
+<col style="width: 12.5%;">
+<col style="width: 12.5%;">
+<col style="width: 12.5%;">
+<col style="width: 12.5%;">
+<col style="width: 12.5%;">
 </colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Ecker</th>
+<th class="tableblock halign-left valign-top">Edlinger</th>
+<th class="tableblock halign-left valign-top">Klausner</th>
+<th class="tableblock halign-left valign-top">Knogler</th>
+<th class="tableblock halign-left valign-top">Kronreif</th>
+<th class="tableblock halign-left valign-top">Rieser</th>
+<th class="tableblock halign-left valign-top">Stütz</th>
+<th class="tableblock halign-left valign-top">Köck</th>
+</tr>
+</thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Ecker Quirin</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">EQ</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Edlinger Philipp</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">EP</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Klausner Florian</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">KF</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Knogler Simon</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">KS</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Kronreif Vinzent</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">KV</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Rieser Felix</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">RF</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Abazovic Edina</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">AE</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Bogdan Sebastian</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">BS</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Kerschbaum Philipp</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">KP</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Rathberger Jakob</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">RJ</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Stütz Thomas</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">ST</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Köck Gerald</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">KG</p></td>
 </tr>
 </tbody>
@@ -578,11 +541,8 @@ pre.rouge .hll * {
 </li>
 </ul>
 </div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_18_12_2020"><a class="anchor" href="#_18_12_2020"></a>3. 18.12.2020</h2>
-<div class="sectionbody">
+<div class="sect2">
+<h3 id="_18_12_2020"><a class="anchor" href="#_18_12_2020"></a>2.1. 18.12.2020</h3>
 <div class="ulist">
 <ul>
 <li>
@@ -597,10 +557,8 @@ pre.rouge .hll * {
 </ul>
 </div>
 </div>
-</div>
-<div class="sect1">
-<h2 id="_27_12_2020"><a class="anchor" href="#_27_12_2020"></a>4. 27.12.2020</h2>
-<div class="sectionbody">
+<div class="sect2">
+<h3 id="_27_12_2020"><a class="anchor" href="#_27_12_2020"></a>2.2. 27.12.2020</h3>
 <div class="ulist">
 <ul>
 <li>
@@ -612,10 +570,8 @@ pre.rouge .hll * {
 </ul>
 </div>
 </div>
-</div>
-<div class="sect1">
-<h2 id="_24_01_2021"><a class="anchor" href="#_24_01_2021"></a>5. 24.01.2021</h2>
-<div class="sectionbody">
+<div class="sect2">
+<h3 id="_24_01_2021"><a class="anchor" href="#_24_01_2021"></a>2.3. 24.01.2021</h3>
 <div class="ulist">
 <ul>
 <li>
@@ -643,10 +599,8 @@ pre.rouge .hll * {
 </ul>
 </div>
 </div>
-</div>
-<div class="sect1">
-<h2 id="_04_02_2021"><a class="anchor" href="#_04_02_2021"></a>6. 04.02.2021</h2>
-<div class="sectionbody">
+<div class="sect2">
+<h3 id="_04_02_2021"><a class="anchor" href="#_04_02_2021"></a>2.4. 04.02.2021</h3>
 <div class="ulist">
 <ul>
 <li>
@@ -674,7 +628,7 @@ pre.rouge .hll * {
 </ul>
 </div>
 <div class="sect3">
-<h4 id="_14_02_2021"><a class="anchor" href="#_14_02_2021"></a>6.1. 14.02.2021</h4>
+<h4 id="_14_02_2021"><a class="anchor" href="#_14_02_2021"></a>2.4.1. 14.02.2021</h4>
 <div class="ulist">
 <ul>
 <li>
@@ -699,11 +653,8 @@ pre.rouge .hll * {
 </ul>
 </div>
 </div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_19_02_2021"><a class="anchor" href="#_19_02_2021"></a>7. 19.02.2021</h2>
-<div class="sectionbody">
+<div class="sect3">
+<h4 id="_19_02_2021"><a class="anchor" href="#_19_02_2021"></a>2.4.2. 19.02.2021</h4>
 <div class="ulist">
 <ul>
 <li>
@@ -722,8 +673,10 @@ pre.rouge .hll * {
 </div>
 </div>
 </div>
+</div>
+</div>
 <div class="sect1">
-<h2 id="_21_02_2021"><a class="anchor" href="#_21_02_2021"></a>8. 21.02.2021</h2>
+<h2 id="_21_02_2021"><a class="anchor" href="#_21_02_2021"></a>3. 21.02.2021</h2>
 <div class="sectionbody">
 <div class="ulist">
 <ul>
@@ -744,7 +697,7 @@ pre.rouge .hll * {
 </div>
 </div>
 <div class="sect1">
-<h2 id="_22_02_2021"><a class="anchor" href="#_22_02_2021"></a>9. 22.02.2021</h2>
+<h2 id="_22_02_2021"><a class="anchor" href="#_22_02_2021"></a>4. 22.02.2021</h2>
 <div class="sectionbody">
 <div class="ulist">
 <ul>
@@ -827,7 +780,7 @@ pre.rouge .hll * {
 </div>
 </div>
 <div class="sect1">
-<h2 id="_07_03_2021"><a class="anchor" href="#_07_03_2021"></a>10. 07.03.2021</h2>
+<h2 id="_07_03_2021"><a class="anchor" href="#_07_03_2021"></a>5. 07.03.2021</h2>
 <div class="sectionbody">
 <div class="ulist">
 <ul>
@@ -845,7 +798,7 @@ pre.rouge .hll * {
 </div>
 </div>
 <div class="sect1">
-<h2 id="_08_03_2021"><a class="anchor" href="#_08_03_2021"></a>11. 08.03.2021</h2>
+<h2 id="_08_03_2021"><a class="anchor" href="#_08_03_2021"></a>6. 08.03.2021</h2>
 <div class="sectionbody">
 <div class="ulist">
 <ul>
@@ -860,7 +813,7 @@ pre.rouge .hll * {
 </div>
 </div>
 <div class="sect1">
-<h2 id="_19_03_2021"><a class="anchor" href="#_19_03_2021"></a>12. 19.03.2021</h2>
+<h2 id="_19_03_2021"><a class="anchor" href="#_19_03_2021"></a>7. 19.03.2021</h2>
 <div class="sectionbody">
 <div class="ulist">
 <ul>
@@ -897,7 +850,7 @@ pre.rouge .hll * {
 </div>
 </div>
 <div class="sect1">
-<h2 id="_21_03_2021"><a class="anchor" href="#_21_03_2021"></a>13. 21.03.2021</h2>
+<h2 id="_21_03_2021"><a class="anchor" href="#_21_03_2021"></a>8. 21.03.2021</h2>
 <div class="sectionbody">
 <div class="ulist">
 <ul>
@@ -915,7 +868,7 @@ pre.rouge .hll * {
 </div>
 </div>
 <div class="sect1">
-<h2 id="_25_03_2021"><a class="anchor" href="#_25_03_2021"></a>14. 25.03.2021</h2>
+<h2 id="_25_03_2021"><a class="anchor" href="#_25_03_2021"></a>9. 25.03.2021</h2>
 <div class="sectionbody">
 <div class="ulist">
 <ul>
@@ -943,7 +896,7 @@ pre.rouge .hll * {
 </div>
 </div>
 <div class="sect1">
-<h2 id="_04_04_2021"><a class="anchor" href="#_04_04_2021"></a>15. 04.04.2021</h2>
+<h2 id="_04_04_2021"><a class="anchor" href="#_04_04_2021"></a>10. 04.04.2021</h2>
 <div class="sectionbody">
 <div class="ulist">
 <ul>
@@ -961,7 +914,7 @@ pre.rouge .hll * {
 </div>
 </div>
 <div class="sect1">
-<h2 id="_07_04_2021"><a class="anchor" href="#_07_04_2021"></a>16. 07.04.2021</h2>
+<h2 id="_07_04_2021"><a class="anchor" href="#_07_04_2021"></a>11. 07.04.2021</h2>
 <div class="sectionbody">
 <div class="ulist">
 <ul>
@@ -1009,7 +962,7 @@ pre.rouge .hll * {
 </div>
 </div>
 <div class="sect1">
-<h2 id="_09_04_2021"><a class="anchor" href="#_09_04_2021"></a>17. 09.04.2021</h2>
+<h2 id="_09_04_2021"><a class="anchor" href="#_09_04_2021"></a>12. 09.04.2021</h2>
 <div class="sectionbody">
 <div class="ulist">
 <ul>
@@ -1040,7 +993,7 @@ pre.rouge .hll * {
 </div>
 </div>
 <div class="sect1">
-<h2 id="_14_04_2021"><a class="anchor" href="#_14_04_2021"></a>18. 14.04.2021</h2>
+<h2 id="_14_04_2021"><a class="anchor" href="#_14_04_2021"></a>13. 14.04.2021</h2>
 <div class="sectionbody">
 <div class="ulist">
 <ul>
@@ -1083,7 +1036,7 @@ pre.rouge .hll * {
 </div>
 </div>
 <div class="sect1">
-<h2 id="_18_04_2021"><a class="anchor" href="#_18_04_2021"></a>19. 18.04.2021</h2>
+<h2 id="_18_04_2021"><a class="anchor" href="#_18_04_2021"></a>14. 18.04.2021</h2>
 <div class="sectionbody">
 <div class="ulist">
 <ul>
@@ -1114,7 +1067,7 @@ pre.rouge .hll * {
 </div>
 </div>
 <div class="sect1">
-<h2 id="_25_04_2021"><a class="anchor" href="#_25_04_2021"></a>20. 25.04.2021</h2>
+<h2 id="_25_04_2021"><a class="anchor" href="#_25_04_2021"></a>15. 25.04.2021</h2>
 <div class="sectionbody">
 <div class="ulist">
 <ul>
@@ -1129,7 +1082,7 @@ pre.rouge .hll * {
 </div>
 </div>
 <div class="sect1">
-<h2 id="_02_05_2021"><a class="anchor" href="#_02_05_2021"></a>21. 02.05.2021</h2>
+<h2 id="_02_05_2021"><a class="anchor" href="#_02_05_2021"></a>16. 02.05.2021</h2>
 <div class="sectionbody">
 <div class="ulist">
 <ul>
@@ -1144,7 +1097,7 @@ pre.rouge .hll * {
 </div>
 </div>
 <div class="sect1">
-<h2 id="_09_05_2021"><a class="anchor" href="#_09_05_2021"></a>22. 09.05.2021</h2>
+<h2 id="_09_05_2021"><a class="anchor" href="#_09_05_2021"></a>17. 09.05.2021</h2>
 <div class="sectionbody">
 <div class="ulist">
 <ul>
@@ -1159,7 +1112,7 @@ pre.rouge .hll * {
 </div>
 </div>
 <div class="sect1">
-<h2 id="_16_05_2021"><a class="anchor" href="#_16_05_2021"></a>23. 16.05.2021</h2>
+<h2 id="_16_05_2021"><a class="anchor" href="#_16_05_2021"></a>18. 16.05.2021</h2>
 <div class="sectionbody">
 <div class="ulist">
 <ul>
@@ -1177,7 +1130,7 @@ pre.rouge .hll * {
 </div>
 </div>
 <div class="sect1">
-<h2 id="_21_05_2021"><a class="anchor" href="#_21_05_2021"></a>24. 21.05.2021</h2>
+<h2 id="_21_05_2021"><a class="anchor" href="#_21_05_2021"></a>19. 21.05.2021</h2>
 <div class="sectionbody">
 <div class="ulist">
 <ul>
@@ -1198,7 +1151,7 @@ pre.rouge .hll * {
 </div>
 </div>
 <div class="sect1">
-<h2 id="_23_05_2021"><a class="anchor" href="#_23_05_2021"></a>25. 23.05.2021</h2>
+<h2 id="_23_05_2021"><a class="anchor" href="#_23_05_2021"></a>20. 23.05.2021</h2>
 <div class="sectionbody">
 <div class="ulist">
 <ul>
@@ -1219,7 +1172,7 @@ pre.rouge .hll * {
 </div>
 </div>
 <div class="sect1">
-<h2 id="_07_06_2021"><a class="anchor" href="#_07_06_2021"></a>26. 07.06.2021</h2>
+<h2 id="_07_06_2021"><a class="anchor" href="#_07_06_2021"></a>21. 07.06.2021</h2>
 <div class="sectionbody">
 <div class="ulist">
 <ul>
@@ -1243,7 +1196,7 @@ pre.rouge .hll * {
 </div>
 </div>
 <div class="sect1">
-<h2 id="_15_06_2021"><a class="anchor" href="#_15_06_2021"></a>27. 15.06.2021</h2>
+<h2 id="_15_06_2021"><a class="anchor" href="#_15_06_2021"></a>22. 15.06.2021</h2>
 <div class="sectionbody">
 <div class="ulist">
 <ul>
@@ -1276,7 +1229,7 @@ pre.rouge .hll * {
 </div>
 </div>
 <div class="sect1">
-<h2 id="_20_06_2021"><a class="anchor" href="#_20_06_2021"></a>28. 20.06.2021</h2>
+<h2 id="_20_06_2021"><a class="anchor" href="#_20_06_2021"></a>23. 20.06.2021</h2>
 <div class="sectionbody">
 <div class="ulist">
 <ul>
@@ -1294,7 +1247,7 @@ pre.rouge .hll * {
 </div>
 </div>
 <div class="sect1">
-<h2 id="_25_06_2021"><a class="anchor" href="#_25_06_2021"></a>29. 25.06.2021</h2>
+<h2 id="_25_06_2021"><a class="anchor" href="#_25_06_2021"></a>24. 25.06.2021</h2>
 <div class="sectionbody">
 <div class="ulist">
 <ul>
@@ -1308,583 +1261,10 @@ pre.rouge .hll * {
 </div>
 </div>
 </div>
-<div class="sect1">
-<h2 id="_19_09_2021"><a class="anchor" href="#_19_09_2021"></a>30. 19.09.2021</h2>
-<div class="sectionbody">
-<div class="ulist">
-<ul>
-<li>
-<p>EQ, EP, RF</p>
-</li>
-<li>
-<p>status update</p>
-</li>
-<li>
-<p>discussion about potential new members</p>
-</li>
-<li>
-<p>talked about if we should implement the slides to our repo</p>
-</li>
-<li>
-<p>changed the day of the week of the weekly meetings</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_27_9_2021"><a class="anchor" href="#_27_9_2021"></a>31. 27.9.2021</h2>
-<div class="sectionbody">
-<div class="ulist">
-<ul>
-<li>
-<p>EQ, EP, KV</p>
-</li>
-<li>
-<p>talked about youtrack</p>
-<div class="ulist">
-<ul>
-<li>
-<p>need to update classnames</p>
-</li>
-<li>
-<p>convert github issues to youtrack</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>new tasks:</p>
-<div class="ulist">
-<ul>
-<li>
-<p>preparation of the presentation</p>
-</li>
-<li>
-<p>addition of asciidocs slides</p>
-</li>
-<li>
-<p>update of the endpoints</p>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_30_9_2021"><a class="anchor" href="#_30_9_2021"></a>32. 30.9.2021</h2>
-<div class="sectionbody">
-<div class="ulist">
-<ul>
-<li>
-<p>EQ , EP, KS</p>
-</li>
-<li>
-<p>decided to focus on the dashboard</p>
-</li>
-<li>
-<p>talked about the 3D-Model and the whole old frontend</p>
-</li>
-<li>
-<p>quickstart of the new web</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_04_10_2021"><a class="anchor" href="#_04_10_2021"></a>33. 04.10.2021</h2>
-<div class="sectionbody">
-<div class="ulist">
-<ul>
-<li>
-<p>EQ, EP, KV, RF, BS, KP, RJ,</p>
-</li>
-<li>
-<p>first meeting with of our new project members</p>
-</li>
-<li>
-<p>introduction of the project</p>
-</li>
-<li>
-<p>setup youtrack and github repo access</p>
-</li>
-<li>
-<p>potential AI of the project</p>
-</li>
-<li>
-<p>need to make an appointment</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_11_10_2021"><a class="anchor" href="#_11_10_2021"></a>34. 11.10.2021</h2>
-<div class="sectionbody">
-<div class="ulist">
-<ul>
-<li>
-<p>EQ, EP, BS, KP, RJ,ST</p>
-</li>
-<li>
-<p>canceled the upcoming meeting with ST</p>
-</li>
-<li>
-<p>talked about the tasks for the newcomer</p>
-<div class="ulist">
-<ul>
-<li>
-<p>are taking over the 3D-Model</p>
-</li>
-<li>
-<p>introduction to the whole backend</p>
-<div class="ulist">
-<ul>
-<li>
-<p>have a meeting on 15.10</p>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_15_10_2021"><a class="anchor" href="#_15_10_2021"></a>35. 15.10.2021</h2>
-<div class="sectionbody">
-<div class="ulist">
-<ul>
-<li>
-<p>EQ, EP, AE, BS, KP, RJ</p>
-</li>
-<li>
-<p>meeting with the members of the 4AHIF</p>
-</li>
-<li>
-<p>introduction to Angular</p>
-</li>
-<li>
-<p>decided to create a new 3D-Model</p>
-<div class="ulist">
-<ul>
-<li>
-<p>getting rif of the localizations</p>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_22_10_2021"><a class="anchor" href="#_22_10_2021"></a>36. 22.10.2021</h2>
-<div class="sectionbody">
-<div class="ulist">
-<ul>
-<li>
-<p>EQ, ED, KF, KS</p>
-</li>
-<li>
-<p>current tasks of  the team members</p>
-</li>
-</ul>
-</div>
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 50%;">
-<col style="width: 50%;">
-</colgroup>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Ecker</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">backend redesign</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Edlinger</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">swagger-api</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Klausner</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">presentation about the modules of the frontend</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Knogler</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">presentation about the modules of the frontend</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Kronreif</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">value-simulator</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Rieser</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">value-simulator</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Abazovic</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">learning phase about angular and the 3D-Model</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Bogdan</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">learning phase about angular and the 3D-Model</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Kerschbaum</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">learning phase about angular and the 3D-Model</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Rathberger</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">learning phase about angular and the 3D-Model</p></td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_15_11_2021"><a class="anchor" href="#_15_11_2021"></a>37. 15.11.2021</h2>
-<div class="sectionbody">
-<div class="ulist">
-<ul>
-<li>
-<p>AE, BS, KS, RJ, EQ</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Sprint Review</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Mocking and testing is now part of the sprint 3</p>
-</li>
-<li>
-<p>Connection over websockets can be established to the vm90</p>
-</li>
-<li>
-<p>A Quick Demo for the new 3d Model with a cube as been implemented</p>
-</li>
-<li>
-<p>An unfinished presentation of the angular modules is available</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>New Tasks</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Values Simulator Rooms should be in the database</p>
-</li>
-<li>
-<p>Value Simulator Documentation should be reworked</p>
-</li>
-<li>
-<p>Demo of the School 3d Model should be available</p>
-</li>
-<li>
-<p>New Docker Image with native quarkus executable and multi stage builds</p>
-</li>
-<li>
-<p>Complete presentation of the angular modules</p>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_19_11_2021"><a class="anchor" href="#_19_11_2021"></a>38. 19.11.2021</h2>
-<div class="sectionbody">
-<div class="ulist">
-<ul>
-<li>
-<p>ST, EQ</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Fehlende Ergebnisse von dem Dashboard Team</p>
-</li>
-<li>
-<p>Ussage of swimmlanes in you track is needed</p>
-</li>
-<li>
-<p>Besprechung mit dem Dashboard Team is needed</p>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_22_11_2021"><a class="anchor" href="#_22_11_2021"></a>39. 22.11.2021</h2>
-<div class="sectionbody">
-<div class="ulist">
-<ul>
-<li>
-<p>RJ, KP, KS, KF, EQ</p>
-<div class="ulist">
-<ul>
-<li>
-<p>KP and KS have now the assignment to create the basic layout of the dashboard</p>
-</li>
-<li>
-<p>RJ and KP have advanced in the 3d Model demo. still have the assignment to complete the 3d Model Demo</p>
-</li>
-<li>
-<p>EQ has still the assignment to create the advanced docker image</p>
-</li>
-<li>
-<p>all those assignments are for the rest of the sprint</p>
-</li>
-<li>
-<p>KP and KS also need to complete the presentation</p>
-</li>
-<li>
-<p>The 3d Model team is now smaller with only RJ and KP</p>
-</li>
-<li>
-<p>RJ is switching to the backend team next week</p>
-</li>
-<li>
-<p>maybe more changes to the team in the next week</p>
-</li>
-<li>
-<p>Other team members did not attend the meeting</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Tasks will stay the same</p>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_29_11_2021"><a class="anchor" href="#_29_11_2021"></a>40. 29.11.2021</h2>
-<div class="sectionbody">
-<div class="ulist">
-<ul>
-<li>
-<p>RJ, KP, KF, EQ</p>
-<div class="ulist">
-<ul>
-<li>
-<p>The 3d Model team is finished with the 3d model demo.</p>
-<div class="ulist">
-<ul>
-<li>
-<p>still a bit black right now with not much light</p>
-</li>
-<li>
-<p>assignment for next sprint to make light</p>
-</li>
-<li>
-<p>assignment for next sprint to be able to hide floors</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>Nothing new with the value simulator team</p>
-<div class="ulist">
-<ul>
-<li>
-<p>assignment for next sprint to get a deployment vm</p>
-</li>
-<li>
-<p>assignment for next sprint to fix bugs</p>
-</li>
-<li>
-<p>assignment for next sprint to update databse integrations</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>Nothing new from the Dashboard team. No one was at the meeting</p>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_6_12_2021"><a class="anchor" href="#_6_12_2021"></a>41. 6.12.2021</h2>
-<div class="sectionbody">
-<div class="ulist">
-<ul>
-<li>
-<p>RJ, KP, RF, EQ</p>
-<div class="ulist">
-<ul>
-<li>
-<p>The 3d Model team added light to the demo</p>
-<div class="ulist">
-<ul>
-<li>
-<p>task is to make hide option for floors</p>
-</li>
-<li>
-<p>new task is to create a presentation</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>Value Simulator team is working on the deployment for new vm</p>
-<div class="ulist">
-<ul>
-<li>
-<p>new vm is acquired</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>QE is finished creating the docker image for the backend</p>
-<div class="ulist">
-<ul>
-<li>
-<p>new task create a presentation for docker containerization</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>No news from the Dashboard team</p>
-<div class="ulist">
-<ul>
-<li>
-<p>No one was at the meeting</p>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_13_12_2021"><a class="anchor" href="#_13_12_2021"></a>42. 13.12.2021</h2>
-<div class="sectionbody">
-<div class="ulist">
-<ul>
-<li>
-<p>RF, KV, RJ, KP, EQ</p>
-<div class="ulist">
-<ul>
-<li>
-<p>RJ, KP are working on the 3d Model demo</p>
-<div class="ulist">
-<ul>
-<li>
-<p>They finished the light and the feature to disable and enable different floor</p>
-</li>
-<li>
-<p>Now working on selecting different rooms and displaying the name of the room with the floor</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>RF, KV are working on deploying to the vm</p>
-<div class="ulist">
-<ul>
-<li>
-<p>deploying works now
-*+ no new plans on what they will do in the future</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>EQ worked on the Backend Docker images</p>
-<div class="ulist">
-<ul>
-<li>
-<p>still waiting to present the docker iamge presentation</p>
-</li>
-<li>
-<p>now starting to clean up the code in the backend</p>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_17_12_2021"><a class="anchor" href="#_17_12_2021"></a>43. 17.12.2021</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>EQ, ST</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Schnell erreichbar:</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Systemarchitektur (Grob und detailiert)</p>
-</li>
-<li>
-<p>Klassendiagramm</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>Landingpage</p>
-</li>
-<li>
-<p>Github Repos in neue Organisation</p>
-</li>
-<li>
-<p>Räume für value simulator in eine Datenbank speichern</p>
-</li>
-</ul>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre>sudo apt update &amp;&amp; sudo apt dist-upgrade -y &amp;&amp; apt autoremove</pre>
-</div>
-</div>
-</div>
-</div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2021-12-17 09:35:39 UTC
+Last updated 2022-04-30 00:31:50 UTC
 </div>
 </div>
 </body>
