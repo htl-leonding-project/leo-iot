@@ -1,5 +1,9 @@
 # LEO IOT
 
+## DEPRECATED
+
+This repo is deprecated. The new code and documentation has moved to its own organisation. This Organisation can be found [here](https://github.com/leo-iot).
+
 ## Description
 
 Leo IOT is a project created to measure various real world data
